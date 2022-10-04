@@ -1,0 +1,6 @@
+Git init para iniciar el repositorio
+Primero se hace un git add al archivo, para guardarlo en Staged
+Luego un git commit para guardarlo en local
+Posteriormente git pull/push.*
+
+*En caso de conflicto hay que hacer un commit (poniendonos de acuerdo) y hacer el push.

@@ -1,0 +1,133 @@
+-----
+Tipos de datos
+-----
+-is_type: comprueban si una variable es de un tipo dado: is_array(), is_bool(), is_float(), is_integer(), is_null(), is_numeric(), is_object(), is_resource(), is_scalar(), is_string()
+
+-var_dump($var): muestra el tipo y el valor de una variable.
+
+Las cadenas se encierran entre comillas simples o dobles:
+• ‘simples’: admite los caracteres de escape \’ (comilla simple) y \\
+(barra). Las variables NO se expanden
+• “dobles”: admite más caracteres de escape, como \n, \r, \t, \\, \$,
+\”. Los nombres de variables SÍ se expanden
+
+-----
+Variables
+-----
+Las variables siempre van precedidas de un $ y el nombre es sensible a las mayúsculas.
+
+Variables predefinidas: $GLOBALS, $_SERVER, $_GET, $_POST, $_COOKIES, $_FILES, $_ENV, $_REQUEST, $_SESSION
+
+-----
+Constantes
+-----
+Definición de constantes:
+define (“CONSTANTE”, “hola”);
+print CONSTANTE;
+
+const constante = "hola";
+print constante;
+
+CONST: Sólo se pueden definir constantes de tipo boolean, integer, double, string.
+
+-----
+Expresiones y operadores
+-----
+Precedencia de operadores (de mayor a menor):
+++, --
+*, /, %
++,-
+<, <=, >, >=
+==, !=
+&&
+||
+and
+or
+
+
+----
+Empty, isset y is_null
+----
+//empty() devuelve true. El valor de $var es nulo
+$var;
+var_dump( empty($var) );
+
+//empty() devuelve true para un string vacío
+$var = "";
+var_dump( empty($var) );
+
+//empty() devuelve true para un array vacío
+$var = array();
+var_dump( empty($var) );
+
+//empty() devuelve true para el string "0"
+$var = "0";
+var_dump( empty($var) );
+
+//empty() devuelve true para el número entero 0
+$var = 0;
+var_dump( empty($var) );
+
+//empty() devuelve true para el valor lógico false
+$var = false;
+var_dump( empty($var) );
+
+----
+
+//isset() devuelve false por que $var no ha sido definida
+var_dump( isset($var) );
+
+//isset() devuelve false aunque la variable haya sido declarada pues su valor es NULL
+$var;
+var_dump( isset($var) );
+
+//isset() devuelve true. El valor ya no es nulo aunque esté vacío
+$var = "";
+var_dump( isset($var) );
+
+----
+
+//La variable no está definida
+// Devuelve true y lanza un aviso tipo Notice: undefined variable
+var_dump( is_null($var) );
+
+//Se asigna la constante NULL
+$var = NULL;
+var_dump( is_null($var) );
+
+//Se declara la variable pero no se le asigna ningún valor
+$var;
+var_dump( is_null($var) );
+
+//La variable es destruida con unset()
+$var = "Hola";
+unset($var);
+var_dump( is_null($var) );
+
+
+------
+error_reporting
+------
+
+    //Ejemplos error_reporting()
+    // Desactivar todos los informes de errores
+    error_reporting(0);
+
+    // Informar errores simples de ejecución
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+    // Informar E_NOTICE también puede ser bueno (para informar no inicializado
+    // variables o captar faltas de ortografía en el nombre de la variable...)
+    error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+    // Informar de todos los errores excepto E_NOTICE
+    error_reporting(E_ALL & ~E_NOTICE);
+
+    // Reportar todos los errores de PHP
+    error_reporting(E_ALL);
+
+    // Reportar todos los errores de PHP
+    error_reporting(-1);
+
+    // Igual que error_reporting(E_ALL);
+    ini_set('error_reporting', E_ALL);

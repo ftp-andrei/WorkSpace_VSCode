@@ -1,0 +1,38 @@
+15-09-22
+------
+Hice los ejercicios 1A hasta el 1C.
+Al principio me ha costado un poco entender la pregunta B y C y responderlas.
+
+16-09-22
+------
+Realicé los ejercicios 1D hasta el 1G.
+Me constó mas el 1F, tampoco sé si está bien, tendré que buscar mas información y preguntar a mis compañeros. Muy posiblemente tenga que modificar ese punto.
+
+26-09-22
+------
+Modifiqué varios puntos del ejercicio 1, además de terminar el mismo. Posteriormente realicé con exito el 2 y el 3.
+
+27-09-22
+------
+Realicé los ejercicios 4 al 8. El 8 nose si está bien del todo. Repasar el error_reporting.
+
+28-09-22
+------
+Terminé los ejercicios 9 al 11 sin mucha dificultad.
+
+29-09-22
+------
+Hice los ejercicios 12 al 14. El 13 y 14 se me complicaron un poco, el 13 por el \t, ya que no funciona, y el 14 ya que no llegaba a encontrar lo que se pedia pero lo solucioné.
+
+29-09-22
+------
+Hice el ejercicio 15. Encontré dificultades en el 15, ya que no lo llegaba a entender del todo.
+
+30-09-22
+------
+Hice el ejercicio 16, creo que está bien así como lo hice.
+
+2-10-22
+------
+Terminé los ejercicios. Como dato: El 0 con empty es true. Retocar el 20 para añadir el continue y break?
+
