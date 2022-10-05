@@ -21,7 +21,7 @@ $cuota_SS = 385.60;
         <?php
         echo '<br>Sueldo bruto:  ' . round($sueldo_bruto, 2);
         echo '<br>Retención a cuenta del I.R.P.F.:  ' . round(($retencion * $sueldo_bruto) / 100, 2);
-        echo '<br>Cuota SS a cargo del trabajador:  ' . round($cuota_SS, 2);
+        echo '<br>Cuota SS a cargo del trabajador:  ' . bcadd(round($cuota_SS, 2), 0, 2);
         echo '<br>--------';
         echo '<br>Sueldo neto: ' . round($sueldo_bruto - (($retencion * $sueldo_bruto) / 100) - $cuota_SS, 2);
         ?>

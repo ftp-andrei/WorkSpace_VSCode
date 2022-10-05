@@ -24,7 +24,11 @@ $varLog = exp(1.6094379124341); // Log neperiano
 
 <body>
     <p>
-        <b>Investiga cómo se definen en PHP las constantes y cuáles son las normas de estilo que se suelen aplicar entre los programadores de PHP respecto a las constantes.</b><br><br>
+        <b>Investiga cómo se definen en PHP las constantes y cuáles son las normas de estilo que se suelen aplicar entre los programadores de PHP respecto a las constantes.</b><br>
+        Con const o con define. Define se puede usar para mas cosas que solo constantes. La constante tenemos que inicializarla en el momento en el que la definimos.
+
+        <br>
+
 
         <b>En una página HTML, define una constante para el valor de pi (3,1415926535897932384626433832795) y otra constante para el valor del número e (2,7182818284590452353602874713527). Define cada constante de una de las dos posibles formas de definir constantes.</b> <br>
 
@@ -67,9 +71,9 @@ $varLog = exp(1.6094379124341); // Log neperiano
 
         <br> <b>¿Qué ha pasado? ¿Cuál es la diferencia entre las dos formas de definir constantes? ¿Qué restricción hay que observar con la forma más moderna de definir valores constantes?</b> <br>
 
-        No ha pasado nada. <br>
+        El define tiene un ambito global, con const no. <br>
 
-        Mientras que define() permite definir una constante en una expresión arbitraria, la palabra const tiene restricciones. <br>
+        Mientras que define() permite definir una constante en una expresión arbitraria, la palabra const tiene restricciones.<br>
 
         Const solo permite expresiones escalares ( bool , int , float y string )
 

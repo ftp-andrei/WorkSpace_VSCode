@@ -16,12 +16,11 @@ $var8 = null;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 14</title>
 </head>
 
 <body>
-    <p>Define en una página HTML las siguientes variables y asígnales los valores que aparecen a su lado (si es que
-        aparecen):<br><br>
+    <p>Define en una página HTML las siguientes variables y asígnales los valores que aparecen a su lado (si es que aparecen):<br><br>
 
     <table border="1px">
         <tr>

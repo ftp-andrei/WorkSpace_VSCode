@@ -16,7 +16,7 @@
             Obtén los resultados que se solicitan en el ejercicio y verifica lo aprendido en la investigación sobre el ámbito de las variables en PHP.
         </b> <br>
 
-        El ámbito de una variable es el contexto dentro del que la variable está definida. La mayor parte de las variables PHP sólo tienen un ámbito simple. <br>
+        El ámbito de una variable es el contexto dentro del que la variable está definida. La mayor parte de las variables PHP sólo tienen un ámbito simple. Global ($globals), simple y estatico. <br>
         Este ámbito simple también abarca los ficheros incluídos y los requeridos.<br>
     <p align="right">
         <?php
@@ -33,6 +33,7 @@
         }
         hola();
         ?>
+
     </p>
     </p>
 </body>

@@ -31,6 +31,9 @@ $var18 = 10;
 
 <body>
     <p>Explora los tipos que define el lenguaje PHP y su alcance. Investiga los 4 tipos escalares que define PHP y las conversiones implícitas que realiza el lenguaje y las funciones que se pueden utilizar para realizar conversiones explícitas. Investiga las diferentes funciones que integra PHP para conocer el tipo de datos de las variables. Define las siguientes variables:
+
+
+
     </p>
 
     <?php
