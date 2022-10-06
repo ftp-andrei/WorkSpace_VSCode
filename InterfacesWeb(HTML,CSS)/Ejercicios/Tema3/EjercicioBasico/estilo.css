@@ -1,0 +1,15 @@
+.cuadroExterior{
+    width: 150px;
+    height: 150px; 
+    background-color: black;
+    border: 1px solid #000;
+}
+.cuadroInterior{
+    width: 75px;
+    height: 75px; 
+    background-color: white;
+    border: 1px solid #000;
+}
+p{
+    margin:auto
+}
