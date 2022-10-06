@@ -29,6 +29,11 @@
         for ($i = 0; $i < sizeof($array); $i++) {
             echo $i . '=>' . $array[$i] . ' ';
         }
+
+        echo '<br>Desde foreach: ';
+        foreach ($array as $clave => $valor) {
+            echo "{$clave} => {$valor} ";
+        }
         ?>
 
         <br>

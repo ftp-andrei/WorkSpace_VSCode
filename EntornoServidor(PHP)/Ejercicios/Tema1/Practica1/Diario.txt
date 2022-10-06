@@ -34,5 +34,12 @@ Hice el ejercicio 16, creo que está bien así como lo hice.
 
 2-10-22
 ------
-Terminé los ejercicios. Como dato: El 0 con empty es true. Retocar el 20 para añadir el continue y break?
+Terminé los ejercicios. Como dato: El 0 con empty es true. ¿Retocar el 20 para añadir el continue y break?
 
+5-10-22
+------
+Terminé el 22, puse varias formas en las que mostrar el array.
+
+6-10-22
+------
+Hice el 23, aprendiendo las estructuras de los arrays usando for.

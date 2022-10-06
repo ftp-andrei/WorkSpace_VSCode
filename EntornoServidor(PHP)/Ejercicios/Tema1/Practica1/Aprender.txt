@@ -45,6 +45,29 @@ and
 or
 
 
+-----
+Arrays
+-----
+El valor asociativo es definitr una clave al valor. PJ;
+$animales = [
+    "Muffinhead" => 14,
+    "Peter" => 4,
+    "Monnie" => 7,
+    "Banh" => 10
+];
+
+
+        foreach (expresión_array as $valor) <br>
+        sentencias<br>
+        foreach (expresión_array as $clave => $valor)<br>
+        sentencias<br><br>
+
+        foreach ($array as $clave => $valor) {<br>
+        echo "{$clave} => {$valor} ";<br>
+        }<br>
+
+
+
 ----
 Empty, isset y is_null
 ----
