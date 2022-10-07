@@ -37,7 +37,19 @@
 
         <br>
         <b>En una página HTML, crea el código PHP necesario para definir y recorrer el array y mostrar su contenido (claves y elementos). Reflexiona sobre el resultado y obtén las conclusiones adecuadas. Si el resultado no coincide con lo las respuestas que has dado, vuelve a la documentación de PHP y repasa lo investigado sobre arrays y sus claves.</b> <br>
+        <?php
+        $diasSemana = [
+            "lunes",
+            "martes",
+            "1" => "miércoles",
+            1.7 => "jueves",
+            "01" => "viernes",
+            true => "sábado",
+            "domingo",
+        ];
 
+        print_r($diasSemana);
+        ?>
 
 
     </p>
