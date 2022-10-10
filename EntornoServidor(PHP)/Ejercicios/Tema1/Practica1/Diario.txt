@@ -43,3 +43,11 @@ Terminé el 22, puse varias formas en las que mostrar el array.
 6-10-22
 ------
 Hice el 23, aprendiendo las estructuras de los arrays usando for.
+
+7-10-22
+------
+Terminé el 24.
+
+10-10-22
+------
+Realicé los ejercicos 25 y 26.  El 25 la parte final se atragantó un poco.

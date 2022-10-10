@@ -31,15 +31,16 @@
 
     <?php
     for ($i = 0; $i < sizeof($diasSemana); $i++) {
-        $ordenDias = array($orden[$i] => $diasSemana[$i]);
-        print_r($ordenDias);
+        $ordenDias[$orden[$i]] = $diasSemana[$i];
     }
+    print_r($ordenDias);
     ?>
     <br>
     <b>Y a continuación recorre $ordenDias y muestra un informe como el siguiente: El Lunes, es el primer día de la semana; el Martes, es el segundo día de la semana; ...; el Domingo, es el séptimo día de la semana</b><br>
     <?php
-
-
+    foreach ($ordenDias as $clave => $valor) {
+        echo "El $valor es el $clave dia de la semana <br>";
+    }
     ?>
 </p>
 
