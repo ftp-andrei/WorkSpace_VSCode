@@ -56,11 +56,13 @@ $peliculas = [
         </thead>
         <?php
         foreach ($peliculas as $clave => $valor) {
-            echo "<tr>
+            foreach ($peliculas[$clave] as $valor => $valor2) {
+                echo "<tr>
         <td>$clave</td>
         <td>$valor</td>
         <td>El mes de $clave tiene $valor </td>
         </tr>";
+            }
         }
         ?>
     </table>
