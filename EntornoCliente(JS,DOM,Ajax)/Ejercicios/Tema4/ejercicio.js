@@ -7,3 +7,17 @@ function raiz(num) {
     }
   }
 }
+
+`use strict`;
+function narcisista(num) {
+  let digitos = getlength(num);
+  let suma = 0;
+  for (let i = digitos.length; i >= 1; i--) {
+    suma = suma + num / i;
+    num = num / i;
+  }
+}
+
+function getlength(number) {
+  return number.toString().length();
+}
