@@ -44,6 +44,21 @@ $peliculas = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 27</title>
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        thead {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,11 +72,13 @@ $peliculas = [
         <?php
         foreach ($peliculas as $clave => $valor) {
             foreach ($peliculas[$clave] as $valor => $valor2) {
-                echo "<tr>
+                foreach ($peliculas[$clave][$valor] as $valor2 => $valor3) {
+                    echo "<tr>
         <td>$clave</td>
         <td>$valor</td>
-        <td>El mes de $clave tiene $valor </td>
+        <td> $valor3</td>
         </tr>";
+                }
             }
         }
         ?>
@@ -73,7 +90,15 @@ $peliculas = [
         ...
         En abril, el día 1 vi la película Pierrot el loco.</b> <br>
     <?php
-
+    foreach ($peliculas as $clave => $valor) {
+        foreach ($peliculas[$clave] as $valor => $valor2) {
+            if (sizeOf($valor2) > 1) {
+                echo "<br>En $clave, el dia $valor vi las peliculas: " . implode(", ", $valor2);
+            } else {
+                echo "<br>En $clave, el dia $valor vi la pelicula: " . implode(", ", $valor2);
+            }
+        }
+    }
     ?>
     </p>
 </body>
