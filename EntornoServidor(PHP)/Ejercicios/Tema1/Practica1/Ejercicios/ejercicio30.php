@@ -58,18 +58,18 @@ $peliculas = [
             En mayo, el día 1 vi la película Pierrot el loco. </b>
 
         <?php
-        foreach ($peliculas as $clave => $valor) {
-            if (is_array($valor)) {
-                foreach ($peliculas[$clave] as $valor => $valor2) {
+        foreach ($peliculas as $mes => $dia) {
+            if (is_array($dia)) {
+                foreach ($peliculas[$mes] as $dia => $arrayPeliculas) {
 
-                    if (sizeOf($valor2) > 1) {
-                        echo "<br>En $clave, el dia $valor vi las peliculas: " . implode(", ", $valor2);
+                    if (sizeOf($arrayPeliculas) > 1) {
+                        echo "<br>En $mes, el dia $dia vi las peliculas: " . implode(", ", $arrayPeliculas);
                     } else {
-                        echo "<br>En $clave, el dia $valor vi la pelicula: " . implode(", ", $valor2);
+                        echo "<br>En $mes, el dia $dia vi la pelicula: " . implode(", ", $arrayPeliculas);
                     }
                 }
             } else {
-                echo "<br>En $clave, no vi ninguna película";
+                echo "<br>En $mes, no vi ninguna película";
             }
         }
         ?>

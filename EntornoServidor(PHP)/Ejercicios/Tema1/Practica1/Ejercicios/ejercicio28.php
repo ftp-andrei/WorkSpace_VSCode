@@ -63,12 +63,12 @@ $peliculas = [
         ],);
         $resultado = array_merge($array, $peliculas);
         ksort($resultado);
-        foreach ($resultado as $clave => $valor) {
-            foreach ($resultado[$clave] as $valor => $valor2) {
-                if (sizeOf($valor2) > 1) {
-                    echo "<br>En $clave, el dia $valor vi las peliculas: " . implode(", ", $valor2);
+        foreach ($resultado as $mes => $dia) {
+            foreach ($resultado[$mes] as $dia => $arrayPeliculas) {
+                if (sizeOf($arrayPeliculas) > 1) {
+                    echo "<br>En $mes, el dia $dia vi las peliculas: " . implode(", ", $arrayPeliculas);
                 } else {
-                    echo "<br>En $clave, el dia $valor vi la pelicula: " . implode(", ", $valor2);
+                    echo "<br>En $mes, el dia $dia vi la pelicula: " . implode(", ", $arrayPeliculas);
                 }
             }
         }

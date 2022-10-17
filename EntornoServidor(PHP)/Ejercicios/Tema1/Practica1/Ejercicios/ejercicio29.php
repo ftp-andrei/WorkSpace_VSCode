@@ -15,9 +15,9 @@ $diasSemana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", 
 <body>
     <p><b>En el array $diasSemana del ejercicio 25, elimina el elemento “jueves” del array. </b> <br>
         <?php
-        foreach ($diasSemana as $clave => $valor) {
-            if ($valor == "jueves") {
-                unset($diasSemana[$clave]);
+        foreach ($diasSemana as $indice => $dia) {
+            if ($dia == "jueves") {
+                unset($diasSemana[$indice]);
                 echo "Elemento eliminado. <br>";
             }
         }
@@ -26,13 +26,13 @@ $diasSemana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", 
 
         <?php
 
-        foreach ($diasSemana as $clave => $valor) {
-            echo "{$clave} => {$valor} ";
+        foreach ($diasSemana as $indice => $dia) {
+            echo "{$indice} => {$dia} ";
         }
         ?>
 
         <br><b>¿Qué ha pasado con los índices? </b><br>
-        Que al borrar la clave, borras el valor, y por consecuencia el indice del array. <br>
+        Que al borrar el dia, borras el valor, y por consecuencia el indice del array. <br>
         <b>¿Cómo se puede hacer para que vuelvan a ser consecutivos? Hazlo y comprueba</b><br>
         <?php
         echo "Con array_values.<br>";

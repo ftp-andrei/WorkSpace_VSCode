@@ -70,13 +70,13 @@ $peliculas = [
             <td><strong>Pelicula</strong></td>
         </thead>
         <?php
-        foreach ($peliculas as $clave => $valor) {
-            foreach ($peliculas[$clave] as $valor => $valor2) {
-                foreach ($peliculas[$clave][$valor] as $valor2 => $valor3) {
+        foreach ($peliculas as $mes => $dia) {
+            foreach ($peliculas[$mes] as $dia => $peliculasArray) {
+                foreach ($peliculas[$mes][$dia] as $peliculasArray => $dia3) {
                     echo "<tr>
-        <td>$clave</td>
-        <td>$valor</td>
-        <td> $valor3</td>
+        <td>$mes</td>
+        <td>$dia</td>
+        <td> $dia3</td>
         </tr>";
                 }
             }
@@ -90,12 +90,12 @@ $peliculas = [
         ...
         En abril, el día 1 vi la película Pierrot el loco.</b> <br>
     <?php
-    foreach ($peliculas as $clave => $valor) {
-        foreach ($peliculas[$clave] as $valor => $valor2) {
-            if (sizeOf($valor2) > 1) {
-                echo "<br>En $clave, el dia $valor vi las peliculas: " . implode(", ", $valor2);
+    foreach ($peliculas as $mes => $dia) {
+        foreach ($peliculas[$mes] as $dia => $peliculasArray) {
+            if (sizeOf($peliculasArray) > 1) {
+                echo "<br>En $mes, el dia $dia vi las peliculas: " . implode(", ", $peliculasArray);
             } else {
-                echo "<br>En $clave, el dia $valor vi la pelicula: " . implode(", ", $valor2);
+                echo "<br>En $mes, el dia $dia vi la pelicula: " . implode(", ", $peliculasArray);
             }
         }
     }
