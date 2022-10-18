@@ -1,0 +1,8 @@
+Investiga  en  la  documentación  de  PHP  cuál  es  la  sintaxis  de  PHP  para  especificar  el  ámbito  de  una  sentencia. 
+Observa el código de los ejercicios realizados hasta ahora y reflexiona sobre la sintaxis que has estado utilizando
+
+La sintaxis de PHP es la siguiente:
+
+<?PHP
+// AQUI VA EL CODIGO
+?>
