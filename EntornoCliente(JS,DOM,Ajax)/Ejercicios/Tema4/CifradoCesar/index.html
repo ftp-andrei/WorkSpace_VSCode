@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cifrado Cesar</title>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>Cifrado Cesar</h1>
+
+    <label for="number">Numero cifrado: </label>
+    <input type="number" id="numero" /> <br />
+    <br />
+    <textarea
+      name="cifrado1"
+      id="cifrado1"
+      cols="30"
+      rows="10"
+      placeholder="Texto a escribir"
+    ></textarea>
+    <textarea
+      name="cifrado2"
+      id="cifrado2"
+      cols="30"
+      rows="10"
+      disabled
+      placeholder="Traducción"
+    ></textarea>
+    <br />
+    <input type="button" value="Encriptar" onclick="alerta()" />
+  </body>
+</html>
