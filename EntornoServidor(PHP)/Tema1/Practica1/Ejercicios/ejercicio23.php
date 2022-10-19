@@ -1,3 +1,22 @@
+<?php
+$array = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
+
+$diasMes = [
+    'Enero' => '31',
+    'Febrero' => '28',
+    'Marzo' => '31',
+    'Abril' => '30',
+    'Mayo' => '31',
+    'Junio' => '30',
+    'Julio' => '31',
+    'Agosto' => '31',
+    'Septiembre' => '30',
+    'Octubre' => '31',
+    'Noviembre' => '30',
+    'Diciembre' => '31'
+];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +58,6 @@
         <br>
         <b>Recorre el array $meses2 empleando la estructura iterativa objeto de investigación. ¿Encuentras alguna diferencia en el recorrido? ¿Qué ventajas e inconvenientes ves entre las dos estructuras iterativas a la hora de recorrer arrays?</b><br>
         <?php
-        $array = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
-
         foreach ($array as $clave => $valor) {
             echo "{$clave} => {$valor} ";
         }
@@ -49,21 +66,6 @@
         <b>Define un array $diasMes cuyas claves sean los nombres de los meses del año (asociativo) y sus valores los días del mes de la clave (febrero 28 días).</b><br>
 
         <?php
-        $diasMes = [
-            'Enero' => '31',
-            'Febrero' => '28',
-            'Marzo' => '31',
-            'Abril' => '30',
-            'Mayo' => '31',
-            'Junio' => '30',
-            'Julio' => '31',
-            'Agosto' => '31',
-            'Septiembre' => '30',
-            'Octubre' => '31',
-            'Noviembre' => '30',
-            'Diciembre' => '31'
-        ];
-
         print_r($diasMes);
         ?>
         <br>
@@ -87,7 +89,7 @@
             echo "<tr>
             <td>$clave</td>
             <td>$valor</td>
-            <td>El mes de $clave tiene $valor </td>
+            <td>El mes de " . lcfirst($clave) . " tiene $valor </td>
             </tr>";
         }
         ?>

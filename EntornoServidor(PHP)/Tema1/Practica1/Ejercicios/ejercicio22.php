@@ -24,9 +24,9 @@
         [$Enero, $Febrero, $Marzo, $Abril, $Mayo, $Junio, $Julio, $Agosto, $Septiembre, $Octubre, $Noviembre, $Diciembre] = $array2;
 
         echo '<br> Desde echo: ' . $Enero . ' ' . $Febrero . ' ' . $Marzo . ' ' . $Abril . ' ' . $Mayo . ' ' . $Junio . ' ' . $Julio . ' ' . $Agosto . ' ' . $Septiembre . ' ' . $Octubre . ' ' . $Noviembre . ' ' . $Diciembre;
-
+        $tamanoArray = sizeof($array);
         echo '<br>Desde for: ';
-        for ($i = 0; $i < sizeof($array); $i++) {
+        for ($i = 0; $i < $tamanoArray; $i++) {
             echo $i . '=>' . $array[$i] . ' ';
         }
 
@@ -46,8 +46,9 @@
         print_r($meses2);
 
         $i = 1;
+        $tamanoMeses2 = sizeof($meses2);
         echo '<br>Desde while: ';
-        while ($i <= sizeof($meses2)) {
+        while ($i <= $tamanoMeses2) {
             echo $i . '=> ' . $meses2[$i] . ' ';
             $i++;
         }

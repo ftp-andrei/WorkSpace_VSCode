@@ -1,15 +1,3 @@
-<?php
-function perfecto($var)
-{
-    $suma = 0;
-    for ($i = 1; $i < $var; $i++) {
-        if ($var % $i == 0) {
-            $suma = $suma + $i;
-        }
-    }
-    return $suma == $var;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,9 +16,14 @@ function perfecto($var)
         </b><br>
 
         <?php
-
         for ($var = 1; $var < 10001; $var++) {
-            if (perfecto($var)) {
+            $suma = 0;
+            for ($i = 1; $i < ($var / 2) + 1; $i++) {
+                if ($var % $i == 0) {
+                    $suma = $suma + $i;
+                }
+            }
+            if ($suma == $var) {
                 echo 'El numero ' . $var . ': Es perfecto.<br>';
             }
         }

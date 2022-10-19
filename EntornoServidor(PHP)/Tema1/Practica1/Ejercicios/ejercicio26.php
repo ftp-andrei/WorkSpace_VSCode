@@ -41,13 +41,13 @@ $array = [
 
         <b>Partiendo de los valores de las variables del Ejercicio 9, define un array llamado $valores que contenga los valores de las variables. Recorre el array con un bucle for y muestra en el navegador un informe parecido al del ejercicio 9:
             El elemento valorClave del array es de tipo tipoDatosElemento y su valor es valor </b><br>
-
-        <?php
-        foreach ($array as $valor => $clave) {
-            echo "<br>El elemento var" . $valor + 1 . " del array es de tipo " . gettype($clave) . " y su valor es " . $clave;
-        }
-        ?>
     </p>
+    <?php foreach ($array as $valor => $clave) : ?>
+        <p>
+            El elemento var<?= $valor + 1 ?> del array es de tipo <?= gettype($clave) ?> y su valor es <?= $clave ?>
+        </p>
+    <?php endforeach; ?>
+
 </body>
 
 </html>

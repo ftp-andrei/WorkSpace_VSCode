@@ -72,11 +72,11 @@ $peliculas = [
         <?php
         foreach ($peliculas as $mes => $dia) {
             foreach ($peliculas[$mes] as $dia => $peliculasArray) {
-                foreach ($peliculas[$mes][$dia] as $peliculasArray => $dia3) {
+                foreach ($peliculas[$mes][$dia] as $peliculasArray => $pelicula) {
                     echo "<tr>
         <td>$mes</td>
         <td>$dia</td>
-        <td> $dia3</td>
+        <td> $pelicula</td>
         </tr>";
                 }
             }

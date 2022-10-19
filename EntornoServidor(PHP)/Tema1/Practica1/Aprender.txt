@@ -46,6 +46,12 @@ or
 
 
 -----
+For 
+-----
+Solo podemos usarlo cuando estemos seguros de que es numerico y consecutivo
+
+
+-----
 Arrays
 -----
 El valor asociativo es definitr una clave al valor. PJ;
