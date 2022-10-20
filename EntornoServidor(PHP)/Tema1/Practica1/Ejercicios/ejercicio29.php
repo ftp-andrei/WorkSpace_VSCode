@@ -15,20 +15,13 @@ $diasSemana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", 
 <body>
     <p><b>En el array $diasSemana del ejercicio 25, elimina el elemento “jueves” del array. </b> <br>
         <?php
-        foreach ($diasSemana as $indice => $dia) {
-            if ($dia == "jueves") {
-                unset($diasSemana[$indice]);
-                echo "Elemento eliminado. <br>";
-            }
-        }
+        unset($diasSemana[array_search('jueves', $diasSemana)]);
+        echo "Elemento eliminado. <br>";
         ?>
         <b>Recorre ahora el array mostrando el valor de los índices y el valor del elemento al que referencian.</b> <br>
 
         <?php
-
-        foreach ($diasSemana as $indice => $dia) {
-            echo "{$indice} => {$dia} ";
-        }
+        print_r($diasSemana);
         ?>
 
         <br><b>¿Qué ha pasado con los índices? </b><br>

@@ -10,6 +10,7 @@ $peliculas = [
             'El ángel exterminador',
         ],
     ],
+    'febrero' => 0,
     'marzo' => [
         3 => [
             'El sentido de la vida',
@@ -30,13 +31,13 @@ $peliculas = [
             'Vértigo',
         ],
     ],
-    'abril' => [
+    'abril' => 0,
+    'mayo' => [
         1 => ['Pierrot el loco',],
     ],
 ];
 
-
-$array = array('febrero' => [
+$peliculas['febrero'] =  [
     2 => [
         'La muerte en directo',
         'La hija de d’Artagnan',
@@ -44,17 +45,7 @@ $array = array('febrero' => [
     8 => [
         'Capitán Conan'
     ]
-],);
-/*
-$peliculas['febrero'][2][] = 'La muerte en directo';
-$peliculas['febrero'][2][] = 'La hija de d’Artagnan';
-$peliculas['febrero'][8][] = 'Capitán Conan';
-
-Otra opcion sin usar el arrayMerge.
-*/
-
-$resultado = array_merge($array, $peliculas);
-ksort($resultado);
+];
 ?>
 
 <!DOCTYPE html>
@@ -64,24 +55,28 @@ ksort($resultado);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 28</title>
+    <title>Ejercicio 30</title>
 </head>
 
 <body>
-    <p><b>Agrega, mediante código de ejecución (no de inicialización de array), que el mes de febrero vistes las películas: La muerte en directo y La hija de d’Artagnan el día 2. Y el día 8 Capitán Conan. <br> Vuelve a mostrar las películas como en el ejercicio 27 anterior. ¿En qué orden se muestran? ¿Cómo puedes ordenar el array? </b>
-    </p>
-    <?php
-    foreach ($resultado as $mes => $dia) {
-        foreach ($resultado[$mes] as $dia => $arrayPeliculas) {
-            if (sizeOf($arrayPeliculas) > 1) {
-                echo "<br>En $mes, el dia $dia vi las peliculas: " . implode(", ", $arrayPeliculas);
+    <p><b>Añadir peliculas a febrero (sin merge)</b>
+
+        <?php
+        foreach ($peliculas as $mes => $dia) {
+            if (is_array($dia)) {
+                foreach ($peliculas[$mes] as $dia => $arrayPeliculas) {
+                    if (sizeOf($arrayPeliculas) > 1) {
+                        echo "<br>En $mes, el dia $dia vi las peliculas: " . implode(", ", $arrayPeliculas);
+                    } else {
+                        echo "<br>En $mes, el dia $dia vi la pelicula: " . implode(", ", $arrayPeliculas);
+                    }
+                }
             } else {
-                echo "<br>En $mes, el dia $dia vi la pelicula: " . implode(", ", $arrayPeliculas);
+                echo "<br>En $mes, no vi ninguna película";
             }
         }
-    }
-    echo "<br><br>Se muestra desordenado. Se ordena con ksort"
-    ?>
+        ?>
+    </p>
 </body>
 
 </html>

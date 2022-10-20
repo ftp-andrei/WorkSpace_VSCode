@@ -50,7 +50,9 @@ For
 -----
 Solo podemos usarlo cuando estemos seguros de que es numerico y consecutivo
 
+Mirar ligaduras, para el tema de Foreachs. Dependiendo de las envolturas, habrá mas o menos fors.
 
+asd[asr[ast[]]] -> 3 Foreach
 -----
 Arrays
 -----
@@ -158,6 +160,8 @@ uasort — Ordena un array con una función de comparación definida por el usua
 uksort — Ordena un array según sus claves usando una función de comparación definida por el usuario
 usort — Ordena un array según sus valores usando una función de comparación definida por el usuario
 
+
+-- ARRAY VALUES PARA VOLVER A PONER EL ORDEN EL EN INDICE --
 
 ----
 Empty, isset y is_null

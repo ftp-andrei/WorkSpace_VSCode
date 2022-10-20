@@ -61,7 +61,6 @@ $peliculas = [
         foreach ($peliculas as $mes => $dia) {
             if (is_array($dia)) {
                 foreach ($peliculas[$mes] as $dia => $arrayPeliculas) {
-
                     if (sizeOf($arrayPeliculas) > 1) {
                         echo "<br>En $mes, el dia $dia vi las peliculas: " . implode(", ", $arrayPeliculas);
                     } else {
