@@ -2,10 +2,10 @@
 function alerta() {
   let cadena = document.getElementById("cifrado1").value.toLowerCase();
   let numero = parseInt(document.getElementById("numero").value);
-  traducir(cadena, numero);
+  encriptar(cadena, numero);
 }
 
-function traducir(cadena, numero) {
+function encriptar(cadena, numero) {
   let abecedario = new Array(
     "a",
     "b",
@@ -34,13 +34,18 @@ function traducir(cadena, numero) {
     "y",
     "z"
   );
-  let cadenaNueva = "";
-  for (let i = 0; i < cadena.length; i++) {
-    cadenaNueva =
-      cadenaNueva +
-      abecedario[
-        (abecedario.indexOf(cadena.charAt(i)) + numero) % abecedario.length
-      ];
+
+  if (numero > 0) {
+    let cadenaNueva = "";
+    for (let i = 0; i < cadena.length; i++) {
+      cadenaNueva =
+        cadenaNueva +
+        abecedario[
+          (abecedario.indexOf(cadena.charAt(i)) + numero) % abecedario.length
+        ];
+    }
+    return (document.getElementById("cifrado2").value = cadenaNueva);
+  } else {
+    return (document.getElementById("cifrado2").value = cadena);
   }
-  return (document.getElementById("cifrado2").value = cadenaNueva);
 }
