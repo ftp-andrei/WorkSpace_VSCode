@@ -55,7 +55,3 @@ Realicé los ejercicos 25 y 26.  El 25 la parte final se atragantó un poco.
 17-10-22
 ------
 Terminé todos los ejercicios. Los ultimos eran los mas complicados y con los que mas tiempo he estado haciendolos.
-
--- Mirar uniones, tipos nulos, funciones, type declarations, strict type, tipos de uniones, formularios
-
---mas tarde despues de este proyecto: Sesiones Cookies 

@@ -247,3 +247,6 @@ error_reporting
     ini_set('error_reporting', E_ALL);
 
 
+-- Mirar uniones, tipos nulos, funciones, type declarations, strict type, tipos de uniones, formularios
+
+--mas tarde despues de este proyecto: Sesiones Cookies 
