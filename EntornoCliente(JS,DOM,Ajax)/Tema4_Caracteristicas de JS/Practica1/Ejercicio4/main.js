@@ -1,26 +1,29 @@
 "use strict";
 function alerta() {
   let cadena = document.getElementById("searchInput").value;
-  alert("El numero que menos se repite es " + menosRepeticiones(cadena));
+  alert("Numeros que aparecen en un numero impar: " + numeroImparVeces(cadena));
 }
 
-function menosRepeticiones(cadena) {
-  let contador = 1;
+function numeroImparVeces(cadena) {
   let cadenaArray = cadena.split(",");
+  let cadenaArray2 = [];
+  let contadorArray = 0;
+
   cadenaArray.sort(function (a, b) {
     return a - b;
   });
+  let contador = 1;
+
   for (let i = 0; i < cadenaArray.length; i++) {
-    for (let j = 1; j < cadenaArray.length; j++) {
-      if (cadenaArray[i] === cadenaArray[j]) {
-        contador++;
-      } else {
-        break;
+    if (cadenaArray[i] === cadenaArray[i + 1]) {
+      contador++;
+    } else {
+      if (contador % 2 != 0) {
+        cadenaArray2[contadorArray] = cadenaArray[i];
+        contadorArray++;
       }
+      contador = 1;
     }
-    if (contador % 2 === 1) {
-      //sumar cadenaArray[i] a otro array
-    }
-    contador = 1;
   }
+  return cadenaArray2;
 }
