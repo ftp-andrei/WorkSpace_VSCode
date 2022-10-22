@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Andrei Miu" />
+    <meta
+      name="description"
+      content="Camisetas que se lanzaron hace poco en la tienda de camisetas"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrei Store</title>
+    <title>Andrei Store - Novedades</title>
   </head>
   <body>
     <div id="container">
@@ -27,51 +32,79 @@
       <main>
         <div id="filtros">
           <div id="titulosFiltros"><h1>Novedades</h1></div>
-          <label>Color</label>
-          <input type="checkbox" name="Colorblanco" id="Colorblanco" /><label
-            >Blanco</label
-          >
-          <input type="checkbox" name="Colornegro" id="Colornegro" /><label
-            >Negro</label
-          >
-          <label>Talla</label>
-          <input type="checkbox" name="Tallapequeña" id="Tallapequeña" /><label
-            >Pequeña</label
-          >
-          <input type="checkbox" name="Tallamediana" id="Tallamediana" /><label
-            >Mediana</label
-          >
-          <input type="checkbox" name="Tallagrande" id="Tallagrande" /><label
-            >Grande</label
-          >
-          <label>Genero</label>
-          <input type="checkbox" name="Generohombre" id="Generohombre" /><label
-            >Hombre</label
-          >
-          <input type="checkbox" name="Generomujer" id="Generomujer" /><label
-            >Mujer</label
-          >
-          <input type="checkbox" name="Generounisex" id="Generounisex" /><label
-            >Unisex</label
-          >
+          <div id="filtroColor">
+            <label>Color</label>
+            <input type="radio" name="Color" id="Colorblanco" /><label
+              >Blanco</label
+            >
+            <input type="radio" name="Color" id="Colornegro" /><label
+              >Negro</label
+            >
+          </div>
+          <div id="filtroTalla">
+            <label>Talla</label>
+            <input
+              type="checkbox"
+              name="Tallapequeña"
+              id="Tallapequeña"
+            /><label>Pequeña</label>
+            <input
+              type="checkbox"
+              name="Tallamediana"
+              id="Tallamediana"
+            /><label>Mediana</label>
+            <input type="checkbox" name="Tallagrande" id="Tallagrande" /><label
+              >Grande</label
+            >
+          </div>
+          <div id="filtroGenero">
+            <label>Genero</label>
+            <input
+              type="checkbox"
+              name="Generohombre"
+              id="Generohombre"
+            /><label>Hombre</label>
+            <input type="checkbox" name="Generomujer" id="Generomujer" /><label
+              >Mujer</label
+            >
+            <input
+              type="checkbox"
+              name="Generounisex"
+              id="Generounisex"
+            /><label>Unisex</label>
+          </div>
         </div>
         <div id="imagenes"></div>
       </main>
       <footer>
         <div id="footerAyuda">
           <div id="tituloFooterAyuda"><h1>Ayuda</h1></div>
-            <a href="faq.html">FAQ</a>
-            <a href="contacto.html">Contáctanos</a>
-            <a href="contacto.html">Cookies</a>
-            <a href="guiaTallas.html">Guia de Tallas</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contacto.html">Contáctanos</a>
+          <a href="cookies.html">Cookies</a>
+          <a href="guiaTallas.html">Guia de Tallas</a>
         </div>
         <div id="footerRedes">
-            <div id="tituloFooterRedes"><h1>Redes</h1></div>
-
-            <div id="enlaceIG"><img src="imgs/brand-instagram.svg" alt="Instagram"><a href="instagram.com" target="_blank">Instagram</a></div>
-            <div id="enlaceTW"><img src="imgs/brand-twitter.svg" alt="Twitter"><a href="twitter.com" target="_blank">Twitter</a></div>
-            <div id="enlaceYT"><img src="imgs/brand-youtube.svg" alt="YouTube"><a href="youtube.com" target="_blank">YouTube</a></div>
-          <div id="enlaceFB"> <img src="imgs/brand-facebook.svg" alt="Facebook"> <a href="facebook.com" target="_blank">Facebook</a></div>
+          <div id="tituloFooterRedes"><h1>Redes</h1></div>
+          <div id="enlacesFooter">
+            <img src="imgs/brand-instagram.svg" alt="Instagram" /><a
+              href="https://www.instagram.com/"
+              target="_blank"
+              >Instagram</a
+            >
+            <img src="imgs/brand-twitter.svg" alt="Twitter" /><a
+              href="https://twitter.com/"
+              target="_blank"
+              >Twitter</a
+            >
+            <img src="imgs/brand-youtube.svg" alt="YouTube" /><a
+              href="https://www.youtube.com/"
+              target="_blank"
+              >YouTube</a
+            >
+            <img src="imgs/brand-facebook.svg" alt="Facebook" />
+            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+          </div>
         </div>
       </footer>
     </div>
