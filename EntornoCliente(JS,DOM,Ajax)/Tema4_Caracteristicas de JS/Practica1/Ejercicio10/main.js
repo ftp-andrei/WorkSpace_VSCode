@@ -1,20 +1,26 @@
 "use strict";
 function binario() {
   let numero = parseInt(document.getElementById("binario").value);
-  alert("El resultado de "+numero +" con representacion binaria "+numero.toString(2)+" es: "+calculoBinario(numero));
+  alert(
+    "El resultado de " +
+      numero +
+      " con representacion binaria " +
+      numero.toString(2) +
+      " es: " +
+      calculoBinario(numero)
+  );
 }
 
-function calculoBinario(numero){
-  let contador=0;
-  numero=numero.toString(2);
-  for(let i=0;i<numero.length;i++){
-      if(numero.charAt(i)==1){
-          contador++;
-      }
+function calculoBinario(numero) {
+  let contador = 0;
+  numero = numero.toString(2);
+  for (let i = 0; i < numero.length; i++) {
+    if (numero.charAt(i) == 1) {
+      contador++;
+    }
   }
   return contador;
 }
-
 
 function soloNumeros(num) {
   var code = num ? num.which : num.keyCode;
@@ -28,4 +34,4 @@ function soloNumeros(num) {
     // other keys.
     return false;
   }
-  }
+}

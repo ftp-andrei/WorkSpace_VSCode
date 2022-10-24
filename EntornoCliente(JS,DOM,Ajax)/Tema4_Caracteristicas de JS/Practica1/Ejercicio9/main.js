@@ -8,12 +8,12 @@ function ordenarNumero(num) {
   let numArray = num.split("");
   numArray.sort();
   numArray.reverse();
-  let num2="";
-  numArray.forEach(element => {
-    num2=num2+element;
+  let num2 = "";
+  numArray.forEach((element) => {
+    num2 = num2 + element;
   });
   return num2;
-  }
+}
 
 function soloNumeros(num) {
   var code = num ? num.which : num.keyCode;

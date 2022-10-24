@@ -15,12 +15,17 @@
         como la suma de cuatro cuadrados enteros. Haz una función que devuelva
         un array con los cuatro números naturales que cumplan el teorema dado un
         número natural pasado como argumento. <br />
+        3= 1^2 + 1^2 + 1^2 + 0^2 <br />
+        31= 5^2 + 2^2 + 1^2 + 1^2 <br />
       </b>
 
-      Busca las vocales de una cadena:
-      <input placeholder="Introduce una cadena..." id="searchInput" />
-
-      <input type="button" value="Buscar" onclick="alerta()" />
+      <label>Introduce numero:</label>
+      <input
+        id="numNatural"
+        placeholder="Inserta numero"
+        onkeypress="return soloNumeros(event)"
+      />
+      <input type="button" value="numeroNatural" onclick="numNatural()" />
     </p>
   </body>
 </html>
