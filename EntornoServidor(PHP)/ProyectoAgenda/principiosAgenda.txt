@@ -1,0 +1,30 @@
+Partes:
+	- Parte serializar arrays + persistir datos en archivo.txt
+	- Parte formularios que no pierdan la info + verificación de entrada
+
+Estructura del proyecto:
+
+Agenda
+	- agenda.txt (persistencia)
+	- formulario.html
+	- procesaformulario.php
+	- aniadirContacto.php		extremiana
+	- consultarContacto.php		alex
+	- eliminarContacto.php		andrei
+	- modificarContacto.php		álvaro
+
+Estructura del array: 
+
+todo en minúsculas
+
+agenda=[contacto1.nombre=>contacto1,contacto2.nombre=>contacto2,]
+
+contacto=[
+ ciudad=> Madrid,
+ nombre=> Pedro Juan Gil,
+ fnac=> 1990-05-02,
+ tlfno=> 91-956.34.46,
+ mail=> psanzg@gmail.com,
+]
+
+	

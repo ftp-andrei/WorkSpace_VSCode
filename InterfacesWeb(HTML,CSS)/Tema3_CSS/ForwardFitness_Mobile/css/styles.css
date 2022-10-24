@@ -2,9 +2,7 @@ body,
 header,
 nav,
 footer {
-  margin: 0;
-  padding: 0;
-  border: 0;
+  margin: 0 auto;
 }
 
 body {
@@ -35,12 +33,14 @@ nav {
 nav ul {
   list-style-type: none;
   margin: 0;
+  padding: 0;
 }
 
 nav li {
   font-size: 1.75em;
   font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: bold;
+  border-bottom: solid #fff;
 }
 
 nav li a {
@@ -79,9 +79,8 @@ footer p a {
 #weights,
 #training,
 #cardio {
-  width: 29%;
-  float: left;
-  margin: 0 2%;
+  margin: 0;
+  display: block;
 }
 
 #exercises {
