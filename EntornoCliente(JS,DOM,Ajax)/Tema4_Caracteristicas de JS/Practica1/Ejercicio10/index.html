@@ -12,13 +12,13 @@
       <b>
         10.Escriba una función que tome un número decimal como entrada, y
         devuelva el número de bits que son iguales a uno en la representación
-        binaria de ese número. Comprueba que la entrada no sea negativa. <br />
+        binaria de ese número. Comprueba que la entrada no sea negativa.<br> La representación binaria de 1234 es 10011010010, por lo que la función
+        debería devolver 5 en este caso<br />
       </b>
 
-      Busca las vocales de una cadena:
-      <input placeholder="Introduce una cadena..." id="searchInput" />
-
-      <input type="button" value="Buscar" onclick="alerta()" />
+      <label>FuncionBinaria:</label>
+      <input id="binario" placeholder="Inserta numero" onkeypress="return soloNumeros(event)"/>
+      <input type="button" value="Binario" onclick="binario()" />
     </p>
   </body>
 </html>

@@ -19,6 +19,15 @@
         Entrada: 123456789 Salida: 987654321
       </b>
       <br />
+
+      <label>Entrada:</label>
+      <input
+        placeholder="123456..."
+        id="searchInput"
+        onkeypress="return soloNumeros(event)"
+      />
+
+      <input type="button" value="Buscar" onclick="alerta()" />
     </p>
   </body>
 </html>

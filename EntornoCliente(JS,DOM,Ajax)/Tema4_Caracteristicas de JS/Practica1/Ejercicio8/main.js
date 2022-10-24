@@ -15,22 +15,3 @@ function arrayDif(numeroA,numeroB){
     }
     return numeroA;
 }
-
-
-function binario() {
-    let numero = document.getElementById("binario").value;
-    alert("El resultado de "+numero +" es: "+calculoBinario(numero));
-  }
-
-function calculoBinario(numero){
-    let contador=0;
-    let binNum=parseInt(numero);
-    binNum=binNum.toString(2);
-    for(let i=0;i<binNum.length;i++){
-        if(binNum.charAt(i)==1){
-            contador++;
-        }
-    }
-    return contador;
-  }
-

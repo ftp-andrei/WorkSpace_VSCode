@@ -1,6 +1,6 @@
 "use strict";
 function alerta() {
-  let num = document.getElementById("searchInput").value.toLowerCase();
+  let num = document.getElementById("searchInput").value;
   alert(numPin(num));
 }
 
