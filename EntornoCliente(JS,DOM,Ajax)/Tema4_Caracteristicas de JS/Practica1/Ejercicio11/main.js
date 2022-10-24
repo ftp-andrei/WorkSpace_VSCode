@@ -16,7 +16,7 @@ function calculoNumNatural(numero) {
       }
     }
     arrNum[i] = contador;
-    numero = parseInt(numero, 2);
+    numero = parseInt(numero, 2); // no hace nada?
     numero = numero - contador * contador;
     contador = 0;
   }
