@@ -1,0 +1,37 @@
+-----
+Serialize
+-----
+Almacenamiento de valores en PHP sin perder su tipo y estructura.
+
+
+
+
+-----
+Unserialice
+-----
+Para recuperar el valor PHP a partir de la cadena seriada.
+
+
+-----
+Filesystem
+-----
+file_put_contents
+-----
+
+
+file_gets_contents
+-----
+
+
+
+-----
+Como se crea una funcion
+-----
+
+
+
+
+
+
+
+
