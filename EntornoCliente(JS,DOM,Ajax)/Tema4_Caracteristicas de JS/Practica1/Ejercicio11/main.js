@@ -36,21 +36,3 @@ function soloNumeros(num) {
     return false;
   }
 }
-
-// Poner numero en binario y de ahi sacar las potencias
-/*
-5^2 = 25
-
-31-25 = 6
-
-2^2 = 4
-
-6-4=2
-
-1^2 = 1
-
-2-1=1;
-
-1^2 = 1
-
-1-1=0; */
