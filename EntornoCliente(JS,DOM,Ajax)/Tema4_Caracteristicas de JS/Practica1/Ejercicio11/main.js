@@ -6,19 +6,19 @@ function numNatural() {
 
 function calculoNumNatural(numero) {
   let arrNum = [];
-  let contador = 0;
 
   for (let i = 0; i < 4; i++) {
-    numero = numero.toString(2);
-    for (let j = 0; j < numero.length; j++) {
-      if (numero.charAt(j) == 1) {
-        contador++;
+    for (let j = 0; j <= numero; j++) {
+      if (j * j > numero) {
+        arrNum[i] = j - 1;
+        numero = numero - (j - 1) * (j - 1);
+        break;
+      } else if (j * j == numero) {
+        arrNum[i] = j;
+        numero = numero - j * j;
+        break;
       }
     }
-    arrNum[i] = contador;
-    numero = parseInt(numero, 2); // no hace nada?
-    numero = numero - contador * contador;
-    contador = 0;
   }
   return arrNum;
 }
