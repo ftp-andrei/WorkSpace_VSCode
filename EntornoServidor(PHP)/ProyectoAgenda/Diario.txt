@@ -49,8 +49,17 @@ Como se crea una funcion
 ?>
 
 
+Variables Globales:
 
-
+$GLOBALS - Matriz asociativa de todas las variables disponibles en el ámbito del script.
+$_COOKIE - Matriz asociativa de variables pasadas al script por las cookies.
+$_GET - Matriz asociativa de variables pasadas al script por un método GET.
+$_POST - Matriz asociativa de variables pasadas al script por un método POST.
+$_FILES - Matriz asociativa que contiene información acerca de los archivos cargados desde el ordenador del usuario al servidor Web (ver capítulo Gestión de archivos)
+$_ENV - Matriz asociativa de variables de entorno del sistema operativo pasadas al script.
+$_SERVER - Matriz asociativa de variables del servidor pasadas al script (variable de entorno y variables del servidor HTTP especialmente)
+$_REQUEST - Matriz asociativa que combina las matrices $_GET, $_POST y $_COOKIE.
+$_SESSION - Matriz asociativa de datos de sesión accesible en el script 
 
 
 

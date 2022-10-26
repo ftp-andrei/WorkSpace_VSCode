@@ -55,7 +55,6 @@ $agenda = [
     $contacto3['nombre'] . ' ' . $contacto3['apellidos']  => $contacto3, $contacto4['nombre'] . ' ' . $contacto4['apellidos'] => $contacto4,
     $contacto5['nombre'] . ' ' . $contacto5['apellidos']  => $contacto5, $contacto6['nombre'] . ' ' . $contacto6['apellidos'] => $contacto6,
 ]
-
 ?>
 
 <!DOCTYPE html>
@@ -83,12 +82,23 @@ $agenda = [
 
     </form>
     <!-- Andrei -->
+    <?php
+    serialize($agenda);
+    file_put_contents(agenda . txt);
+    ?>
     <h1>Eliminar</h1>
-    <form action="" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" id="nombre">
-        <?= isset($error) ? '<span class="error" style="color:red">' . $error . '</span>' : ''; ?>
+    <form action="eliminarContacto.php" method="POST">
+        <input type="text" placeholder="Tu nombre" name="nombre" required>
+        <input type="text" placeholder="Tus Apellidos" name="apellidos" required>
         <br>
         <button type="submit">Enviar</button>
+        /*
+        file get content
+        array unserialize
+        unset(array(nombre))
+        serialize
+        put content (agenda.txt)
+        */
     </form>
 </body>
 
