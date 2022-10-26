@@ -2,14 +2,14 @@
 Serialize
 -----
 Almacenamiento de valores en PHP sin perder su tipo y estructura.
-
+Al serializar objetos, PHP intentará llamar a las funciones miembro __serialize() o __sleep() antes de la serialización. Esto es para permitir que el objeto realice una limpieza de última hora, etc., antes de ser serializado
 
 
 
 -----
 Unserialice
 -----
-Para recuperar el valor PHP a partir de la cadena seriada.
+Para recuperar el valor PHP a partir de la cadena seriada, es decir, para cargar los datos.
 
 
 -----
@@ -17,17 +17,36 @@ Filesystem
 -----
 file_put_contents
 -----
+Escribir datos en un archivo. Esta función es idéntica a llamar a fopen() , fwrite() y fclose() sucesivamente para escribir datos en un archivo
 
+file_put_contents (
+     cadena $filename ,
+     mixto $data ,
+     int $flags= 0 ,?
+     recurso $context=null
+): entero | falso
 
 file_gets_contents
 -----
+Lee el archivo completo en una cadena. Es la forma preferida de leer el contenido de un archivo en una cadena
 
+file_get_contents (
+     cadena $filename ,
+     bool $use_include_path=false ,
+     ? recurso $context=null ,
+     int $offset= 0 ,
+     ? En t $length=null
+): cadena | falso
 
 
 -----
 Como se crea una funcion
 -----
-
+<?php
+   function nombreDeLaFuncion(){
+      //Lo que hace la función.
+   }
+?>
 
 
 

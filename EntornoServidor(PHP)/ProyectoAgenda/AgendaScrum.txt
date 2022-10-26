@@ -6,8 +6,7 @@ Estructura del proyecto:
 
 Agenda
 	- agenda.txt (persistencia)
-	- formulario.html
-	- procesaformulario.php
+	- formulario.php
 	- aniadirContacto.php		extremiana
 	- consultarContacto.php		alex
 	- eliminarContacto.php		andrei
@@ -17,11 +16,12 @@ Estructura del array:
 
 todo en minúsculas
 
-agenda=[contacto1.nombre=>contacto1,contacto2.nombre=>contacto2,]
+agenda=[contacto1.nombre+contacto1.apellidos=>contacto1,contacto2.nombre+contacto2.apellidos=>contacto2,]
 
 contacto=[
  ciudad=> Madrid,
- nombre=> Pedro Juan Gil,
+ nombre=> Pedro Juan,
+ apellidos=> Gil,
  fnac=> 1990-05-02,
  tlfno=> 91-956.34.46,
  mail=> psanzg@gmail.com,
