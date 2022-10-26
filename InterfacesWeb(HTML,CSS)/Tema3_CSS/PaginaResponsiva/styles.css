@@ -1,0 +1,53 @@
+#container {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 480px) {
+  div {
+    width: 100%;
+    height: 200px;
+  }
+  #rojo {
+    background-color: #ff0000;
+  }
+  #verde {
+    background-color: #008000;
+  }
+
+  #amarillo {
+    background-color: #ffff00;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  div {
+    width: 30%;
+    height: 200px;
+    display: inline-block;
+  }
+  #rojo {
+    background-color: #ee82ee;
+  }
+  #amarillo {
+    background-color: #0000ff;
+  }
+}
+
+@media (min-width: 769px) {
+  div {
+    width: 30%;
+    height: 200px;
+    display: inline-block;
+  }
+  #rojo {
+    background-color: #ff0000;
+  }
+  #verde {
+    background-color: #008000;
+  }
+
+  #amarillo {
+    background-color: #ffff00;
+  }
+}
