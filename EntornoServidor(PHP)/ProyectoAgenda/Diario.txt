@@ -5,7 +5,6 @@ Almacenamiento de valores en PHP sin perder su tipo y estructura.
 Al serializar objetos, PHP intentará llamar a las funciones miembro __serialize() o __sleep() antes de la serialización. Esto es para permitir que el objeto realice una limpieza de última hora, etc., antes de ser serializado
 
 
-
 -----
 Unserialice
 -----
