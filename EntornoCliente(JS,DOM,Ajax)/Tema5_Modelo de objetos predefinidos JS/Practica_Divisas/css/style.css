@@ -1,0 +1,10 @@
+.marco {
+  border: 0.01em solid #000;
+  border-radius: 3em;
+  background-color: #e5e5e5;
+  text-align: center;
+}
+
+h1 {
+  border-top: 0.01em solid #000;
+}

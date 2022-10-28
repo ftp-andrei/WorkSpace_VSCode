@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambio Divisas</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="marco">
+        <label>Importe</label>
+        <input id="importe" value="0" onkeypress="return soloNumeros(event)" />
+        <label>De:</label>
+        <select name="monedas" id="monedas">
+          <option value="euros">Euros</option>
+          <option value="dolares">Dolares</option>
+          <option value="Libras">Libras</option>
+        </select>
+        <label>A:</label>
+        <select name="monedas" id="monedas">
+          <option value="Libras">Libras</option>
+          <option value="euros">Euros</option>
+          <option value="dolares">Dolares</option>
+        </select>
+        <button type="submit">Cambiar</button>
+        <h1>Histórico</h1>
+      </div>
+    </main>
+  </body>
+</html>
