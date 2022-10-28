@@ -82,13 +82,6 @@ $agenda = [
 
     </form>
     <!-- Andrei -->
-<<<<<<< HEAD
-    <?php
-    serialize($agenda);
-    file_put_contents();
-    ?>
-=======
->>>>>>> 7142b80937ea9feba762278b8d23e388f75a9fc2
     <h1>Eliminar</h1>
     <form action="eliminarContacto.php" method="POST">
         <input type="text" placeholder="Tu nombre" name="nombre" required>
