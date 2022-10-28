@@ -1,15 +1,14 @@
 "use strict";
-function alerta() {
-  let cadena = document.getElementById("searchInput").value.toLowerCase();
-  alert(buscaVocales(cadena));
+function nonograma() {
+  let columna = parseInt(document.getElementById("columna").value);
+  let fila = parseInt(document.getElementById("columna").value);
+  alert(cargarNonograma(columna, fila));
 }
 
-function buscaVocales(cadena) {
-  let suma = 0;
-  for (let i = 0; i < cadena.length; i++) {
-    if (cadena.charAt(i).value("aeiou")) {
-      suma++;
-    }
-  }
-  return suma;
+function cargarNonograma() {
+  let columna = [(1, 1, 0), (4, 0, 0), (1, 1, 1), (3, 0, 0), (1, 0, 0)];
+  let fila = [(1, 0), (2, 0), (3, 0), (1, 2), (4, 0)];
+  let resultado = [];
+
+  return resultado;
 }

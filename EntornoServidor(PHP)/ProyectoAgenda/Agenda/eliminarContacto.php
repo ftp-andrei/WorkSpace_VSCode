@@ -10,15 +10,12 @@
 
 <body>
     <?php
+    $nombreCompleto = htmlspecialchars($_REQUEST["nombre"]) . " " . htmlspecialchars($_REQUEST["apellidos"]);
+    $file = fopen("agenda.txt", "w");
+    $file = "agenda.txt";
+    file_put_contents($file, $nombreCompleto);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = htmlspecialchars($_POST["nombre"]);
-        if (empty($name)) {
-            echo "Nombre vacio";
-        } else {
-            echo $name;
-        }
-    }
+    fclose($file);
     ?>
 </body>
 
