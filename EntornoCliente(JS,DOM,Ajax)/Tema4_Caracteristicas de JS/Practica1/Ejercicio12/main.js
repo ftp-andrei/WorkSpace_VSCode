@@ -1,7 +1,7 @@
 "use strict";
 function nonograma() {
   let columna = parseInt(document.getElementById("columna").value);
-  let fila = parseInt(document.getElementById("columna").value);
+  let fila = parseInt(document.getElementById("fila").value);
   alert(cargarNonograma(columna, fila));
 }
 
