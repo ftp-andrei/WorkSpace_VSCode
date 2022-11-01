@@ -14,19 +14,25 @@
         <label>Importe</label>
         <input id="importe" value="0" onkeypress="return soloNumeros(event)" />
         <label>De:</label>
-        <select name="monedas" id="monedas">
+        <select name="monedas" id="moneda1">
           <option value="euros">Euros</option>
           <option value="dolares">Dolares</option>
           <option value="Libras">Libras</option>
         </select>
+        <img
+          src="img/exchange.svg"
+          alt="Cambio divisas"
+          id="exchange"
+          onclick="exchange()"
+        />
         <label>A:</label>
-        <select name="monedas" id="monedas">
+        <select name="monedas" id="moneda2">
           <option value="Libras">Libras</option>
           <option value="euros">Euros</option>
           <option value="dolares">Dolares</option>
         </select>
-        <button type="submit">Cambiar</button>
-        <h1>Histórico</h1>
+        <button type="submit" onclick="cambiar()">Cambiar</button>
+        <div id="historico"><h1>Histórico</h1></div>
       </div>
     </main>
   </body>

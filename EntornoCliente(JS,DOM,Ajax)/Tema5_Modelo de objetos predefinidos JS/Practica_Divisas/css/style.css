@@ -3,8 +3,30 @@
   border-radius: 3em;
   background-color: #e5e5e5;
   text-align: center;
+  margin: 0 auto;
+  height: 40%;
+  width: 40%;
 }
 
 h1 {
   border-top: 0.01em solid #000;
+}
+
+button {
+  border-color: purple;
+  border: 7px outset purple;
+  background-color: purple;
+  text-align: center;
+  color: white;
+}
+
+img {
+  text-align: center;
+}
+
+label,
+select,
+input,
+img {
+  display: inline-block;
 }
