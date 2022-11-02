@@ -54,7 +54,20 @@ $agenda = [
     $contacto1['nombre'] . ' ' . $contacto1['apellidos']  => $contacto1, $contacto2['nombre'] . ' ' . $contacto2['apellidos'] => $contacto2,
     $contacto3['nombre'] . ' ' . $contacto3['apellidos']  => $contacto3, $contacto4['nombre'] . ' ' . $contacto4['apellidos'] => $contacto4,
     $contacto5['nombre'] . ' ' . $contacto5['apellidos']  => $contacto5, $contacto6['nombre'] . ' ' . $contacto6['apellidos'] => $contacto6,
-]
+];
+include 'eliminarContacto.php';
+
+if (isset($_POST['okDel'])) {
+    $nombre = htmlspecialchars($_POST["nombre"]);
+    $apellidos = htmlspecialchars($_POST["apellidos"]);
+    if (empty($nombre) || empty($apellidos)) {
+        $error = 'Rellenar todos los campos es obligatorio';
+    } else {
+        eliminar($nombre, $apellidos, $agenda);
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -83,11 +96,12 @@ $agenda = [
     </form>
     <!-- Andrei -->
     <h1>Eliminar</h1>
-    <form action="eliminarContacto.php" method="POST">
-        <input type="text" placeholder="Tu nombre" name="nombre" required>
-        <input type="text" placeholder="Tus Apellidos" name="apellidos" required>
+    <form action="" method="POST">
+        <input type="text" placeholder="Tu nombre" name="nombre">
+        <input type="text" placeholder="Tus Apellidos" name="apellidos">
+        <?= isset($error) ? '<span class="error" style="color:red">' . $error . '</span>' : ''; ?>
         <br>
-        <button type="submit">Enviar</button>
+        <button type="submit" name="okDel">Enviar</button>
         /*
         file get content
         array unserialize
