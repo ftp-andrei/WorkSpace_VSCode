@@ -13,11 +13,12 @@ h1 {
 }
 
 button {
-  border-color: purple;
-  border: 7px outset purple;
-  background-color: purple;
+  border-color: #6f268d;
+  border: 7px outset #6f268d;
+  background-color: #6f268d;
   text-align: center;
-  color: white;
+  color: #ffff;
+  display: block;
 }
 
 img {
