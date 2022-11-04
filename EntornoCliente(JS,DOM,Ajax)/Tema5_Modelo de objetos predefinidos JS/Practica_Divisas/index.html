@@ -10,30 +10,46 @@
   </head>
   <body>
     <main>
-      <div class="marco">
-        <label>Importe</label>
-        <input id="importe" value="0" onkeypress="return soloNumeros(event)" />
-        <label>De:</label>
-        <select name="monedas" id="moneda1">
-          <option value="euros">Euros</option>
-          <option value="dolares">Dolares</option>
-          <option value="Libras">Libras</option>
-        </select>
-        <img
-          src="img/exchange.svg"
-          alt="Cambio divisas"
-          id="exchange"
-          onclick="exchange()"
-        />
-        <label>A:</label>
-        <select name="monedas" id="moneda2">
-          <option value="Libras">Libras</option>
-          <option value="euros">Euros</option>
-          <option value="dolares">Dolares</option>
-        </select>
-        <button type="submit" onclick="cambiar()">Cambiar</button>
-        <div id="historico"><h1>Histórico</h1></div>
+      <div id="marco">
+        <div id="contenedor">
+          <label>Importe</label>
+          <input
+            id="importe"
+            value="0"
+            onkeypress="return soloNumeros(event)"
+          />
+          <label>De:</label>
+          <select name="monedas" id="moneda1">
+            <option value="Euros">Euros</option>
+            <option value="Dolares">Dolares</option>
+            <option value="Libras">Libras</option>
+          </select>
+          <img
+            src="img/exchange.svg"
+            alt="Cambio divisas"
+            id="exchange"
+            onclick="exchange()"
+          />
+          <label>A:</label>
+          <select name="monedas" id="moneda2">
+            <option value="Libras">Libras</option>
+            <option value="Euros">Euros</option>
+            <option value="Dolares">Dolares</option>
+          </select>
+          <button type="submit" onclick="cambiar()">Cambiar</button>
+        </div>
+        <div id="historico">
+          <h1>Histórico</h1>
+          <textarea
+            name="resultado"
+            id="resultado"
+            cols="40"
+            rows="10"
+            disabled
+          ></textarea>
+        </div>
       </div>
     </main>
   </body>
 </html>
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_appendchild

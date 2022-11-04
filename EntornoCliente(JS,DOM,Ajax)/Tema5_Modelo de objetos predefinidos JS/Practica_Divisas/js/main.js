@@ -2,9 +2,26 @@ function cambiar() {
   let importe = document.getElementById("importe").value;
   let moneda1 = document.getElementById("moneda1").value.toLowerCase();
   let moneda2 = document.getElementById("moneda2").value.toLowerCase();
-
   // 1 Euros = Dollars 1.05
   // 1 Libra  = Dollars  1.30
+
+  let resultado = 0;
+
+  if (moneda1 == "euros" && moneda2 == "dolares") {
+    resultado = importe * 1.05;
+  } else if (moneda1 == "euros" && moneda2 == "libras") {
+    resultado = importe * 1.3;
+  } else if (moneda1 == "dolares" && moneda2 == "euros") {
+    resultado = importe * 0.95;
+  } else if (moneda1 == "dolares" && moneda2 == "libras") {
+    resultado = importe * 0.75;
+  } else if (moneda1 == "libras" && moneda2 == "euros") {
+    resultado = importe * 1.1;
+  } else if (moneda1 == "libras" && moneda2 == "dolares") {
+    resultado = importe * 1.05;
+  }
+  document.getElementById("resultado").innerHTML =
+    "El resultado es: " + resultado.toFixed(2) + "\n";
 }
 
 function exchange() {
