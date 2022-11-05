@@ -75,6 +75,8 @@ footer p a {
 .map {
   border: 8px solid #000;
 }
+
+/* Movil */
 @media screen and (max-width: 480px) {
   body,
   header,
@@ -165,6 +167,23 @@ footer p a {
     width: 100%;
     background-color: #000;
     opacity: 50%;
+  }
+
+  #articulos {
+    width: 100%;
+    text-align: left;
+  }
+
+  article:hover {
+    background-color: rgb(207, 207, 207);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
   }
 }
 
@@ -267,6 +286,26 @@ footer p a {
     background-color: #000;
     opacity: 50%;
   }
+
+  #articulos {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 30%);
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  article:hover {
+    background-color: rgb(207, 207, 207);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+  }
 }
 
 /* Sobremesa */
@@ -321,15 +360,18 @@ footer p a {
   a:focus {
     background-color: rgb(255, 214, 255);
   }
-  .figuras {
+
+  #figuras {
     height: auto;
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
+
   a {
     text-decoration: none;
   }
+
   figcaption {
     color: #fff;
     text-align: center;
@@ -337,5 +379,25 @@ footer p a {
     width: 100%;
     background-color: #000;
     opacity: 50%;
+  }
+
+  #articulos {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 30%);
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  article:hover {
+    background-color: rgb(207, 207, 207);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
   }
 }
