@@ -1,107 +1,109 @@
-body,
-header,
-nav,
-footer {
-  margin: 0 auto;
-  text-align: center;
-}
+@media screen and (max-width: 480px) {
+  body,
+  header,
+  nav,
+  footer {
+    margin: 0 auto;
+    text-align: center;
+  }
 
-header {
-  width: 100%;
-}
-header img {
-  width: 50%;
-  display: inline-block;
-  margin: 0 auto;
-}
+  header {
+    width: 100%;
+  }
+  header img {
+    width: 50%;
+    display: inline-block;
+    margin: 0 auto;
+  }
 
-nav {
-  margin: 8em 3em 0 0;
-  width: 100%;
-  margin: 0 auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: #000;
-}
+  nav {
+    margin: 8em 3em 0 0;
+    width: 100%;
+    margin: 0 auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #000;
+  }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-nav li {
-  font-size: 1.75em;
-  font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: bold;
-  border-bottom: solid #fff;
-}
+  nav li {
+    font-size: 1.75em;
+    font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    border-bottom: solid #fff;
+  }
 
-nav li a {
-  display: inline-block;
-  color: #fff;
-  text-align: center;
-  padding: 0.5em 1em;
-  text-decoration: none;
-}
+  nav li a {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em 1em;
+    text-decoration: none;
+  }
 
-img {
-  max-width: 100%;
-  display: inline-block;
-  max-height: 100%;
-}
+  img {
+    max-width: 100%;
+    display: inline-block;
+    max-height: 100%;
+  }
 
-main {
-  clear: left;
-  background-color: #fff;
-  padding: 2%;
-  font-size: 2em;
-}
+  main {
+    clear: left;
+    background-color: #fff;
+    padding: 2%;
+    font-size: 2em;
+  }
 
-footer p {
-  font-size: 0.75em;
-  text-align: center;
-  color: #fff;
-  padding: 0.1em;
-}
+  footer p {
+    font-size: 0.75em;
+    text-align: center;
+    color: #fff;
+    padding: 0.1em;
+  }
 
-footer p a {
-  color: #fff;
-  text-decoration: none;
-}
+  footer p a {
+    color: #fff;
+    text-decoration: none;
+  }
 
-#weights,
-#training,
-#cardio {
-  margin: 0;
-  display: inline-block;
-}
-a {
-  text-decoration: none;
-}
-figcaption {
-  color: #fff;
-  text-align: center;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #000;
-  opacity: 50%;
-}
+  #weights,
+  #training,
+  #cardio {
+    margin: 0;
+    display: inline-block;
+  }
+  a {
+    text-decoration: none;
+  }
+  figcaption {
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #000;
+    opacity: 50%;
+  }
 
-#articulos {
-  width: 100%;
-  text-align: left;
-}
+  #articulos {
+    width: 100%;
+    text-align: left;
+  }
 
-article:hover {
-  background-color: rgb(207, 207, 207);
-}
+  article:hover {
+    background-color: rgb(207, 207, 207);
+  }
 
-h2 {
-  text-align: center;
-}
+  h2 {
+    text-align: center;
+  }
 
-img {
-  margin: 0 auto;
+  img {
+    margin: 0 auto;
+  }
 }
