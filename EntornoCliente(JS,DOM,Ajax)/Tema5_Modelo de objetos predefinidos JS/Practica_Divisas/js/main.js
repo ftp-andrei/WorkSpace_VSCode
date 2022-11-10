@@ -24,17 +24,8 @@ function cambiar() {
     resultado = importe;
   }
 
-  const opciones = {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
-  const d = new Date().toLocaleString("es-ES", opciones);
-
   let texto =
-    d +
+    fechaFormateada() +
     " Importe " +
     importe +
     " " +
@@ -44,8 +35,9 @@ function cambiar() {
     " " +
     moneda2;
 
-  const h2 = document.getElementById("textArea");
-  h2.insertAdjacentHTML("afterbegin", texto + "\n");
+  const textAreaInsercion = document.getElementById("textArea");
+  textAreaInsercion.insertAdjacentHTML("afterbegin", texto + "\n");
+  setCookie("user", textAreaInsercion, { secure: true, "max-age": 3600 });
 }
 
 function exchange() {
@@ -71,4 +63,41 @@ function soloNumeros(num) {
   }
 }
 
+function fechaFormateada() {
+  const opciones = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  const d = new Date().toLocaleString("es-ES", opciones);
+  return d;
+}
 /* document.cookie */
+function getCookie() {
+  return decodeURIComponent("user");
+}
+
+function setCookie(name, value, options = {}) {
+  options = {
+    path: "/",
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie =
+    encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}

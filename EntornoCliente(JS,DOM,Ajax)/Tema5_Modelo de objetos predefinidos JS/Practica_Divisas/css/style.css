@@ -23,3 +23,10 @@ button {
   text-align: center;
   color: #ffff;
 }
+select {
+  color: #797979;
+}
+
+input {
+  text-align: center;
+}
