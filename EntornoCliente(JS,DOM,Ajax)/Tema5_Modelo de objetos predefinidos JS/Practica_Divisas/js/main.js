@@ -6,7 +6,6 @@ function cambiar() {
   // 1 Libra  = Dollars  1.30
 
   let resultado = 0;
-
   if (moneda1 == "euros" && moneda2 == "dolares") {
     resultado = importe * 1.05;
   } else if (moneda1 == "euros" && moneda2 == "libras") {
@@ -20,14 +19,17 @@ function cambiar() {
   } else if (moneda1 == "libras" && moneda2 == "dolares") {
     resultado = importe * 1.05;
   }
-
+  const date = new Date().toLocaleString();
   let texto =
-    "El resultado de " +
+    date +
+    " Importe " +
+    importe +
+    " " +
     moneda1 +
-    " a " +
-    moneda2 +
-    " es: " +
-    resultado.toFixed(2);
+    " - " +
+    resultado.toFixed(2) +
+    " " +
+    moneda2;
 
   const h2 = document.getElementById("textArea");
   h2.insertAdjacentHTML("afterbegin", texto + "\n");
