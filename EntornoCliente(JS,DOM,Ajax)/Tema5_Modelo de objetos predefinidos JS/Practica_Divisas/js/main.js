@@ -20,8 +20,17 @@ function cambiar() {
   } else if (moneda1 == "libras" && moneda2 == "dolares") {
     resultado = importe * 1.05;
   }
-  document.getElementById("resultado").innerHTML =
-    "El resultado es: " + resultado.toFixed(2) + "\n";
+
+  let texto =
+    "El resultado de " +
+    moneda1 +
+    " a " +
+    moneda2 +
+    " es: " +
+    resultado.toFixed(2);
+
+  const h2 = document.getElementById("textArea");
+  h2.insertAdjacentHTML("afterbegin", texto + "\n");
 }
 
 function exchange() {
