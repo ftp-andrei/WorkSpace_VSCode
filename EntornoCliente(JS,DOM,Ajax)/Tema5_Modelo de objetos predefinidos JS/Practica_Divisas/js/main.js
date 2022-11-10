@@ -6,22 +6,35 @@ function cambiar() {
   // 1 Libra  = Dollars  1.30
 
   let resultado = 0;
-  if (moneda1 == "euros" && moneda2 == "dolares") {
-    resultado = importe * 1.05;
-  } else if (moneda1 == "euros" && moneda2 == "libras") {
-    resultado = importe * 1.3;
-  } else if (moneda1 == "dolares" && moneda2 == "euros") {
-    resultado = importe * 0.95;
-  } else if (moneda1 == "dolares" && moneda2 == "libras") {
-    resultado = importe * 0.75;
-  } else if (moneda1 == "libras" && moneda2 == "euros") {
-    resultado = importe * 1.1;
-  } else if (moneda1 == "libras" && moneda2 == "dolares") {
-    resultado = importe * 1.05;
+  if (moneda1 != moneda2) {
+    if (moneda1 == "euros" && moneda2 == "dolares") {
+      resultado = importe * 1.05;
+    } else if (moneda1 == "euros" && moneda2 == "libras") {
+      resultado = importe * 1.3;
+    } else if (moneda1 == "dolares" && moneda2 == "euros") {
+      resultado = importe * 0.95;
+    } else if (moneda1 == "dolares" && moneda2 == "libras") {
+      resultado = importe * 0.75;
+    } else if (moneda1 == "libras" && moneda2 == "euros") {
+      resultado = importe * 1.1;
+    } else if (moneda1 == "libras" && moneda2 == "dolares") {
+      resultado = importe * 1.05;
+    }
+  } else {
+    resultado = importe;
   }
-  const date = new Date().toLocaleString();
+
+  const opciones = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  const d = new Date().toLocaleString("es-ES", opciones);
+
   let texto =
-    date +
+    d +
     " Importe " +
     importe +
     " " +
