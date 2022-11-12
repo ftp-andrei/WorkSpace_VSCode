@@ -6,14 +6,17 @@ function cambiar() {
   // 1 Libra  = Dollars  1.30
 
   let resultado = 0;
-
-  if (moneda2 == "dolares") {
-    resultado = calculoMoneda(moneda1, importe);
+  if (importe != 0) {
+    if (moneda2 == "dolares") {
+      resultado = calculoMoneda(moneda1, importe);
+    } else {
+      resultado =
+        calculoMoneda(moneda1, importe) / calculoMoneda(moneda2, importe);
+    }
   } else {
-    resultado =
-      calculoMoneda(moneda1, importe) / calculoMoneda(moneda2, importe);
+    importe = 0;
+    resultado = 0;
   }
-
   let texto =
     fechaFormateada() +
     " Importe " +
@@ -27,7 +30,6 @@ function cambiar() {
 
   const textAreaInsercion = document.getElementById("textArea");
   textAreaInsercion.insertAdjacentHTML("afterbegin", texto + "\n");
-  setCookie("user", textAreaInsercion, { secure: true, "max-age": 3600 });
 }
 
 function calculoMoneda(moneda, importe) {
@@ -75,31 +77,4 @@ function fechaFormateada() {
   };
   const d = new Date().toLocaleString("es-ES", opciones);
   return d;
-}
-/* document.cookie */
-function getCookie() {
-  return decodeURIComponent("user");
-}
-
-function setCookie(name, value, options = {}) {
-  options = {
-    path: "/",
-  };
-
-  if (options.expires instanceof Date) {
-    options.expires = options.expires.toUTCString();
-  }
-
-  let updatedCookie =
-    encodeURIComponent(name) + "=" + encodeURIComponent(value);
-
-  for (let optionKey in options) {
-    updatedCookie += "; " + optionKey;
-    let optionValue = options[optionKey];
-    if (optionValue !== true) {
-      updatedCookie += "=" + optionValue;
-    }
-  }
-
-  document.cookie = updatedCookie;
 }

@@ -8,16 +8,12 @@
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body onload="comprobarCookie()">
     <main>
       <div id="marco">
         <div id="contenedor">
           <label>Importe</label>
-          <input
-            id="importe"
-            value="0"
-            onkeypress="return soloNumeros(event)"
-          />
+          <input id="importe" onkeypress="return soloNumeros(event)" />
           <label>De:</label>
           <select name="monedas" id="moneda1">
             <option value="euros">Euros</option>
@@ -40,13 +36,7 @@
         </div>
         <div id="historico">
           <h1>Histórico</h1>
-          <textarea
-            name="textArea"
-            id="textArea"
-            cols="60"
-            rows="10"
-            disabled
-          ></textarea>
+          <textarea name="textArea" id="textArea" disabled></textarea>
         </div>
       </div>
     </main>
