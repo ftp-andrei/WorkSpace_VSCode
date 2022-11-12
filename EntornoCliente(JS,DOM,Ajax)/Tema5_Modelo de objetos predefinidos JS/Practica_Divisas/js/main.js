@@ -6,22 +6,12 @@ function cambiar() {
   // 1 Libra  = Dollars  1.30
 
   let resultado = 0;
-  if (moneda1 != moneda2) {
-    if (moneda1 == "euros" && moneda2 == "dolares") {
-      resultado = importe * 1.05;
-    } else if (moneda1 == "euros" && moneda2 == "libras") {
-      resultado = importe * 1.3;
-    } else if (moneda1 == "dolares" && moneda2 == "euros") {
-      resultado = importe * 0.95;
-    } else if (moneda1 == "dolares" && moneda2 == "libras") {
-      resultado = importe * 0.75;
-    } else if (moneda1 == "libras" && moneda2 == "euros") {
-      resultado = importe * 1.1;
-    } else if (moneda1 == "libras" && moneda2 == "dolares") {
-      resultado = importe * 1.05;
-    }
+
+  if (moneda2 == "dolares") {
+    resultado = calculoMoneda(moneda1, importe);
   } else {
-    resultado = importe;
+    resultado =
+      calculoMoneda(moneda1, importe) / calculoMoneda(moneda2, importe);
   }
 
   let texto =
@@ -38,6 +28,18 @@ function cambiar() {
   const textAreaInsercion = document.getElementById("textArea");
   textAreaInsercion.insertAdjacentHTML("afterbegin", texto + "\n");
   setCookie("user", textAreaInsercion, { secure: true, "max-age": 3600 });
+}
+
+function calculoMoneda(moneda, importe) {
+  if (moneda == "euros") {
+    return importe * 1.05;
+  }
+  if (moneda == "libras") {
+    return importe * 1.3;
+  }
+  if (moneda == "dolares") {
+    return importe;
+  }
 }
 
 function exchange() {
