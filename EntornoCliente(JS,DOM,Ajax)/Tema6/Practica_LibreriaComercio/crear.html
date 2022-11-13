@@ -23,13 +23,15 @@
         <div id="wrapMain">
           <label>Nombre</label>
           <input type="text" id="nombre" />
-          <br />
+          <br /><br />
           <label>Paginas</label>
           <input id="paginas" onkeypress="return soloNumeros(event)" />
-          <br />
+          <br /><br />
           <label>Prestado</label>
           <input type="checkbox" name="prestado" id="checkboxPrestado" />
-          <button type="submit" onclick="crear()">Crear</button>
+          <ul>
+            <li id="crear"><a href="crear.html" onclick="crear()">Crear</a></li>
+          </ul>
         </div>
       </main>
     </div>

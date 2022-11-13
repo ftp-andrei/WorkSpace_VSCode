@@ -1,19 +1,11 @@
 function crear() {
-  let nombreLibro = document.getElementById("nombre").value;
-  let paginasLibro = document.getElementById("paginas").value;
-  let esPrestado = document.getElementById("prestado");
-
   let libro = {
-    nombre: nombreLibro,
-    paginas: paginasLibro,
-    prestado: esPrestado,
+    nombre: document.getElementById("nombre").value,
+    paginas: document.getElementById("paginas").value,
+    prestado: document.getElementById("checkboxPrestado").checked,
   };
 
-  alert(stringify(libro));
-}
-
-function stringify(x) {
-  console.log(Object.prototype.toString.call(x));
+  alert("Creado!");
 }
 
 function soloNumeros(num) {
