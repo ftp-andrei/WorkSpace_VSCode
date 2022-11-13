@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js"></script>
+    <title>Libreria Comercio</title>
+  </head>
+  <body>
+    <div id="contenedor">
+      <header>
+        <a href="index.html"
+          ><img src="img/logoComercio.png" alt="IES Comercio logo"
+        /></a>
+        <p>Librería Comercio</p>
+      </header>
+      <div id="banner">
+        <img src="img/libreria.png" alt="Libreria banner" />
+      </div>
+      <main>
+        <div id="wrapMain">
+          <label>Nombre</label>
+          <input type="text" id="nombre" />
+          <br />
+          <label>Paginas</label>
+          <input id="paginas" onkeypress="return soloNumeros(event)" />
+          <br />
+          <label>Prestado</label>
+          <input type="checkbox" name="prestado" id="checkboxPrestado" />
+          <button type="submit" onclick="crear()">Crear</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
