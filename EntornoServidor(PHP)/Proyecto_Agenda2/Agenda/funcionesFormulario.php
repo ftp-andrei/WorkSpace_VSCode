@@ -41,7 +41,7 @@ function eliminar($nombre, $apellidos, $agenda)
     mostrarAgenda($agenda);
 }
 
-function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac)
+function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAgenda)
 {
 
     if (empty($nombre) || empty($apellidos) || empty($ciudad) || empty($fNac)) {
@@ -72,7 +72,7 @@ function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac)
         exit;
     }
 
-    $agenda = unserialize(file_get_contents("agenda.txt")); //cogemos todo lo que hay en agenda.txt
+    $agenda = unserialize(file_get_contents("$fileAgenda")); //cogemos todo lo que hay en agenda.txt
 
     if (isset($agenda[$nombre . " " . $apellidos])) { // El contacto $nombre $apellidos ya existe
         return false;
@@ -80,14 +80,14 @@ function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac)
         $contactoNuevo = ['ciudad' => $ciudad, 'nombre' => $nombre, 'apellidos' => $apellidos, 'fnac' => $fNac, 'tlfno' => $tfno, 'mail' => $eCorreo]; //Nuevo contacto
 
         $agenda[$contactoNuevo['nombre'] . " " . $contactoNuevo['apellidos']] = $contactoNuevo; // Añade contacto al array de agenda
-        file_put_contents("agenda.txt", serialize($agenda)); //Escribir el nuevo contacto en agenda.txt
+        file_put_contents("$fileAgenda", serialize($agenda)); //Escribir el nuevo contacto en agenda.txt
 
         mostrarAgenda($agenda);
         return true;
     }
 }
 
-function modificar($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac)
+function modificar($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAgenda)
 {
     if (empty($nombre) || empty($apellidos) || empty($ciudad) || empty($fNac)) {
         echo '<div class="error">';
@@ -117,40 +117,77 @@ function modificar($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac)
         exit;
     }
 
-    $agenda = unserialize(file_get_contents("agenda.txt")); //cogemos todo lo que hay en agenda.txt
+    $agenda = unserialize(file_get_contents("$fileAgenda")); //cogemos todo lo que hay en agenda.txt
     $contactoNuevo = ['ciudad' => $ciudad, 'nombre' => $nombre, 'apellidos' => $apellidos, 'fnac' => $fNac, 'tlfno' => $tfno, 'mail' => $eCorreo]; //Nuevo contacto
     $agenda[$contactoNuevo['nombre'] . " " . $contactoNuevo['apellidos']] = $contactoNuevo; // Añade contacto al array de agenda
-    file_put_contents("agenda.txt", serialize($agenda)); //Escribir el nuevo contacto en agenda.txt
+    file_put_contents("$fileAgenda", serialize($agenda)); //Escribir el nuevo contacto en agenda.txt
     mostrarAgenda($agenda);
 }
 
-function consultarContacto($nombreCompleto, $ciudad, $agenda)
+function consultarContacto($nombre, $apellidos, $ciudad, $agenda)
 {
+    $nombreCompleto = $nombre . ' ' . $apellidos;
     $resultado = [];
-    if (!empty($ciudad)) {
+
+    if (!empty($nombre) && !empty($apellidos)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['nombre'] . " " . $contacto['apellidos'] === $nombreCompleto) {
+                $resultado[] = $contacto;
+                break;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (!empty($nombre) && empty($apellidos) && !empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['nombre'] === $nombre && $contacto['ciudad'] === $ciudad) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (!empty($nombre) && empty($apellidos) && empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['nombre'] === $nombre) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (empty($nombre) && !empty($apellidos) && !empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['apellidos'] === $apellidos && $contacto['ciudad'] === $ciudad) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (empty($nombre) && !empty($apellidos)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['apellidos'] === $apellidos) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (!empty($ciudad)) {
         foreach ($agenda as $contacto) {
             if ($contacto['ciudad'] === $ciudad) {
                 $resultado[] = $contacto;
             }
         }
         mostrarAgenda($resultado);
-    } elseif ($nombreCompleto !== ' ') {
-        foreach ($agenda as $contacto) {
-            if ($contacto['nombre'] . " " . $contacto['apellidos'] === $nombreCompleto) {
-                $resultado[] = $contacto;
-            }
-        }
-
-        mostrarAgenda($resultado);
     } else {
-        echo "Debes introducir un nombre o ciudad!";
+        echo "¡Debes introducir un nombre o ciudad!";
     }
 }
 
-function selectComunidades($comunidades)
+
+function selectComunidades()
 {
+    $comunidades = [
+        '', 'Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza', 'Málaga', 'Murcia', 'Palma de Mayorca', 'Las Palma', 'Bilbao', 'Alicante', 'Córdoba', 'Valladolid', 'Vitoria', 'La Coruña',
+        'Granada', 'Oviedo', 'Santa Cruz', 'Pamplona', 'Almería', 'San Sebastian', 'Burgos', 'Albacete', 'Santander', 'Castellón', 'Logroño', 'Badajoz', 'Salamanca', 'Huelva', 'Lérida',
+        'Tarragona', 'León', 'Cádiz', 'Jaén', 'Orense', 'Gerona', 'Lugo', 'Cáceres', 'Melilla', 'Guadalajara', 'Toledo', 'Ceuta', 'Pontevedra', 'Palencia', 'Ciudad Real', 'Zamora', 'Ávila',
+        'Cuenca', 'Huesca', 'Segovia', 'Soria', 'Teruel',
+    ];
     echo '
-        <select name="ciudad" id="ciudad">';
+        <select class="form-control" name="ciudad" id="ciudad">';
     foreach ($comunidades as $value) {
         echo '<option value="';
         echo $value . '">' . $value . "</option>";

@@ -1,0 +1,52 @@
+function consultarContacto($nombre, $apellidos, $ciudad, $agenda)
+{
+    $nombreCompleto = $nombre . ' ' . $apellidos;
+    $resultado = [];
+
+    if (!empty($nombre) && !empty($apellidos)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['nombre'] . " " . $contacto['apellidos'] === $nombreCompleto) {
+                $resultado[] = $contacto;
+                break;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (!empty($nombre) && empty($apellidos) && !empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['nombre'] === $nombre && $contacto['ciudad'] === $ciudad) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (!empty($nombre) && empty($apellidos) && empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['nombre'] === $nombre) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (empty($nombre) && !empty($apellidos) && !empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['apellidos'] === $apellidos && $contacto['ciudad'] === $ciudad) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (empty($nombre) && !empty($apellidos)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['apellidos'] === $apellidos) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } elseif (!empty($ciudad)) {
+        foreach ($agenda as $contacto) {
+            if ($contacto['ciudad'] === $ciudad) {
+                $resultado[] = $contacto;
+            }
+        }
+        mostrarAgenda($resultado);
+    } else {
+        echo "¡Debes introducir un nombre o ciudad!";
+    }
+}

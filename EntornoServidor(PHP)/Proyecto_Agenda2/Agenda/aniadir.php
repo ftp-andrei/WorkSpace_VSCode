@@ -1,3 +1,12 @@
+<?php
+session_start();
+include 'funcionesFormulario.php';
+$fileAgenda = 'users/' . $_SESSION['email'] . '.txt';
+$fileUsers = 'users.txt';
+$users = unserialize(file_get_contents($fileUsers));
+$agenda = unserialize(file_get_contents($fileAgenda));
+// file_put_contents($fileAgenda, serialize($agenda));
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,14 +28,13 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
   <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="assets/css/stylish.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
 <body style="background:#e1fcff">
@@ -75,18 +83,6 @@
 
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-      <?php
-      include 'funcionesFormulario.php';
-      $fileAgenda = 'agenda.txt';
-      $agenda = unserialize(file_get_contents($fileAgenda));
-      $comunidades = [
-        '', 'Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza', 'Málaga', 'Murcia', 'Palma de Mayorca', 'Las Palma', 'Bilbao', 'Alicante', 'Córdoba', 'Valladolid', 'Vitoria', 'La Coruña',
-        'Granada', 'Oviedo', 'Santa Cruz', 'Pamplona', 'Almería', 'San Sebastian', 'Burgos', 'Albacete', 'Santander', 'Castellón', 'Logroño', 'Badajoz', 'Salamanca', 'Huelva', 'Lérida',
-        'Tarragona', 'León', 'Cádiz', 'Jaén', 'Orense', 'Gerona', 'Lugo', 'Cáceres', 'Melilla', 'Guadalajara', 'Toledo', 'Ceuta', 'Pontevedra', 'Palencia', 'Ciudad Real', 'Zamora', 'Ávila',
-        'Cuenca', 'Huesca', 'Segovia', 'Soria', 'Teruel',
-      ];
-      // file_put_contents($fileAgenda, serialize($agenda));
-      ?>
       <form id="contact-form" method="post" action="contact.php" role="form">
         <div class="row">
           <div class="col-md-12">
@@ -128,10 +124,17 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="form-group">
               <p> <label for="form_need">Fecha de nacimiento</label>
                 <input class="form-control" type="date">
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <p> <label for="ciudad">Ciudades</label>
+                <?php selectComunidades() ?>
               </p>
             </div>
           </div>

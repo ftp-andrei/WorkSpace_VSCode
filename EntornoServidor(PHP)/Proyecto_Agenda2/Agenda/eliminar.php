@@ -1,3 +1,12 @@
+<?php
+session_start();
+include 'funcionesFormulario.php';
+$fileAgenda = 'users/' . $_SESSION['email'] . '.txt';
+$fileUsers = 'users.txt';
+$users = unserialize(file_get_contents($fileUsers));
+$agenda = unserialize(file_get_contents($fileAgenda));
+// file_put_contents($fileAgenda, serialize($agenda));
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,6 +27,7 @@
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/css/stylish.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
@@ -38,7 +48,7 @@
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="index.html">nombre usuario con sesion activa</a>
+          <a href="index.html">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
@@ -61,7 +71,14 @@
           </li>
           <hr />
           <li>
-            <a href="logout.php" class="nav-link scrollto"><i class="bx bx-log-out"></i> <span>Cerrar sesión</span></a>
+            <form action="#" method="POST">
+              <a class="nav-link scrollto"><i class="bx bx-log-out"></i> <span><button type="submit" name="closeSession" id="logOut">Cerrar sesión</button></span></a>
+            </form>
+            <?php
+            if (isset($_POST['closeSession'])) {
+              closeSession();
+            }
+            ?>
           </li>
         </ul>
       </nav>
@@ -74,18 +91,6 @@
 
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-      <?php
-      include 'funcionesFormulario.php';
-      $fileAgenda = 'agenda.txt';
-      $agenda = unserialize(file_get_contents($fileAgenda));
-      $comunidades = [
-        '', 'Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza', 'Málaga', 'Murcia', 'Palma de Mayorca', 'Las Palma', 'Bilbao', 'Alicante', 'Córdoba', 'Valladolid', 'Vitoria', 'La Coruña',
-        'Granada', 'Oviedo', 'Santa Cruz', 'Pamplona', 'Almería', 'San Sebastian', 'Burgos', 'Albacete', 'Santander', 'Castellón', 'Logroño', 'Badajoz', 'Salamanca', 'Huelva', 'Lérida',
-        'Tarragona', 'León', 'Cádiz', 'Jaén', 'Orense', 'Gerona', 'Lugo', 'Cáceres', 'Melilla', 'Guadalajara', 'Toledo', 'Ceuta', 'Pontevedra', 'Palencia', 'Ciudad Real', 'Zamora', 'Ávila',
-        'Cuenca', 'Huesca', 'Segovia', 'Soria', 'Teruel',
-      ];
-      // file_put_contents($fileAgenda, serialize($agenda));
-      ?>
       <!DOCTYPE html>
       <html lang="es">
 
@@ -94,43 +99,37 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Agenda</title>
-        <style>
-          table,
-          td,
-          th {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-
-          td,
-          th {
-            padding: 0.2em;
-          }
-        </style>
+        
       </head>
 
       <body>
-        <form action="" method="POST">
+        <?php
+        if (!empty($agenda)) {
+          echo <<< end
+          <form action="" method="POST">
           <fieldset>
             <legend>Eliminar contacto</legend>
             <label>Nombre: <input type="text" placeholder="Tu nombre" name="nombre"></label>
             <label>Apellidos: <input type="text" placeholder="Tus Apellidos" name="apellidos"></label>
-            <?= isset($errorDel) ? '<span class="error" style="color:red">' . $error . '</span>' : ''; ?>
-            <br>
-            <button type="submit" name="okDel">Enviar</button>
-          </fieldset>
-        </form>
-
-        <?php
-        /* Eliminar */
-        if (isset($_POST['okDel'])) {
-          $nombre = htmlspecialchars($_POST["nombre"]);
-          $apellidos = htmlspecialchars($_POST["apellidos"]);
-          if (empty($nombre) || empty($apellidos)) {
-            $errorDel = 'Rellenar todos los campos es obligatorio';
-          } else {
-            eliminar($nombre, $apellidos, $agenda);
+          end;
+          isset($errorDel) ? '<span class="error" style="color:red">' . $error . '</span>' : '';
+          echo <<< end
+              <button type="submit" name="okDel">Enviar</button>
+            </fieldset>
+          </form>
+          end;
+          if (isset($_POST['okDel'])) {
+            $nombre = htmlspecialchars($_POST["nombre"]);
+            $apellidos = htmlspecialchars($_POST["apellidos"]);
+            if (empty($nombre) || empty($apellidos)) {
+              $errorDel = 'Rellenar todos los campos es obligatorio';
+            } else {
+              eliminar($nombre, $apellidos, $agenda);
+            }
           }
+        } else {
+          echo '<h2>Eliminar contacto</h2>';
+          echo 'Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
         }
         ?>
 

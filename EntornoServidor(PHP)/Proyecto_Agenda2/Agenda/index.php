@@ -5,12 +5,6 @@ $fileAgenda = 'users/' . $_SESSION['email'] . '.txt';
 $fileUsers = 'users.txt';
 $users = unserialize(file_get_contents($fileUsers));
 $agenda = unserialize(file_get_contents($fileAgenda));
-$comunidades = [
-  '', 'Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza', 'Málaga', 'Murcia', 'Palma de Mayorca', 'Las Palma', 'Bilbao', 'Alicante', 'Córdoba', 'Valladolid', 'Vitoria', 'La Coruña',
-  'Granada', 'Oviedo', 'Santa Cruz', 'Pamplona', 'Almería', 'San Sebastian', 'Burgos', 'Albacete', 'Santander', 'Castellón', 'Logroño', 'Badajoz', 'Salamanca', 'Huelva', 'Lérida',
-  'Tarragona', 'León', 'Cádiz', 'Jaén', 'Orense', 'Gerona', 'Lugo', 'Cáceres', 'Melilla', 'Guadalajara', 'Toledo', 'Ceuta', 'Pontevedra', 'Palencia', 'Ciudad Real', 'Zamora', 'Ávila',
-  'Cuenca', 'Huesca', 'Segovia', 'Soria', 'Teruel',
-];
 // file_put_contents($fileAgenda, serialize($agenda));
 ?>
 <!DOCTYPE html>
@@ -33,6 +27,7 @@ $comunidades = [
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/css/stylish.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
@@ -77,7 +72,7 @@ $comunidades = [
           <hr />
           <li>
             <form action="#" method="POST">
-              <a class="nav-link scrollto"><i class="bx bx-log-out"></i> <span><button type="submit" name="closeSession" style="background: #040b14; color: white; border: none">Cerrar sesión</button></span></a>
+              <a class="nav-link scrollto"><i class="bx bx-log-out"></i> <span><button type="submit" name="closeSession" id="logOut">Cerrar sesión</button></span></a>
             </form>
             <?php
             if (isset($_POST['closeSession'])) {
@@ -105,23 +100,11 @@ $comunidades = [
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Agenda</title>
-        <style>
-          table,
-          td,
-          th {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-
-          td,
-          th {
-            padding: 0.2em;
-          }
-        </style>
+        
       </head>
 
       <body>
-        <h1>Agenda de <?= ucfirst($users[$_SESSION['email']]['username']) ?></h1>
+        <h2>Agenda de <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></h2>
 
 
         <?php
