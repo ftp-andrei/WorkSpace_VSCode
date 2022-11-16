@@ -1,0 +1,26 @@
+$_SESSION, session_start() entre otras
+-----
+
+$_COOKIE, setcookie() entre otras
+-----
+
+Setter
+-----
+
+Como se definen las clases y emplean objetos
+-----
+
+Que errores define PHP y jerarquia
+-----
+
+Como extender excepciones
+-----
+
+clases Exception
+-----
+
+funciones password_hash, password_verify
+-----
+
+Funcionamiento XDebug
+-----
