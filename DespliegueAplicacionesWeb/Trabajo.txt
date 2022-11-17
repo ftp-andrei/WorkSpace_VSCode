@@ -31,4 +31,3 @@ Tipos de servidores
     -Servidores primarios o maestro
     -Servidores secundarios o esclavos
     -Serviores locales o Cache
-
