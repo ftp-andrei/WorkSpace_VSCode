@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Datos personales</legend>
+      <label>Nombre</label> <input type="text" id="nombre" /> <br />
+      <label>Apellidos</label> <input type="text" id="apellidos" /> <br />
+      <label>Fecha de nacimiento</label>
+      <input type="date" id="edad" /> <br />
+      <label>Genero</label>
+      <input type="radio" name="genero" checked id="hombre" /><label
+        >Hombre</label
+      >
+      <input type="radio" name="genero" id="mujer" /> <label>Mujer</label>
+      <input type="radio" name="genero" id="otro" />
+      <label>Otro</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Datos bancarios</legend>
+      <label>IBAN</label>
+      <input
+        type="number"
+        name="dc1"
+        id="dc1"
+        placeholder="Dígito de Control"
+        title="Dígito de Control"
+      />
+      <input
+        type="number"
+        name="cb"
+        id="cb"
+        placeholder="Código de Banco"
+        title="Código de Banco"
+      />
+      <input
+        type="number"
+        name="sc"
+        id="sc"
+        placeholder="Sucursal de la Cuenta"
+        title="Sucursal de la Cuenta"
+      />
+      <input
+        type="number"
+        name="dc2"
+        id="dc2"
+        placeholder="Dígito de Control"
+        title="Dígito de Control"
+      />
+      <input
+        type="number"
+        name="nc"
+        id="nc"
+        placeholder="Número de cuenta"
+        title="Número de cuenta"
+      /><br />
+      <label>Password</label> <input type="password" id="pass" />
+    </fieldset>
+    <button type="submit" onclick="checar()">Registrar</button>
+    <a href="tabla.html"><button type="submit">MostrarTabla</button></a>
+  </body>
+</html>
