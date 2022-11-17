@@ -1,0 +1,34 @@
+TareaDAW2: Ekon2020
+Libro: Despligue de Aplicaciones de Sintesis, portada roja
+
+Apuntes
+------
+
+IP
+------
+Es el nombre propio del host. Lo que utilizamos para reconocernos en la red. 4 grupos de numeros que identifican los host
+
+Host
+-------
+Cada una de las partes que se conectan a la red. Ej: impresora, cascos...
+
+Que es un servidor maestro y esclavo
+-------
+Es el mismo servidor pero la diferencia es que el esclavo no funciona hasta que necesite ayuda el maestro. Es decir, uno es adaptable y otro copia.
+
+Cache
+------
+Lo unico que hace es guardar consultas que ya se han hecho en el maestro.
+
+Ventajas de usar DNS
+------
+    -No hay duplicidad
+    -Desaparece la carga excesiva en la red y en los host. BBDD distribuida y jerarquica
+    -Coherencia de la información
+
+Tipos de servidores
+------
+    -Servidores primarios o maestro
+    -Servidores secundarios o esclavos
+    -Serviores locales o Cache
+
