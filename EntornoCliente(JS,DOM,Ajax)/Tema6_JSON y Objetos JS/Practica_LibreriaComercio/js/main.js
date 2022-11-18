@@ -9,7 +9,7 @@ localStorage.clear();
 
 
 */
-`use strict`;
+"use strict";
 const arrayLibros = [];
 
 class Libro {
