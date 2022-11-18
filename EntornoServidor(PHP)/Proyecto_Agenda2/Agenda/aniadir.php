@@ -27,14 +27,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/css/style.css" rel="stylesheet" />
+
   <link href="assets/css/stylish.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
+  <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
 <body style="background:#e1fcff">
@@ -47,7 +47,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="index.html">nombre usuario con sesion activa</a>
+        <a href="index.php">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
@@ -61,12 +61,6 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           </li>
           <li>
             <a href="" class="nav-link scrollto active"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
-          </li>
-          <li>
-            <a href="modificar.php" class="nav-link scrollto"><i class="bx bx-user-check"></i> <span>Modificar contacto</span></a>
-          </li>
-          <li>
-            <a href="eliminar.php" class="nav-link scrollto"><i class="bx bx-trash"></i> <span>Eliminar contacto</span></a>
           </li>
           <hr />
           <li>
@@ -83,7 +77,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-      <form id="contact-form" method="post" action="contact.php" role="form">
+      <form id="contact-form" method="post" action="" role="form">
         <div class="row">
           <div class="col-md-12">
             <h3 class="animate-charcter"> Añadir Contacto</h3>
@@ -94,14 +88,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
             <div class="col-md-6">
               <div class="form-group">
                 <p> <label for="form_name">Nombre</label>
-                  <input id="form_name" type="text" name="name" class="form-control" placeholder="Introduce su nombre...">
+                  <input id="form_name" type="text" name="nombre" class="form-control" placeholder="Introduce su nombre...">
                 </p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <p> <label for="form_lastname">Apellidos</label>
-                  <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Introduce sus apellidos...">
+                  <input id="form_lastname" type="text" name="apellidos" class="form-control" placeholder="Introduce sus apellidos...">
                 </p>
               </div>
             </div>
@@ -111,14 +105,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           <div class="col-md-6">
             <div class="form-group">
               <p> <label for="form_message">Correo electrónico</label>
-                <input class="form-control" type="email" placeholder="Introduce su correo electrónico...">
+                <input class="form-control" type="email" name="eCorreo" placeholder="Introduce su correo electrónico...">
               </p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <p> <label for="form_tfno">Teléfono</label>
-                <input id="form_tfno" type="tel" name="phone" class="form-control" placeholder="Introduce su número de teléfono...">
+                <input id="form_tfno" type="tel" name="tlfno" class="form-control" placeholder="Introduce su número de teléfono...">
               </p>
             </div>
           </div>
@@ -127,7 +121,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           <div class="col-md-6">
             <div class="form-group">
               <p> <label for="form_need">Fecha de nacimiento</label>
-                <input class="form-control" type="date">
+                <input class="form-control" type="date" name="fNac">
               </p>
             </div>
           </div>
@@ -141,7 +135,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
         </div>
         <div class="row">
           <div class="col-md-12">
-            <button style=" float:right" class="btn btn-primary">Añadir</button>
+            <button type="submit" style=" float:right" class="btn btn-primary" name="aniadirOK">Añadir</button>
           </div>
         </div>
     </div>
@@ -150,8 +144,8 @@ $agenda = unserialize(file_get_contents($fileAgenda));
     <?php
     /* Aniadir */
     if (isset($_POST['aniadirOK'])) {
-      if (aniadir($_POST["tlfno"], $_POST["eCorreo"], $_POST["nombre"], $_POST["apellidos"], $_POST["ciudad"], $_POST["fNac"])) {
-        $aniadidoBien = 'Contacto aniadido correctamente';
+      if (aniadir($_POST["tlfno"], $_POST["eCorreo"], $_POST["nombre"], $_POST["apellidos"], $_POST["ciudad"], $_POST["fNac"], $fileAgenda)) {
+        echo "<h4 style='text-align:center'>Contacto añadido correctamente!</h4>";
       } else {
         $errorAniadido = 'Contacto repetido';
       }

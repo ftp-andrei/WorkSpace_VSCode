@@ -38,17 +38,16 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
-<body>
+<body style="background:#e1fcff">
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="index.html">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
+          <a href="index.php">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
@@ -62,12 +61,6 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           </li>
           <li>
             <a href="aniadir.php" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
-          </li>
-          <li>
-            <a href="modificar.php" class="nav-link scrollto"><i class="bx bx-user-check"></i> <span>Modificar contacto</span></a>
-          </li>
-          <li>
-            <a href="eliminar.php" class="nav-link scrollto"><i class="bx bx-trash"></i> <span>Eliminar contacto</span></a>
           </li>
           <hr />
           <li>
@@ -104,40 +97,62 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 
       <body>
 
-        <?php  ?>
+
 
 
         <?php
         if (!empty($agenda)) {
+
+
           echo <<< end
-          <form action="" method="POST">
-          <fieldset>
-            <legend>Buscar contacto</legend>
-            <p>
-              <label>Nombre
-                <input type="text" name="nombre" placeholder="Nombre" value=""></label>
-              <label>Apellidos
-                <input type="text" name="apellidos" placeholder="Apellidos" value=""></label>
-            </p>
-            <p>
-              <label for="ciudad">Ciudad</label>
+            <form action="" method="POST">
+            <fieldset>
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="animate-charcter"> Buscar Contacto </h3>
+              </div>
+            </div>
+              <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <p> <label for="form_name">Nombre</label>
+                    <input id="form_name" type="text" name="nombre" class="form-control" value="">
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <p> <label for="form_lastname">Apellidos</label>
+                    <input id="form_lastname" type="text" name="apellidos" class="form-control" value="">
+                  </p>
+                </div>
+              </div>
+            </div>
+              <p>
+                <label for="ciudad">Ciudad</label>
           end;
           selectComunidades();
           echo <<< end
-              </p>
-              <button type="submit" name="consultarOK">Consultar Contacto</button>
-            </fieldset>
-          </form>
+                </p>
+                <div class="row">
+              <div class="col-md-12">
+                <button type="submit" style=" float:right" class="btn btn-primary" name="consultarOK">Buscar</button>
+              </div>
+            </div>
+              </fieldset>
+            </form>
+            <br>
           end;
-          if (isset($_POST['consultarOK'])){
+          if (isset($_POST['consultarOK'])) {
             consultarContacto($_POST['nombre'], $_POST['apellidos'], $_POST['ciudad'], $agenda);
           }
         } else {
-          echo '<h2>Buscar contacto</h2>';
+          echo '<h3 class="animate-charcter"> Buscar Contacto </h3><br>';
           echo 'Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
         }
         ?>
       </body>
+
       </html>
     </div>
   </main>

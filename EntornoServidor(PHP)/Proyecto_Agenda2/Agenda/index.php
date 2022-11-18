@@ -34,11 +34,12 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
-<body>
+<body style="background:#e1fcff">
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
@@ -48,7 +49,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="index.html">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
+          <a href="">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
@@ -62,12 +63,6 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           </li>
           <li>
             <a href="aniadir.php" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
-          </li>
-          <li>
-            <a href="modificar.php" class="nav-link scrollto"><i class="bx bx-user-check"></i> <span>Modificar contacto</span></a>
-          </li>
-          <li>
-            <a href="eliminar.php" class="nav-link scrollto"><i class="bx bx-trash"></i> <span>Eliminar contacto</span></a>
           </li>
           <hr />
           <li>
@@ -91,33 +86,18 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-
-      <!DOCTYPE html>
-      <html lang="es">
-
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Agenda</title>
-        
-      </head>
-
-      <body>
-        <h2>Agenda de <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></h2>
+      <h3 class="animate-charcter">Agenda de <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></h3>
+      <?php
+      if (!empty($agenda)) {
+        mostrarAgenda($agenda);
+      } else {
+        echo '<br>Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
+      }
+      ?>
 
 
-        <?php
-        if (!empty($agenda)) {
-          mostrarAgenda($agenda);
-        } else {
-          echo 'Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
-        }
-        ?>
 
-      </body>
 
-      </html>
     </div>
   </main>
   <!-- End #main -->

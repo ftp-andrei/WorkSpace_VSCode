@@ -38,7 +38,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
-<body>
+<body style="background:#e1fcff">
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
@@ -63,12 +63,6 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           <li>
             <a href="aniadir.php" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
           </li>
-          <li>
-            <a href="" class="nav-link scrollto active"><i class="bx bx-user-check"></i> <span>Modificar contacto</span></a>
-          </li>
-          <li>
-            <a href="eliminar.php" class="nav-link scrollto"><i class="bx bx-trash"></i> <span>Eliminar contacto</span></a>
-          </li>
           <hr />
           <li>
             <form action="#" method="POST">
@@ -90,73 +84,90 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <!-- ======= Hero Section ======= -->
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-      <!DOCTYPE html>
-      <html lang="es">
 
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Agenda</title>
-        
-      </head>
 
-      <body>
-        <?php
-        /* Modificar */
-        if (!empty($agenda)) {
-          echo <<< end
-            <form action="" method="POST">
-            <fieldset>
-              <legend>Modificar contacto</legend>
-              <label>Nombre del contacto a modificar(*): <input type="text" name="nombreMod" placeholder="Nombre" value=""></label>
-              <label>Apellidos del contacto a modificar(*): <input type="text" name="apellidosMod" placeholder="Apellidos" value=""></label>
-              <label>Fecha de nacimiento: <input type="date" name="fnacMod" value=""></label>
-              <label>Número de teléfono: <input type="tel" name="tlfnoMod" value="" placeholder="El número nuevo"></label>
-              <label>Email: <input type="email" name="mailMod" value="" placeholder="El nuevo email"></label>
-          end;
-          selectComunidades();
-          echo isset($errorMod) ? '<span class="error" style="color:red">' . $errorMod . '</span>' : '';
-          echo <<< end
-              <button type="submit" name="okMod">Modificar</button>
-            </fieldset>
-          </form>
-          end;
-          if (isset($_POST['okMod'])) {
-            $nombreCompleto = $_POST['nombreMod'] . " " . $_POST['apellidosMod'];
-            $fnacMod = $_POST['fnacMod'];
-            $tlfnoMod = $_POST['tlfnoMod'];
-            $mailMod = $_POST['mailMod'];
-            $ciudadMod = $_POST['ciudadMod'];
-            if (isset($agenda[$nombreCompleto])) {
-              if (empty($fnacMod)) {
-                $fnacMod = $agenda[$nombreCompleto]['fnac'];
-              }
-              if (empty($tlfnoMod)) {
-                $tlfnoMod = $agenda[$nombreCompleto]['tlfno'];
-              }
-              if (empty($mailMod)) {
-                $mailMod = $agenda[$nombreCompleto]['mail'];
-              }
-              if (empty($ciudadMod)) {
-                $ciudadMod = $agenda[$nombreCompleto]['ciudad'];
-              }
-              modificar($tlfnoMod, $mailMod, $_POST['nombreMod'], $_POST['apellidosMod'], $ciudadMod, $fnacMod, $fileAgenda);
-            } else {
-              $errorMod = 'No existe el contacto ' . $_POST['nombreMod'] . ' ' . $_POST['apellidosMod'];
-            }
-          }
-        } else {
-          echo '<h2>Modificar contacto</h2>';
-          echo 'Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
-        }
 
-        ?>
-
-      </body>
-
-      </html>
+      <?php
+      $nombreCompleto = $_GET['nombre'] . " " . $_GET['apellidos'];
+      $fnacMod = $agenda[$nombreCompleto]['fnac'];
+      $tlfnoMod = $agenda[$nombreCompleto]['tlfno'];
+      $mailMod = $agenda[$nombreCompleto]['mail'];
+      $ciudadMod = $agenda[$nombreCompleto]['ciudad'];
+      ?>
+      <form id="contact-form" method="post" action="" role="form">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="animate-charcter"> Modificando: <?= $nombreCompleto ?></h3>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <p> <label for="form_name">Nombre</label>
+                  <input id="form_name" type="text" name="nombre" class="form-control" value="<?= $_GET['nombre'] ?>">
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <p> <label for="form_lastname">Apellidos</label>
+                  <input id="form_lastname" type="text" name="apellidos" class="form-control" value="<?= $_GET['apellidos'] ?>">
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <p> <label for="form_message">Correo electrónico</label>
+                <input class="form-control" type="email" name="eCorreo" value="<?= $mailMod ?>">
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <p> <label for="form_tfno">Teléfono</label>
+                <input id="form_tfno" type="tel" name="tlfno" class="form-control" value="<?= $tlfnoMod ?>">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <p> <label for="form_need">Fecha de nacimiento</label>
+                <input class="form-control" type="date" name="fNac" value="<?= $fnacMod ?>">
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <p> <label for="ciudad">Ciudades</label>
+                <?php selectComunidades($ciudadMod) ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" style=" float:right" class="btn btn-primary" name="modificarOK">Modificar</button>
+          </div>
+        </div>
     </div>
+    </form>
+    </div>
+    <?php
+    if (isset($_POST['modificarOK'])) {
+      if ($_GET['nombre'] != $_POST['nombre'] || $_GET['apellidos'] != $_POST['apellidos']) {
+        eliminar($_GET['nombre'], $_GET['apellidos'], $agenda);
+        aniadir($_POST['tlfno'], $_POST['eCorreo'], $_POST['nombre'], $_POST['apellidos'], $_POST['ciudad'], $_POST['fNac'], $fileAgenda);
+      } else {
+        modificar($_POST['tlfno'], $_POST['eCorreo'], $_POST['nombre'], $_POST['apellidos'], $_POST['ciudad'], $_POST['fNac'], $fileAgenda);
+      }
+    }
+    ?>
   </main>
   <!-- End #main -->
 

@@ -2,7 +2,7 @@
 function mostrarAgenda($param)
 {
     echo <<< end
-    <table>
+    <table class="table table-striped" style="background: white">
     <thead>
         <tr>
             <th scope="col" id="ciudad">Ciudad</th>
@@ -11,6 +11,8 @@ function mostrarAgenda($param)
             <th scope="col" id="fnac">Fecha de nacimiento</th>
             <th scope="col" id="tlfno">Teléfono</th>
             <th scope="col" id="email">Email</th>
+            <th scope="col" id="modificar">Modificar</th>
+            <th scope="col" id="eliminar">Eliminar</th>
         </tr>
     </thead>
     <tbody>
@@ -18,27 +20,27 @@ function mostrarAgenda($param)
     foreach ($param as $nombreapell => $contacto) {
         echo "
         <tr>
-            <td>" . $contacto['ciudad'] . "</td>
-            <td>" . $contacto['nombre'] . "</td>
-            <td>" . $contacto['apellidos'] . "</td>
-            <td>" . $contacto['fnac'] . "</td>
-            <td>" . $contacto['tlfno'] . "</td>
-            <td>" . $contacto['mail'] . "</td>
+                <td>" . $contacto['ciudad'] . "</td>
+                <td>" . $contacto['nombre'] . "</td>
+                <td>" . $contacto['apellidos'] . "</td>
+                <td>" . $contacto['fnac'] . "</td>
+                <td>" . $contacto['tlfno'] . "</td>
+                <td>" . $contacto['mail'] . "</td>
+                <td style='text-align:center'><a href='modificar.php?nombre=" . $contacto['nombre'] . "&apellidos=" . $contacto['apellidos'] . "'<i class='bx bx-user-check'></a></td>
+                <td style='text-align:center'><a href='eliminar.php?nombre=" . $contacto['nombre'] . "&apellidos=" . $contacto['apellidos'] . "'<i class='bx bx-trash' style='color:#FF0000'></a></td>
         </tr>";
     }
-
     echo "
     </tbody>
 </table> ";
 }
 
-function eliminar($nombre, $apellidos, $agenda)
+function eliminar($nombre, $apellidos, $agenda, $fileAgenda)
 {
     $nombreCompleto = htmlspecialchars($nombre . " " . $apellidos);
     unset($agenda[$nombreCompleto]);
-    file_put_contents('agenda.txt', serialize($agenda));
+    file_put_contents("$fileAgenda", serialize($agenda));
     echo "¡Persona eliminada! <br>";
-    mostrarAgenda($agenda);
 }
 
 function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAgenda)
@@ -78,17 +80,15 @@ function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAgen
         return false;
     } else {
         $contactoNuevo = ['ciudad' => $ciudad, 'nombre' => $nombre, 'apellidos' => $apellidos, 'fnac' => $fNac, 'tlfno' => $tfno, 'mail' => $eCorreo]; //Nuevo contacto
-
         $agenda[$contactoNuevo['nombre'] . " " . $contactoNuevo['apellidos']] = $contactoNuevo; // Añade contacto al array de agenda
         file_put_contents("$fileAgenda", serialize($agenda)); //Escribir el nuevo contacto en agenda.txt
-
-        mostrarAgenda($agenda);
         return true;
     }
 }
 
 function modificar($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAgenda)
 {
+
     if (empty($nombre) || empty($apellidos) || empty($ciudad) || empty($fNac)) {
         echo '<div class="error">';
         echo "<p>Faltan datos esenciales</p>";
@@ -178,7 +178,7 @@ function consultarContacto($nombre, $apellidos, $ciudad, $agenda)
 }
 
 
-function selectComunidades()
+function selectComunidades($selected = '')
 {
     $comunidades = [
         '', 'Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Zaragoza', 'Málaga', 'Murcia', 'Palma de Mayorca', 'Las Palma', 'Bilbao', 'Alicante', 'Córdoba', 'Valladolid', 'Vitoria', 'La Coruña',
@@ -189,8 +189,13 @@ function selectComunidades()
     echo '
         <select class="form-control" name="ciudad" id="ciudad">';
     foreach ($comunidades as $value) {
-        echo '<option value="';
-        echo $value . '">' . $value . "</option>";
+        if ($selected == $value) {
+            echo '<option value="';
+            echo $value . '" selected>' . $value . "</option>";
+        } else {
+            echo '<option value="';
+            echo $value . '">' . $value . "</option>";
+        }
     }
     echo "</select>";
 }
