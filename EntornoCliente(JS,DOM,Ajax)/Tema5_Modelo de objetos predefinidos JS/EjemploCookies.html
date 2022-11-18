@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function setCookie(data) {
+        localStorage.setItem("array", data);
+      }
+
+      function getCookie() {
+        return localStorage.getItem("array");
+      }
+
+      function checkCookie() {
+        data = [];
+        data.push(1);
+        setCookie(data);
+        localStorage.setItem("otroArray", []);
+        localStorage.setItem("unString", "Esto es un string que me hace falta");
+        newData = getCookie();
+
+        alert(newData);
+      }
+    </script>
+  </head>
+
+  <body onload="checkCookie()"></body>
+</html>
