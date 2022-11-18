@@ -1,5 +1,16 @@
 Libro: Despligue de Aplicaciones de Sintesis, portada roja
 
+EXAMEN 
+------
+Entra hasta donde lleguemos el dia de antes del examen.
+Las preguntas pueden ser de entender: 
+Pj: Nos pone una definicion (no del libro, sino una equivalencia). y poner verdadero o falso, o decir cuales son las validas, o de rellenar el gap.
+O de multimarca (varias opciones validas).
+Ejemplo pregunta: Lista a un lado titulos, lista a un lado definiciones.
+Otro ejemplo: direccion basica localhost (y tendremos que poner los numeros)
+Tambien podran entrar cosas que se hayan dicho en clase (que haya desarrollado ella un poco mas, de los enlaces por ejemplo)
+------
+
 Apuntes
 ------
 
@@ -11,6 +22,12 @@ Host
 -------
 Cada una de las partes que se conectan a la red. Ej: impresora, cascos...
 
+Tipos de servidores
+------
+    -Servidores primarios o maestro
+    -Servidores secundarios o esclavos
+    -Serviores locales o Cache
+
 Que es un servidor maestro y esclavo
 -------
 Es el mismo servidor pero la diferencia es que el esclavo no funciona hasta que necesite ayuda el maestro. Es decir, uno es adaptable y otro copia.
@@ -19,14 +36,113 @@ Cache
 ------
 Lo unico que hace es guardar consultas que ya se han hecho en el maestro.
 
+DNS
+------
+Sistema de Nombres de Dominio (Domain Name System). Traduce nombres de url (ej: amazon.com) a direccion IP.
+
+Tipos de registro DNS
+------
+A -> Traduce nombres de dominio a direcciones IP. Ej amazon.com > XXXX.XXXX.XXXX
+PRT -> Traduce direcciones IP a nombres de dominio. Ej 123.111.234.222 > amazon.com
+MX -> Asocia un nombre de dominio a un servidor de correo. A menor numero mayor preferencia.
+CNAME -> Alias que se asigna a un host que tiene una direccion IP
+NS -> Define los servidores principales de un dominio (debe haber 1 al menos)
+SOA -> Primer registro de la zona. Solo puede haber 1 configurado. Pieza clave del archivo de zona.
+TXT -> Ofrece informacion adicional a un dominio
+SPF -> Se utiliza para evitar suplantacion de identidad
+
+Busqueda directa e inversa
+------
+
+
 Ventajas de usar DNS
 ------
     -No hay duplicidad
     -Desaparece la carga excesiva en la red y en los host. BBDD distribuida y jerarquica
     -Coherencia de la información
 
-Tipos de servidores
+Comandos para tratar IP
 ------
-    -Servidores primarios o maestro
-    -Servidores secundarios o esclavos
-    -Serviores locales o Cache
+ifconfig -> muestra y modifica la configuracion de la red
+ifconfig eth0 -> visualiza la configuracion de la interfaz eth0
+ifconfig eth0 down/up -> activa o desactiva la interfaz eth0
+ifconfig eth0 add XXXX.XXXX.XXXX.XXXX -> configura la ip de la interfaz eth0
+ifconfig eth0 mask 255.255.255.0 -> configura la mascara de la interfaz eth0
+ifconfig eth0 promisc -> activa modo promiscuo (sniffer) de la interfaz eth0
+ifconfig eth0 -promisc -> desactiva modo promiscuo (sniffer) de la interfaz eth0
+ifconfig eth0 hw ether xx:xx:xx:xx:xx:xx -> cambia la mac de la interfaz eth0
+
+
+Acerca de bind9
+------
+service bind9 status/start/stop/restart -> Comprobar que el servicio DNS se a instalado correctamente
+
+named.conf -> es el primer fichero que lee. Este fichero incluye:
+
+    -named.conf.options -> define la cache de nuestro DNS. Por lo general son los servidores DNS de nuestro ISP, Google ..etc
+
+    -named.conf.local -> define las zonas de busqueda directa e inversa. Las nuevas zonas tambien se definen.
+
+    -named.conf.zones -> define las zonas por defecto.
+
+Opciones que posee fichero de zona directa
+------
+STTL (Time to Live) -> indica la duracion en segundos que se conservaran los datos en cache
+Nombre_zona -> Deben acabar en punto, de lo contrario dará error.
+IN -> Opcion obsoleta. Es la clase de Internet.
+SOA (Start of Authority) ->  Indica que el servidor actual es propietario y legitimo de la zona.
+Serial -> Numero de serie del archivo. Se usa cuando la zona se replica a otros servidores
+Refresh -> El intervalo con el que se comprueba la validez. Se usa cuando la zona se replica a un servidor esclavo. Las modificaciones solo se realizan en el maestro.
+Retry -> Indica el timepo que pasa hasta que contacta el servidor esclavo con el maestro.
+Expire -> Indica cuantos segundos como maximo retendrá los registros antes de expirarlos.
+Negative -> Indica cuanto tiempo debe consevar en la cache la respuesta negativa
+NS -> Indica cual es el servidor de nombres de esa zona
+
+Comandos comprobacion DNS funciona
+------
+nslookup -> Consulta zona directa e inversa.
+
+dig -> Lo mismo pero le tiene que poner la IP o el nombre de dominio y realizar consultas de zona directa o inversa. Se usa para gestion de redes
+
+Funciones basicas de un directorio
+------
+-Buscar informacion
+-Gestionar informacion
+-Control de seguridad
+    -Creacion
+    -Distribucion
+    -Destruccion
+    -Ubicacion
+
+Cada directorio tiene un nivel de acceso.
+
+Organizacion LDAP
+------
+Los directorios pueden ser:
+
+Centralizados: Se canalizan en 1 unico servidor.
+Distribuido: Esta dividida en varios servidores.
+    -Informacion fraccionada
+    -Informacion replicada
+
+LDAP (Lightweight Directory Access Protocol) -> Surge como alternativa a DAP. Funciones LDAP:
+    -Usa TCP/IP
+    -Represanta la informacion mediante cadenas de caracteres
+    -Es mas simple que X.500
+
+Estructura ASN.1 -> Norma para representar datos. Nivel presentacion capa OSI.
+
+Caracterísiticas LDAP:
+    -Multiplataforma
+    -Licencia libre
+    -Basado en estandar X.500
+    -DIT
+    -Soporta IPv3, esquema distribuido 
+    -UTF8
+    -Integracion con otras apps en Linux
+    -Mecanismos de busqueda avanzados
+
+Puntos de vista LDAP:
+    -Modelo informacion: Da forma a la estructura de informacion almacenada en LDAP 
+    -Modelo referencia: Primero se organizan las entradas y posteriormente se indica como acceder a las mismas
+
