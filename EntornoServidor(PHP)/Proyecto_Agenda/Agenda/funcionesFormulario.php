@@ -141,7 +141,7 @@ function consultarContacto($nombreCompleto, $ciudad, $agenda)
                 $resultado[] = $contacto;
             }
         }
-        
+
         mostrarAgenda($resultado);
     } else {
         echo "Debes introducir un nombre o ciudad!";

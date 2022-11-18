@@ -28,8 +28,6 @@ $resultado = "3- Mi nombre es " . $nombre . " y estudio " . $estudios;
 
     echo "1- Mi nombre es Andrei y estudio DAW2 <br>" . $nombreVariable . $resultado;
     ?>
-
-    // echo, print
 </body>
 
 </html>

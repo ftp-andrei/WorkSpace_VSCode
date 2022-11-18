@@ -1,3 +1,14 @@
+/* Objeto window ALEJARSE DE EL
+
+Usar Local.storage
+
+localStorage.setItem('nombre', 'Juan');
+localStorage.getItem('nombre');
+localStorage.removeItem('nombre');
+localStorage.clear();
+
+
+*/
 function crear() {
   let libro = {
     nombre: document.getElementById("nombre").value,
