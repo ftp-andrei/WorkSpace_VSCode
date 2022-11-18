@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de objetos</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Vehículos</legend>
+            <label>Nombre: <input type="text" id="nombre"></label>
+            <label>Bastidor: <input type="text" id="bastidor"></label> <br>
+            <label>Color: <input type="color" id="color"></label>
+            <label>Imagen: <input type="file" id="foto"></label><br>
+            <label><input type="radio" name="vehiculo" value="coche" id="coche" checked
+                    onclick="displayTodo()">Coche</label>
+            <label><input type="radio" name="vehiculo" value="moto" id="moto" onclick="displayTodo()">Moto</label>
+            <label><input type="radio" name="vehiculo" value="furgoneta" id="furgoneta"
+                    onclick="displayTodo()">Furgoneta</label><br>
+
+            <div id="radioFurgoneta" style="display:none ;">
+                <label><input type="radio" name="tipoFurgo" value="Cosa" id="furgoCosa" checked>Cosa</label>
+                <label><input type="radio" name="tipoFurgo" value="Cosa2" id="furgoCosa2">Cosa2</label>
+                <label><input type="radio" name="tipoFurgo" value="Camper" id="camper">Camper</label><br>
+            </div>
+
+            <div id="radioMoto" style="display:none ;">
+                <label><input type="radio" name="tipoMoto" value="125cc" id="125cc" checked>125cc</label>
+                <label><input type="radio" name="tipoMoto" value="650cc" id="650cc">650cc</label>
+                <label><input type="radio" name="tipoMoto" value="1000cc" id="1000cc">1000cc</label><br>
+            </div>
+
+            <div id="radioCoche" style="display:none ;">
+                <label><input type="radio" name="tipoCoche" value="Seat" id="Seat" checked>Seat</label>
+                <label><input type="radio" name="tipoCoche" value="Suzuki" id="Suzuki">Suzuki</label>
+                <label><input type="radio" name="tipoCoche" value="Samurai" id="Samurai">Samurai</label><br>
+            </div>
+
+            <button onclick="concesionario()">Enviar</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>
