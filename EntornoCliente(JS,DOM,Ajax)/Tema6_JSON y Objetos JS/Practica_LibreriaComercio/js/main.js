@@ -44,7 +44,6 @@ function mostrarLibros() {
     let tr = document.createElement("tr");
     let td = document.createElement("td");
     let th = document.createElement("th");
-    let br = document.createElement("br");
     let trTituloTabla = document.createTextNode(JSON.parse(arr[i]).titulo);
     th.appendChild(trTituloTabla);
     tr.appendChild(th);
