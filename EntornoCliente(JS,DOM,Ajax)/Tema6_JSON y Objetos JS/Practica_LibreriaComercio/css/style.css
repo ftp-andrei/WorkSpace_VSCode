@@ -73,6 +73,7 @@ input {
 
 table {
   margin: auto;
+  width: 60%;
 }
 
 table th {
@@ -95,4 +96,5 @@ th {
 td {
   display: block;
   background-color: #ffff;
+  text-align: left;
 }
