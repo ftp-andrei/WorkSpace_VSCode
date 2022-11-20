@@ -46,45 +46,44 @@ function mostrarLibros() {
     let td = document.createElement("td");
     let th = document.createElement("th");
     let br = document.createElement("br");
-    let trTituloTabla = document.createTextNode(JSON.parse(arr[i]).titulo);
 
+    tabla.appendChild(br);
+
+    let trTituloTabla = document.createTextNode(JSON.parse(arr[i]).titulo);
     th.appendChild(trTituloTabla);
     tr.appendChild(th);
-
     tabla.appendChild(tr);
 
     tr = document.createElement("tr");
-
     td = document.createElement("td");
     let tdNombreTabla = document.createTextNode(
       "Nombre Autor: " + JSON.parse(arr[i]).nombre
     );
+
     td.appendChild(tdNombreTabla);
     tr.appendChild(td);
-
     tabla.appendChild(tr);
 
     tr = document.createElement("tr");
-
     td = document.createElement("td");
     let tdPaginasTabla = document.createTextNode(
       "Paginas: " + JSON.parse(arr[i]).paginas
     );
+
     td.appendChild(tdPaginasTabla);
     tr.appendChild(td);
-
     tabla.appendChild(tr);
 
     tr = document.createElement("tr");
-
     td = document.createElement("td");
     let tdPrestadoTabla = document.createTextNode(
       "Prestado: " + JSON.parse(arr[i]).prestado
     );
+
     td.appendChild(tdPrestadoTabla);
     tr.appendChild(td);
+    tabla.appendChild(tr);
 
-    tabla.appendChild(tr).appendChild(br);
     contenedor.appendChild(tabla);
   }
 }
