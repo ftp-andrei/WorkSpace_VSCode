@@ -34,53 +34,39 @@ function crearLibro() {
   let nombre = document.getElementById("nombre").value;
   let paginas = document.getElementById("paginas").value;
   let prestado = document.getElementById("checkboxPrestado").checked;
+  let nuevoLibro = null;
 
-  const nuevoLibro = new Libro(titulo, nombre, paginas, prestado);
-  arrayLibros.push(JSON.parse(nuevoLibro));
-  //localStorage.setItem(titulo, JSON.stringify(arrayLibros));
+  nuevoLibro = new Libro(titulo, nombre, paginas, prestado);
+
+  localStorage.setItem(localStorage.length, JSON.stringify(nuevoLibro));
 }
 
-// function mostrarLibros() {
-//   let resultado = document.getElementById("wrapMain").value;
-//   for (let i = 0; i < arrayLibros.length; i++) {
-//     resultado.insertAdjacentHTML("afterbegin", arrayLibros[i] + "\n");
-//   }
-// }
+function recuperarDatosArray() {
+  let len = localStorage.length;
+  for (let i = 0; i < len; i++) {
+    arrayLibros[i] = localStorage[i];
+  }
+  return arrayLibros;
+}
 
 function mostrarLibros() {
-  let crearTabla;
-  let cabecera;
-  let bodyTabla;
+  let arr = recuperarDatosArray();
+  // recuperamos el arrLibros
 
-  arrayLibros.forEach((element) => {
-    crearTabla = document.createElement("table");
+  for (let i = 0; i < arr.length; i++) {
+    const contenedor = document.getElementById("wrapMain");
+    const tabla = document.createElement("table");
+    let tr = document.createElement("tr");
+    let td = document.createElement("td");
+    let th = document.createElement("th");
 
-    cabecera = document
-      .createElement("thead")
-      .appendChild(document.createElement("tr"))
-      .appendChild(document.createElement("th"));
-
-    bodyTabla = document
-      .createElement("tbody")
-      .appendChild(document.createElement("td"));
-
-    /**
-     * Cambiar el crearTabla de abajo por los componentes y valores de cabeza y bodyTabla respectivamente
-     *
-     * Ejemplo:
-     *
-     * cabecera.innerText = JSON.stringify(TITULO);
-     * bodyTabla.innerText = JSON.stringify(NOMBRE,PAGINAS,PRESTADO);
-     */
-
-    crearTabla.innerText = JSON.stringify(element);
-
-    document
-      .getElementById("wrapMain")
-      .appendChild(crearTabla)
-      .appendChild(cabecera)
-      .appendChild(bodyTabla);
-  });
+    let trTxt = document.createTextNode(JSON.parse(arr[i]).titulo);
+    let tdTxt;
+    th.appendChild(trTxt);
+    tr.appendChild(th);
+    tabla.appendChild(tr);
+    contenedor.appendChild(tabla);
+  }
 }
 
 function soloNumeros(num) {
