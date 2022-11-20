@@ -1,13 +1,3 @@
-/* Objeto window ALEJARSE DE EL
-
-Usar Local.storage
-
-sessionStorage.setItem('nombre', 'Juan');
-sessionStorage.getItem('nombre');
-sessionStorage.removeItem('nombre');
-sessionStorage.clear();
-
-*/
 "use strict";
 const arrayLibros = [];
 
@@ -17,15 +7,6 @@ class Libro {
     this.nombre = nombre;
     this.paginas = paginas;
     this.prestado = prestado;
-  }
-
-  printDetails() {
-    console.log(`
-    Titulo: ${this.titulo},
-    Nombre: ${this.nombre},
-    Paginas: ${this.paginas},
-    Prestado: ${this.prestado},
-    `);
   }
 }
 
