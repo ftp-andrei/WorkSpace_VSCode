@@ -35,7 +35,6 @@ body {
 }
 
 #wrapMain {
-  display: block;
   text-align: center;
 }
 
@@ -76,12 +75,9 @@ table {
   width: 60%;
 }
 
-table th {
-  border: 1px solid black;
-}
-
-table td {
-  border: 1px solid black;
+td,
+th {
+  border: 1px solid;
 }
 
 th {
@@ -94,7 +90,6 @@ th {
 }
 
 td {
-  display: block;
   background-color: #ffff;
   text-align: left;
 }

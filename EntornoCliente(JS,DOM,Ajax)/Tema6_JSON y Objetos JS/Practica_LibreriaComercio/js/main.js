@@ -14,8 +14,8 @@ function crearLibro() {
   let titulo = document.getElementById("titulo").value;
   let nombre = document.getElementById("nombre").value;
   let paginas = document.getElementById("paginas").value;
-  let prestado = "";
-  if (document.getElementById("checkboxPrestado").checked) {
+  let prestado = document.getElementById("checkboxPrestado");
+  if (prestado.checked) {
     prestado = "Si";
   } else {
     prestado = "No";
@@ -30,21 +30,24 @@ function crearLibro() {
 function recuperarDatosArray() {
   let len = sessionStorage.length;
   for (let i = 0; i < len; i++) {
-    arrayLibros[i] = sessionStorage[i];
+    arrayLibros[i] = sessionStorage.getItem(i);
   }
+
   return arrayLibros;
 }
 
 function mostrarLibros() {
   let arr = recuperarDatosArray();
 
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const contenedor = document.getElementById("wrapMain");
     const tabla = document.createElement("table");
     let tr = document.createElement("tr");
     let td = document.createElement("td");
     let th = document.createElement("th");
+    let br = document.createElement("br");
     let trTituloTabla = document.createTextNode(JSON.parse(arr[i]).titulo);
+
     th.appendChild(trTituloTabla);
     tr.appendChild(th);
 
@@ -81,8 +84,7 @@ function mostrarLibros() {
     td.appendChild(tdPrestadoTabla);
     tr.appendChild(td);
 
-    tabla.appendChild(tr);
-
+    tabla.appendChild(tr).appendChild(br);
     contenedor.appendChild(tabla);
   }
 }
