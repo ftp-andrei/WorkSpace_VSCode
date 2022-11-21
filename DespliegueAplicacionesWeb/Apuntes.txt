@@ -9,6 +9,8 @@ O de multimarca (varias opciones validas).
 Ejemplo pregunta: Lista a un lado titulos, lista a un lado definiciones.
 Otro ejemplo: direccion basica localhost (y tendremos que poner los numeros)
 Tambien podran entrar cosas que se hayan dicho en clase (que haya desarrollado ella un poco mas, de los enlaces por ejemplo)
+
+El examen de ellos constan de 13 preguntas (lleva la mitad, el nuestro será parecido)
 ------
 
 Apuntes
