@@ -4,12 +4,10 @@ Serialize
 Almacenamiento de valores en PHP sin perder su tipo y estructura.
 Al serializar objetos, PHP intentará llamar a las funciones miembro __serialize() o __sleep() antes de la serialización. Esto es para permitir que el objeto realice una limpieza de última hora, etc., antes de ser serializado
 
-
 -----
 Unserialice
 -----
 Para recuperar el valor PHP a partir de la cadena seriada, es decir, para cargar los datos.
-
 
 -----
 Filesystem
@@ -37,7 +35,6 @@ file_get_contents (
      ? En t $length=null
 ): cadena | falso
 
-
 -----
 Como se crea una funcion
 -----
@@ -46,7 +43,6 @@ Como se crea una funcion
       //Lo que hace la función.
    }
 ?>
-
 
 Variables Globales:
 
@@ -59,6 +55,3 @@ $_ENV - Matriz asociativa de variables de entorno del sistema operativo pasadas 
 $_SERVER - Matriz asociativa de variables del servidor pasadas al script (variable de entorno y variables del servidor HTTP especialmente)
 $_REQUEST - Matriz asociativa que combina las matrices $_GET, $_POST y $_COOKIE.
 $_SESSION - Matriz asociativa de datos de sesión accesible en el script 
-
-
-

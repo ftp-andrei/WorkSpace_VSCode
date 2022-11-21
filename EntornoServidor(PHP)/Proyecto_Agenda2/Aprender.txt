@@ -1,26 +1,146 @@
 $_SESSION, session_start() entre otras
 -----
+$_SESSION: Matriz que contiene variables de sesión disponibles. Es una variable superglobal.
+
+Listado funciones session: https://www.php.net/manual/en/ref.session.php
+
+- session_abort — Desecha los cambios en el array de sesión y finaliza la sesión
+- session_cache_expire — Devuelve la caducidad de la caché actual
+- session_cache_limiter — Obtener y/o establecer el limitador de caché actual
+- session_commit — Alias de session_write_close
+- session_create_id — Crear un nuevo ID de sesión
+- session_decode — Decodifica la información de sesión desde una cadena de sesión codificada
+- session_destroy — Destruye toda la información registrada de una sesión
+- session_encode — Codifica los datos de la sesión actual como un string codificado de sesión
+- session_gc — Realizar una recolección de basura de datos de sesión
+- session_get_cookie_params — Obtener los parámetros de la cookie de sesión
+- session_id — Obtener y/o establecer el id de sesión actual
+- session_module_name — Obtiene y/o establece el módulo de sesión actual
+- session_name — Obtener y/o establecer el nombre de la sesión actual
+- session_regenerate_id — Actualiza el id de sesión actual con uno generado más reciente
+- session_register_shutdown — Función de cierre de sesiones
+- session_reset — Reinicializar el array de sesión con los valores originales
+- session_save_path — Obtener y/o establecer la ruta de almacenamiento de la sesión actual
+- session_set_cookie_params — Establecer los parámetros de la cookie de sesión
+- session_set_save_handler — Establece funciones de almacenamiento de sesiones a nivel de usuario
+- session_start — Iniciar una nueva sesión o reanudar la existente
+- session_status — Devuelve el estado de la sesión actual
+- session_unset — Libera todas las variables de sesión
+- session_write_close — Escribir información de sesión y finalizar la sesión
 
 $_COOKIE, setcookie() entre otras
 -----
+$_COOKIE: Variable tipo array asociativo de variables pasadas al script actual a través de Cookies HTTP.
 
-Setter
+$HTTP_COOKIE_VARS contiene la misma información inicial, pero no es una superglobal.
+
+setcookie — Sirve para una cookie. Se puede enviar, eliminar.. A traves de este comando.
+
+session_get_cookie_params — Obtener los parámetros de la cookie de sesión. Devuelve:
+    "lifetime" - El tiempo de vida de la cookie en segundos.
+    "path" - La ruta donde se almacena la información.
+    "domain" - El dominio de la cookie.
+    "secure" - La cookie debería ser enviada solamente sobre conexiones seguras.
+    "httponly" - La cookie sólo puede ser accedida a través del protocolo HTTP.
+
+
+Getter y Setter
 -----
+Método get: método de acceso, solo devolverá el valor del atributo.
+Método set: método modificador, asignara un nuevo valor al atributo.
+
 
 Como se definen las clases y emplean objetos
 -----
+La definición básica de una clase comienza con la palabra reservada class, seguida de un nombre de clase, y continuando con un par de llaves que encierran las definiciones de las propiedades y métodos pertenecientes a dicha clase.
+
+El nombre de clase puede ser cualquier etiqueta válida, siempre que no sea una palabra reservada de PHP. 
+
+Una clase puede tener sus propias constantes, variables (llamadas "propiedades"), y funciones (llamados "métodos").
+
+**Llamar a un método no estático arroja estáticamente un Error.
+
 
 Que errores define PHP y jerarquia
 -----
+Los errores que se notifican y los que se ignoran se controla mediante la directiva error_reporting de php.ini, o durante la ejecución llamando a error_reporting(). Ejemplos error_reporting
+
+    // Desactivar toda notificación de error
+    error_reporting(0);
+
+    // Notificar solamente errores de ejecución
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+    // Notificar E_NOTICE también puede ser bueno (para informar de variables
+    // no inicializadas o capturar errores en nombres de variables ...)
+    error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+    // Notificar todos los errores excepto E_NOTICE
+    error_reporting(E_ALL ^ E_NOTICE);
+
+    // Notificar todos los errores de PHP (ver el registro de cambios)
+    error_reporting(E_ALL);
+
+    // Notificar todos los errores de PHP
+    error_reporting(-1);
+
+    // Lo mismo que error_reporting(E_ALL);
+    ini_set('error_reporting', E_ALL);
 
 Como extender excepciones
 -----
+Una clase de Excepción definida por el usuario puede ser definida ampliando la clase Exception interna. Los miembros y las propiedades de abajo muestran lo que es accesible dentro de la clase hija que deriva de la clase Exception interna. Se pone:
+
+class MiExcepción extends Exception
 
 clases Exception
 -----
+class Exception
+{
+    protected $message = 'Unknown exception';   // mensaje de excepción
+    private   $string;                          // caché de __toString
+    protected $code = 0;                        // código de excepción definido por el usuario
+    protected $file;                            // nombre de archivo fuente de la excepción
+    protected $line;                            // línea fuente de la excepción
+    private   $trace;                           // determinación del origen
+    private   $previous;                        // excepción previa si la excepción está anidada
+
+    public function __construct($message = null, $code = 0, Exception $previous = null);
+
+    final private function __clone();           // Inhibe la clonación de excepciones.
+
+    final public  function getMessage();        // mensaje de excepción
+    final public  function getCode();           // código de excepción
+    final public  function getFile();           // nombre de archivo fuente
+    final public  function getLine();           // línea fuente
+    final public  function getTrace();          // un array de backtrace()
+    final public  function getPrevious();       // excepción anterior
+    final public  function getTraceAsString();  // string formateado del seguimiento del origen
+
+    // Sobrescribible
+    public function __toString();               // string formateado para mostrar
+}
 
 funciones password_hash, password_verify
 -----
+    password_hash
+-----
+Crea un nuevo hash de contraseña usando un algoritmo de hash fuerte de único sentido. Es compatible con crypt(), por lo tanto, los hash de contraseñas creados con crypt() se pueden usar con password_hash().
+
+Actualmente se admiten los siguientes algoritmos: PASSWORD_DEFAULT y PASSWORD_BCRYPT.
+
+**La opción salt está obsoleta
+-----
+    password_verify
+-----
+Comprueba que el hash proporcionado coincida con la contraseña facilitada. Es compatible con crypt(), por lo tanto, los hashes de contraseñas creados por crypt() pueden utilizarse con password_verify().
 
 Funcionamiento XDebug
 -----
+Xdebug es una extensión para PHP y proporciona una variedad de funciones como:
+
+    -Depurar paso a paso
+    -Mejoras en el informe de errores (var_dump())
+    -Rastreo a la asignacion de variables y valores
+    -Analizar el rendimiento de la aplicacion
+    -Mostrar que partes del codigo se ejecutan en Pruebas unitarias (PHP Unit)
