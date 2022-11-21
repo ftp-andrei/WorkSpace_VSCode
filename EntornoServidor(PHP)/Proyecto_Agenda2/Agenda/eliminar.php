@@ -48,14 +48,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="index.php">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
+          <a href="inicio.php">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li>
-            <a href="index.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
+            <a href="inicio.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
           </li>
           <li>
             <a href="buscar.php" class="nav-link scrollto"><i class="bx bx-search"></i> <span>Buscar contacto</span></a>
@@ -113,14 +113,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           </div>
           <div class="row">
             <div class="col-md-6">
-              <button type="submit" style=" float:right" class="btn btn-primary" name="confirmarOK">Confirmar y Borrar</button><a href="index.php" style=" float:right; margin: 0em 1em 0em 0em"><i style="size:2em" class="bx bx-arrow-back"></i>Salir</a>
+              <button type="submit" style=" float:right" class="btn btn-primary" name="confirmarOK">Confirmar y Borrar</button><a href="inicio.php" style=" float:right; margin: 0em 1em 0em 0em"><i style="size:2em" class="bx bx-arrow-back"></i>Salir</a>
             </div>
           </div>
 
         </fieldset>
       </form>
       <?php
-      if(isset($_POST['confirmarOK'])){
+      if (isset($_POST['confirmarOK'])) {
         eliminar($_GET['nombre'], $_GET['apellidos'], $agenda, $fileAgenda);
       }
       ?>

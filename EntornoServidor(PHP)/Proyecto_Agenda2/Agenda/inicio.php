@@ -34,6 +34,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
@@ -48,14 +49,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="inicio.html">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
+          <a href="">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li>
-            <a href="inicio.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
+            <a href="" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Inicio</span></a>
           </li>
           <li>
             <a href="buscar.php" class="nav-link scrollto "><i class="bx bx-search"></i> <span>Buscar contacto</span></a>
@@ -82,92 +83,22 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <!-- Fin Header -->
 
   <!-- ======= Hero Section ======= -->
+
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-
-
-
+      <h3 class="animate-charcter">Agenda de <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></h3>
       <?php
-      $nombreCompleto = $_GET['nombre'] . " " . $_GET['apellidos'];
-      $fnacMod = $agenda[$nombreCompleto]['fnac'];
-      $tlfnoMod = $agenda[$nombreCompleto]['tlfno'];
-      $mailMod = $agenda[$nombreCompleto]['mail'];
-      $ciudadMod = $agenda[$nombreCompleto]['ciudad'];
-      ?>
-      <form id="contact-form" method="post" action="" role="form">
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="animate-charcter"> Modificando: <?= $nombreCompleto ?></h3>
-          </div>
-        </div>
-        <div class="controls">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <p> <label for="form_name">Nombre</label>
-                  <input id="form_name" type="text" name="nombre" class="form-control" value="<?= $_GET['nombre'] ?>">
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <p> <label for="form_lastname">Apellidos</label>
-                  <input id="form_lastname" type="text" name="apellidos" class="form-control" value="<?= $_GET['apellidos'] ?>">
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <p> <label for="form_message">Correo electrónico</label>
-                <input class="form-control" type="email" name="eCorreo" value="<?= $mailMod ?>">
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <p> <label for="form_tfno">Teléfono</label>
-                <input id="form_tfno" type="tel" name="tlfno" class="form-control" value="<?= $tlfnoMod ?>">
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <p> <label for="form_need">Fecha de nacimiento</label>
-                <input class="form-control" type="date" name="fNac" value="<?= $fnacMod ?>">
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <p> <label for="ciudad">Ciudades</label>
-                <?php selectComunidades($ciudadMod) ?>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <button type="submit" style=" float:right" class="btn btn-primary" name="modificarOK">Modificar</button>
-          </div>
-        </div>
-    </div>
-    </form>
-    </div>
-    <?php
-    if (isset($_POST['modificarOK'])) {
-      if ($_GET['nombre'] != $_POST['nombre'] || $_GET['apellidos'] != $_POST['apellidos']) {
-        eliminar($_GET['nombre'], $_GET['apellidos'], $agenda, $fileAgenda);
-        aniadir($_POST['tlfno'], $_POST['eCorreo'], $_POST['nombre'], $_POST['apellidos'], $_POST['ciudad'], $_POST['fNac'], $fileAgenda);
+      if (!empty($agenda)) {
+        mostrarAgenda($agenda);
       } else {
-        modificar($_POST['tlfno'], $_POST['eCorreo'], $_POST['nombre'], $_POST['apellidos'], $_POST['ciudad'], $_POST['fNac'], $fileAgenda);
+        echo '<br>Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
       }
-    }
-    ?>
+      ?>
+
+
+
+
+    </div>
   </main>
   <!-- End #main -->
 
@@ -178,7 +109,6 @@ $agenda = unserialize(file_get_contents($fileAgenda));
         &copy; Copyright <strong><span>Equipo 2</span></strong>
       </div>
       <div class="credits">
-
         Designed by <a href="https://bootstrapmade.com/">Equipo 2</a>
       </div>
     </div>

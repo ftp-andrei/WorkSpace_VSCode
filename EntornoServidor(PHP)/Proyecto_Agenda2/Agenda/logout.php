@@ -38,14 +38,14 @@
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="index.html">nombre usuario con sesion activa</a>
+          <a href="inicio.html">nombre usuario con sesion activa</a>
         </h1>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li>
-            <a href="index.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
+            <a href="inicio.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
           </li>
           <li>
             <a href="buscar.php" class="nav-link scrollto "><i class="bx bx-search"></i> <span>Buscar contacto</span></a>

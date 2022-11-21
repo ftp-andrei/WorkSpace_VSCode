@@ -238,7 +238,7 @@ function aniadirUsuario($email, $pass, $username, $userSurname, $nickname, $addr
         $users[$email] = $newUser;
         file_put_contents("users.txt", serialize($users));
         file_put_contents('users/' . $email . '.txt', '');
-        header('Location: ./login.php');
+        header('Location: ./index.php');
         return true;
     }
 }
@@ -247,5 +247,5 @@ function closeSession()
 {
     session_unset();
     session_destroy();
-    header("Location: login.php");
+    header("Location: index.php");
 }

@@ -65,7 +65,7 @@ session_start();
                 </form>
                 <p class="mb-0">
                   ¿Ya tienes una cuenta creada?
-                  <a href="login.php" class="text-white-50 fw-bold">Vuelve al login</a>
+                  <a href="index.php" class="text-white-50 fw-bold">Vuelve al login</a>
                 </p>
               </div>
             </div>
