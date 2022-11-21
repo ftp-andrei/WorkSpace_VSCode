@@ -64,7 +64,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           </li>
           <hr />
           <li>
-            <a href="logout.php" class="nav-link scrollto"><i class="bx bx-log-out"></i> <span>Cerrar sesión</span></a>
+            <form action="#" method="POST">
+              <a class="nav-link scrollto"><i class="bx bx-log-out"></i> <span><button type="submit" name="closeSession" id="logOut">Cerrar sesión</button></span></a>
+            </form>
+            <?php
+            if (isset($_POST['closeSession'])) {
+              closeSession();
+            }
+            ?>
           </li>
         </ul>
       </nav>
