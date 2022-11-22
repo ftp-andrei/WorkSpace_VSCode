@@ -64,6 +64,11 @@ $agenda = unserialize(file_get_contents($fileAgenda));
           <li>
             <a href="aniadir.php" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
           </li>
+          <?= $users[$_SESSION['email']]['role']=='role_admin'? '
+            <li>
+            <a href="gestionUsuarios.php" class="nav-link scrollto"><i class="bx bx-show"></i> <span>Gestionar usuarios</span></a>
+            </li>':'' 
+          ?>
           <hr />
           <li>
             <form action="#" method="POST">

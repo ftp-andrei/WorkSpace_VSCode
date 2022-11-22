@@ -35,12 +35,55 @@ function mostrarAgenda($param)
 </table> ";
 }
 
+function mostrarUsuarios($param)
+{
+    echo <<< end
+    <table class="table table-striped" style="background: white">
+    <thead>
+        <tr>
+            <th scope="col" id="email">Email</th>
+            <th scope="col" id="pass">Contraseña</th>
+            <th scope="col" id="username">Nombre</th>
+            <th scope="col" id="userSurname">Apellidos</th>
+            <th scope="col" id="nickname">Nickname</th>
+            <th scope="col" id="address">Dirección</th>
+            <th scope="col" id="phoneNumber">Teléfono</th>
+            <th scope="col" id="modificar">Modificar</th>
+            <th scope="col" id="eliminar">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+    end;
+    foreach ($param as $email => $user) {
+        echo "
+        <tr>
+                <td>" . $email . "</td>
+                <td>" . 'Prohibido' . "</td>
+                <td>" . $user['username'] . "</td>
+                <td>" . $user['userSurname'] . "</td>
+                <td>" . $user['nickname'] . "</td>
+                <td>" . $user['address'] . "</td>
+                <td>" . $user['phoneNumber'] . "</td>
+                <td style='text-align:center'><a href='modificarUsuario.php?email=" . $email . "'<i class='bx bx-user-check'></a></td>
+                <td style='text-align:center'><a href='eliminarUsuario.php?email=" . $email . "'<i class='bx bx-trash' style='color:#FF0000'></a></td>
+        </tr>";
+    }
+    echo "
+    </tbody>
+</table> ";
+}
+
 function eliminar($nombre, $apellidos, $agenda, $fileAgenda)
 {
     $nombreCompleto = htmlspecialchars($nombre . " " . $apellidos);
     unset($agenda[$nombreCompleto]);
     file_put_contents("$fileAgenda", serialize($agenda));
-    echo "¡Persona eliminada! <br>";
+}
+
+function eliminarUsuario($email, $users, $fileUsers)
+{
+    unset($users[$email]);
+    file_put_contents("$fileUsers", serialize($users));
 }
 
 function aniadir($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAgenda)
@@ -121,7 +164,6 @@ function modificar($tfno, $eCorreo, $nombre, $apellidos, $ciudad, $fNac, $fileAg
     $contactoNuevo = ['ciudad' => $ciudad, 'nombre' => $nombre, 'apellidos' => $apellidos, 'fnac' => $fNac, 'tlfno' => $tfno, 'mail' => $eCorreo]; //Nuevo contacto
     $agenda[$contactoNuevo['nombre'] . " " . $contactoNuevo['apellidos']] = $contactoNuevo; // Añade contacto al array de agenda
     file_put_contents("$fileAgenda", serialize($agenda)); //Escribir el nuevo contacto en agenda.txt
-    mostrarAgenda($agenda);
 }
 
 function consultarContacto($nombre, $apellidos, $ciudad, $agenda)
@@ -241,6 +283,31 @@ function aniadirUsuario($email, $pass, $username, $userSurname, $nickname, $addr
         header('Location: ./index.php');
         return true;
     }
+}
+
+function modificarUsuario($email, $pass, $nickname,$role='role_user',  $username='', $userSurname='', $address='', $phoneNumber=''): bool
+{
+    if (empty($email) ||empty($nickname) || empty($pass)) {
+        echo '<div class="error">';
+        echo "<p>Faltan datos esenciales</p>";
+        echo '</div>';
+        exit;
+    }
+
+    $users = unserialize(file_get_contents("users.txt")); 
+    $newUser = ['username' => '', 'pass' => $pass, 'userSurname' => '', 'nickname' => $nickname, 'address' => '', 'phoneNumber' => '', 'role' => 'role_user'];
+    if(isset($users[$email])){
+        //aqui meter añadirUsuario eliminandouser y añadiendo
+        eliminarUsuario($email, $users, "users.txt");
+        aniadirUsuario($email, $pass, $username, $userSurname, $nickname, $address, $phoneNumber);
+        $user[$email]['role'] = $role;
+    }else{
+        //aqui meter pisar el user
+        $users[$email] = $newUser; 
+    }
+    
+    file_put_contents("users.txt", serialize($users));
+    return true; 
 }
 
 function closeSession()

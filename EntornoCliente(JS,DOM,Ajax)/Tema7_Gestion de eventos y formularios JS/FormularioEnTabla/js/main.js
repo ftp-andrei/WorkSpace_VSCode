@@ -18,6 +18,4 @@ function checar() {
   let pass = document.getElementById("pass").value;
 }
 
-function mostrarTabla() {
-  alert("Hola");
-}
+function mostrarTabla() {}

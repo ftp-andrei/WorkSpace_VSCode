@@ -34,6 +34,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
@@ -48,7 +49,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
       <div class="profile">
         <img src="assets/img/icon.png" alt="" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="inicio.php">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
+          <a href="">Bienvenid@ <?= ucfirst($users[$_SESSION['email']]['nickname']) ?></a>
         </h1>
       </div>
 
@@ -58,11 +59,16 @@ $agenda = unserialize(file_get_contents($fileAgenda));
             <a href="inicio.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
           </li>
           <li>
-            <a href="buscar.php" class="nav-link scrollto"><i class="bx bx-search"></i> <span>Buscar contacto</span></a>
+            <a href="buscar.php" class="nav-link scrollto "><i class="bx bx-search"></i> <span>Buscar contacto</span></a>
           </li>
           <li>
             <a href="aniadir.php" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
           </li>
+          <?= $users[$_SESSION['email']]['role']=='role_admin'? '
+            <li>
+            <a href="" class="nav-link scrollto active"><i class="bx bx-show"></i> <span>Gestionar usuarios</span></a>
+            </li>':'' 
+          ?>
           <hr />
           <li>
             <form action="#" method="POST">
@@ -85,45 +91,14 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-      <form action="" method="POST">
-        <fieldset>
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="animate-charcter"> ¿Eliminar a <?= $_GET['nombre'] ?> <?= $_GET['apellidos'] ?> ?</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <p> <label for="form_name">Nombre</label>
-                  <input id="form_name" type="text" name="nombre" class="form-control" value="<?= $_GET['nombre'] ?>" disabled>
-                </p>
-              </div>
-            </div>
-
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <p> <label for="form_lastname">Apellidos</label>
-                  <input id="form_lastname" type="text" name="apellidos" class="form-control" value="<?= $_GET['apellidos'] ?>" disabled>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <button type="submit" style=" float:right" class="btn btn-primary" name="confirmarOK">Confirmar y Borrar</button><a href="inicio.php" style=" float:right; margin: 0em 1em 0em 0em"><i style="size:2em" class="bx bx-arrow-back"></i>Salir</a>
-            </div>
-          </div>
-
-        </fieldset>
-      </form>
+      <h3 class="animate-charcter">Gestión de Usuarios</h3>
       <?php
-      if (isset($_POST['confirmarOK'])) {
-        eliminar($_GET['nombre'], $_GET['apellidos'], $agenda, $fileAgenda);
-      }
+        mostrarUsuarios($users);
       ?>
+
+
+
+
     </div>
   </main>
   <!-- End #main -->
@@ -135,7 +110,6 @@ $agenda = unserialize(file_get_contents($fileAgenda));
         &copy; Copyright <strong><span>Equipo 2</span></strong>
       </div>
       <div class="credits">
-
         Designed by <a href="https://bootstrapmade.com/">Equipo 2</a>
       </div>
     </div>

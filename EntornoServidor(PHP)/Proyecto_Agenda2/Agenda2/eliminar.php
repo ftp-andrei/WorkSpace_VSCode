@@ -41,6 +41,7 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 <body style="background:#e1fcff">
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
@@ -57,11 +58,16 @@ $agenda = unserialize(file_get_contents($fileAgenda));
             <a href="inicio.php" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Inicio</span></a>
           </li>
           <li>
-            <a href="" class="nav-link scrollto active"><i class="bx bx-search"></i> <span>Buscar contacto</span></a>
+            <a href="buscar.php" class="nav-link scrollto"><i class="bx bx-search"></i> <span>Buscar contacto</span></a>
           </li>
           <li>
             <a href="aniadir.php" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Añadir contacto</span></a>
           </li>
+          <?= $users[$_SESSION['email']]['role']=='role_admin'? '
+            <li>
+            <a href="gestionUsuarios.php" class="nav-link scrollto"><i class="bx bx-show"></i> <span>Gestionar usuarios</span></a>
+            </li>':'' 
+          ?>
           <hr />
           <li>
             <form action="#" method="POST">
@@ -84,76 +90,46 @@ $agenda = unserialize(file_get_contents($fileAgenda));
 
   <main id="main">
     <div class="container" style="padding: 5%; height: auto">
-      <!DOCTYPE html>
-      <html lang="es">
-
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Agenda</title>
-
-      </head>
-
-      <body>
-
-
-
-
-        <?php
-        if (!empty($agenda)) {
-
-
-          echo <<< end
-            <form action="" method="POST">
-            <fieldset>
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="animate-charcter"> Buscar Contacto </h3>
-              </div>
+      <form action="" method="POST">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="animate-charcter"> ¿Eliminar a <?= $_GET['nombre'] ?> <?= $_GET['apellidos'] ?> ?</h3>
             </div>
-              <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <p> <label for="form_name">Nombre</label>
-                    <input id="form_name" type="text" name="nombre" class="form-control" value="">
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <p> <label for="form_lastname">Apellidos</label>
-                    <input id="form_lastname" type="text" name="apellidos" class="form-control" value="">
-                  </p>
-                </div>
-              </div>
-            </div>
-              <p>
-                <label for="ciudad">Ciudad</label>
-          end;
-          selectComunidades();
-          echo <<< end
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <p> <label for="form_name">Nombre</label>
+                  <input id="form_name" type="text" name="nombre" class="form-control" value="<?= $_GET['nombre'] ?>" disabled>
                 </p>
-                <div class="row">
-              <div class="col-md-12">
-                <button type="submit" style=" float:right" class="btn btn-primary" name="consultarOK">Buscar</button>
               </div>
             </div>
-              </fieldset>
-            </form>
-            <br>
-          end;
-          if (isset($_POST['consultarOK'])) {
-            consultarContacto($_POST['nombre'], $_POST['apellidos'], $_POST['ciudad'], $agenda);
-          }
-        } else {
-          echo '<h3 class="animate-charcter"> Buscar Contacto </h3><br>';
-          echo 'Tu agenda está vacía,<a href="aniadir.php"> añade contactos </a>.';
-        }
-        ?>
-      </body>
 
-      </html>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <p> <label for="form_lastname">Apellidos</label>
+                  <input id="form_lastname" type="text" name="apellidos" class="form-control" value="<?= $_GET['apellidos'] ?>" disabled>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <button type="submit" style=" float:right" class="btn btn-primary" name="confirmarOK">Confirmar y Borrar</button><a href="inicio.php" style=" float:right; margin: 0em 1em 0em 0em"><i style="size:2em" class="bx bx-arrow-back"></i>Salir</a>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+      <?php
+      if (isset($_POST['confirmarOK'])) {
+        eliminar($_GET['nombre'], $_GET['apellidos'], $agenda, $fileAgenda);
+        echo "¡Persona eliminada! <br>";
+      }
+      ?>
     </div>
   </main>
   <!-- End #main -->
