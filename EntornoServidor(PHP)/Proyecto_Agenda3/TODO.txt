@@ -1,0 +1,1 @@
+Securizacion : Detectar que usuarios se esta metiendo donde, y mostrar errores (401, echar.. etc).
