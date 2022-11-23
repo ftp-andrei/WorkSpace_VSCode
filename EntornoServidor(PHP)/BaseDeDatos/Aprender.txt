@@ -1,0 +1,30 @@
+Patron mvc (Modelo Vista Controlador) -> 
+
+    -Codigo de Modelo -> Regla de negocio y persistencia. Interfaz con SGBD.
+    -Codigo de Vista -> HTML
+    -Codigo de Controlador -> Ejecucion de codigo en la app
+
+La idea es separar el codigo en subfunciones.
+
+Podemos tener un Directorio de Vista, un Modelo y un Controlador
+Y en los frameworks el Modelo y Controlador son clases
+
+Tenemos por un lado el FrontEnd y el BackEnd
+
+Front -> Parte cliente, meter JS. Es el index (puede estar en cualquier lado). Misiones front:
+    - Que no se vea en la barra, es decir, decidir que controlar responde a la interacción del usuario. Siempre se verá index.php (Muchos include). 
+    
+    TEORIA NAMESPACE. A traves de namespace nos ahorramos los includes. 
+    ASP Upload Register -> Se dedica a juntar includes.
+
+¿Como decide el frontEnd a que peticion responder del usuario?
+Con un array (clave-valor), y con la URL (index.php, clave-valor)
+
+Back -> Parte servidor, proteccion sistema operativo de servidor.
+
+En la agenda tendremos el index (fontEnd) y 3 directorios (las vistas, el modelo y el controlador)
+
+En la vista habrá 2 archivos ->
+    -base (Aspecto corporativo del sitio). Header, nav.. etc. No se repite en ningun otro sitio. Ningun tipo de estructura. Hay que evitar mandar nada antes de que se manden las cabeceras. 
+    Lo primero que hay que hacer es crear un back. (<?php ob_start(); ?>)
+    -
