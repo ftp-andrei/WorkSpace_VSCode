@@ -15,7 +15,8 @@ El examen de ellos constan de 13 preguntas (lleva la mitad, el nuestro será par
 
 Apuntes
 ------
-
+1.1 Introduccion
+------
 IP
 ------
 Es el nombre propio del host. Lo que utilizamos para reconocernos en la red. 4 grupos de numeros que identifican los host
@@ -24,7 +25,24 @@ Host
 -------
 Cada una de las partes que se conectan a la red. Ej: impresora, cascos...
 
-Tipos de servidores
+1.2 Sistema de nombre de dominio
+------
+
+Niveles de dominio
+------
+1er nivel
+2do nivel
+3er nivel
+
+1.3 Zonas de busqueda tipos de servidores DNS y registros
+------
+
+Busqueda directa e inversa
+------
+Busqueda directa:
+Busqueda inversa:
+
+1.3.1 Tipos de servidores
 ------
     -Servidores primarios o maestro
     -Servidores secundarios o esclavos
@@ -42,8 +60,10 @@ DNS
 ------
 Sistema de Nombres de Dominio (Domain Name System). Traduce nombres de url (ej: amazon.com) a direccion IP.
 
-Tipos de registro DNS
+1.3.2 Registros DNS
 ------
+Tipos de registro:
+
 A -> Traduce nombres de dominio a direcciones IP. Ej amazon.com > XXXX.XXXX.XXXX
 PRT -> Traduce direcciones IP a nombres de dominio. Ej 123.111.234.222 > amazon.com
 MX -> Asocia un nombre de dominio a un servidor de correo. A menor numero mayor preferencia.
@@ -53,9 +73,8 @@ SOA -> Primer registro de la zona. Solo puede haber 1 configurado. Pieza clave d
 TXT -> Ofrece informacion adicional a un dominio
 SPF -> Se utiliza para evitar suplantacion de identidad
 
-Busqueda directa e inversa
+1.4 Funcionamiento DNS
 ------
-
 
 Ventajas de usar DNS
 ------
@@ -63,6 +82,15 @@ Ventajas de usar DNS
     -Desaparece la carga excesiva en la red y en los host. BBDD distribuida y jerarquica
     -Coherencia de la información
 
+
+Tipos de consultas
+------
+Consulta recursiva:
+Consulta iterativa:
+Consulta inversa:
+
+1.5 Instalacion y configuracion servicio DNS 
+------
 Comandos para tratar IP
 ------
 ifconfig -> muestra y modifica la configuracion de la red
@@ -118,28 +146,42 @@ Funciones basicas de un directorio
 
 Cada directorio tiene un nivel de acceso.
 
-Organizacion LDAP
+1.6 Servicio de directorio
+------
+Directorio -> Base de datos preparada para navegar,leer y buscar informacion. A un nombre le corresponden unos datos. Funciones básicas:
+    -Buscar informacion
+    -Gestionar informacion (Agregar,editar o borrar campos)
+    -Control de seguridad (Control de acceso de los usuarios)
+        -Creacion
+        -Distribucion
+        -Destruccion
+        -Ubicacion
+
+1.7 Organizacion de LDAP
 ------
 Los directorios pueden ser:
 
 Centralizados: Se canalizan en 1 unico servidor.
+    -Ventaja: No necesita sincronizarse
+    -Desventaja: Si cae se pierde todo
 Distribuido: Esta dividida en varios servidores.
     -Informacion fraccionada
     -Informacion replicada
 
 LDAP (Lightweight Directory Access Protocol) -> Surge como alternativa a DAP. Funciones LDAP:
-    -Usa TCP/IP
-    -Represanta la informacion mediante cadenas de caracteres
-    -Es mas simple que X.500
-
-Estructura ASN.1 -> Norma para representar datos. Nivel presentacion capa OSI.
+    -Usa TCP/IP en lugar de OSI
+    -Informacion mediante cadenas de caracteres en lugar de ASN.1
+    -Es mas simple que X.500 
+    
+**X.500 -> Conjunto de estandares, un protocolo de la capa de Aplicación.
+**Estructura ASN.1 -> Norma para representar datos. Nivel presentacion capa OSI.
 
 Caracterísiticas LDAP:
     -Multiplataforma
     -Licencia libre
     -Basado en estandar X.500
-    -DIT
-    -Soporta IPv3, esquema distribuido 
+    -Estructura arbol (DIT)
+    -Soporta IPv3, LDAPv3 y esquema distribuido 
     -UTF8
     -Integracion con otras apps en Linux
     -Mecanismos de busqueda avanzados
@@ -148,3 +190,5 @@ Puntos de vista LDAP:
     -Modelo informacion: Da forma a la estructura de informacion almacenada en LDAP 
     -Modelo referencia: Primero se organizan las entradas y posteriormente se indica como acceder a las mismas
 
+1.8 Archivos basicos de configuracion y uso 
+------
