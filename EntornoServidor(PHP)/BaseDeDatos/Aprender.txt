@@ -1,6 +1,6 @@
 Patron mvc (Modelo Vista Controlador) -> 
 
-    -Codigo de Modelo -> Regla de negocio y persistencia. Interfaz con SGBD.
+    -Codigo de Modelo -> Clases dedicadas a regla de negocio y persistencia. Interfaz con SGBD.
     -Codigo de Vista -> HTML
     -Codigo de Controlador -> Ejecucion de codigo en la app
 
@@ -16,6 +16,16 @@ Front -> Parte cliente, meter JS. Es el index (puede estar en cualquier lado). M
     
     TEORIA NAMESPACE. A traves de namespace nos ahorramos los includes. 
     ASP Upload Register -> Se dedica a juntar includes.
+    Hemos estado trabajando con el NAMESPACE global.
+
+Distinguir entre nombres cualificados (Cuando tenemos namespace) y nombre corto.
+
+USAR use a un namespace para usarlo.
+El use permite usar un nombre mas corto, ejemplo: En vez de 'asdf/ghjlk/mldfglda' solo poner 'asd';
+
+Modelo y controlador con NameSpace, en vista NO.
+
+Otro de los objetivos de namespace: Evitar colision nombres.
 
 ¿Como decide el frontEnd a que peticion responder del usuario?
 Con un array (clave-valor), y con la URL (index.php, clave-valor)
@@ -43,3 +53,9 @@ PDO statement:
         -bindParam: Enlace dinamico. Muy eficiente, es para inserciones.
         -bindValue: Enlace una variable a un valor
         -bindColumn: Enlaza una variable a una columna
+
+Consulta fija y dinamica
+------
+Fija: Si alguien cambia datos no te enteras
+Dinamica: Si alguien cambia datos si te enteras
+

@@ -1,4 +1,5 @@
 <?php
+// Estructura excepciones
 class UsuarioException extends Exception
 {
     private array $error = [];

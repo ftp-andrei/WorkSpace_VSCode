@@ -3,8 +3,11 @@
 $sqli = 'INSERT INTO Production.Location(name,CostRate,Availability,ModifiedDate) VALUES (:nombre,:ratio,:disponibilidad,:fecha)';
 
 try {
-    //iniciamos conexion
+    //iniciamos conexion.
+    //Cuando solo hay 1 instancia, "local es equivalente a la instancia predeterminada.
+    //Los 2 campos vacios ultimos son usuario y contraseña.
     $con = new PDO('sqlsrv:server=(local);database=AdventureWorks2019', "", "");
+    //Usamos ERRMode para usar trycatch.
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Preparamos la sentencia sql
     $stn = $con->prepare($sqli);
