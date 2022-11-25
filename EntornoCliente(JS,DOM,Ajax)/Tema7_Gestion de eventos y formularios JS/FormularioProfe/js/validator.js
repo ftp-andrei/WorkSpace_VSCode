@@ -1,6 +1,6 @@
 "use strict";
 
-const VOWEL_TILDE = new Array('á', 'é', 'í', 'ó', 'ú');
+const VOWEL_TILDE = new Array("á", "é", "í", "ó", "ú");
 
 export function checkIfElementValueIsEmpty(element, nombreElemento) {
   if (element === null || element === undefined || element === "") {
@@ -22,7 +22,7 @@ export function checkPassword(element) {
     return `The password need to have one capital letter and one digit <br>`;
   }
 
-  const containsVowelsWithTilde = VOWEL_TILDE.some(x => {
+  const containsVowelsWithTilde = VOWEL_TILDE.some((x) => {
     return element.toLowerCase().includes(x);
   });
 
@@ -31,7 +31,6 @@ export function checkPassword(element) {
   }
   return "";
 }
-
 
 export function checkIsOlderThanEighteen(date) {
   date = new Date(date);
@@ -54,4 +53,13 @@ export function checkIfIsCorrectIban(iban) {
     return "The iban need to be spanish with 24 numbers <br>";
   }
   return "";
+}
+
+export function soloNumeros(event) {
+  var code = event ? event.which : event.keyCode;
+  if (code == 8 || (code >= 48 && code <= 57)) {
+    return;
+  }
+
+  event.preventDefault();
 }
