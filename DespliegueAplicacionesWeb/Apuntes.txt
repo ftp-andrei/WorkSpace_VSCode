@@ -1,5 +1,7 @@
 Libro: Despligue de Aplicaciones de Sintesis, portada roja
 
++Apuntes -> https://linube.com/ayuda/articulo/193/tipos-de-registro-dns
+
 EXAMEN 
 ------
 Entra hasta donde lleguemos el dia de antes del examen.
@@ -11,6 +13,14 @@ Otro ejemplo: direccion basica localhost (y tendremos que poner los numeros)
 Tambien podran entrar cosas que se hayan dicho en clase (que haya desarrollado ella un poco mas, de los enlaces por ejemplo)
 
 El examen de ellos constan de 13 preguntas (lleva la mitad, el nuestro será parecido)
+
+Sintaxis LDIF Examen:
+
+Podría poner una sintaxis y pregunta ¿esto está bien?.
+Ejemplo: Poner OU al principio -> No estaría bien, primero va el dn. 
+O poner la sintaxis y preguntar donde esta el fallo.
+
+
 ------
 
 Apuntes
@@ -39,14 +49,14 @@ Niveles de dominio
 
 Busqueda directa e inversa
 ------
-Busqueda directa:
-Busqueda inversa:
+Busqueda directa: Busca por nombre AMAZON.COM y se traduce a IP.
+Busqueda inversa: Buscar por IP, y que se traduzca a nombre AMAZON.COM (Lo lleva el PTR)
 
 1.3.1 Tipos de servidores
 ------
-    -Servidores primarios o maestro
-    -Servidores secundarios o esclavos
-    -Serviores locales o Cache
+    -Servidores primarios o maestro: Lectura y escritura. Tiene autoridad sobre zona.
+    -Servidores secundarios o esclavos: Copia del maestro. Actua cuando el maestro no responde.
+    -Serviores locales o cache: Mejoran los tiempos de respuesta.
 
 Que es un servidor maestro y esclavo
 -------
@@ -56,18 +66,18 @@ Cache
 ------
 Lo unico que hace es guardar consultas que ya se han hecho en el maestro.
 
+1.3.2 Registros DNS
+------
 DNS
 ------
 Sistema de Nombres de Dominio (Domain Name System). Traduce nombres de url (ej: amazon.com) a direccion IP.
 
-1.3.2 Registros DNS
-------
-Tipos de registro:
-
+Tipos de registro
+-------
 A -> Traduce nombres de dominio a direcciones IP. Ej amazon.com > XXXX.XXXX.XXXX
 PRT -> Traduce direcciones IP a nombres de dominio. Ej 123.111.234.222 > amazon.com
 MX -> Asocia un nombre de dominio a un servidor de correo. A menor numero mayor preferencia.
-CNAME -> Alias que se asigna a un host que tiene una direccion IP
+CNAME -> Alias que se asigna a un host que tiene una direccion IP Ej. Alias.new.com CNAME nombre.new.com , 
 NS -> Define los servidores principales de un dominio (debe haber 1 al menos)
 SOA -> Primer registro de la zona. Solo puede haber 1 configurado. Pieza clave del archivo de zona.
 TXT -> Ofrece informacion adicional a un dominio
@@ -85,9 +95,9 @@ Ventajas de usar DNS
 
 Tipos de consultas
 ------
-Consulta recursiva:
-Consulta iterativa:
-Consulta inversa:
+Consulta recursiva: 
+Consulta iterativa: 
+Consulta inversa: 
 
 1.5 Instalacion y configuracion servicio DNS 
 ------
@@ -192,3 +202,15 @@ Puntos de vista LDAP:
 
 1.8 Archivos basicos de configuracion y uso 
 ------
+
+LDIF -> Formato de intercambio de datos. Es una extension de archivo usada para almacenar datos del directorio LDAP. En resumen, es un archivo con extension ldif, y el LDAP lo reconoce.
+
+Sintaxis LDIF
+------
+Ejemplo sintaxis:
+    dn: dc=example,dc=com -> Direccion donde encontrarlo
+    ou=Users -> Grupo
+    ou=Computers -> Grupo
+    ou=Groups -> Grupo
+
+RFC -> Documento donde se encuentran normas. Sobre las 8500 normas.
