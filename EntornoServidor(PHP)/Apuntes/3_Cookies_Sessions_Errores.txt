@@ -60,6 +60,29 @@ Una clase puede tener sus propias constantes, variables (llamadas "propiedades")
 
 **Llamar a un método no estático arroja estáticamente un Error.
 
+Crear objeto
+-----
+<?php
+class foo
+{
+    function hacer_algo()
+    {
+        echo "Haciendo algo."; 
+    }
+}
+
+$bar = new foo;
+$bar->hacer_algo();
+?>
+
+Conversion a un objeto
+-----
+<?php
+$obj = (object) array('1' => 'foo');
+var_dump(isset($obj->{'1'})); // muestra 'bool(true)'
+var_dump(key($obj)); // muestra 'string(1)'
+?>
+
 
 Que errores define PHP y jerarquia
 -----
