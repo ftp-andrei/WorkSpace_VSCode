@@ -12,7 +12,10 @@ Ejemplo pregunta: Lista a un lado titulos, lista a un lado definiciones.
 Otro ejemplo: direccion basica localhost (y tendremos que poner los numeros)
 Tambien podran entrar cosas que se hayan dicho en clase (que haya desarrollado ella un poco mas, de los enlaces por ejemplo)
 
-El examen de ellos constan de 13 preguntas (lleva la mitad, el nuestro será parecido)
+El examen consta de unas 33 preguntas.
+
+Preguntas archivos DNS, posiblidad de que sea relacional
+1 pregunta de cada powerpoint (de los que presentaron)
 
 Sintaxis LDIF Examen:
 
@@ -40,9 +43,9 @@ Cada una de las partes que se conectan a la red. Ej: impresora, cascos...
 
 Niveles de dominio
 ------
-1er nivel
-2do nivel
-3er nivel
+1er nivel: Los que acaban en .com,.gob,.org..etc
+2do nivel: Los referentes a un pais (.es España, .uk Reino Unido..)
+3er nivel: Corresponden al tipo .com.es, org.es,gob.es.. etc
 
 1.3 Zonas de busqueda tipos de servidores DNS y registros
 ------
@@ -56,15 +59,11 @@ Busqueda inversa: Buscar por IP, y que se traduzca a nombre AMAZON.COM (Lo lleva
 ------
     -Servidores primarios o maestro: Lectura y escritura. Tiene autoridad sobre zona.
     -Servidores secundarios o esclavos: Copia del maestro. Actua cuando el maestro no responde.
-    -Serviores locales o cache: Mejoran los tiempos de respuesta.
+    -Serviores locales o cache: Mejoran los tiempos de respuesta. Guardan consultas que ya se han hecho en el maestro
 
 Que es un servidor maestro y esclavo
 -------
 Es el mismo servidor pero la diferencia es que el esclavo no funciona hasta que necesite ayuda el maestro. Es decir, uno es adaptable y otro copia.
-
-Cache
-------
-Lo unico que hace es guardar consultas que ya se han hecho en el maestro.
 
 1.3.2 Registros DNS
 ------
@@ -72,12 +71,12 @@ DNS
 ------
 Sistema de Nombres de Dominio (Domain Name System). Traduce nombres de url (ej: amazon.com) a direccion IP.
 
-Tipos de registro
+Tipos de registro (Tipos archivos)
 -------
 A -> Traduce nombres de dominio a direcciones IP. Ej amazon.com > XXXX.XXXX.XXXX
 PRT -> Traduce direcciones IP a nombres de dominio. Ej 123.111.234.222 > amazon.com
 MX -> Asocia un nombre de dominio a un servidor de correo. A menor numero mayor preferencia.
-CNAME -> Alias que se asigna a un host que tiene una direccion IP Ej. Alias.new.com CNAME nombre.new.com , 
+CNAME -> Alias que se asigna a un host que tiene una direccion IP. No se asocia a un nombre, sino a un dominio Ej. Alias.new.com CNAME nombre.new.com.
 NS -> Define los servidores principales de un dominio (debe haber 1 al menos)
 SOA -> Primer registro de la zona. Solo puede haber 1 configurado. Pieza clave del archivo de zona.
 TXT -> Ofrece informacion adicional a un dominio
@@ -92,12 +91,15 @@ Ventajas de usar DNS
     -Desaparece la carga excesiva en la red y en los host. BBDD distribuida y jerarquica
     -Coherencia de la información
 
+etc/host -> Identificar una IP, para no buscarla e ir directamente.
 
-Tipos de consultas
-------
-Consulta recursiva: 
-Consulta iterativa: 
-Consulta inversa: 
+Tipos de consultas (No va a preguntar)
+-----
+Consulta recursiva -> Busca hasta encontrarlo. Primero en el PC, luego en el .es (2do nivel), y luego en el .com (1er nivel).
+Consulta iterativa -> Responde de forma parcial.
+Consulta inversa -> Hacer una consulta con ping, 
+    -Con nombre, devuelve ip.
+    -Con ip, no devuelve el nombre (amazon.es).
 
 1.5 Instalacion y configuracion servicio DNS 
 ------
