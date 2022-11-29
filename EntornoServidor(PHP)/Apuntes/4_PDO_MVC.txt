@@ -11,36 +11,37 @@ Y en los frameworks el Modelo y Controlador son clases
 
 Tenemos por un lado el FrontEnd y el BackEnd
 
-Front -> Parte cliente, meter JS. Es el index (puede estar en cualquier lado). Misiones front:
-    - Que no se vea en la barra, es decir, decidir que controlar responde a la interacción del usuario. Siempre se verá index.php (Muchos include). 
-    
-    TEORIA NAMESPACE. A traves de namespace nos ahorramos los includes. 
-    ASP Upload Register -> Se dedica a juntar includes.
-    Hemos estado trabajando con el NAMESPACE global.
+Front -> Parte cliente, meter JS. Es el index (puede estar en cualquier lado). 
+    Misiones front:
+        - Que no se vea en la barra, es decir, decidir que controlar responde a la interacción del usuario. Siempre se verá index.php (Muchos include). 
+        
+        TEORIA NAMESPACE. A traves de namespace nos ahorramos los includes. 
+        ASP Upload Register -> Se dedica a juntar includes.
+        Hemos estado trabajando con el NAMESPACE global.
 
-Distinguir entre nombres cualificados (Cuando tenemos namespace) y nombre corto.
+    Distinguir entre nombres cualificados (Cuando tenemos namespace) y nombre corto.
 
-USAR use a un namespace para usarlo.
-El use permite usar un nombre mas corto, ejemplo: En vez de 'asdf/ghjlk/mldfglda' solo poner 'asd';
+    USAR use a un namespace para usarlo.
+    El use permite usar un nombre mas corto, ejemplo: En vez de 'asdf/ghjlk/mldfglda' solo poner 'asd';
 
-Modelo y controlador con NameSpace, en vista NO.
+    Modelo y controlador con NameSpace, en vista NO.
 
-Otro de los objetivos de namespace: Evitar colision nombres.
+    Otro de los objetivos de namespace: Evitar colision nombres.
 
-¿Como decide el frontEnd a que peticion responder del usuario?
-Con un array (clave-valor), y con la URL (index.php, clave-valor)
+    ¿Como decide el frontEnd a que peticion responder del usuario?
+    Con un array (clave-valor), y con la URL (index.php, clave-valor)
 
 Back -> Parte servidor, proteccion sistema operativo de servidor.
 
-En la agenda tendremos el index (fontEnd) y 3 directorios (las vistas, el modelo y el controlador)
+    En la agenda tendremos el index (fontEnd) y 3 directorios (las vistas, el modelo y el controlador)
 
-En la vista habrá 2 archivos ->
-    -base (Aspecto corporativo del sitio). Header, nav.. etc. No se repite en ningun otro sitio. Ningun tipo de estructura. Hay que evitar mandar nada antes de que se manden las cabeceras. 
-    Lo primero que hay que hacer es crear un back. (<?php ob_start(); ?>)
-    -
+    En la vista habrá 2 archivos ->
+        -base (Aspecto corporativo del sitio). Header, nav.. etc. No se repite en ningun otro sitio. Ningun tipo de estructura. Hay que evitar mandar nada antes de que se manden las cabeceras. 
+        Lo primero que hay que hacer es crear un back. (<?php ob_start(); ?>)
+        -
 
 Clase PDO (pag 5632):
-
+------
 execute = ejecutamos las sentencias
 beginTransaction = comienzo de una transaccion
 lastInserId = ultimo id asignado
@@ -48,6 +49,7 @@ setAtribute = establece un atributo PDO
 prepare = crear un PDO statement. Obtenemos un objeto PDO statement que (a veces) va permitir que las consultas se hagan mas rapido
 
 PDO statement:
+-------
     -fetch: Cuando la consulta es de tipo select, a traves de fetch conseguimos leerlos. Se leen filas 1 a 1, o de una con fetchAll (El 1er tipo de claves será numero). Se pueden obtener tambien las columnas (fetchColumn), objetos(fetchObject)..
     -bind: Enlazar valor con parametro, en las 2 direcciones.
         -bindParam: Enlace dinamico. Muy eficiente, es para inserciones.
@@ -59,3 +61,4 @@ Consulta fija y dinamica
 Fija: Si alguien cambia datos no te enteras
 Dinamica: Si alguien cambia datos si te enteras
 
+El "\" es por que es global
