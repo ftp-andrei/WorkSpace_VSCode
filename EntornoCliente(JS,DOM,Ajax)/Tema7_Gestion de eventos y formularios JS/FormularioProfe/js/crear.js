@@ -20,11 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("keypress", function (event) {
       soloNumeros(event);
     });
-
-  //Añadir mas validaciones, como Nombre,apellido etc
 });
 
 function checkAndSaveData(event) {
+  let contador = 0;
   let message = "";
   const nombre = document.getElementById("iNombre").value;
   const apellido = document.getElementById("iApellido").value;
@@ -37,26 +36,30 @@ function checkAndSaveData(event) {
     document.getElementById("ccc2").value +
     document.getElementById("ccc3").value +
     document.getElementById("ccc4").value;
-
-  message = checkPersonalInformation(
-    nombre,
-    apellido,
-    genero,
-    nacimiento,
-    telefono,
-    message
-  );
-
-  message = checkPrivateInformation(iban, pass, message);
-
-  setErrorMessage(event, message);
+  message = checkName(nombre);
+  setErrorMessage(event, message, contador);
+  message = checkApellido(apellido);
+  contador++;
+  setErrorMessage(event, message, contador);
+  message = checkTelefono(telefono);
+  contador++;
+  setErrorMessage(event, message, contador);
+  message = checkNacimiento(nacimiento);
+  contador++;
+  setErrorMessage(event, message, contador);
+  message = checkIfIsCorrectIban(iban);
+  contador++;
+  setErrorMessage(event, message, contador);
+  message = checkPassword(pass);
+  contador++;
+  setErrorMessage(event, message, contador);
 
   if (message === "") {
     storeData(nombre, apellido, nacimiento, genero, iban, telefono, pass);
   }
 }
-function setErrorMessage(event, message) {
-  const error = document.getElementById("error");
+function setErrorMessage(event, message, contador) {
+  const error = document.getElementsByClassName("error")[contador];
   if (message !== "") {
     event.preventDefault();
     error.className = "error active";
@@ -67,25 +70,21 @@ function setErrorMessage(event, message) {
   error.className = "error";
   error.textContent = "";
 }
-function checkPrivateInformation(iban, pass, message) {
-  message += checkIfIsCorrectIban(iban);
-  message += checkPassword(pass);
+
+function checkName(nombre) {
+  return checkIfElementValueIsEmpty(nombre, "Nombre");
+}
+
+function checkApellido(apellido) {
+  return checkIfElementValueIsEmpty(apellido, "Apellido");
+}
+
+function checkNacimiento(nacimiento) {
+  message = checkIfElementValueIsEmpty(nacimiento, "Nacimiento");
+  message += checkIsOlderThanEighteen(nacimiento);
   return message;
 }
 
-function checkPersonalInformation(
-  nombre,
-  apellido,
-  nacimiento,
-  genero,
-  telefono,
-  message
-) {
-  message += checkIfElementValueIsEmpty(nombre, "Nombre");
-  message += checkIfElementValueIsEmpty(apellido, "Apellido");
-  message += checkIfElementValueIsEmpty(nacimiento, "Nacimiento");
-  message += checkIsOlderThanEighteen(nacimiento);
-  message += checkIfElementValueIsEmpty(genero, "Genero");
-  message += checkIfElementValueIsEmpty(telefono, "Telefono");
-  return message;
+function checkTelefono(telefono) {
+  return checkIfElementValueIsEmpty(telefono, "Telefono");
 }

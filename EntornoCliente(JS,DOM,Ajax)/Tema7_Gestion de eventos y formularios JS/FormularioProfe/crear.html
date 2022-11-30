@@ -15,31 +15,32 @@
       <form autocomplete="on" action="./index.html" method="GET" id="idForm">
         <fieldset>
           <legend>Datos personales:</legend>
-          <span class="error" id="error" aria-live="polite"></span>
           <label for="iNombre">Nombre</label>
+          <span class="error" id="errorNombre" aria-live="polite"></span>
           <input
             type="text"
             id="iNombre"
             name="iNombre"
             autocomplete="given-name" />
-            <span class="error" id="error" aria-live="polite"></span>
           <label for="iApellido">Apellido</label>
+          <span class="error" id="errorApellido" aria-live="polite"></span>
           <input
             type="text"
             id="iApellido"
             name="iApellido"
             autocomplete="family-name" />
-            <span class="error" id="error" aria-live="polite"></span>
+            
           <label for="iTelefono">Telefono</label>
+          <span class="error" id="errorTelefono" aria-live="polite"></span>
           <input id="iTelefono" name="iTelefono" autocomplete="phone-name" />
-          <span class="error" id="error" aria-live="polite"></span>
+          
           <label for="iNacimiento">Fecha Nacimiento</label>
+          <span class="error" id="errorNacimiento" aria-live="polite"></span>
           <input
             type="date"
             id="iNacimiento"
             name="iNacimiento"
             autocomplete="bday" />
-            <span class="error" id="error" aria-live="polite"></span>
           <div class="inRow">
             <input type="radio" id="H" name="genero" value="H" checked />
             <label for="H">Hombre</label>
@@ -50,6 +51,7 @@
             <input type="radio" id="O" name="genero" value="O" />
             <label for="O">Otro</label>
           </div>
+          
           <label for="iCombo">Intereses</label>
           <select name="combo" id="iCombo">
             <option value="terror">Terror</option>
@@ -61,7 +63,7 @@
         <fieldset>
           <legend>Información privada:</legend>
           <label for="iBan">Iban</label>
-          <span class="error" id="error" aria-live="polite"></span>
+          <span class="error" id="errorIBAN" aria-live="polite"></span>
           <div class="inRow">
             <input
               type="number"
@@ -92,8 +94,9 @@
               size="10"
               minlength="10" />
           </div>
+         
           <label for="iPass">Password</label>
-          <span class="error" id="error" aria-live="polite"></span>
+          <span class="error" id="errorPass" aria-live="polite"></span>
           <input type="Password" id="iPass" name="iPass" />
           <div class="submit">
             <input type="submit" class="createButton" value="Registrar" />
