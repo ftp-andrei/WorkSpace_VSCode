@@ -44,7 +44,7 @@ function checkAndSaveData(event) {
   message = checkTelefono(telefono);
   contador++;
   setErrorMessage(event, message, contador);
-  message = checkNacimiento(nacimiento);
+  message = checkNacimiento(nacimiento, message);
   contador++;
   setErrorMessage(event, message, contador);
   message = checkIfIsCorrectIban(iban);
@@ -79,7 +79,7 @@ function checkApellido(apellido) {
   return checkIfElementValueIsEmpty(apellido, "Apellido");
 }
 
-function checkNacimiento(nacimiento) {
+function checkNacimiento(nacimiento, message) {
   message = checkIfElementValueIsEmpty(nacimiento, "Nacimiento");
   message += checkIsOlderThanEighteen(nacimiento);
   return message;
