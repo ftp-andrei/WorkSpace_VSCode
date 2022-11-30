@@ -30,6 +30,7 @@ function checkAndSaveData(event) {
   const apellido = document.getElementById("iApellido").value;
   const genero = document.querySelector('input[name="genero"]:checked').value;
   const nacimiento = document.getElementById("iNacimiento").value;
+  const telefono = document.getElementById("iTelefono").value;
   const pass = document.getElementById("iPass").value;
   const iban =
     document.getElementById("ccc1").value +
@@ -42,6 +43,7 @@ function checkAndSaveData(event) {
     apellido,
     genero,
     nacimiento,
+    telefono,
     message
   );
 
@@ -50,7 +52,7 @@ function checkAndSaveData(event) {
   setErrorMessage(event, message);
 
   if (message === "") {
-    storeData(nombre, apellido, nacimiento, genero, iban, pass);
+    storeData(nombre, apellido, nacimiento, genero, iban, telefono, pass);
   }
 }
 function setErrorMessage(event, message) {
@@ -76,6 +78,7 @@ function checkPersonalInformation(
   apellido,
   nacimiento,
   genero,
+  telefono,
   message
 ) {
   message += checkIfElementValueIsEmpty(nombre, "Nombre");
@@ -83,5 +86,6 @@ function checkPersonalInformation(
   message += checkIfElementValueIsEmpty(nacimiento, "Nacimiento");
   message += checkIsOlderThanEighteen(nacimiento);
   message += checkIfElementValueIsEmpty(genero, "Genero");
+  message += checkIfElementValueIsEmpty(telefono, "Telefono");
   return message;
 }

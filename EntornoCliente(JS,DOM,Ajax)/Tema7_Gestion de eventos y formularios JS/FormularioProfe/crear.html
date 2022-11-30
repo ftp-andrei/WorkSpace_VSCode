@@ -5,7 +5,7 @@
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/crear.js"></script>
     <link rel="stylesheet" href="css/main.css" />
-    <title>Ejercicio vehicles</title>
+    <title>Crear</title>
   </head>
 
   <body>
@@ -15,28 +15,31 @@
       <form autocomplete="on" action="./index.html" method="GET" id="idForm">
         <fieldset>
           <legend>Datos personales:</legend>
+          <span class="error" id="error" aria-live="polite"></span>
           <label for="iNombre">Nombre</label>
           <input
             type="text"
             id="iNombre"
             name="iNombre"
             autocomplete="given-name" />
-
+            <span class="error" id="error" aria-live="polite"></span>
           <label for="iApellido">Apellido</label>
           <input
             type="text"
             id="iApellido"
             name="iApellido"
             autocomplete="family-name" />
+            <span class="error" id="error" aria-live="polite"></span>
           <label for="iTelefono">Telefono</label>
           <input id="iTelefono" name="iTelefono" autocomplete="phone-name" />
-
+          <span class="error" id="error" aria-live="polite"></span>
           <label for="iNacimiento">Fecha Nacimiento</label>
           <input
             type="date"
             id="iNacimiento"
             name="iNacimiento"
             autocomplete="bday" />
+            <span class="error" id="error" aria-live="polite"></span>
           <div class="inRow">
             <input type="radio" id="H" name="genero" value="H" checked />
             <label for="H">Hombre</label>
@@ -58,6 +61,7 @@
         <fieldset>
           <legend>Información privada:</legend>
           <label for="iBan">Iban</label>
+          <span class="error" id="error" aria-live="polite"></span>
           <div class="inRow">
             <input
               type="number"
@@ -89,12 +93,13 @@
               minlength="10" />
           </div>
           <label for="iPass">Password</label>
+          <span class="error" id="error" aria-live="polite"></span>
           <input type="Password" id="iPass" name="iPass" />
           <div class="submit">
             <input type="submit" class="createButton" value="Registrar" />
+            </span>
           </div>
         </fieldset>
-        <span class="error" id="error" aria-live="polite"></span>
       </form>
     </main>
     <footer></footer>

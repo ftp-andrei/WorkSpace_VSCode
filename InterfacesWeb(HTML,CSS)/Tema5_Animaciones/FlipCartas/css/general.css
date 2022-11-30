@@ -1,0 +1,33 @@
+img {
+  width: 75%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.front {
+  text-align: center;
+}
+
+.back {
+  display: none;
+  text-align: center;
+  background-color: transparent;
+  transform: rotateY(180deg);
+  margin-left: -100%;
+}
+
+.carta:hover {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  flex: 0 0 auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
