@@ -25,6 +25,7 @@ function crearRowsTabla() {
 
     addDataColumn(element.nombre, row);
     addDataColumn(element.apellido, row);
+    addDataColumn(element.telefono, row);
     addDataColumn(element.nacimiento, row);
     addDataColumn(element.genero, row);
     addDataColumn(element.iban, row);

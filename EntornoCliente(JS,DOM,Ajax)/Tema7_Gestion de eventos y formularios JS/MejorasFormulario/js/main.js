@@ -52,11 +52,20 @@ export function cifrar(textValue) {
   return resultado;
 }
 
-export function storeData(nombre, apellido, nacimiento, genero, iban, pass) {
+export function storeData(
+  nombre,
+  apellido,
+  telefono,
+  nacimiento,
+  genero,
+  iban,
+  pass
+) {
   let arrayData = getArrayData();
   arrayData.push({
     nombre: nombre,
     apellido: apellido,
+    telefono: telefono,
     nacimiento: nacimiento,
     genero: genero,
     iban: iban,
