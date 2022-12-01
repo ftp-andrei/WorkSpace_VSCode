@@ -93,3 +93,24 @@ input {
 .error.active {
   padding: 0.3em;
 }
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #eaeaea;
+}
+
+#verMain {
+  display: flex;
+  justify-content: space-around;
+}
+
+#JSON {
+  background-color: #68cb9d;
+}
+
+#XML {
+  background-color: #f3f759;
+}

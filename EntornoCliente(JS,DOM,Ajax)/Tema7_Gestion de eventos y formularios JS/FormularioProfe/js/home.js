@@ -10,14 +10,29 @@ function crearRowsTabla() {
   const tbody = document.getElementById("iBody");
   arrayData.forEach((element) => {
     const row = document.createElement("tr");
+    const botonEliminar = document.createElement("input");
+    botonEliminar.type = "button";
+    botonEliminar.value = "Eliminar";
+    botonEliminar.setAttribute("id", "botonEliminar");
+
+    const botonVer = document.createElement("input");
+    botonVer.type = "button";
+    botonVer.value = "Ver";
+    botonVer.setAttribute("id", "botonVer");
+
+    const a = document.createElement("a");
+    a.href = "ver.html";
+    botonVer.appendChild(a); /*Al reves?*/
+
     addDataColumn(element.nombre, row);
     addDataColumn(element.apellido, row);
     addDataColumn(element.nacimiento, row);
     addDataColumn(element.genero, row);
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
-    addDataColumn("Eliminar", row);
-    addDataColumn("Ver", row);
+    addDataColumn(botonEliminar, row);
+    addDataColumn(botonVer, row);
+
     tbody.appendChild(row);
   });
 }

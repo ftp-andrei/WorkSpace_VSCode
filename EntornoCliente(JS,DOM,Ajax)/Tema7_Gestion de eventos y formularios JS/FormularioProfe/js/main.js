@@ -64,3 +64,11 @@ export function storeData(nombre, apellido, nacimiento, genero, iban, pass) {
   });
   localStorage.setItem("arrayData", JSON.stringify(arrayData));
 }
+
+export function cargarXML() {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", storeData, true);
+  xhr.send();
+}
+
+export function cargarJSON() {}
