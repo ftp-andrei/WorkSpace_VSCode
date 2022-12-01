@@ -11,18 +11,17 @@ function crearRowsTabla() {
   arrayData.forEach((element) => {
     const row = document.createElement("tr");
     const botonEliminar = document.createElement("input");
-    botonEliminar.type = "button";
-    botonEliminar.value = "Eliminar";
+    botonEliminar.setAttribute("type", "button");
+    botonEliminar.setAttribute("value", "Eliminar");
     botonEliminar.setAttribute("id", "botonEliminar");
 
     const botonVer = document.createElement("input");
-    botonVer.type = "button";
-    botonVer.value = "Ver";
+    botonVer.setAttribute("type", "button");
+    botonVer.setAttribute("value", "Ver");
     botonVer.setAttribute("id", "botonVer");
 
     const a = document.createElement("a");
-    a.href = "ver.html";
-    botonVer.appendChild(a); /*Al reves?*/
+    a.setAttribute("href", "ver.html");
 
     addDataColumn(element.nombre, row);
     addDataColumn(element.apellido, row);
@@ -31,7 +30,7 @@ function crearRowsTabla() {
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
     addDataColumn(botonEliminar, row);
-    addDataColumn(botonVer, row);
+    addDataColumn(a.appendChild(botonVer), row);
 
     tbody.appendChild(row);
   });
