@@ -1,35 +1,39 @@
 <?php 
-ob_start();
+ob_start(); 
+
+if(isset($error)){
+?>
+<p class="error"><?=$error ?></p>
+<?php
+}else{
 
 echo <<< end
-    <table class="table table-striped" style="background: white">
+    <table style="background: white">
     <thead>
         <tr>
-            <th scope="col" id="ciudad">ID</th>
-            <th scope="col" id="nombre">Nombre</th>
-            <th scope="col" id="apellidos">Color</th>
-            <th scope="col" id="fnac">Precio</th>
-            <th scope="col" id="tlfno">Peso</th>
+            <th id="id">ID</th>
+            <th id="nombre">Nombre</th>
+            <th id="color">Color</th>
+            <th id="precio">Precio</th>
+            <th id="peso">Peso</th>
         </tr>
     </thead>
     <tbody>
     end;
-    foreach ($productos as $productos => $contacto) {
+    foreach ($productos as $clave => $valor) {
         echo "
         <tr>
-                <td>" . $contacto['ID'] . "</td>
-                <td>" . $contacto['Nombre'] . "</td>
-                <td>" . $contacto['Color'] . "</td>
-                <td>" . $contacto['Precio'] . "</td>
-                <td>" . $contacto['Peso'] . "</td>
+                <td>" . $valor['ID'] . "</td>
+                <td>" . $valor['Nombre'] . "</td>
+                <td>" . $valor['Color'] . "</td>
+                <td>" . $valor['Precio'] . "</td>
+                <td>" . $valor['Peso'] . "</td>
        </tr>";
     }
     echo "
     </tbody>
 </table> ";
-
-
+}
 $contenido = ob_get_clean();
 include 'base.php';
 ?>
-

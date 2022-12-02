@@ -1,0 +1,17 @@
+table th {
+  background-color: beige;
+}
+
+table tr:nth-child(odd) {
+  background-color: bisque;
+}
+
+table tr:nth-child(even) {
+  background-color: pink;
+}
+
+table {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}

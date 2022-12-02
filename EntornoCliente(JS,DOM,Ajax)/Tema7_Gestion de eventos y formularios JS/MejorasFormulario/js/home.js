@@ -20,9 +20,9 @@ function crearRowsTabla() {
     botonVer.setAttribute("value", "Ver");
     botonVer.setAttribute("id", "botonVer");
 
-    const a = document.createElement("a");
-    a.setAttribute("href", "ver.html");
-    a.appendChild(botonVer);
+    const enlace = document.createElement("a");
+    enlace.setAttribute("href", "ver.html");
+    enlace.appendChild(botonVer);
     addDataColumn(element.nombre, row);
     addDataColumn(element.apellido, row);
     addDataColumn(element.telefono, row);
@@ -32,7 +32,7 @@ function crearRowsTabla() {
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
     addDataColumnButton(botonEliminar, row);
-    addDataColumnButton(a, row);
+    addDataColumnButton(enlace, row);
 
     tbody.appendChild(row);
   });
