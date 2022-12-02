@@ -1,5 +1,6 @@
 "use strict";
 import { storeData } from "./main.js";
+
 import {
   checkIfElementValueIsEmpty,
   checkPassword,
@@ -30,6 +31,7 @@ function checkAndSaveData(event) {
   const genero = document.querySelector('input[name="genero"]:checked').value;
   const nacimiento = document.getElementById("iNacimiento").value;
   const telefono = document.getElementById("iTelefono").value;
+  const interes = document.getElementById("iCombo").value;
   const pass = document.getElementById("iPass").value;
   const iban =
     document.getElementById("ccc1").value +
@@ -55,7 +57,16 @@ function checkAndSaveData(event) {
   setErrorMessage(event, message, contador);
 
   if (message === "") {
-    storeData(nombre, apellido, nacimiento, genero, iban, telefono, pass);
+    storeData(
+      nombre,
+      apellido,
+      nacimiento,
+      genero,
+      interes,
+      iban,
+      telefono,
+      pass
+    );
   }
 }
 function setErrorMessage(event, message, contador) {

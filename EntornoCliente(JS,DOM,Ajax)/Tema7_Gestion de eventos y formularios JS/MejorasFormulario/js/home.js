@@ -22,16 +22,17 @@ function crearRowsTabla() {
 
     const a = document.createElement("a");
     a.setAttribute("href", "ver.html");
-
+    a.appendChild(botonVer);
     addDataColumn(element.nombre, row);
     addDataColumn(element.apellido, row);
     addDataColumn(element.telefono, row);
     addDataColumn(element.nacimiento, row);
     addDataColumn(element.genero, row);
+    addDataColumn(element.interes, row);
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
-    addDataColumn(botonEliminar, row);
-    addDataColumn(a.appendChild(botonVer), row);
+    addDataColumnButton(botonEliminar, row);
+    addDataColumnButton(a, row);
 
     tbody.appendChild(row);
   });
@@ -42,4 +43,9 @@ function addDataColumn(text, row) {
   const texto = document.createTextNode(text);
   name.appendChild(texto);
   row.appendChild(name);
+}
+function addDataColumnButton(button, row) {
+  let td = document.createElement("td");
+  td.appendChild(button);
+  row.appendChild(td);
 }

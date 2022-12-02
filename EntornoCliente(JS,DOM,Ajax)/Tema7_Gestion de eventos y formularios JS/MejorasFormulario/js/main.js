@@ -58,6 +58,7 @@ export function storeData(
   telefono,
   nacimiento,
   genero,
+  interes,
   iban,
   pass
 ) {
@@ -68,16 +69,24 @@ export function storeData(
     telefono: telefono,
     nacimiento: nacimiento,
     genero: genero,
+    interes: interes,
     iban: iban,
     pass: pass,
   });
   localStorage.setItem("arrayData", JSON.stringify(arrayData));
 }
 
-export function cargarXML() {
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", storeData, true);
-  xhr.send();
+export function cargarJSON() {
+  let arrayData = getArrayData();
+  let id = document.getElementById("nombre");
+  let json = JSON.stringify(arrayData[id]);
+
+  return json;
 }
 
-export function cargarJSON() {}
+export function cargarXML() {
+  let json = cargarJSON();
+  let xml = json2xml(json, { compact: true, spaces: 4 });
+
+  return xml;
+}
