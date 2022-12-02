@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function checkAndSaveData(event) {
-  let contador = 0;
   let message = "";
+  let contador = 0;
   const nombre = document.getElementById("iNombre").value;
   const apellido = document.getElementById("iApellido").value;
   const genero = document.querySelector('input[name="genero"]:checked').value;
@@ -38,6 +38,7 @@ function checkAndSaveData(event) {
     document.getElementById("ccc2").value +
     document.getElementById("ccc3").value +
     document.getElementById("ccc4").value;
+
   message = checkName(nombre);
   setErrorMessage(event, message, contador);
   message = checkApellido(apellido);

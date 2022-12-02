@@ -1,5 +1,5 @@
 "use strict";
-import { getArrayData, cifrar } from "./main.js";
+import { getArrayData, cifrar, storeData } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   crearRowsTabla();
@@ -23,6 +23,7 @@ function crearRowsTabla() {
     const enlace = document.createElement("a");
     enlace.setAttribute("href", "ver.html");
     enlace.appendChild(botonVer);
+
     addDataColumn(element.nombre, row);
     addDataColumn(element.apellido, row);
     addDataColumn(element.telefono, row);
@@ -31,8 +32,8 @@ function crearRowsTabla() {
     addDataColumn(element.interes, row);
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
-    addDataColumnButton(botonEliminar, row);
-    addDataColumnButton(enlace, row);
+    addDataColumnButton(botonEliminar, row, element);
+    addDataColumnButton(enlace, row, element);
 
     tbody.appendChild(row);
   });
@@ -44,8 +45,24 @@ function addDataColumn(text, row) {
   name.appendChild(texto);
   row.appendChild(name);
 }
-function addDataColumnButton(button, row) {
+function addDataColumnButton(button, row, element) {
   let td = document.createElement("td");
+  button.addEventListener("click", function () {
+    if (button.getElementById("botonEliminar")) {
+      eliminar(element);
+    }
+    if (button.getElementById("botonVer")) {
+      verDatosElemento(element);
+    }
+  });
   td.appendChild(button);
   row.appendChild(td);
 }
+
+function eliminar(element) {
+  const data = getArrayData();
+  data.shift(element);
+  storeData(data);
+}
+
+function verDatosElemento(element) {}

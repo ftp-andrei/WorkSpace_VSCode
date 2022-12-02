@@ -76,17 +76,16 @@ export function storeData(
   localStorage.setItem("arrayData", JSON.stringify(arrayData));
 }
 
-export function cargarJSON() {
+export function cargarJSON(element) {
   let arrayData = getArrayData();
-  let id = document.getElementById("nombre");
-  let json = JSON.stringify(arrayData[id]);
+  let json = JSON.stringify(arrayData);
 
   return json;
 }
 
-export function cargarXML() {
+export function cargarXML(element) {
   let json = cargarJSON();
+  // Importar libreria XML
   let xml = json2xml(json, { compact: true, spaces: 4 });
-
   return xml;
 }
