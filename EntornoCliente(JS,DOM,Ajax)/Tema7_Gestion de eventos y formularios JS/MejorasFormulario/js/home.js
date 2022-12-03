@@ -1,5 +1,5 @@
 "use strict";
-import { getArrayData, cifrar, cargarXML, cargarJSON } from "./main.js";
+import { getArrayData, cifrar } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   crearRowsTabla();
@@ -34,7 +34,7 @@ function crearRowsTabla() {
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
     addDataColumnButtonEliminar(botonEliminar, row, contador);
-    addDataColumnButtonVer(enlace, row, contador);
+    addDataColumnButtonVer(enlace, row, element);
     contador++;
     tbody.appendChild(row);
   });
@@ -55,23 +55,41 @@ function addDataColumnButtonEliminar(button, row, contador) {
   row.appendChild(td);
 }
 
-function addDataColumnButtonVer(button, row, contador) {
+function addDataColumnButtonVer(button, row, element) {
   let td = document.createElement("td");
   button.addEventListener("click", function () {
-    verDatosElemento(contador);
+    verDatosElemento(element);
   });
   td.appendChild(button);
   row.appendChild(td);
 }
-// TODO: Eliminar el element del array
+
 function eliminar(contador) {
   const data = getArrayData();
   data.splice(contador, 1);
   localStorage.setItem("arrayData", JSON.stringify(data));
 }
 
-// TODO: Ver datos del element en la pagina ver.html
-function verDatosElemento(contador) {
-  cargarJSON(contador);
-  cargarXML(contador);
+export function verDatosElemento(element) {
+  let newDiv = document.createElement("div");
+  newDiv.setAttribute("id", "divJSON");
+
+  let parrafo = document.createElement("p");
+  parrafo.innerText = JSON.stringify(element.name);
+
+  newDiv.appendChild(parrafo);
+  //cargarXML();
+}
+
+function cargarXML() {
+  let json = verDatosElemento(element);
+  // Importar libreria XML
+  let xml = json2xml(json, { compact: true, spaces: 4 });
+
+  let newDiv = document.createElement("div");
+  newDiv.setAttribute("id", "divXML");
+
+  let parrafo = document.createElement("p");
+  parrafo.innerText = xml;
+  newDiv.appendChild(parrafo);
 }
