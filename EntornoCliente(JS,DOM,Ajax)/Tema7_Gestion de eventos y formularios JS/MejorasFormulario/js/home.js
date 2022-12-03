@@ -1,11 +1,12 @@
 "use strict";
-import { getArrayData, cifrar, storeData } from "./main.js";
+import { getArrayData, cifrar, cargarXML, cargarJSON } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   crearRowsTabla();
 });
 
 function crearRowsTabla() {
+  let contador = 0;
   const arrayData = getArrayData();
   const tbody = document.getElementById("iBody");
   arrayData.forEach((element) => {
@@ -32,9 +33,9 @@ function crearRowsTabla() {
     addDataColumn(element.interes, row);
     addDataColumn(element.iban, row);
     addDataColumn(cifrar(element.pass), row);
-    addDataColumnButton(botonEliminar, row, element);
-    addDataColumnButton(enlace, row, element);
-
+    addDataColumnButtonEliminar(botonEliminar, row, contador);
+    addDataColumnButtonVer(enlace, row, contador);
+    contador++;
     tbody.appendChild(row);
   });
 }
@@ -45,24 +46,32 @@ function addDataColumn(text, row) {
   name.appendChild(texto);
   row.appendChild(name);
 }
-function addDataColumnButton(button, row, element) {
+function addDataColumnButtonEliminar(button, row, contador) {
   let td = document.createElement("td");
   button.addEventListener("click", function () {
-    if (button.getElementById("botonEliminar")) {
-      eliminar(element);
-    }
-    if (button.getElementById("botonVer")) {
-      verDatosElemento(element);
-    }
+    eliminar(contador);
   });
   td.appendChild(button);
   row.appendChild(td);
 }
 
-function eliminar(element) {
+function addDataColumnButtonVer(button, row, contador) {
+  let td = document.createElement("td");
+  button.addEventListener("click", function () {
+    verDatosElemento(contador);
+  });
+  td.appendChild(button);
+  row.appendChild(td);
+}
+// TODO: Eliminar el element del array
+function eliminar(contador) {
   const data = getArrayData();
-  data.shift(element);
-  storeData(data);
+  data.splice(contador, 1);
+  localStorage.setItem("arrayData", JSON.stringify(data));
 }
 
-function verDatosElemento(element) {}
+// TODO: Ver datos del element en la pagina ver.html
+function verDatosElemento(contador) {
+  cargarJSON(contador);
+  cargarXML(contador);
+}

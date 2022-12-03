@@ -76,11 +76,11 @@ export function storeData(
   localStorage.setItem("arrayData", JSON.stringify(arrayData));
 }
 
-export function cargarJSON(element) {
-  let arrayData = getArrayData();
-  let json = JSON.stringify(arrayData);
-
-  return json;
+export function cargarJSON(contador) {
+  let data = getArrayData;
+  let parrafo = document.createElement("p");
+  parrafo.innerText = JSON.stringify(data[contador]);
+  document.getElementById("div").appendChild(parrafo);
 }
 
 export function cargarXML(element) {
