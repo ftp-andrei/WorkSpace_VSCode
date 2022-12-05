@@ -2,6 +2,7 @@
 namespace app\educacion\agenda\fuente\controlador;
 
 use app\educacion\agenda\fuente\repositorio\DepartamentoRepositorio;
+use app\educacion\agenda\fuente\modelo\Departamento;
 
 class RecursosHumanosController{
     public function crearNuevoDepartamento(){
