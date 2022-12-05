@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 // Controladores por cada clase controlador hay que añadirlo
 require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
 require_once __DIR__ . '/fuente/Controlador/ProductosController.inc';
+require_once __DIR__ . '/fuente/Controlador/RecursosHumanosController.inc';
 require_once __DIR__ . '/app/conf/rutas.inc'; // Ubicación del archivo de rutas
 
 
