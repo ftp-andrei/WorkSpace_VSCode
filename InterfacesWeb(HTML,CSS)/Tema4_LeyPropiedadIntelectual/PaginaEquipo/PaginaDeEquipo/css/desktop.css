@@ -1,0 +1,89 @@
+/* CSS Desktop */
+@media screen and (min-width: 861px) {
+    header{
+        background: linear-gradient(0deg, rgba(112, 85, 250, 1) 0%, #23062f 100%);
+    }
+    nav{
+        background: none;
+    }
+    nav li {
+        display: inline-flex;
+        font-size: 1em;
+    }
+    li a{
+        padding: 0.3em;
+    }
+    li a:hover{
+        background-color: rgb(55, 23, 131);
+    }
+    img{
+        max-width: 100%;       
+    }
+    video{
+        max-width: 100%;
+    }
+    figure{
+        line-height:0;
+    }
+    figcaption{
+        display: none;
+    }
+    table,th,td{
+        border:1px solid #000000;
+        border-collapse: collapse;
+    }
+    article{
+        padding: 3%;
+    }
+    h2{
+        margin: 0;
+    }
+    video{
+        max-width: 100%;
+    }
+    .headernav{
+        background: linear-gradient(0deg, rgba(112, 85, 250, 1) 0%, #23062f 100%);
+        font-size: 1.6em;
+        display: flex;
+        align-items: center;
+    }
+    .tableMembers{
+        display: flex;
+        justify-content: center;
+        padding: 3%;
+    }
+    .videoPokemon {
+        padding: 3%;
+        text-align: center;
+    }
+    .videoPokemon p{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    .lista{
+        display: none;
+    }
+    .videoPokemon video{
+        max-width: 80%;
+    }
+    /* CSS AUDIO */
+    .container-audio {
+        width: 66%;
+        height: auto;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #eee;
+        color: #444;
+        margin: 20px auto;
+     }
+    audio {
+      width:100%;   
+    } 
+} 
+@media screen and (min-width: 861px) and (max-width:1000px) {
+    nav li {
+        display: inline-flex;
+        font-size: 0.6em;
+    }
+}   

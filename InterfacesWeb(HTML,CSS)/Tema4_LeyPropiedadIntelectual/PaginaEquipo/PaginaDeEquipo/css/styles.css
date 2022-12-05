@@ -1,0 +1,87 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body,
+header,
+nav,
+footer,
+figure,
+figcaption,
+table,
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+header {
+    background-color: white;
+}
+
+nav {
+    background: linear-gradient(0deg, rgba(112, 85, 250, 1) 0%, #23062f 100%);
+    font-size: 1.6em;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+figcaption {
+    font-size: 1.4em;
+}
+
+main {
+    background: linear-gradient(0deg, rgba(201, 73, 253, 1) 5%, rgba(112, 85, 250, 1) 100%);
+    font-size: 1.2em;
+}
+
+footer {
+    font-size: 0.8em;
+    color: white;
+    background: linear-gradient(rgba(73, 139, 253, 1) 33%, rgba(66, 82, 227, 1) 69%);
+    text-align: center;
+}
+
+footer p {
+    display: inline-block;
+    border-left: 1px solid white;
+    padding-left: 0.5em;
+    padding-right: 0.3em;
+}
+
+footer a {
+    text-decoration: none;
+    padding-right: 0.3em;
+}
+
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+img{
+    width: 100%;
+}
+
+video{
+    width: 100%;
+}

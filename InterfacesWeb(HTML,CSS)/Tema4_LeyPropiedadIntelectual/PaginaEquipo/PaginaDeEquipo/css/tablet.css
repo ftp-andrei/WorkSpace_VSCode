@@ -1,0 +1,120 @@
+@media screen and (min-width: 481px) and (max-width: 860px) {
+
+    /* ----------- Header ------------ */
+
+    header {
+        text-align: center;
+        background: rgb(255, 255, 255);
+        background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 26%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    header img {
+        max-width: 100%;
+        width: 50%;
+    }
+
+    figcaption {
+        font-size: 1.2em;
+        font-style: italic;
+    }
+
+    /* ----------- Fin Header ------------ */
+
+    /* ----------- Nav ------------ */
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* ----------- Fin Nav ------------ */
+
+    /* ----------- Hero ------------ */
+
+    .hero img {
+        max-width: 100%;
+    }
+
+    /* ----------- Fin Hero ------------ */
+
+    /* ----------- Tabla Home ------------ */
+
+    table {
+        display: none;
+    }
+
+    /* ----------- Fin Tabla Home ------------ */
+
+    /* ----------- Lista Home ------------ */
+
+    .lista p {
+        text-align: center;
+        font-size: 1.4em;
+        text-shadow: 0.05em 0.05em #aaa;
+        font-weight: bold;
+        text-decoration: underline;
+        text-transform: capitalize;
+    }
+
+    .lista ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 1.2em;
+    }
+
+    .lista ul li {
+        font-weight: bold;
+        width: 70%;
+        margin-left: 3%;
+    }
+
+    .lista ul li ul {
+        flex-direction: column;
+        margin-left: 1em;
+        list-style-type: decimal;
+        font-size: 1em;
+    }
+
+    /* ----------- Fin Lista Home ------------ */
+
+    /* ----------- Footer ------------ */
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    /* ----------- Fin Footer ------------ */
+    /* ----------- Video ------------ */
+
+    .videoMain {
+        text-align: center;
+    }
+
+    .videoMain p {
+        font-weight: bold;
+        text-shadow: 0.05em 0.05em #fff;
+    }
+
+    .videoMain video {
+        margin-top: 2em;
+        max-width: 80%;
+    }
+
+    /* ----------- Fin Video ------------ */
+    /* ----------- Podcast ------------ */
+
+    article h2 {
+        text-shadow: 0.05em 0.05em #fff;
+    }
+
+    .container-audio {
+        text-align: center;
+    }
+
+    /* ----------- Fin Podcast ------------ */
+}
