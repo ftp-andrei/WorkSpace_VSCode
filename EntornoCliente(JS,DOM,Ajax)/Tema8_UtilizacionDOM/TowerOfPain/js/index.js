@@ -9,15 +9,21 @@ document.addEventListener("DOMContentLoaded", function () {
       soloNumeros(event);
     });
 
+  document
+    .getElementById("anchoBorde")
+    .addEventListener("keypress", function (event) {
+      soloNumeros(event);
+    });
+
   document.getElementById("submitButon").addEventListener("click", function () {
     salvarDatos();
   });
 });
 
 function salvarDatos() {
-  let tamano = document.getElementById("tamano");
-  let anchoBorde = document.getElementById("anchoBorde");
-  let backgroundColor = document.getElementById("backgroundColor");
+  let tamano = document.getElementById("tamano").value;
+  let anchoBorde = document.getElementById("anchoBorde").value;
+  let backgroundColor = document.getElementById("backgroundColor").value;
 
   storeData(tamano, anchoBorde, backgroundColor);
 }
