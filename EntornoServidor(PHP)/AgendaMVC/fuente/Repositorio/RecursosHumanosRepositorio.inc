@@ -4,8 +4,8 @@ namespace app\educacion\agenda\fuente\repositorio;
 
 use ConexionBd;
 
-class DepartamentoRepositorio{
-    public function crearDepartamento():array{
+class RecursosHumanosRepositorio{
+    public function getAllDiviones():array{
         $sql = "INSERTAR FUNCION SQL";
         require_once __DIR__."/../../core/conexionBd.inc";
         try {
