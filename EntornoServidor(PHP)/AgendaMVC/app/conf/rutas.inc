@@ -14,5 +14,6 @@
 */
 $mapeoRutas =
   array('inicio' => array('controller'=>'app\educacion\agenda\fuente\controlador\defaultController', 'action' =>'inicio'),
-          'productos' =>array('controller'=>'app\educacion\agenda\fuente\controlador\ProductosController', 'action' =>'listarTodosProductos')
+          'productos' =>array('controller'=>'app\educacion\agenda\fuente\controlador\ProductosController', 'action' =>'listarTodosProductos'),
+          'addDepartamento' =>  array('controller' => 'app\educacion\agenda\fuente\controlador\RecursosHumanosController', 'action' => 'agregarDepartamento'),
        );
