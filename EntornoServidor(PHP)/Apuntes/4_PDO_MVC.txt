@@ -62,3 +62,9 @@ Fija: Si alguien cambia datos no te enteras
 Dinamica: Si alguien cambia datos si te enteras
 
 El "\" es por que es global
+
+Las funciones de SQL server hacen menos cosas que con Oracle (Usar procedimientos almacenados)
+A traves de funciones se pueden crear tablas
+
+Procedimientos almacenados echar un ojo 
+
