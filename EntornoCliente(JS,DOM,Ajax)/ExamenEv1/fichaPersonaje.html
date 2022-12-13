@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examen EV1</title>
+    <link rel="stylesheet" href="css/general.css" />
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/fichaPersonaje.js"></script>
+  </head>
+  <body id="fichaPersonaje">
+    <form method="get" id="idForm">
+      <fieldset>
+        <legend>Datos personaje</legend>
+        <label for="nombre">Nombre</label>
+        <span class="error" id="errorNombre" aria-live="polite"></span>
+        <input type="text" id="nombre" />
+        <label for="raza">Raza</label>
+        <select id="raza">
+          <option value="orco">Orco</option>
+          <option value="elfo">Elfo</option>
+          <option value="humano">Humano</option>
+          <option value="enano">Enano</option>
+        </select>
+
+        <div class="inRow">
+          <input type="radio" id="G" name="caracter" value="G" checked />
+          <label for="H">Good</label>
+          <input type="radio" id="N" name="caracter" value="N" />
+          <label for="M">Neutral</label>
+          <input type="radio" id="E" name="caracter" value="E" />
+          <label for="O">Evil</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <label for="puntos" id="puntos">Total de puntos: 2</label>
+        <span class="error" id="error" aria-live="polite"></span>
+        <div class="fuerzaBotones"><label for="fuerza">Fuerza</label>
+          <button id="fuerza-">-</button>
+          <input id="fuerza" value="0" id="campoFuerza" disabled></input>
+          <button id="fuerza+">+</button></div>
+        <div class="vidaBotones"><label for="fuerza">Vida</label>
+          <button id="vida-">-</button>
+          <input id="vida" value=0 id="campoVida"disabled></input>
+          <button id="vida+">+</button></div>
+        <div class="suerteBotones"><label for="fuerza">Suerte</label>
+          <button id="suerte-">-</button>
+          <input id="suerte" value="0" id="campoSuerte"disabled></input>
+          <button id="suerte+">+</button></div>
+      </fieldset>
+      <a href="inicioJuego.html"><input type="button" value="Siguiente" /></a>
+    </form>
+  </body>
+</html>
