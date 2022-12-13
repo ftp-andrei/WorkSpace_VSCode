@@ -1,0 +1,98 @@
+h1 {
+    text-align: center;
+    font-size: 3em;
+    height: 10vh;
+}
+
+.pain {
+    color: #ff0000;
+}
+
+main {
+    position: re;
+    margin: 0 auto;
+    width: 60vw;
+    height: 60vh;
+    border: 0.15em solid green;
+    border-radius: 1em;
+    background-color: rgb(193, 255, 193);
+}
+
+label,
+input {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+input:invalid{
+    background-color: #fdc8c8;
+}
+
+input:focus{
+    background-color: rgb(255, 255, 198);
+}
+
+#submit {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    height: 3em;
+    width: 15%;
+}
+
+label {
+    font-weight: bold;
+    width: max-content;
+}
+
+#casita {
+    height: 20%;
+    margin-left: 1em;
+}
+
+#casita:hover {
+    cursor: pointer;
+}
+
+.noDisplay {
+    display: none;
+}
+
+#piramide {
+    margin: 0 auto; 
+    width: 90%;
+    height: 80%;       
+    opacity: 0;
+}
+
+.brick {
+    height: 1em;
+    width: 1em;
+    margin: 0.1em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 0.1em;
+}
+
+.pyramid{
+    width: 100%;
+    height: 100%;
+}
+
+/*-------------------------------- Animaciones --------------------------------*/
+
+.brick{
+    transition: transform 3s, opacity 1s linear;
+}
+
+body{
+    overflow: hidden;
+}
+
+#piramide{
+    transition: opacity 2s linear;
+}

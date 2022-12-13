@@ -1,0 +1,18 @@
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite; //Se repite infinito
+  animation-direction: alternate; //Hacia alante hacia atras
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+//El p sale de la derecha y se posiciona a la izquierda
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
