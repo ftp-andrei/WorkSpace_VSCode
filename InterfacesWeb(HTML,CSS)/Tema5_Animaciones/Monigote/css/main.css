@@ -1,0 +1,131 @@
+body,
+header,
+nav,
+footer,
+figure,
+figcaption,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapperControls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  width: 50%;
+  height: 50vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+.one {
+  grid-column: 2 / 2;
+  grid-row: 1;
+}
+
+.two {
+  display: flex;
+  grid-column: 1 / 1;
+  grid-row: 2;
+}
+
+.four {
+  grid-column: 3 / 3;
+  grid-row: 2;
+}
+
+.three {
+  grid-column: 2 / 2;
+  grid-row: 3;
+}
+
+.five {
+  grid-column: 4 / 4;
+  grid-row: 1;
+}
+
+.six {
+  grid-column: 5 / 5;
+  grid-row: 2;
+}
+
+.figure {
+  display: block;
+  transition: transform 1s;
+}
+
+.up {
+  transform-origin: 100% 50%;
+  transform: translateY(-50px);
+}
+
+.down {
+  transform-origin: 100% 50%;
+  transform: translateY(50px);
+}
+
+.left {
+  transform-origin: 100% 50%;
+  transform: translateX(-50px);
+}
+
+.right {
+  transform-origin: 100% 50%;
+  transform: translateX(50px);
+}
+
+.circle {
+  animation-name: up;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+.plus {
+  animation-name: up;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes up {
+  from {
+  }
+
+  to {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes down {
+  from {
+  }
+
+  to {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes left {
+  from {
+  }
+
+  to {
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes right {
+  from {
+  }
+
+  to {
+    transform: translateX(50px);
+  }
+}
