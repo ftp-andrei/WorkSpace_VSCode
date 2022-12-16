@@ -7,5 +7,50 @@
 
 .sprite {
   display: inline-block;
-  background: url;
+  background: url(https://sites.google.com/a/edtools.psd401.net/the-un-official-guide-to-super-mario-bros/_/rsrc/1308099256873/comments/sheet-music/smb_enemies_sheet2.PNG)
+    no-repeat;
+  width: 18px;
+  height: 32px;
+  background-position: 0px 0;
+  animation: move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  /*Posicion foto, 0px = X 0 = Y*/
+}
+
+.sprite:hover {
+  animation-play-state: paused;
+}
+/*
+18 px -> 1.125 em
+30 px -> 1.875em
+32 px -> 2em
+60 px -> 3.75
+*/
+/* .step-2 {
+  background-position: -30px 0;
+}
+
+.step-3 {
+  background-position: -60px 0;
+} */
+
+@keyframes move {
+  0% {
+    background-position: 0px 0;
+  }
+  25% {
+    background-position: -30px 0;
+  }
+  50% {
+    background-position: -60px 0;
+  }
+  75% {
+    background-position: -90px 0;
+  }
+  100% {
+    background-position: -120px 0;
+  }
 }
