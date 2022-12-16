@@ -18,6 +18,8 @@
   animation-direction: alternate;
   animation-play-state: running;
   /*Posicion foto, 0px = X 0 = Y*/
+
+  /* animation: move 1s steps(4) infinite; */
 }
 
 .sprite:hover {
@@ -53,4 +55,7 @@
   100% {
     background-position: -120px 0;
   }
+  /* to {
+    background-position: -120px 0;
+  } */
 }

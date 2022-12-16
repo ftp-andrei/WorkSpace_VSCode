@@ -94,7 +94,7 @@ img {
   animation-fill-mode: forwards;
 }
 
-@keyframes up {
+/* @keyframes up {
   from {
   }
 
@@ -128,4 +128,4 @@ img {
   to {
     transform: translateX(50px);
   }
-}
+} */
