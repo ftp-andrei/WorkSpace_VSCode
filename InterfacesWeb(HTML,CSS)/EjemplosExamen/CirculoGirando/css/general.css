@@ -1,0 +1,78 @@
+.circulo {
+  margin-top: 3em;
+  margin-left: 2em;
+  width: 10em;
+  height: 10em;
+  background: #00ff;
+  /*border para hacerlo redondo*/
+  border-radius: 50%;
+
+  /*animacion*/
+  animation: cambiarColor, mover;
+  /*duracion*/
+  animation-duration: 3s;
+  /*las veces que se repite*/
+  animation-iteration-count: infinite;
+  /*desde que punto parte, en este caso que vaya y venga*/
+  /*reverse -> 100-0%*/
+  /*alternative -> 0-100-0%*/
+  /*alternative-reverse -> 100-0-100%*/
+  animation-direction: normal;
+  /*con forwards se queda en el 100%*/
+  /*backwards en el 0% se mueve*/
+  /*both ambas*/
+  animation-fill-mode: both;
+  /*para ver el backwards*/
+  animation-delay: 2s;
+
+  /*ease -> inicia rapido*/
+  /*easeout -> finaliza rapido*/
+  /*ease in out -> inicia y finaliza rapido*/
+  /*linear -> velocidad constante*/
+  animation-timing-function: linear;
+}
+
+.circulo:hover {
+  /*pausa la animacion cuando pasas x encima*/
+  animation-play-state: paused;
+}
+
+@keyframes cambiarColor {
+  0% {
+    /*from indica 0%*/
+    background-color: black;
+  }
+  25% {
+    background-color: green;
+  }
+  50% {
+    background-color: blue;
+  }
+  75% {
+    /*to indica 75%*/
+    background-color: blueviolet;
+  }
+  100% {
+    background-color: yellow;
+  }
+}
+
+@keyframes mover {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(100%);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  75% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+  /*X de izq a derecha*/
+  /*Y en diagonal*/
+}

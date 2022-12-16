@@ -1,0 +1,11 @@
+#app {
+  text-align: center;
+  color: aqua;
+  background: url(https://cdn.dribbble.com/users/1100256/screenshots/12294406/mario-background_4x.jpg);
+  height: 95vh;
+}
+
+.sprite {
+  display: inline-block;
+  background: url;
+}
