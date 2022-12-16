@@ -1,2 +1,69 @@
 @media screen and (max-width: 768px) and (min-width: 481px) {
+  body {
+    display: grid;
+    height: 100vh;
+    margin: 0;
+    place-items: center;
+  }
+  .row {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+
+  main p {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.75em;
+  }
+
+  .black {
+    background-color: black;
+    margin-bottom: 2em;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 2em;
+    margin: 2em;
+  }
+
+  .black p {
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  nav a img {
+    width: 5em;
+    height: auto;
+  }
+
+  #imgCabecera img {
+    width: 5em;
+    border-radius: 5em;
+    /*TODO: Bajar img*/
+  }
+
+  #logoComercio {
+    width: 15%;
+  }
+
+  footer p {
+    width: 5em;
+    font-weight: bold;
+  }
+
+  #luz {
+    margin: 0 auto;
+    text-align: center;
+    padding: 30%;
+    -webkit-animation: cambiarColor, cambiarColor2;
+    animation: cambiarColor, cambiarColor2;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+  }
 }
