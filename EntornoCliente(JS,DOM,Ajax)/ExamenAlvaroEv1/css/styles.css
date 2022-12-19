@@ -1,0 +1,82 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #000;
+}
+form{
+    margin: 0 auto;
+    width: 40vw;
+    height: 80vh;
+}
+
+legend{
+    font-size: 2em;
+    font-weight: bold;
+    font-family: monospace;
+    background-color: #CCC;
+    border-radius: 0.5em;
+    border:0.2em solid #555;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color: #CCC;
+    margin: 0;
+    padding: 0;
+}
+
+.inRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.createButtonHome {
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+}
+
+input,select {
+    margin-bottom: 1em;
+}
+
+.createButton {
+    background-color: rgb(211, 153, 47);
+    border: none;
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 0.5em;
+    margin: 0.5em 0.5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+}
+
+.createButton:hover{
+    background-color: rgb(181, 131, 39);
+}
+
+.error {
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.3em;
+}

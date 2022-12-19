@@ -1,0 +1,28 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(169, 255, 251);
+}
+
+#start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEE;
+    width: 10em;
+    height: 10em;
+}
+
+.noDisplay{
+    display: none;
+}
+
+#historico{
+    float: right;
+}
+
+.container{
+    display: flex;
+}

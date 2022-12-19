@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/validator.js"></script>
+    <script type="module" src="js/crearFicha.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha</title>
+</head>
+
+<body>
+    <form action="./juego.html" autocomplete="on" method="GET" id='idForm'>
+        <fieldset>
+            <legend>Datos personaje:</legend>
+            <label for="iNombre">Nombre</label>
+            <input type="text" id="iNombre" name="iNombre" placeholder="Nombre" >
+            <span class="error" id="nombreError" aria-live="polite"></span>
+            <label for="raza">Raza:</label>
+            <select name="raza" id="raza">
+                <option value="humano">Humano</option>
+                <option value="elfo">Elfo</option>
+                <option value="orco">Orco</option>
+                <option value="enano">Enano</option>
+            </select>
+            <div class="inRow">
+                <label><input type="radio" name="alineamiento" value="bueno" checked>Good</label>
+                <label><input type="radio" name="alineamiento" value="neutral">Neutral</label>
+                <label><input type="radio" name="alineamiento" value="malo">Evil</label>
+            </div>
+            <span class="error" id="alineamientoError" aria-live="polite"></span>
+            <hr>
+            <!-- TODO: que se vean los puntos de los range y que se resten del total -->
+            <p>Total de puntos <span id="puntos">10</span></p>
+            <label for="fuerza">Fuerza</label>
+            <input type="number"max="10" min="0" id="fuerza" name="fuerza">
+            <!-- <input type="range" max="10" min="0" id="fuerza" name="fuerza"> -->
+            <label for="vida">Vida</label>
+            <input type="number"max="10" min="0" id="vida" name="vida">
+            <!-- <input type="range" max="10" min="0" id="vida" name="vida"> -->
+            <label for="suerte">Suerte</label>
+            <input type="number"max="10" min="0" id="suerte" name="suerte">
+            <!-- <input type="range" max="10" min="0" id="suerte" name="suerte"> -->
+            <span class="error" id="statsError" aria-live="polite"></span>
+            <div class="submit">
+                <input type="submit" class="createButton" value="Registrar">
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>
