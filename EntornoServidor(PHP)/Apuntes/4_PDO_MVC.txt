@@ -44,8 +44,9 @@ Clase PDO (pag 5632):
 ------
 execute = ejecutamos las sentencias
 beginTransaction = comienzo de una transaccion
-lastInserId = ultimo id asignado
-setAtribute = establece un atributo PDO
+lastInsertId = devuelve ultimo id asignado
+getAttribute = recupera un atributo PDO
+setAttribute = establece un atributo PDO
 prepare = crear un PDO statement. Obtenemos un objeto PDO statement que (a veces) va permitir que las consultas se hagan mas rapido
 
 PDO statement:
@@ -55,6 +56,7 @@ PDO statement:
         -bindParam: Enlace dinamico. Muy eficiente, es para inserciones.
         -bindValue: Enlace una variable a un valor
         -bindColumn: Enlaza una variable a una columna
+    -rowCount: Devuelve el numero de filas agregadas,eliminadas o cambiadas en la ultima instruccion
 
 Consulta fija y dinamica
 ------
