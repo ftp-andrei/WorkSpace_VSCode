@@ -1,0 +1,10 @@
+LAMP -> Linux Apache MySQL PHP
+
+Costo, eficiencia, mantenimiento, soporte, fiablidad
+
+
+OpenSource -> Codigo libre
+Propietarias -> Privadas
+
+LAMP -> dirigida a backend
+MEAN -> dirigidas a frontend
