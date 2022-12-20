@@ -1,0 +1,176 @@
+body,
+header,
+main {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    margin-bottom: 1em;
+    height: 8vh;
+}
+
+
+header img {
+    cursor: pointer;
+    width: 5em;
+    margin-left: 10em;
+}
+
+header img:hover {
+    cursor: pointer;
+    content: url('../images/icons8-página-principal.gif');
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+form {
+    background-color: rgb(137, 197, 160);
+    padding: 2em;
+    border-radius: 40px;
+    width: 35%;
+    height: 40vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.campos {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.campos label {
+    font-size: 1.2em;
+}
+
+.campos input {
+    width: 10em;
+    height: 1.2em;
+}
+
+input {
+    margin-bottom: 2em;
+    border-radius: 1em;
+}
+
+
+.continerBtnForm {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.btnEnviarForm {
+    margin-right: 1em;
+    font-size: 1em;
+    padding: .5em;
+    background-color: rgb(39, 53, 36);
+    color: white;
+    cursor: pointer;
+}
+
+span{
+    background-color: rgb(116, 21, 21);
+    color: white;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+/* TABLET*/
+@media screen and (min-width:768px) and (max-width:1200px) {
+    header img {
+        width: 6em;
+    }
+
+    form {
+        background-color: rgb(137, 197, 160);
+        padding: 3em;
+        border-radius: 40px;
+        width: 60vw;
+        height: 60vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .campos label {
+        font-size: 2.3em;
+    }
+    
+    .campos input {
+        width: 20em;
+        height: 1.2em;
+    }
+    
+    input {
+        margin-bottom: 1em;
+        border-radius: 1em;
+    }
+
+    .btnEnviarForm {
+        margin-top: 2em;
+        margin-right: 2.5em;
+        font-size: 2em;
+        padding: .5em;
+    }
+    span{
+        background-color: rgb(116, 21, 21);
+        color: white;
+        border-radius: 20px;
+        font-size: 1.8em;
+    }
+}
+
+/* PC*/
+@media (min-width:1201px) and (max-width:2000px) {
+    header img {
+        width: 6em;
+    }
+
+    form {
+        width: 40vw;
+        height: 60vh;
+    }
+    .campos label {
+        font-size: 3em;
+    }
+    
+    .campos input {
+        width: 26em;
+        height: 2em;
+    }
+    
+    input {
+        margin-bottom: 1em;
+        border-radius: 1em;
+        font-size: 1em;
+    }
+
+    .btnEnviarForm {
+        margin-top: 2em;
+        margin-right: 2.5em;
+        font-size: 2em;
+        padding: .5em;
+    }
+    span{
+        background-color: rgb(116, 21, 21);
+        color: white;
+        border-radius: 20px;
+        font-size: 1.8em;
+    }
+}
