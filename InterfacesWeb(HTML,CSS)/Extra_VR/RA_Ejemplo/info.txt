@@ -1,0 +1,2 @@
+https://github.com/nicolocarpignoli/artoolkit-barcode-markers-collection/blob/master/3x3/0.png
+https://aframe.io/docs/1.3.0/primitives/a-image.html

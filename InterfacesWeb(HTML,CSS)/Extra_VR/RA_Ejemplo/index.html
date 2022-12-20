@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Initialize the viewport -->
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <!-- Load the required dependencies: A-frame and AR.js -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+
+  <!-- This is a hack because at the time of writing there are some distortions in the provided visuals until the  -->
+  <!-- system receives a resize event. The resize event must be triggered when everything has been loaded and the  -->
+  <!-- camera has been initialized. All the events I tried didn't work, so in the end I resorted using a 3 seconds -->
+  <!-- time-out after the load event. When this problem will be fixed in the AR.js library, this hack won't be necessary -->
+  <!-- anymore -->
+  <script>
+    window.onload = function () {
+      setTimeout(function () {
+        var resizeEvent = window.document.createEvent("UIEvents");
+        resizeEvent.initUIEvent("resize", true, false, window, 0);
+        window.dispatchEvent(resizeEvent);
+      }, 3000);
+    };
+  </script>
+</head>
+
+<body style="margin: 0px; overflow: hidden">
+  <!-- a-scene defines the scene that we are agoing to use. After arjs= there are various options that can be customized  -->
+  <!-- depending on your needs. For now just stick with these ones. -->
+  <!-- Notice that we have added a new detectionMode parameters and also a matrixCodeType one. -->
+  <!-- MatrixCodeType is 3x3 because we have created a 3x3 marker before using the online tool  -->
+  <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+    <a-assets>
+      <a-asset-item
+        id="gltf"
+        src="https://cdn.jsdelivr.net/gh/canamala/modelBlender@09bcb0c5457e34b06835d3b55094c0b98cac1c67/scene.gltf">
+      </a-asset-item>
+    </a-assets>
+
+    <a-scene>
+      <a-assets>
+        <img id="my-image" src="image.png" />
+      </a-assets>
+
+      <!-- Using the asset management system. -->
+      <a-image src="imgs/0.png"></a-image>
+    </a-scene>
+    <!-- marker id=0 -->
+    <a-marker type="barcode" value="0">
+      <a-entity gltf-model="#gltf"></a-entity>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
