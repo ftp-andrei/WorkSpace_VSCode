@@ -30,7 +30,7 @@
            aplicación
        -->
     <a href="index.php?ctl=inicio">Inicio</a> |
-    <a href="index.php?ctl=productos">Productos</a>
+    <a href="index.php?ctl=productos">Productos</a> |
     <a href="index.php?ctl=addDepartamento">Nuevo Departamento</a>
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá
