@@ -8,3 +8,5 @@ Propietarias -> Privadas
 
 LAMP -> dirigida a backend
 MEAN -> dirigidas a frontend
+
+VirtualHost -> Cada carpeta que ponemos en htdocs, es un host virtual.
