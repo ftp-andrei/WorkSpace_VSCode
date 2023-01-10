@@ -2,7 +2,7 @@
 
 namespace app\educacion\agenda\fuente\controlador;
 
-use \app\educacion\agenda\fuente\repositorio\vueloRepositorio;
+use app\educacion\agenda\fuente\repositorio\vueloRepositorio;
 
 class vuelosController
 {

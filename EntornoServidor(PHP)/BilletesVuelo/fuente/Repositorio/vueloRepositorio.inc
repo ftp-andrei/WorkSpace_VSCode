@@ -29,10 +29,6 @@ class vueloRepositorio{
         ]
     ];
 
-    for($x =1;$x<21;$x++){
-        echo $vuelo[$x];
-    }
-
-
+    return var_dump($vuelo);
     }
 }
