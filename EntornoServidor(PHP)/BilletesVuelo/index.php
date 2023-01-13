@@ -1,4 +1,5 @@
 <?php
+session_start();
 $vuelo = [
     "AK127" => [
         "Madrid-Londres",
@@ -44,8 +45,10 @@ $contador = 1;
         <?php
         if (isset($_POST['confirmar'])) {
             echo ' <button type="submit" name=comprarBilletes>Comprar Billetes</button> <br>';
-
+            $select = $_POST['selectVuelo']; // TODO:
+            echo $select;
             echo "
+            <br>
          <table>
             <thead>
                 <tr>
@@ -64,9 +67,9 @@ $contador = 1;
                 if ($value == "asientos") {
                     echo "<tr>";
                     for ($x = 0; $x < 6; $x++) {
-                        echo "<td>" . $value[$x] . "</td>";
+                        echo "<td>" . $key[$value] . "</td>";
                     }
-                    echo "</tr>";   
+                    echo "</tr>";
                 }
             }
 

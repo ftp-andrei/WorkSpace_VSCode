@@ -10,3 +10,28 @@ LAMP -> dirigida a backend
 MEAN -> dirigidas a frontend
 
 VirtualHost -> Cada carpeta que ponemos en htdocs, es un host virtual.
+
+Apache:
+    -Estable
+    -Flexible
+    -Extensible,modular
+    -Puede crear host virtuales
+    -Software libre
+    -Multiplataforma
+    -Apache significa: A PAtCHy sErver
+
+Servidor de Windows: IIS -> Internet Information Services
+
+Directias de configuracion
+----
+Se agrupan en 3 secciones:
+    -Configuracion general
+    -Optimizacion
+    -De secciones: Configuran partes concretas de apache.
+
+ServerRoot: Reside toda la ifnroamcion de configuracion y registro del servidor
+DocumentRoot: Indica la carpeta raiz donde se ubica el servidor. Esta directiva esta en la configuracion de un sitio o un virtual host.
+ServerName: Define el nombre del servidor.
+DirectoryIndex: Indica el index del host virtual. Le podemos indicar varios, e irá buscando hasta encontrarlo.
+User/Group: Determina el tipo de acceso a los archivos
+
