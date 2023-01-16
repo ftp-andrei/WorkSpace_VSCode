@@ -1,5 +1,7 @@
 <?php
 session_start();
+include 'funciones.php';
+
 $vuelo = [
     "AK127" => [
         "Madrid-Londres",
@@ -32,8 +34,8 @@ $contador = 1;
 
 <body>
     <h1>Compañía Vuelos</h1>
-    <form action="" method="post">
-        <label for="idVuelo">Selecciona un vuelo</label>
+    <form action="#" method="post">
+        <label for="idVuelo">Selecciona un vuelo:</label>
         <select name="seleccionVuelo" id="selectVuelo" name="selectVuelo">
             <?php foreach ($vuelo as $key => $value) {
                 echo "<option value=" . $key . ">" . $key . "</option>";
@@ -42,45 +44,18 @@ $contador = 1;
         </select>
         <button type="submit" id="Confirmar" name="confirmar">Confirmar</button>
         <button type="submit" id="mostrarTodos" name="mostrarTodos">Mostrar todos los vuelos</button>
-        <?php
-        if (isset($_POST['confirmar'])) {
-            echo ' <button type="submit" name=comprarBilletes>Comprar Billetes</button> <br>';
-            $select = $_POST['selectVuelo']; // TODO:
-            echo $select;
-            echo "
-            <br>
-         <table>
-            <thead>
-                <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>C</th>
-                    <th></th>
-                    <th>D</th>
-                    <th>E</th>
-                    <th>F</th>
-                </tr>
-            </thead>
-            <tbody>";
-
-            foreach ($vuelo as $key => $value) {
-                if ($value == "asientos") {
-                    echo "<tr>";
-                    for ($x = 0; $x < 6; $x++) {
-                        echo "<td>" . $key[$value] . "</td>";
-                    }
-                    echo "</tr>";
-                }
-            }
-
-
-            echo "</tbody>
-
-        </table>";
-        }
-        ?>
-
     </form>
+    <?php
+    if (isset($_POST['confirmar'])) {
+        echo ' <button type="submit" name=comprarBilletes>Comprar Billetes</button> <br>';
+        if (isset($_GET['selectVuelo'])) {
+            echo $select;
+        }
+        mostrar($vuelo);
+    }
+    ?>
+
+
 </body>
 
 </html>
