@@ -19,22 +19,43 @@ $vuelo = [
         "asiento" => [0b010001, 0b011010, 0b011101, 0b010001, 0b010100, 0b110101, 0b010101, 0b100101, 0b010101, 0b010111, 0b001101, 0b010011, 0b110101, 0b010001, 0b010100, 0b010111, 0b000000, 0b011101, 0b010011, 0b010110]
     ]
 ];
-$contador = 1;
+$s = '';
+if (isset($_POST['confirmar'])) {
+    $s = mostrar($vuelo);
+}
+
+if (isset($_POST['mostrarTodos'])) {
+    $s = mostrarTodos($vuelo);
+}
+
+if (isset($_POST['comprar'])) {
+    $s = comprar($vuelo);
+}
+
+if (isset($_POST['vertical'])) {
+    $s = vertical($vuelo);
+}
+
+if (isset($_POST['comprarAsientos'])) {
+    $s = billetesComprados($vuelo);
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Compañia Vuelo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h1>Compañía Vuelos</h1>
-    <form action="#" method="post">
+    <br>
+    <form method="post">
         <label for="idVuelo">Selecciona un vuelo:</label>
         <select name="seleccionVuelo" id="selectVuelo" name="selectVuelo">
             <?php foreach ($vuelo as $key => $value) {
@@ -44,15 +65,12 @@ $contador = 1;
         </select>
         <button type="submit" id="Confirmar" name="confirmar">Confirmar</button>
         <button type="submit" id="mostrarTodos" name="mostrarTodos">Mostrar todos los vuelos</button>
+        <button type="submit" id="vertical" name="vertical">Vertical</button>
+        <button type="submit" id="comprar" name="comprar">Comprar Billetes</button>
     </form>
+    <br>
     <?php
-    if (isset($_POST['confirmar'])) {
-        echo ' <button type="submit" name=comprarBilletes>Comprar Billetes</button> <br>';
-        if (isset($_GET['selectVuelo'])) {
-            echo $select;
-        }
-        mostrar($vuelo);
-    }
+    echo $s;
     ?>
 
 

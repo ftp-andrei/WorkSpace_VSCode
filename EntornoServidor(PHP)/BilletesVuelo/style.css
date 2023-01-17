@@ -1,0 +1,17 @@
+* {
+  margin: 0 auto;
+  text-align: center;
+}
+
+table {
+  border: 1px black;
+  width: 50%;
+}
+
+.Libre {
+  background-color: green;
+}
+
+.Ocupado {
+  background-color: red;
+}
