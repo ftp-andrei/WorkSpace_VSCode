@@ -68,5 +68,5 @@ El "\" es por que es global
 Las funciones de SQL server hacen menos cosas que con Oracle (Usar procedimientos almacenados)
 A traves de funciones se pueden crear tablas
 
-Procedimientos almacenados echar un ojo 
+Procedimientos almacenados -> grupo de una o varias instrucciones Transact-SQL, hasta que no se completan todas las instrucciones no da OK, si falla a mitad se cancela.
 
