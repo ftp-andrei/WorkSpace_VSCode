@@ -1,5 +1,5 @@
 <?php ob_start();
-
+/* Plantilla vuelos */
 include 'funciones.php';
 
 $vuelo = [

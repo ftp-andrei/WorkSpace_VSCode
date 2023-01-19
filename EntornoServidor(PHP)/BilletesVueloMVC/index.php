@@ -2,9 +2,10 @@
 //index.php
 session_start();
 error_reporting(E_ALL);
-
+/*Añadir controladores*/
 require_once __DIR__ . '/fuente/Controlador/vuelosController.inc';
-require_once __DIR__ . '/fuente/Controlador/defaultController.inc'; /*controladores */
+require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
+/*Añadir fichero rutas */
 require_once __DIR__ . '/app/conf/rutas.inc'; /*Ubicación del archivo de rutas*/
 
 
