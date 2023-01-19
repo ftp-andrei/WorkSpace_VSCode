@@ -27,6 +27,7 @@ function mostrar($vuelo)
             $s .= '</tr>';
         }
     }
+    $s .= "</table>";
     return $s;
 }
 
@@ -62,6 +63,7 @@ function mostrarTodos($vuelo)
             $s .= '<br>';
         }
     }
+    $s .= "</table>";
     return $s;
 }
 
@@ -94,6 +96,7 @@ function comprar($vuelo)
             $s .= '</tr>';
         }
     }
+    $s .= "</table>";
     return $s;
 }
 
@@ -156,6 +159,6 @@ function vertical($vuelo)
     }
     $s .= '</tr>';
     $s .= '</tr>';
-
+    $s .= "</table>";
     return $s;
 }

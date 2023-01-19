@@ -35,3 +35,23 @@ ServerName: Define el nombre del servidor.
 DirectoryIndex: Indica el index del host virtual. Le podemos indicar varios, e irá buscando hasta encontrarlo.
 User/Group: Determina el tipo de acceso a los archivos
 
+2 tipos de cifrado:
+simetrico: Misma clave para cifrar y descifrar
+asimetrico: 
+    Ejemplo clave 4.
+    -clave Privada: La tiene el dueño (x10/2) > 4 x10/2=20
+    -clave publica: el otro extremo (x5) > 4x5=20
+
+Cifrado vigenere: Coger un texto, poner una palabra y repetirla bajo el texto, suponiendo que la E vale 5 y la C vale 3, se suman (5+3) y el texto generado abajo será el cifrado vigenere
+
+
+El sol brilla por su ausencia -> texto
+Ca rme ncarme nca rm encarmen -> palabra
+Hm bbp ...                    -> texto generado Vigenere
+
+
+EXAMEN:
+Parecido al anterior. 
+
+EjPreguntas: Que hay que hacer en xampp para cambiar un puerto
+
