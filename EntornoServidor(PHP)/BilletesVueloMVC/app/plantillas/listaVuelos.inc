@@ -72,6 +72,7 @@ if (isset($_POST['comprarAsientos'])) {
     <br>
     <?php
     echo "<div align=\"center\">".$s."</div>";
+    //Por que la 1era vez esta vacio y vuelve arriba(?)
     ?>
 
 </body>
