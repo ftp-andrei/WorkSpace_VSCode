@@ -71,14 +71,11 @@ if (isset($_POST['comprarAsientos'])) {
     </form>
     <br>
     <?php
-    echo $s;
+    echo "<div align=\"center\">".$s."</div>";
     ?>
 
-
 </body>
-
 </html>
-
 
 <?php
 $contenido = ob_get_clean();
