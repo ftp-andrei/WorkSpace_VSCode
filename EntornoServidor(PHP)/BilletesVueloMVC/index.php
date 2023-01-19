@@ -16,8 +16,7 @@ if (isset($_GET['ctl'])) {
     $ruta = $_GET['ctl'];
   } else {
     header('Status: 404 Not Found');
-    echo '<html><body><h1>Error 404: No existe la ruta <i>' .
-      $_GET['ctl'] .
+    echo '<html><body><h1>Error 404: No existe la ruta <i>' . $_GET['ctl'] .
       '</p></body></html>';
     exit;
   }
