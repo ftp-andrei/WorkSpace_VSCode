@@ -102,6 +102,8 @@ function comprar($vuelo)
 
 function billetesComprados($vuelo)
 {
+    //Usar $_SESSION
+    //mod. array desde .txt
     $s = "a";
     return $s;
 }
