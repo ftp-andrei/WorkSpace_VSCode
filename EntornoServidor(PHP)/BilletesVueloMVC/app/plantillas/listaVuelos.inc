@@ -20,25 +20,25 @@ $vuelo = [
     ]
   ];
 
-$s = '';
+$contenidoVuelo = '';
 if (isset($_POST['confirmar'])) {
-    $s = mostrar($vuelo);
+    $contenidoVuelo = mostrar($vuelo);
 }
 
 if (isset($_POST['mostrarTodos'])) {
-    $s = mostrarTodos($vuelo);
+    $contenidoVuelo = mostrarTodos($vuelo);
 }
 
 if (isset($_POST['comprar'])) {
-    $s = comprar($vuelo);
+    $contenidoVuelo = comprar($vuelo);
 }
 
 if (isset($_POST['vertical'])) {
-    $s = vertical($vuelo);
+    $contenidoVuelo = vertical($vuelo);
 }
 
 if (isset($_POST['comprarAsientos'])) {
-    $s = billetesComprados($vuelo);
+    $contenidoVuelo = billetesComprados($vuelo);
 }
 ?>
     <h1>Compañía Vuelos</h1>
@@ -58,7 +58,7 @@ if (isset($_POST['comprarAsientos'])) {
     </form>
     <br>
     <?php
-    echo $s;
+    echo $contenidoVuelo;
     ?>
 
 <?php
