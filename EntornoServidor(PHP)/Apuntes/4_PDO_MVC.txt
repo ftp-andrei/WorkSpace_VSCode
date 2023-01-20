@@ -70,3 +70,7 @@ A traves de funciones se pueden crear tablas
 
 Procedimientos almacenados -> grupo de una o varias instrucciones Transact-SQL, hasta que no se completan todas las instrucciones no da OK, si falla a mitad se cancela.
 
+
+Mvc
+Arrays
+Tipos 8.1 -> Desde perspectiva fuertemente tipado, es decir estrictos.
