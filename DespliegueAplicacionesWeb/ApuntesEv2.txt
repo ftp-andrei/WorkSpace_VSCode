@@ -51,7 +51,10 @@ Hm bbp ...                    -> texto generado Vigenere
 
 
 EXAMEN:
-Parecido al anterior. 
-
+Parecido al anterior.
+30-40 preguntas. 
+Pdf que es el despliegue
+Instalacion wordpress en windows y ubuntu
 EjPreguntas: Que hay que hacer en xampp para cambiar un puerto
+Diferencias W10 y WServer
 
