@@ -107,7 +107,7 @@ function billetesComprados($vuelo)
 
     //Recuperar
     $serialized_array = file_get_contents("my_array.txt");
-    $my_array = unserialize($serialized_array);
+    $vuelo = unserialize($serialized_array);
 
     //Meter
     $serialized_array = serialize($vuelo);
