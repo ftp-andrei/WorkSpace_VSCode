@@ -104,6 +104,16 @@ function billetesComprados($vuelo)
 {
     //Usar $_SESSION
     //mod. array desde .txt
+
+    //Recuperar
+    $serialized_array = file_get_contents("my_array.txt");
+    $my_array = unserialize($serialized_array);
+
+    //Meter
+    $serialized_array = serialize($vuelo);
+    file_put_contents("my_array.txt", $serialized_array);
+
+
     $contenidoVuelo = "a";
     return $contenidoVuelo;
 }

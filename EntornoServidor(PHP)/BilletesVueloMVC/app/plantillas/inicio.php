@@ -12,10 +12,16 @@
     $contenido que provocará que se muestre la salida del buffer dentro dicha
     página "base.php"
 */
- ?>
+?>
 <?php ob_start() ?>
 
+<h1>Bienvenido a Vuelos</h1>
+<br>
+<p>Este es el inicio de la pagina</p>
+<br>
+<p>Para mostrar vuelo selecciona "Mostrar Vuelo" en la parte superior del nav</p>
+<br>
+<p>Para comprar un billete de vuelo selecciona "Comprar vuelo" en la parte superior del nav</p>
+<?php $contenido = ob_get_clean() ?>
 
- <?php $contenido = ob_get_clean() ?>
-
- <?php include 'base.php' ?>
+<?php include 'base.php' ?>

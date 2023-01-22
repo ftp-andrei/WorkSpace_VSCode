@@ -1,6 +1,7 @@
 h1,
 form,
-table {
+table,
+p {
   margin: 0 auto;
   text-align: center;
 }
