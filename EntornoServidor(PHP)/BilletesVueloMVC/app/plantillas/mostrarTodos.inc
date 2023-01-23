@@ -21,12 +21,7 @@ $vuelo = [
 
 <h1>Compañía Vuelos</h1>
     <br>
-    <form method="post">
-        <button type="submit" id="mostrarTodos" name="mostrarTodos">Mostrar todos los vuelos</button>
-    </form>
-    <br>
     <?php
-        if(isset($_POST["mostrarTodos"])){
             $contenidoVuelo = '';
         foreach ($vuelo as $key  => $value) {
             $contenidoVuelo .= "<table border='1'> <caption>" . $key . " " . $value[0] . " " . $value[1] . "</caption> ";
@@ -59,7 +54,7 @@ $vuelo = [
         }
         $contenidoVuelo .= "</table>";
     echo $contenidoVuelo;
-        }
+        
     ?>
 
 <?php
