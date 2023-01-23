@@ -30,7 +30,8 @@
        -->
     <a href="index.php?ctl=inicio">Inicio</a> |
     <a href="index.php?ctl=vuelos">Mostrar Vuelo</a> |
-    <a href="index.php?ctl=vuelos2">Mostrar Todos</a> | <!-- MostrarVuelos DIVIDIR MAS EL CODIGO-->
+    <a href="index.php?ctl=vuelos2">Mostrar Todos</a> |
+    <a href="index.php?ctl=vuelos3">Comprar</a> |<!-- MostrarVuelos DIVIDIR MAS EL CODIGO-->
     <!-- <a href="index.php?ctl=vuelos">Comprar</a> |
     <a href="index.php?ctl=vuelos">Cancelar</a> | -->
 

@@ -17,4 +17,5 @@ $mapeoRutas =
           array('controller' =>'defaultController', 'action' =>'inicio'),
           'vuelos' =>  array('controller' => 'app\educacion\agenda\fuente\controlador\vuelosController', 'action' => 'mostrarVuelo'),
           'vuelos2' =>  array('controller' => 'app\educacion\agenda\fuente\controlador\vuelosController', 'action' => 'mostrarTodos'),
+          'vuelos3' =>  array('controller' => 'app\educacion\agenda\fuente\controlador\vuelosController', 'action' => 'comprar'),
        );

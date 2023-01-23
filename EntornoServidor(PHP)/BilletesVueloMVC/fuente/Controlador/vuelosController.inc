@@ -14,4 +14,9 @@ class vuelosController
     {
             include __DIR__ . '/../../app/plantillas/mostrarTodos.inc';
     }
+
+    public function comprar()
+    {
+            include __DIR__ . '/../../app/plantillas/comprar.inc';
+    }
 }
