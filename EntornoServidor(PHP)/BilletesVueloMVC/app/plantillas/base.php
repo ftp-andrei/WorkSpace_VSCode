@@ -5,6 +5,7 @@
      página home, llamado "inicio"
      El nombre del archivo es indiferente: layout, comun, etc.
 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href='web/css/resposnive.css' />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="web/css/style.css">
 </head>
 
 <body>
@@ -28,7 +29,8 @@
            aplicación
        -->
     <a href="index.php?ctl=inicio">Inicio</a> |
-    <a href="index.php?ctl=vuelos">Mostrar Vuelo</a> | <!-- MostrarVuelos DIVIDIR MAS EL CODIGO-->
+    <a href="index.php?ctl=vuelos">Mostrar Vuelo</a> |
+    <a href="index.php?ctl=vuelos2">Mostrar Todos</a> | <!-- MostrarVuelos DIVIDIR MAS EL CODIGO-->
     <!-- <a href="index.php?ctl=vuelos">Comprar</a> |
     <a href="index.php?ctl=vuelos">Cancelar</a> | -->
 

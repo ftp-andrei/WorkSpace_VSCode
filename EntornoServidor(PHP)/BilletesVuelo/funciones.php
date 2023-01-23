@@ -68,6 +68,9 @@ function mostrarTodos($vuelo)
 function comprar($vuelo)
 {
     $s = '<button type="submit" id="comprarAsientos" name="comprarAsientos">Comprar</button>';
+    if (isset($_POST["comprarAsientos"])) {
+        billetesComprados($vuelo);
+    }
 
     $s .= "<table border='1'> <caption>" . $_POST['seleccionVuelo'] . " " . $vuelo[$_POST['seleccionVuelo']][0] . " " . $vuelo[$_POST['seleccionVuelo']][1] . "</caption> ";
     $s .= '<tr>';
@@ -94,13 +97,21 @@ function comprar($vuelo)
             $s .= '</tr>';
         }
     }
+
     return $s;
 }
 
 function billetesComprados($vuelo)
 {
-    $s = "a";
-    return $s;
+    //Recuperar
+    $serialized_array = file_get_contents("my_array.txt");
+    $vuelo = unserialize($serialized_array);
+    array_push($vuelo, "hola");
+    //Meter
+    $serialized_array = serialize($vuelo);
+    file_put_contents("my_array.txt", $serialized_array);
+
+    return $vuelo;
 }
 
 function vertical($vuelo)

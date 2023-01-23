@@ -9,4 +9,9 @@ class vuelosController
     {
             include __DIR__ . '/../../app/plantillas/mostrarVuelo.inc';
     }
+
+    public function mostrarTodos()
+    {
+            include __DIR__ . '/../../app/plantillas/mostrarTodos.inc';
+    }
 }

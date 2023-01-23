@@ -1,7 +1,6 @@
 <?php ob_start();
 /* Plantilla vuelos */
 include 'funciones.php';
-
 $vuelo = [
     "AK127" => [
       "Madrid-Londres",
@@ -19,27 +18,7 @@ $vuelo = [
       "asiento" => [0b010001, 0b011010, 0b011101, 0b010001, 0b010100, 0b110101, 0b010101, 0b100101, 0b010101, 0b010111, 0b001101, 0b010011, 0b110101, 0b010001, 0b010100, 0b010111, 0b000000, 0b011101, 0b010011, 0b010110]
     ]
   ];
-
 $contenidoVuelo = '';
-if (isset($_POST['confirmar'])) {
-    $contenidoVuelo = mostrar($vuelo);
-}
-
-if (isset($_POST['mostrarTodos'])) {
-    $contenidoVuelo = mostrarTodos($vuelo);
-}
-
-if (isset($_POST['comprar'])) {
-    $contenidoVuelo = comprar($vuelo);
-}
-
-if (isset($_POST['vertical'])) {
-    $contenidoVuelo = vertical($vuelo);
-}
-
-if (isset($_POST['comprarAsientos'])) {
-    $contenidoVuelo = billetesComprados($vuelo);
-}
 ?>
     <h1>Compañía Vuelos</h1>
     <br>
@@ -52,13 +31,96 @@ if (isset($_POST['comprarAsientos'])) {
             ?>
         </select>
         <button type="submit" id="Confirmar" name="confirmar">Confirmar</button>
-        <button type="submit" id="mostrarTodos" name="mostrarTodos">Mostrar todos los vuelos</button>
         <button type="submit" id="vertical" name="vertical">Vertical</button>
-        <button type="submit" id="comprar" name="comprar">Comprar Billetes</button>
     </form>
     <br>
     <?php
+if(isset($_POST["confirmar"])){
+    $contenidoVuelo = "<table border='1'> <caption>" . $_POST['seleccionVuelo'] . " " . $vuelo[$_POST['seleccionVuelo']][0] . " " . $vuelo[$_POST['seleccionVuelo']][1] . "</caption> ";
+
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>A</th>";
+    $contenidoVuelo .= "<th class='fila'>B</th>";
+    $contenidoVuelo .= "<th class='fila'>C</th>";
+    $contenidoVuelo .= "<th class='fila'>Fila</th>";
+    $contenidoVuelo .= "<th class='fila'>D</th>";
+    $contenidoVuelo .= "<th class='fila'>E</th>";
+    $contenidoVuelo .= "<th class='fila'>F</th>";
+    $contenidoVuelo .= '</tr>';
+
+    for ($i = 0; $i < 1; $i++) {
+        $contenidoVuelo .= '<tr>';
+        for ($i = 0; $i < count($vuelo[$_POST['seleccionVuelo']]['asiento']); $i++) {
+            $contenidoVuelo .= '<tr>';
+            $contenidoVuelo .= "<td " . (!(0b100000 & $vuelo[$_POST['seleccionVuelo']]['asiento'][$i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+            $contenidoVuelo .= "<td " . (!(0b010000 & $vuelo[$_POST['seleccionVuelo']]['asiento'][$i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+            $contenidoVuelo .= "<td " . (!(0b001000 & $vuelo[$_POST['seleccionVuelo']]['asiento'][$i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+            $contenidoVuelo .= '<td class="fila">' . $i + 1 . '</td>';
+            $contenidoVuelo .= "<td " . (!(0b100100 & $vuelo[$_POST['seleccionVuelo']]['asiento'][$i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+            $contenidoVuelo .= "<td " . (!(0b100010 & $vuelo[$_POST['seleccionVuelo']]['asiento'][$i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+            $contenidoVuelo .= "<td " . (!(0b100001 & $vuelo[$_POST['seleccionVuelo']]['asiento'][$i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+            $contenidoVuelo .= '</tr>';
+        }
+    }
+    $contenidoVuelo .= "</table>";
+echo $contenidoVuelo;
+}
+
+if(isset($_POST["vertical"])){
+    $contenidoVuelo = "<table border='1'> <caption>" . $_POST['seleccionVuelo'] . " " . $vuelo[$_POST['seleccionVuelo']][0] . " " . $vuelo[$_POST['seleccionVuelo']][1] . "</caption> ";
+
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>A</th>";
+    for ($i = 0; $i < 20; $i++) {
+        $contenidoVuelo .= "<td " . (!(0b100000 & $vuelo[$_POST['seleccionVuelo']]['asiento'][0 + $i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+    }
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>B</th>";
+    for ($i = 0; $i < 20; $i++) {
+        $contenidoVuelo .= "<td " . (!(0b010000 & $vuelo[$_POST['seleccionVuelo']]['asiento'][0 + $i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+    }
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>C</th>";
+    for ($i = 0; $i < 20; $i++) {
+        $contenidoVuelo .= "<td " . (!(0b001000 & $vuelo[$_POST['seleccionVuelo']]['asiento'][0 + $i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+    }
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '</tr>';
+    for ($i = 0; $i < 1; $i++) {
+        $contenidoVuelo .= '<tr>';
+        $contenidoVuelo .= "<th class='fila'>Fila</th>";
+        for ($i = 0; $i < count($vuelo[$_POST['seleccionVuelo']]['asiento']); $i++) {
+            $contenidoVuelo .= '<th class="fila">' . $i + 1 . '</th>';
+        }
+    }
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>D</th>";
+    for ($i = 0; $i < 20; $i++) {
+        $contenidoVuelo .= "<td " . (!(0b000100 & $vuelo[$_POST['seleccionVuelo']]['asiento'][0 + $i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+    }
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>E</th>";
+    for ($i = 0; $i < 20; $i++) {
+        $contenidoVuelo .= "<td " . (!(0b000010 & $vuelo[$_POST['seleccionVuelo']]['asiento'][0 + $i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+    }
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '<tr>';
+    $contenidoVuelo .= "<th class='fila'>F</th>";
+    for ($i = 0; $i < 20; $i++) {
+        $contenidoVuelo .= "<td " . (!(0b000001 & $vuelo[$_POST['seleccionVuelo']]['asiento'][0 + $i]) ? "class='Libre'>L" : "class='Ocupado'>O") . '</td>';
+    }
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= '</tr>';
+    $contenidoVuelo .= "</table>";
     echo $contenidoVuelo;
+}
     ?>
 
 <?php

@@ -36,9 +36,6 @@ if (isset($_POST['vertical'])) {
     $s = vertical($vuelo);
 }
 
-if (isset($_POST['comprarAsientos'])) {
-    $s = billetesComprados($vuelo);
-}
 ?>
 
 <!DOCTYPE html>
