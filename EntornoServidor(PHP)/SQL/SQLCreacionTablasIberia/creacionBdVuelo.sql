@@ -53,5 +53,13 @@ create table vuelos(
 	fila20 tinyint not null default 0,
 	constraint pkvuelos primary key (codigo,fecha),
 	constraint fkvueloNVuelos foreign key (codigo) references vuelo(codigo),
-)
-go
+);
+
+create table usuario(
+	idUsers INT IDENTITY NOT NULL,
+	usuario VARCHAR(30) NOT NULL,
+	pwd VARCHAR(255) NOT NULL,
+	rol VARCHAR(50) NOT NULL DEFAULT 'cliente',
+	CONSTRAINT pkusers PRIMARY KEY (idUsers),
+	CONSTRAINT uusuarioUser UNIQUE (usuario),
+);
