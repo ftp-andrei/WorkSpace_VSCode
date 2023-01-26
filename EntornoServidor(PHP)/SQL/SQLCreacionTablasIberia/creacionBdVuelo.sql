@@ -63,3 +63,14 @@ create table usuario(
 	CONSTRAINT pkusers PRIMARY KEY (idUsers),
 	CONSTRAINT uusuarioUser UNIQUE (usuario),
 );
+
+create table pasajero(
+	idPasajero INT NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	apelldo VARCHAR(100) NOT NULL,
+	dni CHAR(9) NOT NULL,
+	idUsers INT NOT NULL,
+	CONSTRAINT pkPasajero PRIMARY KEY (idPasajero),
+	CONSTRAINT fkUsersNPasajero FOREIGN KEY (idUsers) REFERENCES usuario(idUsers),
+
+);

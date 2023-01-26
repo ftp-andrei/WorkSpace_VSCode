@@ -12,10 +12,19 @@
     $contenido que provocará que se muestre la salida del buffer dentro dicha
     página "base.php"
 */
- ?>
+?>
 <?php ob_start() ?>
 
+<form action="" method="post">
+  <fieldset>
+    <legend>Buscador de vuelos</legend>
+    <label for="salida">Salir de: <input type="text" name="salida" id="salida"></label>
+    <label for="destino">Destino: <input type="text" name="destino" id="destino"></label>
+    <label for="ida">Ida: <input type="date" name="ida" id="ida"></label>
+    <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
+  </fieldset>
+  <input type="submit" value="Buscar" name="ok" id="ok">
+</form>
+<?php $contenido = ob_get_clean() ?>
 
- <?php $contenido = ob_get_clean() ?>
-
- <?php include 'base.php' ?>
+<?php include 'base.php' ?>

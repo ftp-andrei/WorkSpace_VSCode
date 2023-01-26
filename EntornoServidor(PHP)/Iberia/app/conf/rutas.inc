@@ -12,7 +12,6 @@
   La clave 'inicio' referencia la página home de la aplicación y especifica
     el controlador que debe decidir cuál es la vista que se debe mostrar
 */
-$mapeoRutas =
-  array('inicio' =>
-          array('controller' =>'defaultController', 'action' =>'inicio'),
-       );
+$mapeoRutas =['inicio' =>
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'inicio'],
+];
