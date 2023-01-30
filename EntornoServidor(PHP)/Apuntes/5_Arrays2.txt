@@ -1,0 +1,94 @@
+Creacion array
+----
+1. nombreValor = array(clave=>valor);
+2. $array = [clave=>valor];
+
+Si se intenta acceder a un array no definido lanza un E_Warning
+
+  $array = [
+    1 => 'a',
+    "1" => 'b',
+    1.5 => 'c',
+    true => 'd'
+  ];
+
+->> Si hacemos un var_dump saldra D, ya que se sobreescriben los valores.
+
+
+  $array = array(
+    "foo" => "bar",
+    "bar" => "foo",
+    100 => -100,
+    -100 => '100'
+  );
+
+->> Muestra exactamente eso.
+
+
+No se puede usar array de objetos como clave.
+
+$array = ["foo","bar","hello","world"]; 
+
+-->> Devuelve lo mismo poniendo indice
+
+$array = ["a","b",6=> "c","d"]; 
+
+-->> Empieza por 1 pero cambia la secuencia, a partir del 6 va el 7.
+
+$array = [
+  "foo" => "bar",
+  42 => 24,
+  "multi" => array(
+      "dimensional => array(
+          "array" => "foo"
+      )
+  )
+  ];
+var_dump($array);
+var_dump($array["foo"]);
+var_dump($array[42]);
+var_dump($array["multi"]["dimensional"]["array"]);
+
+-->> Error array ?
+
+function getArray():array
+{
+  return array(1, 2, 3);
+}
+
+$secondElement = getArray()[1];
+
+echo $secondElement;
+
+-->> Devuelve el 2do elemento del array (Es decir, 2);
+
+
+$arr = array(5 => 1, 12 => 2);
+$arr[] = 56; //Añade 1 elemento siguiendo la key (13)
+var_dump($arr);
+$arr['x'] = 42; //Añade un elemento con la key (x)
+var_dump($arr);
+unset($arr[5]); //Elimina la key (5)
+var_dump($arr);
+unset($arr); //Elimina el array
+var_dump($arr);
+
+-->> Añadir y eliminar elementos, mirar orden.
+
+
+$array = array(1, 2, 3, 4, 5);
+print_r($array);
+foreach ($array as $key => $value) {
+  unset($array[$key]);
+}
+
+print_r($array);
+
+$array[] = 6;
+print_r($array);
+
+$array = array_values($array);
+$array[] = 7;
+print_r($array);
+
+-->> Cambian de orden.

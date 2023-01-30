@@ -57,15 +57,15 @@ create table vuelos(
 
 create table usuario(
 	idUsers INT IDENTITY NOT NULL,
-	usuario VARCHAR(30) NOT NULL,
+	eCorreo VARCHAR(100) NOT NULL,
 	pwd VARCHAR(255) NOT NULL,
 	rol VARCHAR(50) NOT NULL DEFAULT 'cliente',
 	CONSTRAINT pkusers PRIMARY KEY (idUsers),
-	CONSTRAINT uusuarioUser UNIQUE (usuario),
+	CONSTRAINT uusuarioUser UNIQUE (eCorreo),
 );
 
 create table pasajero(
-	idPasajero INT NOT NULL,
+	idPasajero INT IDENTITY NOT NULL,
 	nombre VARCHAR(50) NOT NULL,
 	apelldo VARCHAR(100) NOT NULL,
 	dni CHAR(9) NOT NULL,
@@ -73,4 +73,13 @@ create table pasajero(
 	CONSTRAINT pkPasajero PRIMARY KEY (idPasajero),
 	CONSTRAINT fkUsersNPasajero FOREIGN KEY (idUsers) REFERENCES usuario(idUsers),
 
+);
+
+create table viajes(
+	idPasajero INT IDENTITY NOT NULL,
+	codigo char(5) not null,
+	fecha date not null,
+	CONSTRAINT pkViaje PRIMARY KEY(idPasajero,codigo,fecha),
+	CONSTRAINT fkPasajeroNViaje FOREIGN KEY (idPasajero) REFERENCES pasajero(idPasajero),
+	CONSTRAINT FkVueloNViaje FOREIGN KEY (codigo,fecha) REFERENCES vuelos(codigo,fecha)
 );
