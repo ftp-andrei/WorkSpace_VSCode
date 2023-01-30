@@ -92,3 +92,116 @@ $array[] = 7;
 print_r($array);
 
 -->> Cambian de orden.
+
+$arr = array(1, 2, 3, 4);
+foreach ($arr as &$valor) {
+  $valor = $valor * 2;
+}
+var_dump($arr);
+foreach ($arr as $valor) {
+  $valor = $valor * 2;
+}
+var_dump($arr);
+
+-->> Ejercicio en base a referencia
+
+$array = ["foo", "bar", "bar"];
+
+[$foo, $bar, $bar] = $array;
+
+echo $foo;
+echo $bar;
+echo $bar;
+
+var_dump($array);
+
+-->> Asignar variables a los valores
+
+$array = ["foo" => 1, "bar" => 2, "bar" => 3];
+['bar' => $tres] = $array;
+
+echo $tres;
+
+$array = ["foo", "bar", "bar"];
+[2 => $bar] = $array;
+
+echo $bar;
+
+-->> Tambien con arrays asociativos
+
+foreach ($array as [$id, $nombre]) {
+  echo $id . '-->' . $nombre . '<br>';
+}
+
+-->> Muestra los 2
+
+foreach ($array as list($id)) {
+  echo "$id\n";
+}
+
+-->> Muestra los ids
+
+$a = 1;
+$b = 2;
+[$b, $a] = [$a, $b];
+
+echo $a;
+echo $b;
+
+-->> Desestructuracion de array, cambia los valores de las variables. Como resultado a vale 2 y b vale 1
+
+class A
+{
+  private $b;
+  protected $c;
+  public $d;
+  function __construct()
+  {
+    $this->{1} = null; /*Crea una nueva propiedad*/
+  }
+}
+
+var_export((array) new A());
+
+-->> Nulos
+
+class A 
+{
+  private $a;
+}
+
+class B extends A
+{
+  private $a;
+  public $aa;
+}
+
+var_dump((array) new B());
+
+-->> Nombre de la clase + nombre propiedad (A), heredando asi los valores.
+
+$arr1 = [1, 2, 3]; /* Array base */
+$arr2 = [...$arr1]; /* Añade el contenido de arr1 */
+$arr3 = [0, ...$arr2]; /* Añade el 0 al inicio ademas del contenido de arr2 */
+$arr4 = [...$arr1, ...$arr2, 111]; /* Junta los 2 arrays y pone el 111 al final*/
+$arr5 = [...$arr1, ...$arr1]; /* Junta los 2 array */
+
+function getArr()
+{
+  return ['a', 'b'];
+}
+
+$arr6 = [getArr(), ...$arr2];
+var_dump($arr6);
+
+-->> Usando ...[array] para añadir el contenido de este. El arr6 es bidimensional en indice 0.
+
+$arr1 = ["a" => 1];
+$arr2 = ["a" => 2];
+$arr3 = ["a" => 0, ...$arr1, ...$arr2];
+var_dump($arr3); /* Machaca A mostrando a =>2 */
+
+$arr4 = [1, 2, 3];
+$arr5 = [4, 5, 6];
+$arr6 = [...$arr4, ...$arr5];
+var_dump($arr6); /* Junta los 2 arrays, mostrando del 1 al 6 */
