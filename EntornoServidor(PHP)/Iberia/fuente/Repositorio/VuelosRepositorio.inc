@@ -11,13 +11,14 @@ class VuelosRepositorio{
         $sql1 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino,salida as Salida,duracion as Duración, fecha as "Fecha ida"
         FROM vuelo as v INNER JOIN vuelos AS vs ON v.codigo=vs.codigo 
         WHERE origen=:origen AND destino=:destino AND fecha=:ida AND libres>0';
-
+    
         if(!is_null($vuelta)){
             $sql2 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino,salida as Salida,duracion as Duración, fecha as "Fecha vuelta"
             FROM vuelo as v INNER JOIN vuelos AS vs ON v.codigo=vs.codigo 
             WHERE origen=:destino AND destino=:origen AND fecha=:vuelta AND libres>0';
         }
-    require_once __DIR__.'/../../core/conexionBd.inc';
+        //Se añade la ruta ya en el index
+        //require_once __DIR__.'/../../core/conexionBd.inc'; 
     $vuelos=[];
         try {
             $con=(new \ConexionBd()) -> getConexion();

@@ -22,8 +22,9 @@
     <label for="destino">Destino: <input type="text" name="destino" id="destino"></label>
     <label for="ida">Ida: <input type="date" name="ida" id="ida"></label>
     <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
+    <input type="submit" value="Buscar" name="ok" id="ok">
   </fieldset>
-  <input type="submit" value="Buscar" name="ok" id="ok">
+
 </form>
 <?php $contenido = ob_get_clean() ?>
 

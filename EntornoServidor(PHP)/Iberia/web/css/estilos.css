@@ -10,7 +10,35 @@ header h1 {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 4rem;
   font-style: italic;
-  color: yellowgreen;
+  color: #8a2be2;
   text-shadow: 5px 5px #e5e5e5;
   text-align: center;
+}
+
+hr {
+  color: #7d2181;
+}
+
+#ok {
+  margin-left: 10px;
+  text-align: center;
+  background-color: #8a2be2;
+  color: white;
+  border-color: black;
+  padding: 5px;
+  font-weight: bold;
+}
+
+fieldset {
+  width: 50%;
+  border-color: #83c17a;
+}
+
+nav a {
+  text-decoration-line: none;
+  color: #009c8c;
+}
+
+nav a:hover {
+  font-weight: bold;
 }
