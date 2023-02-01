@@ -26,6 +26,10 @@
   </fieldset>
 
 </form>
-<?php $contenido = ob_get_clean() ?>
+<?php
+if (isset($vuelos)) {
+  print_r($vuelos);
+}
+$contenido = ob_get_clean() ?>
 
 <?php include 'base.php' ?>
