@@ -16,4 +16,14 @@ class DefaultController
   }
   require __DIR__ . '/../../app/plantillas/inicio.php';
 }
+
+public function ocupacion()
+{ 
+  if(isset($_POST['ok'])){
+  //Se añade la ruta ya en el index
+ // require_once __DIR__.'/../Repositorio/VuelosRepositorio.inc';
+  $vuelos = (new VuelosRepositorio()) -> findVuelos($_POST['salida'],$_POST['destino'],$_POST['ida'],$_POST['vuelta']);
+}
+require __DIR__ . '/../../app/plantillas/ocupacion.php';
+}
 }

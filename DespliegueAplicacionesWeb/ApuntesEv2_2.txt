@@ -1,0 +1,25 @@
+2 tipos de cifrado:
+simetrico: Misma clave para cifrar y descifrar
+asimetrico: 
+    Ejemplo clave 4.
+    -clave Privada: La tiene el dueño (x10/2) > 4 x10/2=20
+    -clave publica: el otro extremo (x5) > 4x5=20
+
+Cifrado vigenere: Coger un texto, poner una palabra y repetirla bajo el texto, suponiendo que la E vale 5 y la C vale 3, se suman (5+3) y el texto generado abajo será el cifrado vigenere
+
+
+El sol brilla por su ausencia -> texto
+Ca rme ncarme nca rm encarmen -> palabra
+Hm bbp ...                    -> texto generado Vigenere
+
+
+SSL -> Secure Sockets Layer, Capa de sockets seguros. Capa de transporte. Es el protocolo que permite autentificacion, encriptacion y desecriptacion de datos enviados.
+
+SSH -> Secure Shell, Capa de Red. Permite establecer conexiones seguras entre dispositivos.
+
+Instalacion Putty Ubuntu Server sin Interfaz 
+-------
+sudo apt-get putty-tools // Instalamos putty
+puttygen --version // Comprobar que esta instalado
+plink [user]@[hostname] [comando] // Comando para conectarnos
+plink andreiam@127.0.0.1 // Tambien se puede por IP.

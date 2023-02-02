@@ -27,9 +27,51 @@
 
 </form>
 <?php
-if (isset($vuelos)) {
-  print_r($vuelos);
-}
-$contenido = ob_get_clean() ?>
+if (isset($vuelos)) { ?>
+  <table>
+    <thead>
+      <caption>Resultado</caption>
+      <th>&nbsp;</th>
+      <th>Codigo</th>
+      <th>Origen</th>
+      <th>Destino</th>
+      <th>Salida</th>
+      <th>Duracion</th>
+      <th>Fecha</th>
+      </tr>
+    </thead>
 
-<?php include 'base.php' ?>
+    <tbody>
+      <tr>
+        <td>Ida:</td>
+        <?php foreach ($vuelos as $ida => $value) {
+          if ($ida === 'ida') {
+            foreach ($value as $arrayIda => $value2) {
+              foreach ($value2 as $valoresIda => $valor) {
+        ?>
+                <td><?php echo $valor;  ?></td>
+        <?php  }
+            }
+          }
+        } ?>
+      </tr>
+      <tr>
+        <td>Vuelta:</td>
+        <?php foreach ($vuelos as $ida => $value) {
+          if ($ida === 'vuelta') {
+            foreach ($value as $arrayIda => $value2) {
+              foreach ($value2 as $valoresIda => $valor) {
+        ?>
+                <td><?php echo $valor;  ?></td>
+        <?php  }
+            }
+          }
+        } ?>
+      </tr>
+    </tbody>
+  </table>
+<?php } ?>
+
+<?php
+$contenido = ob_get_clean();
+include 'base.php'; ?>

@@ -16,8 +16,8 @@ spl_autoload_register(function (string $clase) {
   require_once __DIR__ . '/core/conexionBd.inc';
 });
 
-require_once __DIR__ . '/fuente/Controlador/defaultController.inc'; /*controladores */
-require_once __DIR__ . '/app/conf/rutas.inc'; /*Ubicación del archivo de rutas*/
+require_once __DIR__ . '/fuente/Controlador/defaultController.inc'; /* controladores */
+require_once __DIR__ . '/app/conf/rutas.inc'; /* Ubicación del archivo de rutas */
 
 
 // Parseo de la ruta

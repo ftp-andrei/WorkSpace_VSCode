@@ -29,6 +29,7 @@
            aplicación
        -->
     <a href="index.php?ctl=inicio">Inicio</a> |
+    <a href="index.php?ctl=ocupacion">Ocupacion</a> |
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá
            ser analizada en la página index.php de cara a encontrar la ruta del

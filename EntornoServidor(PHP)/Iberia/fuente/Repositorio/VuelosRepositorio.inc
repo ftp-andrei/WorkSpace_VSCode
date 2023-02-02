@@ -36,7 +36,6 @@ class VuelosRepositorio{
             $snt->execute();
             $vuelos['vuelta']=$snt->fetchAll(\PDO::FETCH_ASSOC);
             }
-            var_dump($vuelos);
             return $vuelos;
         } catch (\PDOException $ex) {
             $error = $ex->getMessage();

@@ -14,4 +14,6 @@
 */
 $mapeoRutas =['inicio' =>
           ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'inicio'],
+          'ocupacion' =>
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ocupacion']
 ];
