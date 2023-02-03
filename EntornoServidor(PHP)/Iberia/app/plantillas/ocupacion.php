@@ -11,7 +11,48 @@
     </fieldset>
 
 </form>
+<?php
+if (isset($vuelos)) { ?>
+    <table>
+        <thead>
+            <th>Código</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Fecha</th>
+            <th>Plazas</th>
+            <th>Libre</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            <tr>
+                <?php foreach ($vuelos as $ida => $value) {
+                    if ($ida === 'ida') {
+                ?> <caption>Ida: </caption> <?php
+                                            foreach ($value as $arrayIda => $value2) {
+                                                foreach ($value2 as $valoresIda => $valor) {
+                                            ?>
+                                <td><?php echo $valor;  ?></td>
+                <?php  }
+                                            }
+                                        }
+                                    } ?>
+            </tr>
+            <tr>
+                <?php foreach ($vuelos as $ida => $value) {
+                    if ($ida === 'vuelta') {
+                        foreach ($value as $arrayIda => $value2) {
+                            foreach ($value2 as $valoresIda => $valor) {
+                ?>
+                                <td><?php echo $valor;  ?></td>
+                <?php  }
+                        }
+                    }
+                } ?>
+            </tr>
+        </tbody>
+    </table>
+<?php } ?>
 <?php
 $contenido = ob_get_clean();
 include 'base.php'; ?>

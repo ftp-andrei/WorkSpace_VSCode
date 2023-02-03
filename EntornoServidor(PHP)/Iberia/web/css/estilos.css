@@ -5,12 +5,12 @@
 }
 html {
   font-size: 20px;
-  background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190614/ourmid/pngtree-simple-airline-purple-background-material-image_123061.jpg);
+}
+
+html {
+  background-image: url(https://static.vecteezy.com/system/resources/previews/007/901/817/non_2x/passenger-plane-in-flight-on-a-blue-background-illustration-of-an-airplane-vector.jpg);
   background-repeat: no-repeat;
-  background-size: auto;
-  -moz-background-size: auto;
-  -webkit-background-size: auto;
-  -o-background-size: auto;
+  background-size: cover;
 }
 header h1 {
   font-family: Helvetica, Arial, sans-serif;
@@ -34,16 +34,20 @@ hr {
   font-weight: bold;
 }
 
+label {
+  color: #fff;
+}
+
 fieldset {
   width: 50%;
-  border-color: #83c17a;
+  border-color: #202124;
   margin: 0 auto;
   text-align: center;
 }
 
 nav a {
   text-decoration-line: none;
-  color: #009c8c;
+  color: #202124;
 }
 
 nav a:hover {
@@ -69,10 +73,13 @@ th {
   background-color: lightgray;
 }
 
+td {
+  background-color: #fff;
+}
+
 caption {
   margin-top: 10px;
-  color: red;
+  color: #202124;
   font-weight: bold;
-  text-decoration-line: underline;
   font-size: 1.3em;
 }

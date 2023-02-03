@@ -32,11 +32,11 @@ if (isset($vuelos)) { ?>
     <thead>
       <caption>Resultado</caption>
       <th>&nbsp;</th>
-      <th>Codigo</th>
+      <th>Código</th>
       <th>Origen</th>
       <th>Destino</th>
       <th>Salida</th>
-      <th>Duracion</th>
+      <th>Duración</th>
       <th>Fecha</th>
       </tr>
     </thead>
