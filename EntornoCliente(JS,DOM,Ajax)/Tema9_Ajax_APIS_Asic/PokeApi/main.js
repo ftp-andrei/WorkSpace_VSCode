@@ -75,34 +75,36 @@ function mostrarPorId() {
 
 function mostrar10() {
   var container = document.querySelector("#container");
-  fetch("https://pokeapi.co/api/v2/pokemon/")
+  fetch("https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20")
     .then((response) => response.json())
     .then((data) => {
-      data.forEach((element) => {
-        const divSuperior = document.createElement("div");
-        divSuperior.classList.add(
-          "card",
-          "d-flex",
-          "text-center",
-          "w-50",
-          "m-auto",
-          "bg-light",
-          "mt-3"
-        );
-        const divCardBody = document.createElement("div");
-        divCardBody.classList.add("card-body");
-        const cardTitle = document.createElement("h5");
-        cardTitle.classList.add("card-title");
-        cardTitle.textContent = "Pokemon";
-        divCardBody.appendChild(cardTitle);
-        for (let x in data) {
-          const texto = document.createElement("p");
-          texto.classList.add("card-text");
-          texto.textContent = `${x} ${data[x]} `;
-          divCardBody.appendChild(texto);
+      if (data.results) {
+        for (let cont in data.results) {
+          const divSuperior = document.createElement("div");
+          divSuperior.classList.add(
+            "card",
+            "d-flex",
+            "text-center",
+            "w-50",
+            "m-auto",
+            "bg-light",
+            "mt-3"
+          );
+          const divCardBody = document.createElement("div");
+          divCardBody.classList.add("card-body");
+          const cardTitle = document.createElement("h5");
+          cardTitle.classList.add("card-title");
+          cardTitle.textContent = "Pokemon";
+          divCardBody.appendChild(cardTitle);
+          for (let x in data) {
+            const texto = document.createElement("p");
+            texto.classList.add("card-text");
+            texto.textContent = `${data["results"][cont]} ${data["results"][cont][x]} `;
+            divCardBody.appendChild(texto);
+          }
+          divSuperior.appendChild(divCardBody);
+          container.appendChild(divSuperior);
         }
-        divSuperior.appendChild(divCardBody);
-        container.appendChild(divSuperior);
-      });
+      }
     });
 }
