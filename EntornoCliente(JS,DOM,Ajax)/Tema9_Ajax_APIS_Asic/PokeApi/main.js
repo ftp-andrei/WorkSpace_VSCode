@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
   document
+    .getElementById("txtMostrar")
+    .addEventListener("paste", function (event) {
+      event.preventDefault();
+    });
+
+  document
     .getElementById("botonMostrar")
     .addEventListener("click", function () {
       mostrarPorId();
