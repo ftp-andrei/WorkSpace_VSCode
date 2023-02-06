@@ -13,13 +13,28 @@
     página "base.php"
 */
 ?>
-<?php ob_start() ?>
+<?php ob_start();
+
+$destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
+?>
 
 <form action="" method="post">
   <fieldset>
     <legend>Buscador de vuelos</legend>
-    <label for="salida">Salir de: <input type="text" name="salida" id="salida"></label>
-    <label for="destino">Destino: <input type="text" name="destino" id="destino"></label>
+    <label for="salida">Salir de: <input list="listaSalida" name="salida" id="salida"></label>
+    <datalist id="listaSalida">
+      <?php foreach ($destinos as $key) {
+        echo "<option value='$key'>";
+      } ?>
+    </datalist>
+    <label for="destino">Destino: <input list="listaDestino" name="destino" id="destino"></label>
+    <datalist id="listaDestino">
+      <?php
+      foreach ($destinos as $key) {
+        echo "<option value='$key'>";
+      }
+      ?>
+    </datalist>
     <label for="ida">Ida: <input type="date" name="ida" id="ida"></label>
     <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
     <input type="submit" value="Buscar" name="ok" id="ok">

@@ -68,7 +68,8 @@ create table pasajero(
 	idPasajero INT IDENTITY NOT NULL,
 	nombre VARCHAR(50) NOT NULL,
 	apelldo VARCHAR(100) NOT NULL,
-	dni CHAR(9) NOT NULL,
+	fNacimiento DATE NOT NULL,
+	dni CHAR(9) NULL,
 	idUsers INT NOT NULL,
 	CONSTRAINT pkPasajero PRIMARY KEY (idPasajero),
 	CONSTRAINT fkUsersNPasajero FOREIGN KEY (idUsers) REFERENCES usuario(idUsers),
@@ -79,6 +80,8 @@ create table viajes(
 	idPasajero INT IDENTITY NOT NULL,
 	codigo char(5) not null,
 	fecha date not null,
+	fila TINYINT not null,
+	asiento CHAR not null,
 	CONSTRAINT pkViaje PRIMARY KEY(idPasajero,codigo,fecha),
 	CONSTRAINT fkPasajeroNViaje FOREIGN KEY (idPasajero) REFERENCES pasajero(idPasajero),
 	CONSTRAINT FkVueloNViaje FOREIGN KEY (codigo,fecha) REFERENCES vuelos(codigo,fecha)

@@ -1,57 +1,86 @@
-<?php ob_start() ?>
+<?php ob_start();
+$destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
+?>
 
 <form action="" method="post">
     <fieldset>
         <legend>Mostrar ocupacion</legend>
-        <label for="salida">Salir de: <input type="text" name="salida" id="salida"></label>
-        <label for="destino">Destino: <input type="text" name="destino" id="destino"></label>
-        <label for="ida">Ida: <input type="date" name="ida" id="ida"></label>
-        <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
+        <label for="salida">Salir de: <input list="listaSalida" name="salida" id="salida"></label>
+        <datalist id="listaSalida">
+            <?php foreach ($destinos as $key) {
+                echo "<option value='$key'>";
+            } ?>
+        </datalist>
+        <label for="destino">Destino: <input list="listaDestino" name="destino" id="destino"></label>
+        <datalist id="listaDestino">
+            <?php
+            foreach ($destinos as $key) {
+                echo "<option value='$key'>";
+            }
+            ?>
+        </datalist>
+        <label for="ida">Ida: <input type="date" name="ida" id="ida" required>
+        </label>
+        <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta" required> </label>
         <input type="submit" value="Buscar" name="ok" id="ok">
     </fieldset>
 
 </form>
 <?php
-if (isset($vuelos)) { ?>
+if (isset($vuelos)) {
+?>
     <table>
         <thead>
-            <th>Código</th>
-            <th>Origen</th>
-            <th>Destino</th>
-            <th>Fecha</th>
-            <th>Plazas</th>
-            <th>Libre</th>
+
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>Fila</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
             </tr>
         </thead>
-
+        <!--  Quitar dias en las fechas -->
         <tbody>
             <tr>
                 <?php foreach ($vuelos as $ida => $value) {
                     if ($ida === 'ida') {
-                ?> <caption>Ida: </caption> <?php
-                                            foreach ($value as $arrayIda => $value2) {
-                                                foreach ($value2 as $valoresIda => $valor) {
-                                            ?>
-                                <td><?php echo $valor;  ?></td>
-                <?php  }
-                                            }
+                ?> <caption>Ida: <?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["Fecha ida"] ?></caption>
+                        <?php foreach ($value as $arrayIda => $value2) {
+                            $contador = 0;
+                            $fila = 1;
+                            for ($x = 0; $x <= 120; $x++) {
+                                $contador++;
+                                if ($contador !== 4) { ?>
+                                    <td><?php
+                                        echo $contador;
+                                        ?></td>
+                                <?php
+                                } else {
+                                ?>
+                                    <td><?php echo $fila;
+                                        $fila++ ?></td>
+                                <?php
+                                }
+                                ?>
+                                </td> <?php
+                                        if ($contador === 7) {
+                                            $contador = 0;
+                                            echo "</tr><tr>";
                                         }
-                                    } ?>
-            </tr>
-            <tr>
-                <?php foreach ($vuelos as $ida => $value) {
-                    if ($ida === 'vuelta') {
-                        foreach ($value as $arrayIda => $value2) {
-                            foreach ($value2 as $valoresIda => $valor) {
-                ?>
-                                <td><?php echo $valor;  ?></td>
-                <?php  }
-                        }
-                    }
-                } ?>
+                                    }
+                                }
+                            }
+                        } ?>
             </tr>
         </tbody>
     </table>
+    <?php
+    if (isset($_POST["siguiente"])) {
+        echo "¿Quieres comprar los asientos de vuelta?";
+    }
+    ?>
 <?php } ?>
 <?php
 $contenido = ob_get_clean();
