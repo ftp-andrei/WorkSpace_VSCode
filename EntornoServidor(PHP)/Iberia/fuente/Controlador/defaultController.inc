@@ -26,4 +26,8 @@ public function ocupacion()
 }
 require __DIR__ . '/../../app/plantillas/ocupacion.php';
 }
+
+public function inicioSesion(){
+  require __DIR__ . '/../../app/plantillas/ocupacion.php';
+}
 }
