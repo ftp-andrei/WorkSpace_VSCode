@@ -1,5 +1,5 @@
 <?php ob_start();
-$destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
+$destinos = $_SESSION['destinos'];
 ?>
 
 <form action="" method="post">
@@ -26,10 +26,7 @@ $destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
     </fieldset>
 
 </form>
-<?php if (isset($vuelos)) {
-
-    var_dump($vuelos);
-    echo "<input type='submit' value='Siguiente' name='siguiente' id='siguiente'>"; ?>
+<?php if (isset($vuelos)) { ?>
     <table>
         <thead>
             <tr>
@@ -59,25 +56,22 @@ $destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
                         echo "<tr>";
                         echo "<td>" . $fila . "</td>";
                         $cont = 1;
-                        echo "<td>" . ($asientosVuelo[$x] & 32 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($asientosVuelo[$x] & 16 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($asientosVuelo[$x] & 8 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($asientosVuelo[$x] & 4 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($asientosVuelo[$x] & 2 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($asientosVuelo[$x] & 1 ? "O" : "L") . "</td>";
+                        echo "<td " . ($asientosVuelo[$x] & 32 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
+                        echo "<td " . ($asientosVuelo[$x] & 16 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
+                        echo "<td " . ($asientosVuelo[$x] & 8 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
+                        echo "<td " . ($asientosVuelo[$x] & 4 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
+                        echo "<td " . ($asientosVuelo[$x] & 2 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
+                        echo "<td " . ($asientosVuelo[$x] & 1 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
                         echo "</tr>";
                         $fila++;
                     }
-                    var_dump($asientosVuelo);
                 }
                 ?>
         </tbody>
     </table>
 <?php
-                if (isset($_POST["siguiente"])) {
-                    echo "¿Quieres comprar los asientos de vuelta?";
-                }
             }
+            echo "<div class='centrar'><input type='submit' value='Siguiente' name='siguiente' id='siguiente'><div>";
         }
         $contenido = ob_get_clean();
         include 'base.php'; ?>

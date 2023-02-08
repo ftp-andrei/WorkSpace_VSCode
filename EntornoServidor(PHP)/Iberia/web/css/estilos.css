@@ -84,6 +84,7 @@ caption {
   font-size: 1.3em;
 }
 
-#siguiente {
-  text-align: right;
+.centrar {
+  margin: 0 auto;
+  text-align: center;
 }

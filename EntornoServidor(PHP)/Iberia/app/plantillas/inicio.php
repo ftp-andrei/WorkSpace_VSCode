@@ -14,8 +14,7 @@
 */
 ?>
 <?php ob_start();
-
-$destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
+$destinos = $_SESSION['destinos'];
 ?>
 
 <form action="" method="post">

@@ -1,6 +1,8 @@
 <?php
 //index.php
 session_start();
+// Guardar array para usarlo en $_SESSION
+$destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
 error_reporting(E_ALL);
 /* Aqui se registran funciones 
  Es el ultimo lugar en el que busca PHP para intentar resolver un tipo /interfaz..etc, antes de generar un error */
