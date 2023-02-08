@@ -43,7 +43,7 @@ $destinos = $_SESSION['destinos'];
         <tbody>
             <?php foreach ($vuelos as $ida => $value) {
                 if ($ida === 'ida') { ?>
-                    <caption>Ida: <?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["fecha"] ?></caption>
+                    <caption><?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["fecha"] ?></caption>
             <?php
 
                     $fila = 1;
