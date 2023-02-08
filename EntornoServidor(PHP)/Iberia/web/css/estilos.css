@@ -45,6 +45,24 @@ fieldset {
   text-align: center;
 }
 
+.enLinea {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.enLinea form fieldset {
+  background-color: #8a2be2;
+}
+
+.enLinea form legend {
+  color: #fff;
+}
+
+.enFila {
+  display: block;
+}
+
 nav a {
   text-decoration-line: none;
   color: #202124;
@@ -87,4 +105,8 @@ caption {
 .centrar {
   margin: 0 auto;
   text-align: center;
+}
+
+.ocupado {
+  background-color: #ff0000;
 }

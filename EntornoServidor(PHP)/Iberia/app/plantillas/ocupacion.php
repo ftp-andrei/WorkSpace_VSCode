@@ -30,10 +30,10 @@ $destinos = $_SESSION['destinos'];
     <table>
         <thead>
             <tr>
-                <th>Fila</th>
                 <th>A</th>
                 <th>B</th>
                 <th>C</th>
+                <th>Fila</th>
                 <th>D</th>
                 <th>E</th>
                 <th>F</th>
@@ -44,7 +44,7 @@ $destinos = $_SESSION['destinos'];
             <?php foreach ($vuelos as $ida => $value) {
                 if ($ida === 'ida') { ?>
                     <caption>Ida: <?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["fecha"] ?></caption>
-                <?php
+            <?php
 
                     $fila = 1;
 
@@ -54,11 +54,10 @@ $destinos = $_SESSION['destinos'];
                     }
                     for ($x = 1; $x <= 20; $x++) {
                         echo "<tr>";
-                        echo "<td>" . $fila . "</td>";
-                        $cont = 1;
                         echo "<td " . ($asientosVuelo[$x] & 32 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
                         echo "<td " . ($asientosVuelo[$x] & 16 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
                         echo "<td " . ($asientosVuelo[$x] & 8 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
+                        echo "<td>" . $fila . "</td>";
                         echo "<td " . ($asientosVuelo[$x] & 4 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
                         echo "<td " . ($asientosVuelo[$x] & 2 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
                         echo "<td " . ($asientosVuelo[$x] & 1 ? "class='ocupado'>Ocupado" : "class='libre'><input type='checkbox' name='libre'>") . "</td>";
@@ -66,12 +65,12 @@ $destinos = $_SESSION['destinos'];
                         $fila++;
                     }
                 }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 <?php
-            }
-            echo "<div class='centrar'><input type='submit' value='Siguiente' name='siguiente' id='siguiente'><div>";
-        }
-        $contenido = ob_get_clean();
-        include 'base.php'; ?>
+    echo "<div class='centrar'><input type='submit' value='Siguiente' name='siguiente' id='siguiente'><div>";
+}
+$contenido = ob_get_clean();
+include 'base.php'; ?>

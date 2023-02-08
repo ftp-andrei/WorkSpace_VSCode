@@ -1,7 +1,7 @@
 <?php
 /** Al usar namespace permite ahorrar la ruta completa al DefaultController */
 namespace app\iberia\controlador;
-
+/** Gregorio añade aqui el repo de Pasajero,Usuario y AppException */
 use app\iberia\repositorio\VuelosRepositorio;
 
 // Ejemplo de controlador para página home de la aplicación
@@ -28,6 +28,6 @@ require __DIR__ . '/../../app/plantillas/ocupacion.php';
 }
 
 public function inicioSesion(){
-  require __DIR__ . '/../../app/plantillas/ocupacion.php';
+  require __DIR__ . '/../../app/plantillas/inicioSesion.php';
 }
 }
