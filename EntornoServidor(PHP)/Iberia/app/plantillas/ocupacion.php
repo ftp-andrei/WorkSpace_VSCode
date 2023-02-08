@@ -27,6 +27,7 @@ $destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
 
 </form>
 <?php if (isset($vuelos)) {
+
     var_dump($vuelos);
     echo "<input type='submit' value='Siguiente' name='siguiente' id='siguiente'>"; ?>
     <table>
@@ -47,22 +48,27 @@ $destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
                 if ($ida === 'ida') { ?>
                     <caption>Ida: <?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["fecha"] ?></caption>
                 <?php
+
                     $fila = 1;
-                    $libres = $value[0]["libres"]; // Asientos Libres
-                    // Mirar fila1,2,3..etc. y hacer bucle con los tds.
-                    for ($x = 0; $x < 20; $x++) {
+
+                    $asientosVuelo = [];
+                    for ($i = 1; $i <= 20; $i++) {
+                        $asientosVuelo[$i] = (int)$value[0]["fila" . $i];
+                    }
+                    for ($x = 1; $x <= 20; $x++) {
                         echo "<tr>";
                         echo "<td>" . $fila . "</td>";
                         $cont = 1;
-                        echo "<td>" . ($libres & 32 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($libres & 16 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($libres & 8 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($libres & 4 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($libres & 2 ? "O" : "L") . "</td>";
-                        echo "<td>" . ($libres & 1 ? "O" : "L") . "</td>";
+                        echo "<td>" . ($asientosVuelo[$x] & 32 ? "O" : "L") . "</td>";
+                        echo "<td>" . ($asientosVuelo[$x] & 16 ? "O" : "L") . "</td>";
+                        echo "<td>" . ($asientosVuelo[$x] & 8 ? "O" : "L") . "</td>";
+                        echo "<td>" . ($asientosVuelo[$x] & 4 ? "O" : "L") . "</td>";
+                        echo "<td>" . ($asientosVuelo[$x] & 2 ? "O" : "L") . "</td>";
+                        echo "<td>" . ($asientosVuelo[$x] & 1 ? "O" : "L") . "</td>";
                         echo "</tr>";
                         $fila++;
                     }
+                    var_dump($asientosVuelo);
                 }
                 ?>
         </tbody>
