@@ -48,12 +48,12 @@ class VuelosRepositorio{
     public function mostrarOcupacion(string $origen, string $destino, string $ida, string $vuelta=null):array
     {
         /* Consulta sql*/ 
-        $sql1 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino, fecha as "Fecha ida", vs.*
+        $sql1 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino, vs.*
         FROM vuelo as v INNER JOIN vuelos AS vs ON v.codigo=vs.codigo 
         WHERE origen=:origen AND destino=:destino AND fecha=:ida AND libres>0';
     
         if(!is_null($vuelta)){
-            $sql2 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino, fecha as "Fecha vuelta",vs.*
+            $sql2 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino, vs.*
             FROM vuelo as v INNER JOIN vuelos AS vs ON v.codigo=vs.codigo 
             WHERE origen=:destino AND destino=:origen AND fecha=:vuelta AND libres>0';
         }

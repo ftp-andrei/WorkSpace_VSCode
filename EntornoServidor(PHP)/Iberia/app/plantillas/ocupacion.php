@@ -27,6 +27,7 @@ $destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
 
 </form>
 <?php if (isset($vuelos)) {
+    var_dump($vuelos);
     echo "<input type='submit' value='Siguiente' name='siguiente' id='siguiente'>"; ?>
     <table>
         <thead>
@@ -44,7 +45,7 @@ $destinos = ["Madrid", "Lisboa", "Paris", "Berlin", "Roma", "Praga", "Londres"];
         <tbody>
             <?php foreach ($vuelos as $ida => $value) {
                 if ($ida === 'ida') { ?>
-                    <caption>Ida: <?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["Fecha ida"] ?></caption>
+                    <caption>Ida: <?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["fecha"] ?></caption>
                 <?php
                     $fila = 1;
                     $libres = $value[0]["libres"]; // Asientos Libres
