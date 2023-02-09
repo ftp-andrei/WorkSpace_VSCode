@@ -45,7 +45,6 @@ $destinos = $_SESSION['destinos'];
                 if ($ida === 'ida') { ?>
                     <caption><?php echo $value[0]["Código"] . " " . $value[0]["Origen"] . "-" . $value[0]["Destino"] . " " . $value[0]["fecha"] ?></caption>
             <?php
-
                     $fila = 1;
 
                     $asientosVuelo = [];
@@ -70,7 +69,7 @@ $destinos = $_SESSION['destinos'];
         </tbody>
     </table>
 <?php
-    echo "<div class='centrar'><input type='submit' value='Siguiente' name='siguiente' id='siguiente'><div>";
+    echo "<div class='centrar'><input type='submit' value='Comprar' name='comprar' id='comprar'><div>";
 }
 $contenido = ob_get_clean();
 include 'base.php'; ?>

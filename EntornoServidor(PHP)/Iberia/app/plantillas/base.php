@@ -29,7 +29,7 @@
            aplicación
        -->
     <a href="index.php?ctl=inicio">Inicio</a> |
-    <a href="index.php?ctl=ocupacion">Ocupacion</a> |
+    <a href="index.php?ctl=reservar">Reservar</a> |
     <a href="index.php?ctl=inicioSesion">Login/Registro</a> |<!-- Con los datos del pasajero -->
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá

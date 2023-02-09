@@ -45,7 +45,7 @@ class VuelosRepositorio{
         }
     }
 
-    public function mostrarOcupacion(string $origen, string $destino, string $ida, string $vuelta=null):array
+    public function reservar(string $origen, string $destino, string $ida, string $vuelta=null):array
     {
         /* Consulta sql*/ 
         $sql1 = 'SELECT v.codigo as Código,origen as Origen,destino as Destino, vs.*

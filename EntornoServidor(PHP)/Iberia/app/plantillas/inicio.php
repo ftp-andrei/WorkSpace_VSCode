@@ -52,7 +52,6 @@ if (isset($vuelos)) { ?>
       <th>Salida</th>
       <th>Duración</th>
       <th>Fecha</th>
-      </tr>
     </thead>
 
     <tbody>

@@ -7,21 +7,18 @@
             <fieldset>
                 <legend>Registrarse</legend>
                 <div class="enFila">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" id="nombre">
+                    <label for="correo">Correo:</label>
+                    <input type="mail" name="correo" id="correo">
                 </div>
                 <div class="enFila">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" name="apellido" id="apellido">
+                    <label for="pass1">Password:</label>
+                    <input type="password" name="pass1" id="pass1">
                 </div>
                 <div class="enFila">
-                    <label for="DNI">DNI:</label>
-                    <input type="text" name="DNI" id="DNI">
+                    <label for="pass2">Password:</label>
+                    <input type="password" name="pass2" id="pass2">
                 </div>
-                <div class="enFila">
-                    <label for="fnac">Fecha nacimiento:</label>
-                    <input type="date" name="fnac" id="fnac" value="2000-1-1" min="1900-1-1" max="2001-1-1">
-                </div>
+                <input type="button" value="Registrarse" name="registrarse">
             </fieldset>
         </form>
     </div>
@@ -37,12 +34,10 @@
                     <label for="pass">Password:</label>
                     <input type="password" name="pass" id="pass">
                 </div>
+                <input type="button" value="Entrar" name="entrar">
             </fieldset>
         </form>
     </div>
-</div>
-<div class="centrar">
-    <input type="button" value="Entrar">
 </div>
 
 <?php

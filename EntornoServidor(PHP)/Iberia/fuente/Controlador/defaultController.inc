@@ -17,14 +17,14 @@ class DefaultController
   require __DIR__ . '/../../app/plantillas/inicio.php';
 }
 
-public function ocupacion()
+public function reservar()
 { 
   if(isset($_POST['ok'])){
   //Se añade la ruta ya en el index
  // require_once __DIR__.'/../Repositorio/VuelosRepositorio.inc';
-  $vuelos = (new VuelosRepositorio()) -> mostrarOcupacion($_POST['salida'],$_POST['destino'],$_POST['ida'],$_POST['vuelta']);
+  $vuelos = (new VuelosRepositorio()) -> reservar($_POST['salida'],$_POST['destino'],$_POST['ida'],$_POST['vuelta']);
 }
-require __DIR__ . '/../../app/plantillas/ocupacion.php';
+require __DIR__ . '/../../app/plantillas/reservar.php';
 }
 
 public function inicioSesion(){
