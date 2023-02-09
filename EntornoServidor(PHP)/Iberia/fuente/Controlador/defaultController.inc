@@ -36,7 +36,7 @@ public function registrarUsuario(){
     if($_POST['correo']!=null && $_POST['correo']===null){
     //Comprobar que ambas pass son iguales
     if($_POST['pass1']==$_POST['pass2'] && $_POST['pass1']!==null){
-
+      $registro = (new UsuarioRepositorio()) -> registrarUsuario($_POST['correo'],$_POST['pass1']);
     }else{
       return "Error: Las contraseñas no coinciden";
     }
@@ -45,7 +45,7 @@ public function registrarUsuario(){
     }
     
     // Finalmente registrar
-    $registro = (new UsuarioRepositorio()) -> registrarUsuario($_POST['correo'],$_POST['pass1']);
+    
   }
 
   if(isset($_POST['entrar'])){
