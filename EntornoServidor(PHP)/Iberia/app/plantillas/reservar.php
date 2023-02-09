@@ -4,7 +4,7 @@ $destinos = $_SESSION['destinos'];
 
 <form action="" method="post">
     <fieldset>
-        <legend>Mostrar ocupacion</legend>
+        <legend>Reservas de vuelos</legend>
         <label for="salida">Salir de: <input list="listaSalida" name="salida" id="salida" required></label>
         <datalist id="listaSalida">
             <?php foreach ($destinos as $key) {

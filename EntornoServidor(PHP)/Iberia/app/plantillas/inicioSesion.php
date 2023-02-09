@@ -41,5 +41,9 @@
 </div>
 
 <?php
+if (isset($_POST['registrarse'])) {
+    echo "Usuario Registrado";
+}
+
 $contenido = ob_get_clean();
 include 'base.php'; ?>
