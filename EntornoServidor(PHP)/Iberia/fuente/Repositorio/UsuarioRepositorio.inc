@@ -5,11 +5,17 @@ use ConexionBd;
 use PDO;
 
 class UsuarioRepositorio{
-    public function registrarUsuario(string $email,string $pass){
-      $sql1 = 'SELECT ';
+    //Consultar manual
+    public function registrarUsuario(string $email,string $pass):mixed{
+      $sql1 = 'INSERT INTO usuario (eCorreo,pwd,rol) VALUES (:email,:pass)';
 try {
-$registro=[];
-                  return $registro;
+    $con=(new \ConexionBd()) -> getConexion();
+    $snt=$con->prepare($sql1);
+    $snt-> bindValue(':email',$email);
+    $snt-> bindValue(':pass',$pass);
+    if($snt->execute()){
+                  return "Se ha registrado el usuario";
+    }
                 } catch (\PDOException $ex) {
                     $error = $ex->getMessage();
                 }finally{
