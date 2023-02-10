@@ -45,3 +45,16 @@ Pdf que es el despliegue
 Instalacion wordpress en windows y ubuntu
 EjPreguntas: Que hay que hacer en xampp para cambiar un puerto
 Diferencias W10 y WServer
+
+EXAMEN PRACTICO - 24 feb
+--------------
+2h practico
+No consiste en hacer lo que hemos hecho ahora.
+Nos deja internet.
+Examen en maquina linux
+
+
+Igual EXAMEN TEORICO no cae. Pero de ser es el 20
+--------------
+1h teorico
+
