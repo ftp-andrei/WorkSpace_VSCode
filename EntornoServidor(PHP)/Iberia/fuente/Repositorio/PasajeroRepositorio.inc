@@ -43,7 +43,7 @@ class PasajeroRepositorio{
         }finally{
             unset($snt);
             unset($con);
-        }
+        }   
     }
 }
 
