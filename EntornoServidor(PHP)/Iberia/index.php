@@ -18,9 +18,12 @@ spl_autoload_register(function (string $clase) {
   //Agregar aqui la conexion a bd, para no usar require_once
   require_once __DIR__ . '/core/conexionBd.inc';
 });
-
-require_once __DIR__ . '/fuente/Controlador/defaultController.inc'; /* controladores */
-require_once __DIR__ . '/app/conf/rutas.inc'; /* Ubicación del archivo de rutas */
+/* Controladores */
+require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
+require_once __DIR__ . '/fuente/Controlador/pasajeroController.inc';
+require_once __DIR__ . '/fuente/Controlador/usuarioController.inc';
+/* Ubicación del archivo de rutas */
+require_once __DIR__ . '/app/conf/rutas.inc';
 
 
 // Parseo de la ruta
