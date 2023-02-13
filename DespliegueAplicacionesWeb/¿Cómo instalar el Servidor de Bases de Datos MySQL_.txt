@@ -1,0 +1,324 @@
+https://www.ibiblio.org/pub/linux/docs/LuCaS/Manuales-LuCAS/doc-guia-ubuntu-breeze/guia-ubuntu-htmls/servidor-servidor_bd.html
+
+¿Cómo instalar el Servidor de Bases de Datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo añadir repositorios extra?
+    Instalamos el servidor de la base de datos.
+
+$ sudo aptitude install mysql-server
+
+    Ahora asignamos una contraseña para el acceso a la base de datos con privilegios de super-usuario. Introducimos la siguiente línea en la consola, sustituyendo “tu_password_de_usuario_root” por la contraseña que quieras asignar.
+
+    Â¡Â¡Ojo!! Si se copia la segunda linea tal cual, con salto de linea incluido, se creará la cuenta de “root” con la contraseña “tu_password_de_usuario_root”
+
+$ sudo /usr/bin/mysqladmin -u root password tu_password_de_usuario_root
+
+    Si te ha sucedido lo dicho anteriormente, puedes solucionarlo del siguiente modo (la contraseña será: tu_password_de_usuario_root):
+
+$ mysql -u root mysql
+> UPDATE user SET password=password('CAMBIAME_CAMBIAME_CAMBIAME') WHERE user='root';
+> flush privileges;
+
+¿Cómo instalar MySQL Administrator?
+
+    Lee Notas Generales
+    Lee ¿Cómo añadir repositorios extra?
+
+$ sudo aptitude install mysql-admin
+
+    Ve a Aplicaciones › Herramientas del sistema › MySQL Administrator
+
+— Ángel Victor Gámez Guinto 2005/10/26 06:22
+¿Cómo instalar MySQL Query Browser?
+
+    Lee Notas Generales
+    Lee ¿Cómo añadir repositorios extra?
+
+$ sudo aptitude install mysql-query-browser
+
+    La aplicación está disponible en Aplicaciones › Otro › MySQL Query Browser.
+
+— Paco Avila 2005/10/26 08:37
+¿Cómo crear una base de datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos MySQL?
+    Una forma de hacerlo es:
+
+$ mysql -h servidor -u usuario -p
+Enter password:
+mysql> CREATE DATABASE nombre_de_la_base_de_datos;
+quit
+
+    Y otra:
+
+$ mysqladmin -h servidor -u usuario -p create nombre_de_la_base_de_datos
+
+— Santiago Moisés Mola Velasco 2005/05/31 12:26
+¿Cómo borrar una base de datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos MySQL?
+    Una forma de hacerlo es:
+
+$ mysql -h servidor -u usuario -p
+Enter password:
+mysql> DROP DATABASE nombre_de_la_base_de_datos;
+quit
+
+    Y otra:
+
+$ mysqladmin -h servidor -u usuario -p drop nombre_de_la_base_de_datos
+
+¿Cómo hacer un backup de una base de datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos MySQL?
+
+$ mysqldump -h servidor -u usuario -p nombre_de_la_base_de_datos > backup.sql
+
+¿Cómo hacer un backup de todas las bases de datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos MySQL?
+
+#!/bin/bash
+ 
+## BEGIN CONFIG ##
+HOST=localhost
+USER=usuario
+PASS=secreto
+BACKUP_DIR=Backup
+## END CONFIG ##
+ 
+if [ ! -d $BACKUP_DIR ]; then
+  mkdir -p $BACKUP_DIR
+fi
+ 
+# Backup de MySQL
+MYSQL_DBS=$(mysqlshow -h $HOST -u $USER -p$PASS | awk ' (NR > 2) && (/[a-zA-Z0-9]+[ ]+[|]/) && ( $0 !~ /mysql/) { print $2 }');
+ 
+for DB in $MYSQL_DBS ; do 
+  echo "* Backuping MySQL data from $DB@$HOST..."
+  mysqldump -h $HOST -u $USER -p$PASS $DB > $BACKUP_DIR/mysql_$DB.sql
+done
+
+¿Cómo restaurar un backup de una base de datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos MySQL?
+
+$ mysql -h servidor -u usuario -p nombre_de_la_base_de_datos < backup.sql
+
+“”
+¿Cómo crear una base de datos MySQL?
+¿Cómo instalar phpMyAdmin para gestionar las bases de datos MySQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos MySQL?
+
+$ sudo aptitude install phpmyadmin
+
+Una vez instalado puedes acceder a phpMyAdmin abriendo tu navegador y entrando en:
+
+http://localhost/phpmyadmin
+
+En la instalación por defecto puedes entrar como ‘root’ y con el password en blanco. Es conveniente poner un password por cuestiones de seguridad obvias. Así que...
+
+    Entra en la interface web cómo hemos dicho anteriormente.
+    Pincha en ‘Privilegios’.
+    Saldrá una tabla muy maja con los usuarios que hay configurados. Los dos últimos deberian ser ambos root, uno con el nombre de tu máquina en el campo ‘servidor’ y otro con ‘localhost’.
+    Empezaremos por uno de esos dos registros. Al final del registro hay una pequeña imágen con un muñequito y un lápiz. Pincha ahí.
+    Baja hasta donde pone ‘Cambio de contraseña’, marca el campo ‘Contraseña’ e introduce la contraseña deseada en los dos campos. Ahora pulsa ‘Continúe’.
+    Repite la operación con el otro registro de ‘root’ (y con la misma contraseña para evitar confusiones).
+
+Ahora “solo” te queda a usar el resto (es realmente fácil) y para ello puedes ayudarte de la documentación.
+
+— Santiago Moisés Mola Velasco 2005/05/31 12:09
+¿Cómo cambiar la codificación de una BD MySQL?
+
+    Primero exportamos los contenidos de la base de datos:
+
+$ mysqldump -u usuario -p ;“add-drop-table mi_bd > mi_bd.sql
+
+    Luego cambiamos la codificación de los datos con iconv:
+
+$ iconv -f iso-8859-15 -t utf-8 mi_bd.sql > mi_bd-utf8.sql
+
+ISO
+
+
+http://es.wikipedia.org/wiki/UTF-8
+
+    Y la volvemos a importar en otra base de datos creada para el efecto:
+
+$ mysql - usuario -p mi_bd_utf8 < mi_bd-utf8.sql
+
+    Fuente: http://delagua.homeunix.org/bitacora/?p=233.
+
+¿Cómo convertir una base de datos Access a MySQL?
+
+    Instala las herramientas necesarias:
+
+$ sudo aptitude install mdbtools
+
+    Extrae el esquema de todas las tablas de la base de datos original:
+
+$ mdb-schema BD.mdb mysql > BD_esquema_mysql.sql
+
+    Un listado de todas las tablas que forma la base de datos.
+
+$ mdb-tables -S -1 BD.mdb > BD.txt
+
+    Extrae, ordenadamente, los datos de cada tabla, listos para insertar en nuestra futura base de datos basada en MySQL.
+
+$ for tabla in `cat BD.txt`; do mdb-export -Q -I BD.mdb ${tabla}; done > datos.sql
+
+    Ahora, tendrás tanto el esquema para crear la nueva base de datos, como los datos, listos para insertarlos en ella;¦
+
+¿Cómo instalar el Servidor de Bases de Datos PostgreSQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo añadir repositorios extra?
+
+$ sudo aptitude install postgresql-8.0 postgresql-client-8.0 postgresql-common postgresql-contrib-8.0
+
+    Por razones de seguridad estableceremos la nueva contraseña al usuario del sistema creado por PostgreSQL:
+
+$ sudo passwd postgres
+
+    Para verificar si la instalación fue satisfactoria accedemos a la shell del Servidor de Base de Datos:
+
+$ sudo su postgres -c "psql template1"
+
+    Si el acceso ha sido satisfactorio cambiamos la contraseña al usuario predeterminado del Servidor de Base de Datos:
+
+template1=# ALTER USER postgres WITH PASSWORD 'nueva_contrasena';
+
+— Nicola Strappazzon 2006/01/22 10:10
+¿Cómo permitir conexiones remotas al Servidor de Base de Datos PostgreSQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo instalar el Servidor de Bases de Datos PostgreSQL?
+    Editamos el archivo de configuración:
+
+$ sudo cp /etc/postgresql/8.0/main/postgresql.conf /etc/postgresql/8.0/main/postgresql.conf.backup
+$ sudo vi /etc/postgresql/8.0/main/postgresql.conf
+
+    Ahora buscamos las siguientes líneas que se encuentran comentadas:
+
+#listen_addresses = 'localhost'
+
+la substituimos por la siguiente línea:
+
+listen_addresses = '*'
+
+posteriormente buscamos la siguiente línea y le quitamos la marca de comentario:
+
+#password_encryption = true
+
+y nos debe quedar lo siguiente:
+
+password_encryption = true
+
+    Guarde los cambios realizados en el archivo.
+    Reiniciamos el demonio para que los cambios surjan efecto:
+
+$ sudo /etc/init.d/postgresql-8.0 restart
+
+— Nicola Strappazzon 2006/01/22 06:30
+¿Cómo configurar la lista de acceso a los usuarios del Servidor de Base de Datos PostgreSQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo permitir conexiones remotas al Servidor de Base de Datos PostgreSQL?
+    Editamos la lista de acceso de los usuarios:
+
+$ sudo cp /etc/postgresql/8.0/main/pg_hba.conf /etc/postgresql/8.0/main/pg_hba.conf.backup
+$ sudo vi /etc/postgresql/8.0/main/pg_hba.conf
+
+Diríjase al final del archivo donde encontrara una lista de acceso predeterminada, ahora, dependiendo de su necesidad haga lo siguiente:
+
+    Si necesita que cualquier usuario se conecte por medio de una dirección IP en especifico, agregue al final la siguiente línea:
+
+host all all 192.168.1.4 255.255.255.0 md5
+
+NOTA: La dirección IP y la SubMascara de Red son ejemplos, cámbielos por datos del usuario que requiera realizar la conexión.
+
+    Si necesita que cualquier usuario se conecte por medio de cualquier dirección IP, agregue al final la siguiente línea:
+
+host all all 0.0.0.0 0.0.0.0 md5
+
+    Si necesita que un usuario determinado se conecte a una base de datos determinada por medio de una dirección IP en especifico, agregue al final la siguiente línea:
+
+host MyDataBase MyUser 192.168.1.4 255.255.255.0 md5
+
+    Guarde los cambios realizados en el archivo.
+    Reiniciamos el demonio para que los cambios surjan efecto:
+
+$ sudo /etc/init.d/postgresql-8.0 restart
+
+PostgreSQL Práctico3.1.3 Estructura del Archivo pg_hba.conf
+
+— Nicola Strappazzon 2006/01/22 10:55
+¿Cómo instalar un gestor gráfico para PostgreSQL?
+
+    Lee Notas Generales
+    Lee ¿Cómo añadir repositorios extra?
+
+$ sudo aptitude install pgadmin3
+
+    Ahora lo añades al menú siguiendo las doctas enseñanzas de ¿Cómo añadir programas al menú aplicaciones?.
+
+¿Cómo crear un usuario en PostgreSQL?
+
+    Lee Notas Generales
+    Los usuarios de PostgreSQL tienen un par de capacidades que definimos en su creación. Me explico: un usuario puede o no crear más usuarios y un usuario puede o no crear bases de datos. En el ejemplo que puedes ver a continuación creamos un usuario que no puede crear más usuario (no es un administrador) pero puede crear más bases de datos. El modificador -P hace que nos pregunte por el password que le asignaremos al usuario. De otra manera el usuario se creará sin password.
+
+$ createuser -A -d -P -h host -U usuario nuevo_usuario
+Enter password for user "nuevo_usuario":
+Enter it again:
+
+    Como acabo de comentar, existen usuario administradores (pueden crear otros usuarios). Como es lógico este comando debe ser ejecutado por un usuario con esa característica.
+
+    Análogamente podemos eliminar un usuario de esta forma:
+
+$ dropuser -h host -U usuario usuario_borrar
+
+¿Cómo crear una base de datos en PostgreSQL?
+
+    Lee Notas Generales
+    Una buena costumbre es indicar la codificación de la nueva base de datos y evitar que el sistema elija una por defecto. Normalmente la mejor idea es elegir la codificación UNICODE.
+
+$ createdb -E codificacion -h host -U usuario nombre_bd
+
+¿Cómo hacer un backup de una base de datos en PostgreSQL?
+
+    Lee Notas Generales
+
+$ pg_dump -h host -U usuario nombre_bd > nombre_bd.sql
+
+¿Cómo hacer un backup de todas las bases de datos de una PostgreSQL?
+
+    Lee Notas Generales
+
+#!/bin/bash
+ 
+## BEGIN CONFIG ##
+HOST=localhost
+BACKUP_DIR=tmp
+## END CONFIG ##
+ 
+if [ ! -d $BACKUP_DIR ]; then
+  mkdir -p $BACKUP_DIR
+fi
+ 
+POSTGRE_DBS=$(psql -h $HOST -U postgres -l | awk ' (NR > 2) && (/[a-zA-Z0-9]+[ ]+[|]/) && ( $0 !~ /template[0-9]/) { print $1 }');
+ 
+for DB in $POSTGRE_DBS ; do 
+  echo "* Backuping PostgreSQL data from $DB@$HOST..."
+  pg_dump -h $HOST -U postgres $DB > $BACKUP_DIR/pg_$DB.sql
+done
+
+https://josejuansanchez.org/bd/practica-01/index.html
+
