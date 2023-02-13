@@ -4,7 +4,7 @@ namespace app\iberia\repositorio;
 use ConexionBd;
 use PDO;
 
-class PasajeroRepositorio{
+class ReservarRepositorio{
     public function reservar(string $origen, string $destino, string $ida, string $vuelta=null):array
     {
         /* Consulta sql*/ 

@@ -20,8 +20,9 @@ spl_autoload_register(function (string $clase) {
 });
 /* Controladores */
 require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
-require_once __DIR__ . '/fuente/Controlador/pasajeroController.inc';
-require_once __DIR__ . '/fuente/Controlador/usuarioController.inc';
+require_once __DIR__ . '/fuente/Controlador/reservarController.inc';
+require_once __DIR__ . '/fuente/Controlador/registrarUsuarioController.inc';
+require_once __DIR__ . '/fuente/Controlador/loginUsuarioController.inc';
 /* Ubicación del archivo de rutas */
 require_once __DIR__ . '/app/conf/rutas.inc';
 
