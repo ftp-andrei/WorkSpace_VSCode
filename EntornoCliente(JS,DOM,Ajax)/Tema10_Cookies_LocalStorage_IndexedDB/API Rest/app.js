@@ -21,13 +21,13 @@ app.use(bodyParser.json());
 
 // Obtiene todos los coches
 app.get("/cars", async (req, res) => {
-  res.json(getCars());
+  res.json(await getCars());
 });
 // Busca un coche por ID
 app.get("/cars/:id", async (req, res) => {
   const id = req.params.id;
 
-  const car = getCarByID(id);
+  const car = await getCarByID(id);
 
   if (car.id === id) {
     res.status(200).json(car);
@@ -47,7 +47,7 @@ app.post("/cars", async (req, res) => {
     res.status(400).send("El coche ya existe");
   }
 
-  const newCar = insertCar(car);
+  const newCar = await insertCar(car);
   if (newCar) {
     res.json(car);
     return;
@@ -58,11 +58,11 @@ app.post("/cars", async (req, res) => {
 });
 
 // Borrar un coche
-app.delete("/cars/:id", (req, res) => {
+app.delete("/cars/:id", async (req, res) => {
   // Reading id from the URL
   const id = req.params.id;
 
-  if (deleteCarByID(id)) {
+  if (await deleteCarByID(id)) {
     res.send("Has eliminado el coche");
     return;
   }
@@ -70,7 +70,7 @@ app.delete("/cars/:id", (req, res) => {
 });
 
 // Modificar un coche
-app.put("/car/:id", (req, res) => {
+app.put("/car/:id", async (req, res) => {
   const id = req.params.id;
   const newCar = req.body;
 
@@ -79,7 +79,7 @@ app.put("/car/:id", (req, res) => {
     return;
   }
 
-  const car = getCarByID(id);
+  const car = await getCarByID(id);
   if (car === null || car === undefined) {
     res.status(400).send("El coche no existe");
     return;
