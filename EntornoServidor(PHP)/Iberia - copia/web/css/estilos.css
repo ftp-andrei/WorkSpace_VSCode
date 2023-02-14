@@ -1,0 +1,112 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 20px;
+}
+
+html {
+  background-image: url(https://static.vecteezy.com/system/resources/previews/007/901/817/non_2x/passenger-plane-in-flight-on-a-blue-background-illustration-of-an-airplane-vector.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  font-style: italic;
+  color: #8a2be2;
+  text-shadow: 5px 5px #e5e5e5;
+  text-align: center;
+}
+
+hr {
+  color: #7d2181;
+}
+/* Buscador */
+#ok {
+  text-align: center;
+  background-color: #8a2be2;
+  color: white;
+  border-color: black;
+  padding: 5px;
+  font-weight: bold;
+}
+
+label {
+  color: #fff;
+}
+
+fieldset {
+  width: 50%;
+  border-color: #202124;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.enLinea {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.enLinea form fieldset {
+  background-color: #8a2be2;
+}
+
+.enLinea form legend {
+  color: #fff;
+}
+
+.enFila {
+  display: block;
+}
+
+nav a {
+  text-decoration-line: none;
+  color: #202124;
+}
+
+nav a:hover {
+  font-weight: bold;
+}
+
+/* Tabla */
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: lightgray;
+}
+
+td {
+  background-color: #fff;
+}
+
+caption {
+  margin-top: 10px;
+  color: #202124;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.centrar {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ocupado {
+  background-color: #ff0000;
+}
