@@ -37,6 +37,7 @@ $destinos = $_SESSION['destinos'];
     <label for="ida">Ida: <input type="date" name="ida" id="ida"></label>
     <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
     <input type="submit" value="Buscar" name="ok" id="ok">
+    <!-- A añadido los pasajeros -->
   </fieldset>
 
 </form>

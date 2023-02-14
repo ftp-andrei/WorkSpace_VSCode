@@ -5,6 +5,7 @@ use ConexionBd;
 use PDO;
 
 class VuelosRepositorio{
+    // Añade los pasajeros
     public function findVuelos(string $origen, string $destino, string $ida, string $vuelta=null):array
     {
         /* Consulta sql*/ 
