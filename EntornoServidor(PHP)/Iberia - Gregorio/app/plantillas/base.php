@@ -30,7 +30,11 @@
        -->
     <a href="index.php?ctl=inicio">Inicio</a> |
     <a href="index.php?ctl=reservar">Reservar</a> |
-    <a href="index.php?ctl=inicioSesion">Login/Registro</a> |<!-- Con los datos del pasajero -->
+    <?php if ($_SESSION['usuario'] === 'anonimo') { ?>
+      <a href="index.php?ctl=inicioSesion">Login</a> |<!-- Con los datos del pasajero -->
+    <?php } else { ?>
+      <a href="index.php?ctl=cerrarSesion">Cerrar Sesion</a>
+    <?php } ?>
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá
            ser analizada en la página index.php de cara a encontrar la ruta del

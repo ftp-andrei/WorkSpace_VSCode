@@ -14,3 +14,4 @@ class LoginUsuarioController
         require __DIR__ . '/../../app/plantillas/inicioSesion.php';
     }
 }
+//Meter los datos del login el pasajero y los datos de iniciar sesion

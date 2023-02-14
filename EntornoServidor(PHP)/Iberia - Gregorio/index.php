@@ -41,6 +41,9 @@ if (isset($_GET['ctl'])) {
 } else {
   $ruta = 'inicio';
 }
+if (isset($_SESSION['usuario'])) {
+  $_SESSION['usuario'] = 'anonimo';
+}
 
 $controlador = $mapeoRutas[$ruta];
 // Ejecución del controlador asociado a la ruta

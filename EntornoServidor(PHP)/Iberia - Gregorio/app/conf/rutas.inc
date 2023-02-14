@@ -18,4 +18,5 @@ $mapeoRutas =['inicio' =>
           ['controller' =>'app\iberia\controlador\reservarController', 'action' =>'reservar'],
           'inicioSesion' =>
           ['controller' =>'app\iberia\controlador\registrarUsuarioController', 'action' =>'registrarUsuario']
+          //Meter aqui las rutas de inicio y cierre de session
 ];

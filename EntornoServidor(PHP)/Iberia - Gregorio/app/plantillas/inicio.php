@@ -84,8 +84,6 @@ if (isset($vuelos)) { ?>
       </tr>
     </tbody>
   </table>
-<?php } ?>
-
-<?php
+<?php }
 $contenido = ob_get_clean();
 include 'base.php'; ?>
