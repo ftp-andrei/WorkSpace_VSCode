@@ -4,8 +4,6 @@ namespace app\iberia\controlador;
 /** Gregorio añade aqui el repo de Pasajero,Usuario y AppException */
 use app\iberia\repositorio\Ejercicio1Repositorio;
 
-
-// Ejemplo de controlador para página home de la aplicación
 class DefaultController
 { 
   public function inicio()

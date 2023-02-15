@@ -22,7 +22,7 @@ ob_start();
 </form>
 <?php
 if (isset($euros)) {
-  echo "123";
+  echo $euros;
 }
 
 $contenido = ob_get_clean();
