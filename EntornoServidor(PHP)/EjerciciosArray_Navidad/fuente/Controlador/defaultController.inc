@@ -9,7 +9,7 @@ class DefaultController
   public function inicio()
   { 
     if(isset($_POST['btnCambio'])){
-    $euros = (new Ejercicio1Repositorio()) -> cambioPesetas($_POST('euros'));
+    $euros= (new Ejercicio1Repositorio()) -> cambioDivisa($_POST['euros']);
   }
   require __DIR__ . '/../../app/plantillas/inicio.php';
 }
