@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.get("/cars", async (req, res) => {
   res.json(await getCars());
 });
+
 // Busca un coche por ID
 app.get("/cars/:id", async (req, res) => {
   const id = req.params.id;
