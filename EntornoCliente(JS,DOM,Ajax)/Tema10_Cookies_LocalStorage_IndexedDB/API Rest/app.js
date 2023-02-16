@@ -1,36 +1,35 @@
 import express from "express";
 import cors from "cors";
 import {
-  getCarByID,
   getCars,
-  insertCar,
-  deleteCarByID,
+  getCarByID,
   getCarByNumBastidor,
+  insertCar,
+  deleteCar,
+  modifyCar,
 } from "./cars.service.js";
-
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 7777;
+const port = 42069;
 
 app.use(cors());
-
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Obtiene todos los coches
+// Coge todos los coches
 app.get("/cars", async (req, res) => {
-  res.json(await getCars());
+  res.status(200).json(getCars());
 });
 
-// Busca un coche por ID
+// Coge coche por id
 app.get("/cars/:id", async (req, res) => {
   const id = req.params.id;
 
   const car = await getCarByID(id);
 
-  if (car.id === id) {
+  if (car) {
     res.status(200).json(car);
     return;
   }
@@ -40,12 +39,13 @@ app.get("/cars/:id", async (req, res) => {
 
 // Crea un coche
 app.post("/cars", async (req, res) => {
-  const car = req.body; //Body del car
+  const car = req.body;
 
-  const carsDatabase = getCarByNumBastidor(car.numBastidor);
+  const carsDatabase = await getCarByNumBastidor(car.numBastidor);
 
   if (carsDatabase) {
     res.status(400).send("El coche ya existe");
+    return;
   }
 
   const newCar = await insertCar(car);
@@ -53,40 +53,39 @@ app.post("/cars", async (req, res) => {
     res.json(car);
     return;
   }
-  res.st;
-
-  atus(404).send("Error al crear el coche");
+  res.status(400).send("Error al crear el coche");
 });
 
-// Borrar un coche
+// Borra coche por id
 app.delete("/cars/:id", async (req, res) => {
-  // Reading id from the URL
   const id = req.params.id;
 
-  if (await deleteCarByID(id)) {
-    res.send("Has eliminado el coche");
+  if (await deleteCar(id)) {
+    res.send("Car has been deleted");
     return;
   }
-  res.status(400).send("Error al borrar el coche");
+
+  res.status(400).send("Error el borrar el coche");
 });
 
-// Modificar un coche
-app.put("/car/:id", async (req, res) => {
+// Modifica un coche por id
+app.put("/cars/:id", async (req, res) => {
   const id = req.params.id;
   const newCar = req.body;
 
   if (newCar.id !== id) {
-    res.status(400).send("El id del objeto en el body y la URL es la misma");
+    res.status(400).send("El id del objeto en el body y la URL no es la misma");
     return;
   }
 
   const car = await getCarByID(id);
+
   if (car === null || car === undefined) {
-    res.status(400).send("El coche no existe");
+    res.status(400).json("El coche no existe");
     return;
   }
 
-  if (modifyCar(newCar)) {
+  if (await modifyCar(newCar)) {
     res.json(newCar);
     return;
   }
@@ -94,4 +93,4 @@ app.put("/car/:id", async (req, res) => {
   res.send("Error al modificar el coche");
 });
 
-app.listen(port, () => console.log(`Estoy escuchando el puerto ${port}!`));
+app.listen(port, () => console.log(`Estoy escuchando por el puerto ${port}!`));

@@ -1,8 +1,8 @@
-import { createClient } from "redis"; // Genera el cliente redis
-import { v4 as uuidv4 } from "uuid"; // generar ids aleatorias
+import { createClient } from "redis";
+import { v4 as uuidv4 } from "uuid";
 
 const client = createClient({
-  url: "redis://default:123pass@localhost:5000", //puerto de docker
+  url: "redis://default:123pass@localhost:5000",
 });
 
 await client.connect();
@@ -13,7 +13,6 @@ export async function getCars() {
 
 export async function getCarByID(id) {
   const cars = await getCars();
-
   for (let i = 0; i < cars.length; i++) {
     if (cars[i].id === id) {
       return cars[i];
@@ -24,9 +23,8 @@ export async function getCarByID(id) {
 
 export async function getCarByNumBastidor(numBastidor) {
   const cars = await getCars();
-
   for (let i = 0; i < cars.length; i++) {
-    if (cars[i].numBastido === numBastidor) {
+    if (cars[i].numBastidor === numBastidor) {
       return cars[i];
     }
   }
@@ -38,28 +36,25 @@ export async function insertCar(car) {
   if (cars === null || cars === undefined) {
     cars = [];
   }
-  car.id = uuidv4(); // Generar id con uuid
+  car.id = uuidv4();
   cars.push(car);
   await client.set("Cars", JSON.stringify(cars));
 }
 
-export async function deleteCarByID(id) {
+export async function deleteCar(id) {
   const cars = await getCars();
-
   const newCars = cars.filter(function (value) {
     return value.id !== id;
   });
-
-  await client.set("Cars", JSON.stringify(cars));
+  await client.set("Cars", JSON.stringify(newCars));
 }
 
 export async function modifyCar(car) {
   const cars = await getCars();
-
   for (let i = 0; i < cars.length; i++) {
     if (cars[i].id === id) {
       cars[i] = car;
     }
   }
-  await client.set("Cars", JSON.stringify(cars));
+  await client.set("Cars", JSON.stringify(newCars));
 }
