@@ -19,7 +19,7 @@
 
 <body>
   <header>
-    <h1>Arrays + Navidad</h1>
+    <h1>Ejercicios Navidad + Arrays</h1>
   </header>
   <nav>
     <hr>
@@ -28,8 +28,16 @@
            valor 'inicio' para que la vista cambie a la página home de la
            aplicación
        -->
-    <a href="index.php?ctl=inicio">Arrays</a> |
-    <a href="index.php?ctl=navidad">Navidad</a> |
+    <a href="index.php?ctl=inicio">Arrays 1</a> |
+    <a href="index.php?ctl=arrays2">Arrays 2</a> |
+    <a href="index.php?ctl=arrays3">Arrays 3</a> |
+    <a href="index.php?ctl=arrays4">Arrays 4</a> |
+    <a href="index.php?ctl=arrays5">Arrays 5</a> |
+    <a href="index.php?ctl=arrays6">Arrays 6</a> |
+    <a href="index.php?ctl=navidad1">Navidad 1</a> |
+    <a href="index.php?ctl=navidad2">Navidad 2</a> |
+    <a href="index.php?ctl=navidad3">Navidad 3</a> |
+    <a href="index.php?ctl=navidad4">Navidad 4</a> |
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá
            ser analizada en la página index.php de cara a encontrar la ruta del

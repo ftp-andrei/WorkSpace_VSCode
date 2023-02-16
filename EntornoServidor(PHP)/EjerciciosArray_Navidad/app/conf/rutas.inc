@@ -13,6 +13,23 @@
     el controlador que debe decidir cuál es la vista que se debe mostrar
 */
 $mapeoRutas =['inicio' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'inicio'],'navidad' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'navidad']
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio1'],
+          'arrays2' =>
+          ['controller' =>'app\iberia\controlador\arrays2Controller', 'action' =>'ejercicio2'],
+          'arrays3' =>
+          ['controller' =>'app\iberia\controlador\arrays3Controller', 'action' =>'ejercicio3'],
+          'arrays4' =>
+          ['controller' =>'app\iberia\controlador\arrays4Controller', 'action' =>'ejercicio4'],
+          'arrays5' =>
+          ['controller' =>'app\iberia\controlador\arrays5Controller', 'action' =>'ejercicio5'],
+          'arrays6' =>
+          ['controller' =>'app\iberia\controlador\arrays6Controller', 'action' =>'ejercicio6'],
+          'navidad1' =>
+          ['controller' =>'app\iberia\controlador\navidad1Controller', 'action' =>'ejercicio1'],
+          'navidad2' =>
+          ['controller' =>'app\iberia\controlador\navidad2Controller', 'action' =>'ejercicio2'],
+          'navidad3' =>
+          ['controller' =>'app\iberia\controlador\navidad3Controller', 'action' =>'ejercicio3'],
+          'navidad4' =>
+          ['controller' =>'app\iberia\controlador\navidad4Controller', 'action' =>'ejercicio4'],
 ];
