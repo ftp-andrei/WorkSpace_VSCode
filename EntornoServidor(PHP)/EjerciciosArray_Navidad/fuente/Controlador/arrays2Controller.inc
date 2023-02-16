@@ -7,7 +7,7 @@ class Arrays2Controller
 { 
   public function ejercicio2()
   { 
+    $tablaEuros = (new Arrays2Repositorio()) -> tablaEuros();
     require __DIR__ . '/../../app/plantillas/arrays2.php';
-
-}
+  }
 }
