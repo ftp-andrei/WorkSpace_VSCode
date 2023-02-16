@@ -20,10 +20,10 @@ app.use(bodyParser.json());
 
 // Coge todos los coches
 app.get("/cars", async (req, res) => {
-  res.status(200).json(getCars());
+  res.status(200).json(await getCars());
 });
 
-// Coge coche por id
+// Muestra un coche por id
 app.get("/cars/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -44,7 +44,7 @@ app.post("/cars", async (req, res) => {
   const carsDatabase = await getCarByNumBastidor(car.numBastidor);
 
   if (carsDatabase) {
-    res.status(400).send("El coche ya existe");
+    res.status(400).send("Error: El coche ya existe");
     return;
   }
 
@@ -56,16 +56,16 @@ app.post("/cars", async (req, res) => {
   res.status(400).send("Error al crear el coche");
 });
 
-// Borra coche por id
+// Borra un coche por id
 app.delete("/cars/:id", async (req, res) => {
   const id = req.params.id;
 
   if (await deleteCar(id)) {
-    res.send("Car has been deleted");
+    res.send("Se a borrado correctamente");
     return;
   }
 
-  res.status(400).send("Error el borrar el coche");
+  res.status(404).send("El coche no se ha encontrado");
 });
 
 // Modifica un coche por id
@@ -90,7 +90,7 @@ app.put("/cars/:id", async (req, res) => {
     return;
   }
 
-  res.send("Error al modificar el coche");
+  res.status(404).send("Coche no encontrado");
 });
 
 app.listen(port, () => console.log(`Estoy escuchando por el puerto ${port}!`));
