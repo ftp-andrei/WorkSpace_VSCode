@@ -37,7 +37,6 @@
     <a href="index.php?ctl=navidad1">Navidad 1</a> |
     <a href="index.php?ctl=navidad2">Navidad 2</a> |
     <a href="index.php?ctl=navidad3">Navidad 3</a> |
-    <a href="index.php?ctl=navidad4">Navidad 4</a> |
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá
            ser analizada en la página index.php de cara a encontrar la ruta del

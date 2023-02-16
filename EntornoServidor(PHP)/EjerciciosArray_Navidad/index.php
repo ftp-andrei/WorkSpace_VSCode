@@ -26,7 +26,6 @@ require_once __DIR__ . '/fuente/Controlador/arrays6Controller.inc';
 require_once __DIR__ . '/fuente/Controlador/navidad1Controller.inc';
 require_once __DIR__ . '/fuente/Controlador/navidad2Controller.inc';
 require_once __DIR__ . '/fuente/Controlador/navidad3Controller.inc';
-require_once __DIR__ . '/fuente/Controlador/navidad4Controller.inc';
 /* Ubicación del archivo de rutas */
 require_once __DIR__ . '/app/conf/rutas.inc';
 
