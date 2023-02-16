@@ -14,7 +14,7 @@
 */
 ob_start();
 ?>
-<h1>Ejercicio 3</h1>
+<h2>Ejercicio 3</h2>
 <p>Realizar un formulario de registro de clientes.
     El formulario debe solicitar:
     a. Nombre

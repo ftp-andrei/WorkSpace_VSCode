@@ -14,7 +14,7 @@
 */
 ob_start();
 ?>
-<h1>Ejercicio 3</h1>
+<h2>Ejercicio 3</h2>
 <p>Realice un guion PHP que muestre una especie de diccionario inglés/francés/castellano. Mantén los datos en arrays PHP (uno o más). Utiliza una tabla para mostrar los datos y emplea CSS. El diccionario debe contar con un mínimo de 20 entradas.</p>
 <form action="" method="post">
 

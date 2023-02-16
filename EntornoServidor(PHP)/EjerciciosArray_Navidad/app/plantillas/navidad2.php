@@ -14,7 +14,7 @@
 */
 ob_start();
 ?>
-<h1>Ejercicio 2</h1>
+<h2>Ejercicio 2</h2>
 <p>Diseñar un formulario web que pida la altura y el diámetro de un cilindro en metros. Una vez el usuario
     introduzca los datos y pulse el botón calcular, se deberá calcular el volumen del cilindro y mostrarse el
     resultado en el navegador.

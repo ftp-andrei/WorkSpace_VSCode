@@ -14,7 +14,7 @@
 */
 ob_start();
 ?>
-<h1>Ejercicio 1</h1>
+<h2>Ejercicio 1</h2>
 <p>Diseñar un formulario HTML que solicite dos números enteros. Una vez introducidos los números y enviado el
     formulario, el código PHP de la página que recibe los datos del mismo mostrará la suma, resta, multiplicación,
     división y resto de los números.

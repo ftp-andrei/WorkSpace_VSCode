@@ -14,7 +14,7 @@
 */
 ob_start();
 ?>
-<h1>Ejercicio 4</h1>
+<h2>Ejercicio 4</h2>
 <p>Realiza un guion PHP que muestre una especie de diccionario de la lengua española. El diccionario debe contar con un mínimo de 20 entradas. Utiliza un array PHP para realizar el ejercicio. Muestra los datos como desees, pero utiliza CSS para mostrar de forma elegante es información.</p>
 <form action="" method="post">
 

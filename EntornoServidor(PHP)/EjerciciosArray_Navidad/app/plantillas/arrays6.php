@@ -14,7 +14,7 @@
 */
 ob_start();
 ?>
-<h1>Ejercicio 6</h1>
+<h2>Ejercicio 6</h2>
 <p>Completa el ejercicio anterior informando al final de las notas obtenidas: cantidad de Muy deficiente, Deficiente, Insuficiente, Suficiente, Bien, Notable y Sobresaliente obtenidos, y después la nota media obtenida y cuál sería su nota en formato cadena.</p>
 <form action="" method="post">
 
