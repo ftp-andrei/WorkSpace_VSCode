@@ -16,11 +16,36 @@ ob_start();
 ?>
 <h2>Ejercicio 3</h2>
 <p>Realice un guion PHP que muestre una especie de diccionario inglés/francés/castellano. Mantén los datos en arrays PHP (uno o más). Utiliza una tabla para mostrar los datos y emplea CSS. El diccionario debe contar con un mínimo de 20 entradas.</p>
-<form action="" method="post">
-
-
-</form>
-
 <?php
+if ($diccionario) { ?>
+  <table>
+    <thead>
+      <tr>
+        <?php
+        foreach ($diccionario as $idioma => $arrPalabras) {
+          echo "<td>";
+          echo $idioma;
+          echo "</td>";
+        }
+        var_dump($diccionario);
+        ?>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($diccionario as $idioma => $arrPalabras) { ?>
+        <tr>
+          <?php
+          foreach ($arrPalabras as $posArr => $palabras) {
+            echo "<td>";
+            echo $diccionario[$idioma][$posArr];
+            echo "</td>";
+          }
+          ?>
+        </tr>
+      <?php } ?>
+    </tbody>
+  </table>
+<?php
+}
 $contenido = ob_get_clean();
 include 'base.php'; ?>
