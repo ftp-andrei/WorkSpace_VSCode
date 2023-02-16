@@ -19,21 +19,11 @@ ob_start();
 <?php
 if ($diccionario) { ?>
   <table>
-    <thead>
-      <tr>
-        <?php
-        foreach ($diccionario as $idioma => $arrPalabras) {
-          echo "<td>";
-          echo $idioma;
-          echo "</td>";
-        }
-        var_dump($diccionario);
-        ?>
-      </tr>
-    </thead>
+    <caption>Diccionario</caption>
     <tbody>
       <?php foreach ($diccionario as $idioma => $arrPalabras) { ?>
         <tr>
+          <th><?php echo ucfirst($idioma) ?></th>
           <?php
           foreach ($arrPalabras as $posArr => $palabras) {
             echo "<td>";

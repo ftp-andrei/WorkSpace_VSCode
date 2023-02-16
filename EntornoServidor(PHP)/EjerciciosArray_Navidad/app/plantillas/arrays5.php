@@ -27,11 +27,19 @@ ob_start();
   Mantén en un array PHP la información de notas y sus equivalentes de cadena.
 
   Obtén 20 valores aleatorios fuera del documento HTML, y muestra los resultados dentro del documento HTML. Emplea CSS para presentar el resultado.</p>
-<form action="" method="post">
-
-
-</form>
+<?php if ($notas) { ?>
+  <p>El contenido del array es: </p>
+  <?php print_r($notas);
+  if ($notaEscrita) {
+    foreach ($notas as $indice => $nota) {
+      if ($nota === $notaEscrita[$indice] && $notaEscrita[$indice] < 11) {
+        echo "si";
+      }
+    }
+  ?>
 
 <?php
+  }
+}
 $contenido = ob_get_clean();
 include 'base.php'; ?>

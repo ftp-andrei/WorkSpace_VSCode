@@ -7,6 +7,7 @@ class Arrays4Controller
 { 
   public function ejercicio4()
   { 
+    $diccionario = (new Arrays4Repositorio()) -> getDiccionario();
     require __DIR__ . '/../../app/plantillas/arrays4.php';
 
 }

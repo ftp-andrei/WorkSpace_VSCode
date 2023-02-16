@@ -7,6 +7,8 @@ class Arrays5Controller
 { 
   public function ejercicio5()
   { 
+    $notas = (new Arrays5Repositorio()) -> getNotas();
+    $notaEscrita = (new Arrays5Repositorio()) -> getNotaEscrita();
     require __DIR__ . '/../../app/plantillas/arrays5.php';
 
 }
