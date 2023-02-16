@@ -4,6 +4,12 @@ use app\iberia\repositorio\RegistrarUsuarioRepositorio;
 
 class RegistrarUsuarioController
 { 
+  //mete privates como en java
+  //Luego hace un __construct que imagino será el main
+  // Abajo del __construct pone las funciones
+  // En el construct hace ifs con this.
+  // los getter y setters van en el class Usuario (Supongo que modelo).
+  // 
     public function registrarUsuario(){
         if(isset($_POST['registrarse'])){
           //Comprobar que el correo esta registrado
