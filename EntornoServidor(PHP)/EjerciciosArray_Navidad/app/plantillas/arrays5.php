@@ -30,13 +30,25 @@ ob_start();
 <?php if ($notas) { ?>
   <p>El contenido del array es: </p>
   <?php print_r($notas);
-  if ($notaEscrita) {
-    foreach ($notas as $indice => $nota) {
-      if ($nota === $notaEscrita[$indice] && $notaEscrita[$indice] < 11) {
-        echo "si";
-      }
-    }
-  ?>
+  if ($notaEscrita) { ?>
+    <table>
+      <caption>Notas</caption>
+      <thead>
+        <th>Indice</th>
+        <th>Nota</th>
+        <th>Resultado</th>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($notas as $indice => $nota) { ?>
+          <tr>
+            <td><?php echo $indice + 1 ?></td>
+            <td><?php echo $nota ?></td>
+            <td><?php echo $notaEscrita[$nota]; ?> </td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
 
 <?php
   }
