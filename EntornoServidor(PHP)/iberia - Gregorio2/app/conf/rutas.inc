@@ -21,4 +21,6 @@ $mapeoRutas =
     ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'logout'],
    'iniReser' =>
     ['controller' =>'app\iberia\controlador\ReservaController', 'action' =>'inicioReserva'],
+   'nuevoCli' =>
+    ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'agregaCliente'],
   ];

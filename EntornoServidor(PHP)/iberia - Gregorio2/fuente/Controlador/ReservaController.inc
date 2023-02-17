@@ -33,6 +33,13 @@ class ReservaController
         } catch (\PDOException $ex) {
           var_dump($mensajerError=$ex->getMessage());
       }
+      if (isset($mensajeError)) {
+        if($_SESSION('usuario')=== 'anonimo'){
+          header('location: index.php?ctl=iniSes');
+        }else{
+          // TODO: Enviarlo a informar a los pasajeros y ocupacion de asientos
+        }
+      }
     }
 
   }
