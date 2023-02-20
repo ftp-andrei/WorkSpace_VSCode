@@ -3,7 +3,7 @@
 namespace app\iberia\controlador;
 use app\iberia\repositorio\NavidadRepositorio;
 
-class Navidad1Controller
+class NavidadController
 { 
   public function ejercicio1()
   { 
@@ -13,5 +13,11 @@ class Navidad1Controller
     $division=(new NavidadRepositorio) -> division($_POST['numero1'],$_POST['numero2']);
     require __DIR__ . '/../../app/plantillas/navidad1.php';
 
+}
+
+public function ejercicio2()
+{ 
+  $volumen=(new NavidadRepositorio) -> calcVolumen($_POST['num1'],$_POST['num2']);
+  require __DIR__ . '/../../app/plantillas/navidad2.php';
 }
 }

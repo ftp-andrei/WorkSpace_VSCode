@@ -25,9 +25,9 @@ $mapeoRutas =['inicio' =>
           'arrays6' =>
           ['controller' =>'app\iberia\controlador\arrays6Controller', 'action' =>'ejercicio6'],
           'navidad1' =>
-          ['controller' =>'app\iberia\controlador\navidad1Controller', 'action' =>'ejercicio1'],
+          ['controller' =>'app\iberia\controlador\navidadController', 'action' =>'ejercicio1'],
           'navidad2' =>
-          ['controller' =>'app\iberia\controlador\navidad2Controller', 'action' =>'ejercicio2'],
+          ['controller' =>'app\iberia\controlador\navidadController', 'action' =>'ejercicio2'],
           'navidad3' =>
           ['controller' =>'app\iberia\controlador\navidad3Controller', 'action' =>'ejercicio3']
 ];
