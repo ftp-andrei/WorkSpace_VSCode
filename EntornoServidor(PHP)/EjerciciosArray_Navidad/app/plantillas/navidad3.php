@@ -47,7 +47,7 @@ ob_start();
   que representa al usuario manteniendo, además, en el control de formulario el dato original que introdujo el
   usuario.
   Para mostrar otra página, ya sabéis, Location, haber iniciado la sesión donde guardar los datos y desde
-  donde pueda recuperarlos la segunda página para mostrarlos – en la que también se deberá iniciar sesión) </p>
+  donde pueda recuperarlos la segunda página para mostrarlos en la que también se deberá iniciar sesión) </p>
 <form action="" method="post">
   <fieldset>
     <legend>Registro</legend>
@@ -57,7 +57,7 @@ ob_start();
     <label for="Ciudad">Ciudad: <input type="text" name="Ciudad" id="Ciudad" required></label>
     <label for="CodPostal">CodPostal: <input type="number" name="CodPostal" id="CodPostal" min="5" max="5" required></label><br>
     <label for="Provincia">Provincia<input type="text" name="Provincia" id="Provincia" required></label>
-    <label for="">Telefono: <input type="tel" name="" id="" min="9" max="9" required></label>
+    <label for="Telefono">Telefono: <input type="tel" name="Telefono" id="Telefono" min="9" max="9" required></label>
     <label for="Correo">Correo: <input type="mail" name="Correo" id="Correo" required></label><br>
     <input type="submit" value="Registrar" name="okRegistro">
     <input type="submit" value="Limpiar" name="limpiar">

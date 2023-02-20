@@ -25,8 +25,8 @@ ob_start();
   superglobal $_POST o $_GET, por ejemplo, isset($_POST['ok']). Para mostrar el resultado podéis
   emplear un elemento p o un control INPUT TEXT de solo lectura) </p>
 <form action="" method="post">
-  <label for="numero1">Valor1: <input type="number" name="numero1" id="numero1"></label>
-  <label for="numero2">Valor2: <input type="number" name="numero2" id="numero2"></label>
+  <label for="numero1">Valor1: <input type="number" name="numero1" id="numero1" value="0"></label>
+  <label for="numero2">Valor2: <input type="number" name="numero2" id="numero2" value="0"></label>
   <input type="submit" value="Ok" name="ok">
 </form>
 
@@ -34,9 +34,13 @@ ob_start();
 if (isset($_POST['ok'])) { ?>
   <p>La suma de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] + $_POST['numero2'] ?> </p>
   <p>La resta de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] - $_POST['numero2'] ?> </p>
-  <p>La multiplicacion de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] * $_POST['numero2'] ?> </p>
-  <p>La division de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo number_format($_POST['numero1'] / $_POST['numero2'], 2) ?> </p>
+  <p>La multiplicación de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] * $_POST['numero2'] ?> </p>
+  <?php if ($_POST['numero2'] != 0) { ?>
+    <p>La división de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo number_format($_POST['numero1'] / $_POST['numero2'], 2) ?> </p>
+  <?php } else { ?>
+    <p>No se puede dividir un numero por 0</p>
 <?php
+  }
 }
 $contenido = ob_get_clean();
 include 'base.php'; ?>
