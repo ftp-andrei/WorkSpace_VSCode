@@ -18,11 +18,6 @@ spl_autoload_register(function (string $clase) {
 });
 /* Controladores */
 require_once __DIR__ . '/fuente/Controlador/DefaultController.inc';
-require_once __DIR__ . '/fuente/Controlador/arrays2Controller.inc';
-require_once __DIR__ . '/fuente/Controlador/arrays3Controller.inc';
-require_once __DIR__ . '/fuente/Controlador/arrays4Controller.inc';
-require_once __DIR__ . '/fuente/Controlador/arrays5Controller.inc';
-require_once __DIR__ . '/fuente/Controlador/arrays6Controller.inc';
 require_once __DIR__ . '/fuente/Controlador/navidadController.inc';
 require_once __DIR__ . '/fuente/Controlador/navidad3Controller.inc';
 /* Ubicación del archivo de rutas */

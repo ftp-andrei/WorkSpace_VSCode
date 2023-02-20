@@ -10,10 +10,10 @@ ob_start();
 <form action="" method="post">
   <label for="num1">Altura: <input type="number" name="num1" id="num1" value="0" required></label>
   <label for="num2">Diametro: <input type="number" name="num2" id="num2" value="0" required></label>
-  <input type="submit" value="Ok" name="ok">
+  <input type="submit" value="Ok" name="okVolumen">
 </form>
 <?php
-if (isset($_POST['ok'])) {
+if (isset($_POST['okVolumen'])) {
   echo $volumen;
 }
 $contenido = ob_get_clean();

@@ -15,15 +15,15 @@
 $mapeoRutas =['inicio' =>
           ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio1'],
           'arrays2' =>
-          ['controller' =>'app\iberia\controlador\arrays2Controller', 'action' =>'ejercicio2'],
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio2'],
           'arrays3' =>
-          ['controller' =>'app\iberia\controlador\arrays3Controller', 'action' =>'ejercicio3'],
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio3'],
           'arrays4' =>
-          ['controller' =>'app\iberia\controlador\arrays4Controller', 'action' =>'ejercicio4'],
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio4'],
           'arrays5' =>
-          ['controller' =>'app\iberia\controlador\arrays5Controller', 'action' =>'ejercicio5'],
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio5'],
           'arrays6' =>
-          ['controller' =>'app\iberia\controlador\arrays6Controller', 'action' =>'ejercicio6'],
+          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio6'],
           'navidad1' =>
           ['controller' =>'app\iberia\controlador\navidadController', 'action' =>'ejercicio1'],
           'navidad2' =>

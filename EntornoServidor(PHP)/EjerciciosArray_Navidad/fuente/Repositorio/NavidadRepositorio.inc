@@ -24,7 +24,6 @@ class NavidadRepositorio{
     public function calcVolumen(int $num1,int $num2):string{
         return "Volumen: " . bcmul(pi(), bcmul(bcpow(bcdiv($num2, 2, 2), 2, 2), $num1, 2), 2);
     }
-
 }
 
 ?>
