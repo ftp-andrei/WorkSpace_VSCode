@@ -27,8 +27,8 @@ ob_start();
 </form>
 <?php
 if (isset($_POST['ok'])) {
-  echo 'Volumen: ' . (float) pi() * (($_POST['numero2'] / 2) ^ 2) * $_POST['numero1'];
-} //Usar funciones BCMath
+  echo 'Volumen: ' . bcmul(pi(), bcmul(bcpow(bcdiv($_POST['numero2'], 2, 2), 2, 2), $_POST['numero1'], 2), 2);
+}
 ?>
 <?php
 $contenido = ob_get_clean();
