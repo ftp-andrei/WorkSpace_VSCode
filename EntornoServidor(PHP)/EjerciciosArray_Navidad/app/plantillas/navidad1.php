@@ -1,17 +1,4 @@
 <?php
-/* Ejemplo de plantilla que se mostrará dentro de la plantilla principal
-  ob_start() activa el almacenamiento en buffer de la página. Mientras se
-             almacena en el buffer no se produce salida alguna hacia el
-             navegador del cliente
-  luego viene el código html y/o php que especifica lo que debe aparecer en
-     el cliente web
-  ob_get_clean() obtiene el contenido del buffer (que se pasa a la variable
-             $contenido) y elimina el contenido del buffer
-  Por último se incluye la página que muestra la imagen común de la aplicación
-    (en este caso base.php) la cual contiene una referencia a la variable
-    $contenido que provocará que se muestre la salida del buffer dentro dicha
-    página "base.php"
-*/
 ob_start();
 ?>
 <h2>Ejercicio 1</h2>
@@ -31,16 +18,8 @@ ob_start();
 </form>
 
 <?php
-if (isset($_POST['ok'])) { ?>
-  <p>La suma de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] + $_POST['numero2'] ?> </p>
-  <p>La resta de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] - $_POST['numero2'] ?> </p>
-  <p>La multiplicación de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo $_POST['numero1'] * $_POST['numero2'] ?> </p>
-  <?php if ($_POST['numero2'] != 0) { ?>
-    <p>La división de <?php echo $_POST['numero1'] ?> y <?php echo $_POST['numero2'] ?> es: <?php echo number_format($_POST['numero1'] / $_POST['numero2'], 2) ?> </p>
-  <?php } else { ?>
-    <p>No se puede dividir un numero por 0</p>
-<?php
-  }
+if (isset($_POST['ok'])) {
+  echo $suma . "<br>" . $resta . "<br>" . $multiplicacion . "<br>" . $division;
 }
 $contenido = ob_get_clean();
 include 'base.php'; ?>

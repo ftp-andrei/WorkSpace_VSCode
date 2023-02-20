@@ -1,7 +1,7 @@
 <?php
 /** Al usar namespace permite ahorrar la ruta completa al DefaultController */
 namespace app\iberia\controlador;
-use app\iberia\repositorio\Navidad3Repositorio;
+use app\iberia\repositorio\NavidadRepositorio;
 
 class Navidad3Controller
 { 
