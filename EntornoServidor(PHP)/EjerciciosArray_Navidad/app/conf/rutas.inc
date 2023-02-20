@@ -13,21 +13,21 @@
     el controlador que debe decidir cuál es la vista que se debe mostrar
 */
 $mapeoRutas =['inicio' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio1'],
+          ['controller' =>'app\ejercicios\controlador\defaultController', 'action' =>'ejercicio1'],
           'arrays2' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio2'],
+          ['controller' =>'app\ejercicios\controlador\defaultController', 'action' =>'ejercicio2'],
           'arrays3' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio3'],
+          ['controller' =>'app\ejercicios\controlador\defaultController', 'action' =>'ejercicio3'],
           'arrays4' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio4'],
+          ['controller' =>'app\ejercicios\controlador\defaultController', 'action' =>'ejercicio4'],
           'arrays5' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio5'],
+          ['controller' =>'app\ejercicios\controlador\defaultController', 'action' =>'ejercicio5'],
           'arrays6' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'ejercicio6'],
+          ['controller' =>'app\ejercicios\controlador\defaultController', 'action' =>'ejercicio6'],
           'navidad1' =>
-          ['controller' =>'app\iberia\controlador\navidadController', 'action' =>'ejercicio1'],
+          ['controller' =>'app\ejercicios\controlador\navidadController', 'action' =>'ejercicio1'],
           'navidad2' =>
-          ['controller' =>'app\iberia\controlador\navidadController', 'action' =>'ejercicio2'],
+          ['controller' =>'app\ejercicios\controlador\navidadController', 'action' =>'ejercicio2'],
           'navidad3' =>
-          ['controller' =>'app\iberia\controlador\navidad3Controller', 'action' =>'ejercicio3']
+          ['controller' =>'app\ejercicios\controlador\clienteController', 'action' =>'ejercicio3']
 ];

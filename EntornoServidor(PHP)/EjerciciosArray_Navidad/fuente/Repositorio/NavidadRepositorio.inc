@@ -1,5 +1,5 @@
 <?php
-namespace app\iberia\repositorio;
+namespace app\ejercicios\repositorio;
 class NavidadRepositorio{
     public function suma(int $num1,int $num2):string{
         return "La suma de ".$num1." + ".$num2." es: ".bcadd($num1,$num2,0);

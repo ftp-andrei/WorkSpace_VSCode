@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<form action="" <?php htmlspecialchars($_SESSION('PHP_SELF')) ?>method="post">
+<form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
 <fieldset>
     <legend>Datos para inicio de sesion</legend>
     <label for="correo">eCorreo: <input type="mail" name="correo" id="correo" required></label>
@@ -15,6 +15,6 @@ ob_start();
 
 
 <?php
-$contenido = ob_end_clean();
+$contenido = ob_get_clean(); //end_clean?
 include 'base.php';
 ?>

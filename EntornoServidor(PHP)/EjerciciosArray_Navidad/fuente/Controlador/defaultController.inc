@@ -1,7 +1,7 @@
 <?php
 /** Al usar namespace permite ahorrar la ruta completa al DefaultController */
-namespace app\iberia\controlador;
-use app\iberia\repositorio\ArraysRepositorio;
+namespace app\ejercicios\controlador;
+use app\ejercicios\repositorio\ArraysRepositorio;
 
 class DefaultController
 { 

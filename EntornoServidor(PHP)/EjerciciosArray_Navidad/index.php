@@ -8,8 +8,8 @@ error_reporting(E_ALL);
 // Funcion anonima en este caso
 spl_autoload_register(function (string $clase) {
   // Porcion del namespace que no tiene nada que ver con la estructura de directorios.
-  if (strpos($clase, 'app\\iberia\\') === 0) {
-    $nombre = str_replace('app\\iberia\\', '', $clase); // Reemplazamos la ruta
+  if (strpos($clase, 'app\\ejercicios\\') === 0) {
+    $nombre = str_replace('app\\ejercicios\\', '', $clase); // Reemplazamos la ruta
     $nombre = str_replace('\\', '/', $nombre); // Estrictamente hay que hacer esto
     require_once __DIR__ . '/fuente/' . $nombre . '.inc';
   }
@@ -19,7 +19,7 @@ spl_autoload_register(function (string $clase) {
 /* Controladores */
 require_once __DIR__ . '/fuente/Controlador/DefaultController.inc';
 require_once __DIR__ . '/fuente/Controlador/navidadController.inc';
-require_once __DIR__ . '/fuente/Controlador/navidad3Controller.inc';
+require_once __DIR__ . '/fuente/Controlador/clienteController.inc';
 /* Ubicación del archivo de rutas */
 require_once __DIR__ . '/app/conf/rutas.inc';
 

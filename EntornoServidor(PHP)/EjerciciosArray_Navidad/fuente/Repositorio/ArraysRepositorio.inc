@@ -1,5 +1,5 @@
 <?php
-namespace app\iberia\repositorio;
+namespace app\ejercicios\repositorio;
 class ArraysRepositorio{
     public function cambioDivisa(float $euros):mixed{
         $pesetas=number_format($euros*166.386,2);

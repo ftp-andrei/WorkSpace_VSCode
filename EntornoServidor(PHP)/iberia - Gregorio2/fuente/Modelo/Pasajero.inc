@@ -23,8 +23,8 @@ class Pasajero
     if(!$this->setDni($pasajero['dni'])){
       $error['dni']='DNI es obligatorio o formato incorrecto';
     }
-    if(($fecha=$this->setFNacimiento($pasajero['fNacimiento'])!==true)){
-      $error['fNacimiento']=$fecha;
+    if((!is_string($fecha=$this->setFNacimiento($pasajero['fnac'])!==true))){ //Comparar con is_string
+      $error['fnac']=$fecha;
     }
     if(isset($error)){
       throw new AppException($error, 'Hay errores en los datos del pasajero');
@@ -61,7 +61,7 @@ class Pasajero
     $this->dni=$dni;
     return true;
   }
-  public function setFNacimiento(string $fNacimiento):bool | string
+  public function setFNacimiento(string $fNacimiento):string | bool
   {
     if(!$fecha=\DateTime::createFromFormat('Y-m-d',$fNacimiento)){
       return 'Formato de fecha incorrecto';
