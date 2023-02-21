@@ -11,7 +11,6 @@ class ClienteRepositorio{
 
     public function sanitizarMail(string $email):string{
         return filter_var($email , FILTER_SANITIZE_EMAIL);
-
     }
 }
 
