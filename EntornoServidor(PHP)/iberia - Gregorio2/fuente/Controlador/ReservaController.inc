@@ -41,6 +41,10 @@ class ReservaController
         }
       }
     }
+  }
 
+  public function agregaPasajero(){
+    // Coge el session el quedan - 
+    include __DIR__.'../../../app/plantillas/agregaPasajero.inc';
   }
 }

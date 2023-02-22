@@ -20,6 +20,13 @@ class Usuario
     if(isset($error)){
       throw new AppException($error);
     }
+
+    if(isset($usuario['rol'])){
+      $rol=$this->setRol($usuario['rol']);
+      if(is_string($rol)){
+        $error['rol']=$rol;
+      }
+    }
   }
 
   /***************************************** Mutadores ***********************************/

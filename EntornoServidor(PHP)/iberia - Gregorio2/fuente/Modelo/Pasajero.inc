@@ -32,7 +32,9 @@ class Pasajero
   }
   /************************************** Mutadores ****************************/
   public function setIdPasajero(int $idPasajero)
-  {}
+  {
+    $this ->idPasajero=$idPasajero;
+  }
   public function setNombre(string $nombre):bool
   {
     $expReg='/^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+( [A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){0,3}$/';
@@ -71,7 +73,9 @@ class Pasajero
     }
     $this->fNacimiento=$fecha;
   }
-  public function setIdUsuario(int $idUsuario){} 
+  public function setIdUsuario(int $idUsuario){
+    
+  } 
   /************************************** Accesores ****************************/
   public function getIdPasajero():int
   {
@@ -96,6 +100,13 @@ class Pasajero
   public function getIdUsuario():int 
   {
     return $this->idUsuario;
+  }
+
+  // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+  public function __serialize(): array
+  {
+    return [];
   }
 
 }

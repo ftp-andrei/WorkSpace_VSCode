@@ -3,6 +3,7 @@ namespace app\iberia\controlador;
 use app\iberia\modelo\Pasajero;
 use app\iberia\modelo\Usuario;
 use app\iberia\modelo\AppException;
+use app\iberia\repositorio\UsuarioPasajeroRepositorio;
 class SesionController
 {
   public function login()
@@ -20,23 +21,31 @@ class SesionController
 try {
   $pasaj=$_POST['pasaj'];
   $pasajero= (new Pasajero($pasaj));
-
-  
 } catch (AppException $ex) {
   $msjError = $ex ->getMessage();
   $erroresPas = $ex -> getError();
 }
 
-$user=$_POST['usuariocorreo'];
-if ($user['usuariopassword']!==$user['usuariopassword2']) {
+$usu=$_POST['usu'];
+if ($usu['usuariopassword']!==$usu['usuariopassword2']) {
   $errorContrasena = "Contraseñas diferentes";
 }else{
   try {
-$objUsuario = (new Usuario($user));
-} catch (AppException $ex) {
-$msjError = $ex ->getMessage();
-$erroresUsu = $ex -> getError();
+$objUsuario = (new Usuario(['eCorreo' =>$usu['eCorreo'],'pass' =>$usu['usuariopassword']]));
+$idPasaj = (new UsuarioPasajeroRepositorio($objUsuario,$pasajero));
+if($idPasaj){
+  $pasajero -> setIdPasajero($idPasaj);
+  $_SESSION['usuario']='cliente';
 }
+} catch (AppException $ex) {
+$erroresUsu = $ex -> getError();
+} catch (\PDOException $ex){
+  $errorPDO = $ex -> getMessage();
+} catch (\Exception $ex){
+  $errorEx= $ex -> getMessage();
+}
+
+
 }
     }
     include __DIR__.'../../../app/plantillas/nuevoCliente.inc';
