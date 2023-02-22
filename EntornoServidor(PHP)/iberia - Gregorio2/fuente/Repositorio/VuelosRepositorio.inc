@@ -86,4 +86,21 @@ class VuelosRepositorio
       unset($con);
     }
   }
+
+  public function asientos(int $numPasj, string $codigo):bool
+  {
+    $sql='';
+    require_once __DIR__ . '/../../core/conexionBd.inc';
+    try {
+      $con = (new \ConexionBd())->getConexion();
+      $snt = $con->prepare($sql);
+      
+      return $snt->execute();
+    } catch (\PDOException $ex) {
+      throw $ex;
+    } finally {
+      unset($snt);
+      unset($con);
+    }
+  }
 }
