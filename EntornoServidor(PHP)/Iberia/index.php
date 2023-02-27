@@ -18,6 +18,10 @@ spl_autoload_register(function (string $clase) {
   //Agregar aqui la conexion a bd, para no usar require_once
   require_once __DIR__ . '/core/conexionBd.inc';
 });
+if (!isset($_SESSION['usuario'])) {
+  $_SESSION['usuario'] = 'anonimo';
+}
+
 /* Controladores */
 require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
 require_once __DIR__ . '/fuente/Controlador/reservarController.inc';

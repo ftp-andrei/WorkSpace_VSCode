@@ -2,18 +2,21 @@
 namespace app\iberia\repositorio;
 
 use ConexionBd;
+use DateTime;
 use PDO;
 
-class RegistrarUsuarioRepositorio{
+class RegistrarPasajeroRepositorio{
     //Consultar manual
-    public function registrarUsuario(string $email,string $pass):bool{
-      $sql1 = 'INSERT INTO usuario(eCorreo,pwd,rol) VALUES (:email,:pass,user)';
+    public function registrarPasajero(string $nombre,string $apellido,DateTime $fNacimiento,string $dni):bool{
+      $sql1 = 'INSERT INTO pasajero(nombre,apellido,fNacimiento,dni) VALUES (:nombre,:apellido,:fNacimiento,:dni)';
 try {
     $con=(new \ConexionBd()) -> getConexion();
     $con -> beginTransaction();
     $snt=$con->prepare($sql1);
-    $snt->bindValue(':eCorreo',$email);
-    $snt->bindValue(':pwd',$pass);
+    $snt->bindValue(':nombre',$nombre);
+    $snt->bindValue(':apellido',$apellido);
+    $snt->bindValue(':fNacimiento',$fNacimiento);
+    $snt->bindValue(':dni',$dni);
     if($snt->execute()){
         $con ->commit();
                   return true;

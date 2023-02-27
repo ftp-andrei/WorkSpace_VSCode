@@ -1,48 +1,49 @@
-<?php ob_start();
-
-?>
+<?php ob_start(); ?>
 <div class="centrar">
-    <div class="enLinea">
-        <form action="" method="post">
+    <form action="" method="post">
+        <div class="enLinea">
             <fieldset>
-                <legend>Registrarse</legend>
+                <legend>Datos personales</legend>
                 <div class="enFila">
-                    <label for="correo">Correo:</label>
-                    <input type="mail" name="correo" id="correo">
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" name="Nombre" id="Nombre" required>
                 </div>
                 <div class="enFila">
-                    <label for="pass1">Password:</label>
-                    <input type="password" name="pass1" id="pass1">
+                    <label for="Apellido">Apellido:</label>
+                    <input type="text" name="Apellido" id="Apellido" required>
                 </div>
                 <div class="enFila">
-                    <label for="pass2">Password:</label>
-                    <input type="password" name="pass2" id="pass2">
+                    <label for="fnac">Fecha nacimiento:</label>
+                    <input type="date" name="fnac" id="fnac" required>
                 </div>
-                <input type="button" value="Registrarse" name="registrarse">
+                <div class="enFila">
+                    <label for="DNI">DNI:</label>
+                    <input type="text" name="DNI" id="DNI" minlength="9" maxlength="9" required>
+                </div>
             </fieldset>
-        </form>
-    </div>
-    <div class="enLinea">
-        <form action="" method="post">
+        </div>
+        <div class="enLinea">
             <fieldset>
-                <legend>Inicio de Sesion</legend>
+                <legend>Clave inicio</legend>
                 <div class="enFila">
-                    <label for="user">Usuario:</label>
-                    <input type="text" name="user" id="user">
+                    <label for="Correo">Correo:</label>
+                    <input type="email" name="Correo" id="Correo" required>
                 </div>
                 <div class="enFila">
                     <label for="pass">Password:</label>
-                    <input type="password" name="pass" id="pass">
+                    <input type="password" name="pass" id="pass" required>
                 </div>
-                <input type="button" value="Entrar" name="entrar">
             </fieldset>
-        </form>
-    </div>
+        </div>
+        <br>
+        <input type="button" value="Registrarse" name="registro">
+    </form>
 </div>
 
 <?php
-if (isset($_POST['registrarse'])) {
-    echo "Usuario Registrado";
+if (isset($_POST['registro'])) {
+    echo $registrarUser . '<br>' . $registrarPasajero;
+    var_dump($_SESSION['usuario']);
 }
 
 $contenido = ob_get_clean();
