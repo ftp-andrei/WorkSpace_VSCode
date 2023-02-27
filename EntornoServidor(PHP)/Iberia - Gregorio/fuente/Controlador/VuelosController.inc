@@ -34,7 +34,7 @@ class VuelosController
       $plazas=$_POST['asiento'];
       $vuelos=['codigo'=>$vuelo, 'fecha'=>$fecha,];
       foreach($plazas as $fila => $asientos){
-        $ocupacionFila=0;
+        $ocupacionFila=(int)$_POST['fila'][$fila]; //corregido esto. Valor=0;
         foreach($asientos as $asiento => $pasajero){
           $viaje[]=['idPasajero'=>(int)$pasajero, 'codigo'=>$vuelo, 'fecha'=>$fecha, 'fila'=>$fila, 'asiento'=>$asiento,];
           $ocupacionFila+=$arrAsientos[$asiento];

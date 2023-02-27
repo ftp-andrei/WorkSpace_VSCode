@@ -31,6 +31,7 @@
       <input type="email" name="usu[eCorreo]" id="eCorreo" required autocomplete="off">
       <?=isset($erroresUsu['eCorreo'])?'<span class="error">'.$erroresUsu['eCorreo'].'</span>':''?>
     </label>
+     <!-- Mirar lo de las contraseñas -->
     <label for="pass1">Contraseña: <input type="password" name="usu[pass1]" id="pass1" required></label>
     <label for="pass2">Contraseña: <input type="password" name="usu[pass2]" id="pass2" required></label>
     <?=isset($erroresUsu['pass'])?'<span class="error">'.$erroresUsu['pass'].'</span>':''?>
