@@ -6,8 +6,8 @@ use PDO;
 
 class RegistrarUsuarioRepositorio{
     //Consultar manual
-    public function registrarUsuario(string $email,string $pass):bool{
-      $sql1 = 'INSERT INTO usuario(eCorreo,pwd,rol) VALUES (:email,:pass,user)';
+    public function registrarUsuario(string $email,string $pass):string{
+      $sql1 = 'INSERT INTO usuario(eCorreo,pwd) VALUES (:email,:pass)';
 try {
     $con=(new \ConexionBd()) -> getConexion();
     $con -> beginTransaction();
@@ -16,10 +16,9 @@ try {
     $snt->bindValue(':pwd',$pass);
     if($snt->execute()){
         $con ->commit();
-                  return true;
+        return $con->lastInsertId();
     }
     $con -> rollBack();
-    return false;
                 } catch (\PDOException $ex) {
                     $con -> rollBack();
                     $error = $ex->getMessage();

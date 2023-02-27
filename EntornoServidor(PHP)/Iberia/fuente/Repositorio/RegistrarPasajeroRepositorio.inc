@@ -7,8 +7,8 @@ use PDO;
 
 class RegistrarPasajeroRepositorio{
     //Consultar manual
-    public function registrarPasajero(string $nombre,string $apellido,DateTime $fNacimiento,string $dni):bool{
-      $sql1 = 'INSERT INTO pasajero(nombre,apellido,fNacimiento,dni) VALUES (:nombre,:apellido,:fNacimiento,:dni)';
+    public function registrarPasajero(string $nombre,string $apellido,DateTime $fNacimiento,string $dni,string $registrarUser):bool{
+      $sql1 = 'INSERT INTO pasajero(nombre,apellido,fNacimiento,dni,idUsers) VALUES (:nombre,:apellido,:fNacimiento,:dni,:registrarUser)';
 try {
     $con=(new \ConexionBd()) -> getConexion();
     $con -> beginTransaction();
@@ -17,6 +17,7 @@ try {
     $snt->bindValue(':apellido',$apellido);
     $snt->bindValue(':fNacimiento',$fNacimiento);
     $snt->bindValue(':dni',$dni);
+    $snt->bindValue(':registrarUser',$registrarUser);
     if($snt->execute()){
         $con ->commit();
                   return true;

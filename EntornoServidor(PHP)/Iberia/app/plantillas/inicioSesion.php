@@ -36,13 +36,13 @@
             </fieldset>
         </div>
         <br>
-        <input type="button" value="Registrarse" name="registro">
+        <input type="submit" value="Registrarse" name="registro">
     </form>
 </div>
 
 <?php
 if (isset($_POST['registro'])) {
-    echo $registrarUser . '<br>' . $registrarPasajero;
+    var_dump($_POST['Nombre'], $_POST['Apellido'], $_POST['fnac'], $_POST['DNI'], $_POST['Correo'], $_POST['pass']);
     var_dump($_SESSION['usuario']);
 }
 
