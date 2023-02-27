@@ -23,6 +23,9 @@ if (isset($_GET['ctl']))
   if (isset($mapeoRutas[$_GET['ctl']]))
   { 
     $ruta = $_GET['ctl'];
+    if(isset($_GET['vuelta'])){
+      $param=$_GET['vuelta'];
+    }
   } else { 
     header('Status: 404 Not Found');
     echo '<html><body><h1>Error 404: No existe la ruta <i>' .
@@ -39,7 +42,8 @@ $controlador = $mapeoRutas[$ruta];
 
 if (method_exists($controlador['controller'],$controlador['action']))
 { 
-  call_user_func(array(new $controlador['controller'], $controlador['action']));
+  call_user_func(array(new $controlador['controller'], $controlador['action']),
+  (isset($param)?$param:''));
 } else { 
   header('Status: 404 Not Found');
   echo '<html><body><h1>Error 404: El controlador <i>' .

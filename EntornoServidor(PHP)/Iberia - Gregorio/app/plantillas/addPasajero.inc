@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<h1>Registro de cliente</h1>
+<h1>Registro de pasajeros</h1>
 <form method="post" action="">
   <fieldset>
     <legend>Datos del pasajero</legend>
@@ -25,17 +25,6 @@
       <?=isset($erroresPasj['fNacimiento'])?'<span class="error">'.$erroresPasj['fNacimiento'].'</span>':''?>
     </label>
   </fieldset>
-  <fieldset>
-    <legend>Datos de inicio de sesión</legend>
-    <label for="eCorreo">ECorreo: 
-      <input type="email" name="usu[eCorreo]" id="eCorreo" required autocomplete="off">
-      <?=isset($erroresUsu['eCorreo'])?'<span class="error">'.$erroresUsu['eCorreo'].'</span>':''?>
-    </label>
-    <label for="pass1">Contraseña: <input type="password" name="usu[pass1]" id="pass1" required></label>
-    <label for="pass2">Contraseña: <input type="password" name="usu[pass2]" id="pass2" required></label>
-    <?=isset($erroresUsu['pass'])?'<span class="error">'.$erroresUsu['pass'].'</span>':''?>
-    <?=isset($errorContrDif)?'<span class="error">'.$errorContrDif.'</span>':''?>
-  </fieldset>
-  <input type="submit" value="Registrar" name="okReg">
+  <input type="submit" value="Agregar el pasajero" name="okPasj">
 </form>
 <?php $contenido = ob_get_clean(); include 'base.php';?>

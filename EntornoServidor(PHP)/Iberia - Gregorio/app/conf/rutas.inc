@@ -19,8 +19,12 @@ $mapeoRutas =
     ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'login'],
    'cierraSes' =>
     ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'logout'],
-   'iniReser' =>
-    ['controller' =>'app\iberia\controlador\ReservaController', 'action' =>'inicioReserva'],
    'nuevoCli' =>
     ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'agregaCliente'],
+   'iniReser' =>
+    ['controller' =>'app\iberia\controlador\ReservaController', 'action' =>'inicioReserva'],
+   'agregaPasajeros'=>
+    ['controller' =>'app\iberia\controlador\ReservaController', 'action' =>'agregaPasajeros'],
+   'ocupaAsientos' =>
+   ['controller' =>'app\iberia\controlador\VuelosController', 'action' =>'reservaAsientos'],    
   ];

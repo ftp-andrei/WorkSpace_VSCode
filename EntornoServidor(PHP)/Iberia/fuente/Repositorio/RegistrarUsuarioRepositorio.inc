@@ -16,18 +16,18 @@ try {
     $snt->bindValue(':pwd',$pass);
     if($snt->execute()){
         $con ->commit();
-        return $con->lastInsertId();
+        $lastId= $con->lastInsertId();
+        return $lastId;
+
     }
     $con -> rollBack();
-                } catch (\PDOException $ex) {
-                    $con -> rollBack();
-                    $error = $ex->getMessage();
-                }finally{
-                    unset($snt);
-                    unset($con);
-                }
-      }
-
-      
+    } catch (\PDOException $ex) {
+    $con -> rollBack();
+    $error = $ex->getMessage();
+    }finally{
+    unset($snt);
+    unset($con);
+    }
+}
 }
 ?>

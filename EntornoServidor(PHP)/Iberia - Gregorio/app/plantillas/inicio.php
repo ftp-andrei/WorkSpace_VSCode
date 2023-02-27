@@ -15,13 +15,13 @@
  ?>
 <?php ob_start() ?>
 
-<form action="" method="post">
+<form action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
   <fieldset>
     <legend>Buscador de vuelos</legend>
-    <label for="salida">Salir de: <input type="text" name="salida" id="salida"></label>
+    <label for="origen">Salir de: <input type="text" name="origen" id="origen"></label>
     <label for="destino">Destino: <input type="text" name="destino" id="destino"></label>
-    <label for="ida">Ida: <input type="date" name="ida" id="ida" min="<?=date('Y-m-d')?>"></label>
-    <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
+    <label for="fIda">Ida: <input type="date" name="fIda" id="fIda" min="<?=date('Y-m-d')?>"></label>
+    <label for="fVuelta">Vuelta: <input type="date" name="fVuelta" id="fVuelta"></label>
     <label for="adultos">Adultos: <input type="number" name="adultos" id="adultos" min="1" value="1" require size="4"></label>
     <label for="peques">Niños: <input type="number" name="peques" id="peques" min="0" value="0" require size="4"></label>
     <input type="submit" value="Buscar vuelos" name="ok">
@@ -48,17 +48,17 @@
           <tr>
             <td><?=$value['Código']?></td>
             <td><?=$value['Origen']?></td>
-            <td><?=substr($value['Salida'], 0 ,5);?></td>
+            <td><?=substr($value['Hora salida'], 0 ,5);?></td>
             <td><?=$value['Destino']?></td>
             <td><?=$value['Fecha ida']?></td>
-            <td><input type="checkbox" name="vueloIda[<?=$value['Código']?>][<?=substr($value['Salida'], 0 ,5)?>]"></td>
+            <td><input type="checkbox" name="vueloIda[<?=$value['Código']?>][<?=substr($value['Hora salida'], 0 ,5)?>]"></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
     <?php if(isset($vuelos['vuelta'])): ?>
       <table id="flyVuelta">
-      <caption>Vuelos ida desde <?=$vuelos['vuelta'][0]['Origen']?> hacia <?=$vuelos['vuelta'][0]['Destino']?> </caption>
+      <caption>Vuelos vuelta desde <?=$vuelos['vuelta'][0]['Origen']?> hacia <?=$vuelos['vuelta'][0]['Destino']?> </caption>
       <thead>
         <tr>
           <th>Vuelo</th>
@@ -74,10 +74,10 @@
           <tr>
             <td><?=$value['Código']?></td>
             <td><?=$value['Origen']?></td>
-            <td><?=substr($value['Salida'], 0 ,5);?></td>
+            <td><?=substr($value['Hora salida'], 0 ,5);?></td>
             <td><?=$value['Destino']?></td>
             <td><?=$value['Fecha vuelta']?></td>
-            <td><input type="checkbox" name="vueloVuelta[<?=$value['Código']?>][<?=substr($value['Salida'], 0 ,5)?>]"></td>
+            <td><input type="checkbox" name="vueloVuelta[<?=$value['Código']?>][<?=substr($value['Hora salida'], 0 ,5)?>]"></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

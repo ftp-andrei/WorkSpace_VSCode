@@ -17,15 +17,14 @@ class Usuario
     if(!$this->setPwd($usuario['pass'])){
       $error['pass']='Contraseña es obligatorio o no cumple las condiciones de formato';
     }
-    if(isset($error)){
-      throw new AppException($error);
-    }
-
     if(isset($usuario['rol'])){
       $rol=$this->setRol($usuario['rol']);
       if(is_string($rol)){
         $error['rol']=$rol;
       }
+    }
+    if(isset($error)){
+      throw new AppException($error);
     }
   }
 

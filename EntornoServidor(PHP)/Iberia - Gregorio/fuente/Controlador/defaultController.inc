@@ -13,20 +13,20 @@ class DefaultController
       try {
         $vuelos = (new VuelosRepositorio())->
                       findVuelos((int)$_POST['adultos']+(int)$_POST['peques'],
-                                $_POST['salida'], $_POST['destino'], 
-                                $_POST['ida'], $_POST['vuelta']);
+                                $_POST['origen'], $_POST['destino'], 
+                                $_POST['fIda'], $_POST['fVuelta']);
         if(!empty($vuelos)){
-          $_SESSION['viaje']['origen']=$_POST['salida'];
+          $_SESSION['viaje']['origen']=$_POST['origen'];
           $_SESSION['viaje']['destino']=$_POST['destino'];
-          $_SESSION['viaje']['ida']=$_POST['ida'];
-          $_SESSION['viaje']['vuelta']=$_POST['vuelta'];         
+          $_SESSION['viaje']['fIda']=$_POST['fIda'];
+          $_SESSION['viaje']['fVuelta']=$_POST['fVuelta'];         
           $_SESSION['viaje']['adultos']=(int)$_POST['adultos'];
           $_SESSION['viaje']['peques']=(int)$_POST['peques'];
         } else {
           $mensajeError='No hay vuelos desde esos orígenes o para esos destinos o no quedan plazas';
         }
-        } catch (\PDOException $ex) {
-          $mensajeError = $ex->getMessage();
+      } catch (\PDOException $ex) {
+        $mensajeError = $ex->getMessage();
       }
     }
     require __DIR__ . '/../../app/plantillas/inicio.php';

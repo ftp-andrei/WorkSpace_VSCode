@@ -1,6 +1,11 @@
 <?php
 namespace app\iberia\controlador;
+
+use app\iberia\modelo\AppException;
 use app\iberia\repositorio\VuelosRepositorio;
+use app\iberia\modelo\Pasajero;
+use app\iberia\repositorio\PasajeroRepositorio;
+
 class ReservaController
 {
   public function inicioReserva()
@@ -15,15 +20,17 @@ class ReservaController
       $numPasaj=(int)$_SESSION['viaje']['adultos']+(int)$_SESSION['viaje']['peques'];
       try {
         if(!(new VuelosRepositorio)->
-          reservaPlazas($numPasaj, $codIda,$_SESSION['viaje']['ida'])){
-          var_dump($mensajerError='No ha sido posible realizar la reserva');
+          reservaPlazas($numPasaj, $codIda,$_SESSION['viaje']['fIda'])){
+          $mensajerError='No ha sido posible realizar la reserva';
         }
         if(isset($_POST['vueloVuelta'])){
           $codVuelta=key($_POST['vueloVuelta']);
+          $_SESSION['viaje']['avionVuelta']=$codVuelta;
           $horaVuelta=key($_POST['vueloVuelta'][$codVuelta]);
+          $_SESSION['viaje']['horaVuelta']=$horaVuelta;
           try {
             if(!(new VuelosRepositorio)->
-              reservaPlazas($numPasaj, $codVuelta, $_SESSION['viaje']['vuelta'])){
+              reservaPlazas($numPasaj, $codVuelta, $_SESSION['viaje']['fVuelta'])){
               $mensajerError='No ha sido posible realizar la reserva';
             }
           } catch (\PDOException $ex) {
@@ -31,20 +38,40 @@ class ReservaController
           }            
           }
         } catch (\PDOException $ex) {
-          var_dump($mensajerError=$ex->getMessage());
+          $mensajerError=$ex->getMessage();
       }
-      if (isset($mensajeError)) {
-        if($_SESSION('usuario')=== 'anonimo'){
+      if(!isset($mensajerError)){
+        if($_SESSION['usuario']==='anonimo'){
           header('location: index.php?ctl=iniSes');
-        }else{
-          // TODO: Enviarlo a informar a los pasajeros y ocupacion de asientos
+        } else {
+          // TODO: enviarlo a informar de los pasajeros y ocupación de asientos
         }
       }
     }
   }
-
-  public function agregaPasajero(){
-    // Coge el session el quedan - 
-    include __DIR__.'../../../app/plantillas/agregaPasajero.inc';
+  public function agregaPasajeros()
+  {
+    if(isset($_POST['okPasj'])){
+      try {
+        $pasj=$_POST['pasj'];
+        $objPasajero=new Pasajero($pasj);
+        $objPasjPrincipal=unserialize($_SESSION['pasajero']);
+        $objPasajero->setIdUsuario($objPasjPrincipal->getIdUsuario());
+        if((new PasajeroRepositorio)->addPasajero($objPasajero)){
+          $_SESSION['quedan']--;
+          if($_SESSION['quedan']===0){
+            $_SESSION['quedan']=$_SESSION['viaje']['adultos']+$_SESSION['viaje']['peques'];
+            header('Location: index.php?ctl=ocupaAsientos');
+          }
+          unset($pasj);
+        }
+      } catch (AppException $ex){
+        $erroresPasj=$ex->getError();
+      } catch (\PDOException $ex) {
+        $errorPDO=$ex->getMessage();
+      }
+    }
+    include __DIR__.'../../../app/plantillas/addPasajero.inc';
   }
+
 }

@@ -11,8 +11,16 @@ header h1{
   color: yellowgreen;
   text-shadow: 5px 5px #e5e5e5;
   text-align: center;
+  color: tomato;
 }
 .error{
   color: red;
   text-align: center;
+}
+a{
+  text-decoration: none;
+}
+label{
+  display: block;
+  margin-top: 10px;
 }

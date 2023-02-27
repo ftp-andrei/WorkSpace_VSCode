@@ -23,8 +23,9 @@ class Pasajero
     if(!$this->setDni($pasajero['dni'])){
       $error['dni']='DNI es obligatorio o formato incorrecto';
     }
-    if((!is_string($fecha=$this->setFNacimiento($pasajero['fnac'])!==true))){ //Comparar con is_string
-      $error['fnac']=$fecha;
+    $fecha=$this->setFNacimiento($pasajero['fNacimiento']);
+    if(is_string($fecha)){
+      $error['fNacimiento']=$fecha;
     }
     if(isset($error)){
       throw new AppException($error, 'Hay errores en los datos del pasajero');
@@ -33,7 +34,11 @@ class Pasajero
   /************************************** Mutadores ****************************/
   public function setIdPasajero(int $idPasajero)
   {
-    $this ->idPasajero=$idPasajero;
+    $this->idPasajero=$idPasajero;
+  }
+  public function setIdUsuario(int $idUsuario)
+  {
+    $this->idUsuario=$idUsuario;
   }
   public function setNombre(string $nombre):bool
   {
@@ -68,14 +73,13 @@ class Pasajero
     if(!$fecha=\DateTime::createFromFormat('Y-m-d',$fNacimiento)){
       return 'Formato de fecha incorrecto';
     }
-    if($fecha >= date("now")){
-      return 'Fecha de nacimiento incosistente';
+    $hoy=new DateTime("now");
+    if($fecha >= $hoy){
+      return 'Fecha de nacimiento inconsistente';
     }
     $this->fNacimiento=$fecha;
+    return true;
   }
-  public function setIdUsuario(int $idUsuario){
-    
-  } 
   /************************************** Accesores ****************************/
   public function getIdPasajero():int
   {
@@ -101,12 +105,25 @@ class Pasajero
   {
     return $this->idUsuario;
   }
-
-  // // // // // // // // // // // // // // // // // // // // // // // // // //
-
+/********************************* Serialización ********************/
   public function __serialize(): array
   {
-    return [];
+    return [
+      'idPasj'=>$this->idPasajero,
+      'nombre'=>$this->nombre,
+      'apellido'=>$this->apellido,
+      'dni'=>$this->dni,
+      'fNacimiento'=>$this->fNacimiento->format('Y-m-d'),
+      'idUsu'=>$this->idUsuario,
+    ];
   }
-
+  public function __unserialize(array $data): void
+  {
+    $this->idPasajero=$data['idPasj'];
+    $this->nombre=$data['nombre'];
+    $this->apellido=$data['apellido'];
+    $this->dni=$data['dni'];
+    $this->fNacimiento=\DateTime::createFromFormat('Y-m-d',$data['fNacimiento']);
+    $this->idUsuario=$data['idUsu'];
+  }
 }
