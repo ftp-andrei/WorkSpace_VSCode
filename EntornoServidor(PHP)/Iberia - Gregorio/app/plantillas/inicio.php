@@ -12,78 +12,80 @@
     $contenido que provocará que se muestre la salida del buffer dentro dicha
     página "base.php"
 */
-?>
-<?php ob_start();
-$destinos = $_SESSION['destinos'];
-?>
+ ?>
+<?php ob_start() ?>
 
 <form action="" method="post">
   <fieldset>
     <legend>Buscador de vuelos</legend>
-    <label for="salida">Salir de: <input list="listaSalida" name="salida" id="salida"></label>
-    <datalist id="listaSalida">
-      <?php foreach ($destinos as $key) {
-        echo "<option value='$key'>";
-      } ?>
-    </datalist>
-    <label for="destino">Destino: <input list="listaDestino" name="destino" id="destino"></label>
-    <datalist id="listaDestino">
-      <?php
-      foreach ($destinos as $key) {
-        echo "<option value='$key'>";
-      }
-      ?>
-    </datalist>
-    <label for="ida">Ida: <input type="date" name="ida" id="ida"></label>
+    <label for="salida">Salir de: <input type="text" name="salida" id="salida"></label>
+    <label for="destino">Destino: <input type="text" name="destino" id="destino"></label>
+    <label for="ida">Ida: <input type="date" name="ida" id="ida" min="<?=date('Y-m-d')?>"></label>
     <label for="vuelta">Vuelta: <input type="date" name="vuelta" id="vuelta"></label>
-    <input type="submit" value="Buscar" name="ok" id="ok">
-    <!-- A añadido los pasajeros -->
+    <label for="adultos">Adultos: <input type="number" name="adultos" id="adultos" min="1" value="1" require size="4"></label>
+    <label for="peques">Niños: <input type="number" name="peques" id="peques" min="0" value="0" require size="4"></label>
+    <input type="submit" value="Buscar vuelos" name="ok">
   </fieldset>
-
 </form>
-<?php
-if (isset($vuelos)) { ?>
-  <table>
-    <thead>
-      <caption>Resultado</caption>
-      <th>&nbsp;</th>
-      <th>Código</th>
-      <th>Origen</th>
-      <th>Destino</th>
-      <th>Salida</th>
-      <th>Duración</th>
-      <th>Fecha</th>
-    </thead>
+<?php if(isset($mensajeError)): ?>
+  <p class="error"><?=$mensajeError?></p>
+<?php elseif(isset($vuelos)): ?>
+  <form action="index.php?ctl=iniReser" method="post">
+    <table id="flyIda">
+      <caption>Vuelos ida desde <?=$vuelos['ida'][0]['Origen']?> hacia <?=$vuelos['ida'][0]['Destino']?> </caption>
+      <thead>
+        <tr>
+          <th>Vuelo</th>
+          <th>Con salida desde</th>
+          <th>A las</th>
+          <th>Hacia</th>
+          <th>El día</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($vuelos['ida'] as $value): ?>
+          <tr>
+            <td><?=$value['Código']?></td>
+            <td><?=$value['Origen']?></td>
+            <td><?=substr($value['Salida'], 0 ,5);?></td>
+            <td><?=$value['Destino']?></td>
+            <td><?=$value['Fecha ida']?></td>
+            <td><input type="checkbox" name="vueloIda[<?=$value['Código']?>][<?=substr($value['Salida'], 0 ,5)?>]"></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+    <?php if(isset($vuelos['vuelta'])): ?>
+      <table id="flyVuelta">
+      <caption>Vuelos ida desde <?=$vuelos['vuelta'][0]['Origen']?> hacia <?=$vuelos['vuelta'][0]['Destino']?> </caption>
+      <thead>
+        <tr>
+          <th>Vuelo</th>
+          <th>Con salida desde</th>
+          <th>A las</th>
+          <th>Hacia</th>
+          <th>El día</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($vuelos['vuelta'] as $value): ?>
+          <tr>
+            <td><?=$value['Código']?></td>
+            <td><?=$value['Origen']?></td>
+            <td><?=substr($value['Salida'], 0 ,5);?></td>
+            <td><?=$value['Destino']?></td>
+            <td><?=$value['Fecha vuelta']?></td>
+            <td><input type="checkbox" name="vueloVuelta[<?=$value['Código']?>][<?=substr($value['Salida'], 0 ,5)?>]"></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+    <?php endif; ?>
+    <input type="submit" value="Confirmar" name="ConfVuelos">
+  </form>
+<?php endif; ?>
+ <?php $contenido = ob_get_clean() ?>
 
-    <tbody>
-      <tr>
-        <td>Ida:</td>
-        <?php foreach ($vuelos as $ida => $value) {
-          if ($ida === 'ida') {
-            foreach ($value as $arrayIda => $value2) {
-              foreach ($value2 as $valoresIda => $valor) {
-        ?>
-                <td><?php echo $valor;  ?></td>
-        <?php  }
-            }
-          }
-        } ?>
-      </tr>
-      <tr>
-        <td>Vuelta:</td>
-        <?php foreach ($vuelos as $ida => $value) {
-          if ($ida === 'vuelta') {
-            foreach ($value as $arrayIda => $value2) {
-              foreach ($value2 as $valoresIda => $valor) {
-        ?>
-                <td><?php echo $valor;  ?></td>
-        <?php  }
-            }
-          }
-        } ?>
-      </tr>
-    </tbody>
-  </table>
-<?php }
-$contenido = ob_get_clean();
-include 'base.php'; ?>
+ <?php include 'base.php' ?>

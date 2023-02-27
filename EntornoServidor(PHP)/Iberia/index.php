@@ -22,11 +22,20 @@ if (!isset($_SESSION['usuario'])) {
   $_SESSION['usuario'] = 'anonimo';
 }
 
+spl_autoload_register(function(string $clase){
+  if(strpos($clase,'app\\iberia\\')===0){
+    $nombre=str_replace('app\\iberia\\','',$clase);
+    $nombre=str_replace('\\','/');
+    require_once __DIR__.'/fuente/'.$nombre.'.inc';
+  }
+  require_once __DIR__ . '/core/conexionBd.inc';
+})
+
 /* Controladores */
-require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
-require_once __DIR__ . '/fuente/Controlador/reservarController.inc';
-require_once __DIR__ . '/fuente/Controlador/registrarUsuarioController.inc';
-require_once __DIR__ . '/fuente/Controlador/loginUsuarioController.inc';
+// require_once __DIR__ . '/fuente/Controlador/defaultController.inc';
+// require_once __DIR__ . '/fuente/Controlador/reservarController.inc';
+// require_once __DIR__ . '/fuente/Controlador/registrarUsuarioController.inc';
+// require_once __DIR__ . '/fuente/Controlador/loginUsuarioController.inc';
 /* Ubicación del archivo de rutas */
 require_once __DIR__ . '/app/conf/rutas.inc';
 

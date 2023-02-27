@@ -12,11 +12,15 @@
   La clave 'inicio' referencia la página home de la aplicación y especifica
     el controlador que debe decidir cuál es la vista que se debe mostrar
 */
-$mapeoRutas =['inicio' =>
-          ['controller' =>'app\iberia\controlador\defaultController', 'action' =>'inicio'],
-          'reservar' =>
-          ['controller' =>'app\iberia\controlador\reservarController', 'action' =>'reservar'],
-          'inicioSesion' =>
-          ['controller' =>'app\iberia\controlador\registrarUsuarioController', 'action' =>'registrarUsuario']
-          //Meter aqui las rutas de inicio y cierre de session
-];
+$mapeoRutas =
+  ['inicio' =>
+    ['controller' =>'app\iberia\controlador\DefaultController', 'action' =>'inicio'],
+   'iniSes' =>
+    ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'login'],
+   'cierraSes' =>
+    ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'logout'],
+   'iniReser' =>
+    ['controller' =>'app\iberia\controlador\ReservaController', 'action' =>'inicioReserva'],
+   'nuevoCli' =>
+    ['controller' =>'app\iberia\controlador\SesionController', 'action' =>'agregaCliente'],
+  ];
