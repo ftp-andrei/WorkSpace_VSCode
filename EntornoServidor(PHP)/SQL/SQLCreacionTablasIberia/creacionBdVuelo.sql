@@ -55,7 +55,7 @@ create table vuelos(
 	constraint fkvueloNVuelos foreign key (codigo) references vuelo(codigo),
 );
 
-create table usuario(
+create table users(
 	idUsers INT IDENTITY NOT NULL,
 	eCorreo VARCHAR(100) NOT NULL,
 	pwd VARCHAR(255) NOT NULL,
@@ -67,12 +67,12 @@ create table usuario(
 create table pasajero(
 	idPasajero INT IDENTITY NOT NULL,
 	nombre VARCHAR(50) NOT NULL,
-	apelldo VARCHAR(100) NOT NULL,
+	apellido VARCHAR(100) NOT NULL,
 	fNacimiento DATE NOT NULL,
 	dni CHAR(9) NULL,
 	idUsers INT NOT NULL,
 	CONSTRAINT pkPasajero PRIMARY KEY (idPasajero),
-	CONSTRAINT fkUsersNPasajero FOREIGN KEY (idUsers) REFERENCES usuario(idUsers),
+	CONSTRAINT fkUsersNPasajero FOREIGN KEY (idUsers) REFERENCES users(idUsers),
 
 );
 

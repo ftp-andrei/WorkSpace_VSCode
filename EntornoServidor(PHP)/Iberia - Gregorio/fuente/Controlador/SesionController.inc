@@ -55,6 +55,7 @@ class SesionController
                 $_SESSION['quedan']=$_SESSION['viaje']['adultos']+$_SESSION['viaje']['peques']-1;
                 header('Location: index.php?ctl=agregaPasajeros');
               } else {
+                $_SESSION['quedan']=1;
                 header('Location: index.php?ctl=ocupaAsientos');
               }
             }
