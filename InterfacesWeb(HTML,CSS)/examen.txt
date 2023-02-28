@@ -1,0 +1,3 @@
+DIW:
+Lo de la 1era ev entra: Es decir, responsive, html5, 
+usar bootstrap A PELO,podemos decargar apuntes, accesibilidad, wordpress (tener un docker con wordpress, y hacer cosas con bootstrap y asi)
