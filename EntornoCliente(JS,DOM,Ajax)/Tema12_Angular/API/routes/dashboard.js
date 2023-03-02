@@ -1,6 +1,5 @@
-import express from "express";
-const router = express.Router();
-// Esto para crear rutas
+const router = require("express").Router();
+
 router.get("/", (req, res) => {
   res.json({
     error: null,
@@ -10,5 +9,3 @@ router.get("/", (req, res) => {
     },
   });
 });
-
-export default router;

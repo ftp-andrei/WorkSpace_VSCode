@@ -9,13 +9,9 @@ import * as dotenv from "dotenv";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-// Conexion mongoose
-mongoose.set("strictQuery", true);
-dotenv.config({ path: `${__dirname}/.env` });
-const uri = `mongodb://${process.env.USER}:${process.env.PASSWORD}@localhost:${process.env.DBPORT}/${process.env.DBNAME}?authMechanism=DEFAULT`;
-// Coge la uri y se conecta a la bd
-connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@free-cluster.saw1r.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Conectado a la base de datos");
   })
