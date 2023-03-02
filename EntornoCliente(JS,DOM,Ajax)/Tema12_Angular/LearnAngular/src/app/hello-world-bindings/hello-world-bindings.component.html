@@ -1,0 +1,11 @@
+<button
+  [disabled]="isDisabled"
+  (click)="sayMessage()">
+  Trigger alert message hola
+</button>
+<p
+  [id]="sayHelloId"
+  [style.color]="fontColor">
+  You can set my color in the component!
+</p>
+<p>My color is {{ fontColor }}</p>
