@@ -12,10 +12,15 @@
     $contenido que provocará que se muestre la salida del buffer dentro dicha
     página "base.php"
 */
- ?>
+?>
 <?php ob_start() ?>
+<form action="" method="post">
+  <p>Que quieres hacer?</p>
+  <input type="button" value="Solicitar una cita" name="solicitarCita">
+  <input type="button" value="Consultar mis pacientes" name="consultaPacientes">
 
+</form>
 
- <?php $contenido = ob_get_clean() ?>
+<?php $contenido = ob_get_clean() ?>
 
- <?php include 'base.php' ?>
+<?php include 'base.php' ?>

@@ -15,4 +15,6 @@
 $mapeoRutas =
   array('inicio' =>
           array('controller' =>'defaultController', 'action' =>'inicio'),
+          'consultarPaciente' =>
+          array('controller' =>'defaultController', 'action' =>'consultarPaciente'),
        );

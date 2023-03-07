@@ -1,0 +1,32 @@
+UPDATE cita
+SET fcita = dateadd(year,5,fcita)
+
+
+
+DECLARE cCita cursor FOR 
+	select fcita,hcita,idPaciente,idMedico,observaciones FROM Cita;
+
+DECLARE @fcita date;
+declare @hcita time;
+declare @idpaciente int;
+declare @idmedico int;
+declare @obs varchar(1000);
+declare @i int=1;
+declare @j int=1;
+
+open cCita;
+fetch next from cCita into @fcita, @hcita,@idpaciente,@idmedico,@obs;
+while @j <196
+	begin
+	set @i=1;
+	while @i!=15
+			begin
+				insert into Cita(fcita,hcita,idpaciente,idmedico,observaciones) 
+				values (dateadd(day,@i,@fcita),@hcita,ceiling(rand()*14),@idmedico,@obs)
+			set @i+=1;
+			set @j+=1;
+			end;
+	fetch next from cCita into @fcita, @hcita,@idpaciente,@idmedico,@obs;
+	end;
+	close cCita;
+	deallocate cCita;
