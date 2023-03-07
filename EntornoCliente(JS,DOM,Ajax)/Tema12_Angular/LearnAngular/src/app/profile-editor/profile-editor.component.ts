@@ -15,6 +15,7 @@ import { FormArray } from '@angular/forms';
 })
 export class ProfileEditorComponent {
   profileForm = this.fb.group({
+    //Esto es para validar. Lo hacemos desde aqui
     firstName: ['', [Validators.required, this.forbiddenNameValidator()]],
     lastName: [''],
     address: this.fb.group({
@@ -49,7 +50,7 @@ export class ProfileEditorComponent {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
   }
-
+//Si tiene numeros petará.
   forbiddenNameValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const forbidden = /\d/.test(control.value);

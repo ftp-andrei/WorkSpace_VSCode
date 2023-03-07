@@ -1,0 +1,67 @@
+<form action="" [formGroup]="searchForm" (submit)="onSubmit()" >
+    <label>
+        <input type="text" formControlName="buscador" required>
+    </label>
+    <button type="submit">Buscar</button>
+    <!-- <p>{{searchForm.value | json}}</p> -->
+</form>
+<!-- 
+    TODO: añadir funcionalidad busqueda por año o precio.
+-->
+<!-- 
+    TODO: no se como hacer lo de pasar un id y ver ese coche en especifico, no he sabido como hacerlo y lo he hecho con un modal
+    no va bien porque siempre llama al mismo id y abre al primero pero bueno
+-->
+<div class="container mt-3">
+    <div class="row g-3">
+        <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let car of data">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Detalles de {{car.modelo}} -
+                                {{car.marca}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img [src]="car.imagen" class="card-img-top" alt="Imagen de un vehículo">
+                            <ul>
+                                <li>
+                                    Marca: {{car.marca}}
+                                </li>
+                                <li>
+                                    Modelo: {{car.modelo}}
+                                </li>
+                                <li>
+                                    Fecha de fabricación: {{car.fecha | date:"dd/MM/yyyy"}}
+                                </li>
+                                <li>
+                                    Precio: {{car.precio | currency:'EUR'}}
+                                </li>
+                                <li>
+                                    Descripción: {{car.descripcion}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;" *ngIf="searchForm.value">
+
+                <img [src]="car.imagen" class="card-img-top" alt="Imagen de un vehículo">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.modelo}} - {{car.marca}}</h5>
+                    <p class="card-text">Precio: {{car.precio | currency:'EUR'}}</p>
+                    <p class="card-text">Año: {{car.fecha | date:"dd/MM/yy"}}</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {{data | json}} -->

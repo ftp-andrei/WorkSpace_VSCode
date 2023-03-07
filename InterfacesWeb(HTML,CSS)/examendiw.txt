@@ -1,0 +1,36 @@
+examen diw:
+Una pagina web en wordpress
+Meter algun plugin de los que instalamos y usarlos. Saber configurarlos y asi. 
+Usar bootstrap, nos da algo y tendremos que decir como es mas accesible.
+
+docker exec -it [idContenedor] /bin/bash
+ls -l
+Y nos mostrará la estructura de wp en docker
+
+cd wp-content/themes y dentro estarán los temas instalados
+
+Entramos a un tema y hacemos apt-get update
+y luego hacemos apt-get install nano
+
+CSS y JS personalizado, añadir codigo CSS, ponerle un titulo y le damos a publicar
+
+Siempre crear paginas no entradas.
+
+Al crear una pagina, quitar el css, poner Pagina> Plantilla > En Blanco
+Luego darle al mas y buscar html. Pegarlo ahi.
+Cambiar urls, y poner https://localhost:8080/[pagina]
+Cambiar imagenes. Hay que añadir las imagenes en wordpress, copiar al portapapeles y pegarlo donde la url.
+
+Nos metemos en el tema que esta activado y pondremos nano theme.json y eliminaremos lo uqe haya dentro de layout 
+** Eliminaremos theme.json
+
+Eliminaremos con rm -r styles
+
+
+Instalamos Bootstrap.
+Buscamos instalacion boostrap, copiamos el contenido de las cnd de js y css y los añadiremos en el plugin de donde el css
+
+
+// Nos pasa el la version de bootstrap.
+
+

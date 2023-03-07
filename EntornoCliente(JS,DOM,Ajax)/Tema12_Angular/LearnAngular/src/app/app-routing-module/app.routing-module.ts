@@ -11,7 +11,7 @@ import { NameEditorComponent } from '../name-editor/name-editor.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { ParentBaseComponent } from '../parent-base/parent-base.component';
 import { ProfileEditorComponent } from '../profile-editor/profile-editor.component';
-
+//Rutas. localhost:4200/input
 const routes: Routes = [
   {
     path: '',

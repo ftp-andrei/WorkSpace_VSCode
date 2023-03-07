@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactPageComponent } from './pages/contact.page/contact.page.component';
-import { FormularioPageComponent } from './pages/formulario.page/formulario.page.component';
-import { HomePageComponent } from './pages/home.page/home.page.component';
+import { BookCreateComponent } from './components/book-create/book-create.component';
+import { HomePageComponent } from './pages/home/home.page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'contact', component: ContactPageComponent },
-  { path: 'form', component: FormularioPageComponent }
+  { path: 'create', component: BookCreateComponent },
 ];
 
 @NgModule({

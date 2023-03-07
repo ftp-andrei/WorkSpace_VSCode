@@ -1,0 +1,13 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <label for="book-name">Book Name: </label>
+  <input id="book-name" type="text" formControlName="name" required>
+
+  <label for="isbn">Isbn: </label>
+  <input id="isbn" type="text" formControlName="isbn">
+
+  <label for="pages">Pages: </label>
+  <input id="pages" type="number" formControlName="pages">
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!bookForm.valid">Submit</button>
+</form>

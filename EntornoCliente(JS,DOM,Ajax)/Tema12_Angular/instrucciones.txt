@@ -1,0 +1,5 @@
+npm install -g @angular/cli -> Instala angular
+ng new [nombre-de-la-app] -> Crea una aplicacion angular
+cd [nombre-de-la-app] -> Nos metemos dentro del directorio
+ng serve -> Lanza la aplicacion
+ng generate service service/[nombre] -> Crea un servicio 

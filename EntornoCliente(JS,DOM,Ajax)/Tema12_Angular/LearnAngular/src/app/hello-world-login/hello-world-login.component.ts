@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-hello-world-login',
   templateUrl: './hello-world-login.component.html',
@@ -14,7 +14,7 @@ export class HelloWorldLoginComponent implements OnInit {
     password: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private route: Router) {
     this.isOk = null;
   }
 
@@ -22,6 +22,8 @@ export class HelloWorldLoginComponent implements OnInit {
     this.isOk =
       this.login.value.name == 'Rafael' &&
       this.login.value.password == 'Alamañac';
+      // Esto es para navegar
+      this.route.navigateByUrl("/profile");
   }
 
   ngOnInit(): void {}

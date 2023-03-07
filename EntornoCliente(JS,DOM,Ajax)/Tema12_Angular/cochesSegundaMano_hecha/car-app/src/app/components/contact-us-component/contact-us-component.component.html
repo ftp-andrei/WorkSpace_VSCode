@@ -1,0 +1,28 @@
+<form class="w-50 mx-auto mt-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" required>
+    </div>
+    <div class="mb-3">
+        <label for="asunto" class="form-label">Asunto:</label>
+        <input type="text" class="form-control" id="asunto" formControlName="asunto" required>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Describa su problema" id="mensaje" style="height: 100px"
+            formControlName="mensaje" required></textarea>
+        <label for="mensaje">Mensaje</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Enviar</button>
+
+</form>
+
+<div *ngIf="showAlert" class="alert alert-success w-50 mx-auto mt-5" role="alert" >
+    <h4 class="alert-heading">¡Consulta enviada!</h4>
+    <p>Gracias por su consulta {{contactForm.value.nombre}}, trataremos de responderla a la mayor brevedad posible.</p>
+</div>
+
+<!-- *ngIf="showAlert" -->

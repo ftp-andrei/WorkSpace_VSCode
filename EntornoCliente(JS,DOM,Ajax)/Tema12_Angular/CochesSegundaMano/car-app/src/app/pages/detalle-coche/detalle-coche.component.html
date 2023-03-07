@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<h2>{{ title }}</h2>
+<!-- EJEMPLO DE EXAMEN -->
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+  <label for="id">ID: </label>
+  <input id="id" type="text" formControlName="id" />
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!carForm.valid">Submit</button>
+</form>
+
+<hr />
+<!-- Esto es para mostrarlo abajo -->
+<!-- La tuberia del json se pone, sino muestra OBJECT OBJECT -->
+<p>Form Value: {{ carForm.value | json }}</p>

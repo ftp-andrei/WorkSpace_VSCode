@@ -1,0 +1,26 @@
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>name</th>
+      <th>desc</th>
+      <th>precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>
+        {{ item._id }}
+      </td>
+      <td>
+        {{ item.name }}
+      </td>
+      <td>
+        {{ item.desc }}
+      </td>
+      <td>
+        {{ item.precio }}
+      </td>
+    </tr>
+  </tbody>
+</table>

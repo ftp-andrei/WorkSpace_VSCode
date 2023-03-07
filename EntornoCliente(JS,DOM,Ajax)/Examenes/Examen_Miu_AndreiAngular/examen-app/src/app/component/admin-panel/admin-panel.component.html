@@ -1,0 +1,27 @@
+<h2>Titulo: {{ title }}</h2>
+
+<h2>{{ title }}</h2>
+<!-- EJEMPLO DE EXAMEN -->
+<form [formGroup]="adminPanel" (ngSubmit)="onSubmit()">
+  <label for="Nombre">Nombre: </label>
+  <input id="Nombre" type="text" formControlName="Nombre" />
+
+  <label for="Precio">Precio: </label>
+  <input id="Precio" type="number" formControlName="Precio" />
+
+  <label for="descripcion">Descripcion: </label>
+  <textarea
+    id="descripcion"
+    cols="30"
+    rows="10"
+    formControlName="Descripcion"
+  ></textarea>
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!adminPanel.valid">Submit</button>
+</form>
+
+<hr />
+<!-- Esto es para mostrarlo abajo -->
+<!-- La tuberia del json se pone, sino muestra OBJECT OBJECT -->
+<p>Form Value: {{ adminPanel.value | json }}</p>

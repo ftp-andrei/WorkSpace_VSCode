@@ -1,0 +1,29 @@
+<form class="w-50 mx-auto mt-5" [formGroup]="carForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="marca" class="form-label">Marca</label>
+        <input type="text" class="form-control" id="marca" formControlName="marca" required>
+    </div>
+    <div class="mb-3">
+        <label for="modelo" class="form-label">Modelo</label>
+        <input type="text" class="form-control" id="modelo" formControlName="modelo" required>
+    </div>
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha del coche:</label>
+        <input type="date" class="form-control" id="fecha" formControlName="fecha" required>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="precio" formControlName="precio" required>
+    </div>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">URL Imagen</label>
+        <input type="text" class="form-control" id="imagen" formControlName="imagen" required>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Describa su coche" id="descripcion" style="height: 100px" formControlName="descripcion"></textarea>
+        <label for="floatingTextarea2">Breve descripción</label>
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!carForm.valid">Enviar</button>
+</form>
+
+<!-- <p>{{carForm.value | json}}</p> -->

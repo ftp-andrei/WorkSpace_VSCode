@@ -1,0 +1,13 @@
+h1{
+    color: red;
+    text-align: center;
+    font-size: 5em;
+}
+
+figcaption{
+    text-align: center;
+}
+#contenedor{
+    display: flex;
+    justify-content: center;
+}
