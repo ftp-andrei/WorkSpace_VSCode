@@ -8,14 +8,14 @@
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body onload="comprobarCookie()">
+  <body onload="historico()">
     <main>
       <div id="marco">
         <div id="contenedor">
           <label>Importe</label>
           <input id="importe" onkeypress="return soloNumeros(event)" />
           <label>De:</label>
-          <select name="monedas" id="moneda1">
+          <select name="monedas" id="monedaUno">
             <option value="euros">Euros</option>
             <option value="dolares">Dolares</option>
             <option value="libras">Libras</option>
@@ -24,10 +24,9 @@
             src="img/exchange.svg"
             alt="Cambio divisas"
             id="exchange"
-            onclick="exchange()"
-          />
+            onclick="exchange()" />
           <label>A:</label>
-          <select name="monedas" id="moneda2">
+          <select name="monedas" id="monedaDos">
             <option value="libras">Libras</option>
             <option value="euros">Euros</option>
             <option value="dolares">Dolares</option>

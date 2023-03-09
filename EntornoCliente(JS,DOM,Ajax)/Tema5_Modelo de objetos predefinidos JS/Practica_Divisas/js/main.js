@@ -1,15 +1,18 @@
+"use strict";
+
+// Funcion principal que realiza el cambio de moneda, además de guardar el historico
 function cambiar() {
   let importe = document.getElementById("importe").value;
-  let moneda1 = document.getElementById("moneda1").value.toLowerCase();
-  let moneda2 = document.getElementById("moneda2").value.toLowerCase();
+  let monedaUno = document.getElementById("monedaUno").value.toLowerCase();
+  let monedaDos = document.getElementById("monedaDos").value.toLowerCase();
 
   let resultado = 0;
   if (importe != 0) {
-    if (moneda2 == "dolares") {
-      resultado = calculoMoneda(moneda1, importe);
+    if (monedaDos == "dolares") {
+      resultado = calculoMoneda(monedaUno, importe);
     } else {
       resultado =
-        calculoMoneda(moneda1, importe) / calculoMoneda(moneda2, importe);
+        calculoMoneda(monedaUno, importe) / calculoMoneda(monedaDos, importe);
     }
   } else {
     importe = 0;
@@ -20,16 +23,20 @@ function cambiar() {
     " Importe " +
     importe +
     " " +
-    moneda1 +
+    monedaUno +
     " - " +
     resultado.toFixed(2) +
     " " +
-    moneda2;
-
+    monedaDos;
+  // Añadimos el texto al textarea
   const textAreaInsercion = document.getElementById("textArea");
   textAreaInsercion.insertAdjacentHTML("afterbegin", texto + "\n");
+  // Actualizamos el array para mantener el historico
+  let arrHistorico = JSON.parse(getData("historico")) ?? [];
+  arrHistorico.push(texto);
+  saveData("historico", JSON.stringify(arrHistorico));
 }
-
+// Calcula el cambio de moneda entre las 2 seleccionadas
 function calculoMoneda(moneda, importe) {
   if (moneda == "euros") {
     return importe * 1.05;
@@ -41,27 +48,25 @@ function calculoMoneda(moneda, importe) {
     return importe;
   }
 }
-
+// Funcion que realiza el cambio de moneda entre las dos seleccionadas.
 function exchange() {
-  let moneda1 = document.getElementById("moneda1").value;
-  let moneda2 = document.getElementById("moneda2").value;
-  if (moneda1 != moneda2) {
-    document.getElementById("moneda2").value = moneda1;
-    document.getElementById("moneda1").value = moneda2;
+  let monedaUno = document.getElementById("monedaUno").value;
+  let monedaDos = document.getElementById("monedaDos").value;
+  if (monedaUno != monedaDos) {
+    document.getElementById("monedaDos").value = monedaUno;
+    document.getElementById("monedaUno").value = monedaDos;
   }
 }
-
-function soloNumeros(num) {
-  var code = num ? num.which : num.keyCode;
-  if (code == 8) {
-    return true;
-  } else if (code >= 48 && code <= 57) {
-    return true;
-  } else {
-    return false;
+// Funcion que valida que solo se introduzcan numeros.
+function soloNumeros(event) {
+  var code = event ? event.which : event.keyCode;
+  if (code == 8 || (code >= 48 && code <= 57)) {
+    return;
   }
-}
 
+  event.preventDefault();
+}
+// Formatea la fecha
 function fechaFormateada() {
   const opciones = {
     day: "2-digit",
@@ -72,4 +77,21 @@ function fechaFormateada() {
   };
   const d = new Date().toLocaleString("es-ES", opciones);
   return d;
+}
+// Al cargar la pagina devolverá el historico de cambios de divisas.
+function historico() {
+  let texto = JSON.parse(getData("historico"));
+  const textAreaInsercion = document.getElementById("textArea");
+  texto.forEach((element) => {
+    textAreaInsercion.insertAdjacentHTML("afterbegin", element + "\n");
+  });
+}
+
+// Guardamos el array en localStorage
+function saveData(key, value) {
+  localStorage.setItem(key, value);
+}
+// Nos devuelve el array de cambio de divisas
+function getData(key) {
+  return localStorage.getItem(key);
 }
