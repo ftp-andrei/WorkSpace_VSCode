@@ -21,22 +21,29 @@
       </div>
       <main>
         <div id="wrapMain">
-          <label>Titulo</label>
-          <input type="text" id="titulo" />
-          <br /><br />
-          <label>Nombre</label>
-          <input type="text" id="nombre" />
-          <br /><br />
-          <label>Paginas</label>
-          <input id="paginas" onkeypress="return soloNumeros(event)" />
-          <br /><br />
-          <label>Prestado</label>
-          <input type="checkbox" name="prestado" id="checkboxPrestado" />
-          <ul>
-            <li id="crear">
-              <a href="crear.html" onclick="crearLibro()">Crear</a>
-            </li>
-          </ul>
+          <form action="">
+            <label for="titulo"
+              >Titulo: <input type="text" id="titulo"
+            /></label>
+
+            <label for="nombre"
+              >Nombre: <input type="text" id="nombre"
+            /></label>
+
+            <label for="paginas"
+              >Páginas:
+              <input id="paginas" onkeypress="return soloNumeros(event)" />
+            </label>
+            <label
+              >Prestado
+              <input type="checkbox" name="prestado" id="checkboxPrestado" />
+            </label>
+            <input
+              type="submit"
+              value="Crear"
+              id="crear"
+              onclick="crearLibro()" />
+          </form>
         </div>
       </main>
     </div>
