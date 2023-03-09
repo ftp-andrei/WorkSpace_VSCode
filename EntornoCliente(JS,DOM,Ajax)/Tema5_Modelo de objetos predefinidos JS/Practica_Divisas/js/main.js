@@ -18,16 +18,9 @@ function cambiar() {
     importe = 0;
     resultado = 0;
   }
-  let texto =
-    fechaFormateada() +
-    " Importe " +
-    importe +
-    " " +
-    monedaUno +
-    " - " +
-    resultado.toFixed(2) +
-    " " +
-    monedaDos;
+  let texto = `${fechaFormateada()} Importe ${importe} ${monedaUno} - ${resultado.toFixed(
+    2
+  )} ${monedaDos}`;
   // Añadimos el texto al textarea
   const textAreaInsercion = document.getElementById("textArea");
   textAreaInsercion.insertAdjacentHTML("afterbegin", texto + "\n");
