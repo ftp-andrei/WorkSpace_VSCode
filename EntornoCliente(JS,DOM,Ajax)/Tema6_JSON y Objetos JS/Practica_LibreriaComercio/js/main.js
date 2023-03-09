@@ -1,5 +1,4 @@
 "use strict";
-const arrayLibros = [];
 
 class Libro {
   constructor(titulo, nombre, paginas, prestado) {
@@ -9,7 +8,7 @@ class Libro {
     this.prestado = prestado;
   }
 }
-
+// Creamos libro y lo guardamos en el array.
 function crearLibro() {
   let titulo = document.getElementById("titulo").value;
   let nombre = document.getElementById("nombre").value;
@@ -20,81 +19,72 @@ function crearLibro() {
   } else {
     prestado = "No";
   }
-  let nuevoLibro = null;
 
-  nuevoLibro = new Libro(titulo, nombre, paginas, prestado);
-
-  sessionStorage.setItem(sessionStorage.length, JSON.stringify(nuevoLibro));
+  let nuevoLibro = new Libro(titulo, nombre, paginas, prestado);
+  // Cogemos el array de libros y añadimos el nuevo libro
+  let arrLibros = JSON.parse(getData("libros")) ?? [];
+  arrLibros.push(nuevoLibro);
+  saveData("libros", JSON.stringify(arrLibros));
 }
-
-function recuperarDatosArray() {
-  let len = sessionStorage.length;
-  for (let i = 0; i < len; i++) {
-    arrayLibros[i] = sessionStorage.getItem(i);
-  }
-
-  return arrayLibros;
+// Guardamos el array en sessionStorage
+function saveData(key, value) {
+  sessionStorage.setItem(key, value);
 }
-
+// Nos devuelve el array de libros
+function getData(key) {
+  return sessionStorage.getItem(key);
+}
+// Mostramos libros
 function mostrarLibros() {
-  let arr = recuperarDatosArray();
+  let arr = JSON.parse(getData("libros"));
 
-  for (let i = 0; i < arr.length; i++) {
-    const contenedor = document.getElementById("wrapMain");
+  const contenedor = document.getElementById("wrapMain");
+
+  arr.forEach((element) => {
     const tabla = document.createElement("table");
+    let thead = document.createElement("thead");
+    let tbody = document.createElement("tbody");
     let tr = document.createElement("tr");
     let td = document.createElement("td");
     let th = document.createElement("th");
     let br = document.createElement("br");
-
-    tabla.appendChild(br);
-
-    let trTituloTabla = document.createTextNode(JSON.parse(arr[i]).titulo);
+    let trTituloTabla = document.createTextNode(element.titulo);
+    tabla.appendChild(thead);
+    thead.appendChild(th);
     th.appendChild(trTituloTabla);
-    tr.appendChild(th);
-    tabla.appendChild(tr);
 
-    tr = document.createElement("tr");
-    td = document.createElement("td");
     let tdNombreTabla = document.createTextNode(
-      "Nombre Autor: " + JSON.parse(arr[i]).nombre
+      "Nombre Autor: " + element.nombre
     );
 
     td.appendChild(tdNombreTabla);
     tr.appendChild(td);
-    tabla.appendChild(tr);
 
-    tr = document.createElement("tr");
     td = document.createElement("td");
-    let tdPaginasTabla = document.createTextNode(
-      "Paginas: " + JSON.parse(arr[i]).paginas
-    );
+    let tdPaginasTabla = document.createTextNode("Paginas: " + element.paginas);
 
     td.appendChild(tdPaginasTabla);
     tr.appendChild(td);
-    tabla.appendChild(tr);
 
-    tr = document.createElement("tr");
     td = document.createElement("td");
     let tdPrestadoTabla = document.createTextNode(
-      "Prestado: " + JSON.parse(arr[i]).prestado
+      "Prestado: " + element.prestado
     );
 
     td.appendChild(tdPrestadoTabla);
     tr.appendChild(td);
-    tabla.appendChild(tr);
-
+    tbody.appendChild(tr);
+    tabla.appendChild(tbody);
+    contenedor.appendChild(br);
     contenedor.appendChild(tabla);
-  }
+  });
 }
 
-function soloNumeros(num) {
-  var code = num ? num.which : num.keyCode;
-  if (code == 8) {
-    return true;
-  } else if (code >= 48 && code <= 57) {
-    return true;
-  } else {
-    return false;
+function soloNumeros(event) {
+  var code = event ? event.which : event.keyCode;
+  if (code == 8 || (code >= 48 && code <= 57)) {
+    return;
   }
+
+  event.preventDefault();
 }

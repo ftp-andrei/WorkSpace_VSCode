@@ -91,5 +91,6 @@ th {
 
 td {
   background-color: #ffff;
-  text-align: left;
+  display: flex;
+  justify-content: left;
 }
