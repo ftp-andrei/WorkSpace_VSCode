@@ -2,6 +2,7 @@ import express, { json, urlencoded } from "express";
 import authRoutes from "./routes/auth.js";
 import { connect, mongoose } from "mongoose";
 import dashboardRoutes from "./routes/dashboard.js";
+import carsRoutes from "./routes/cars.js";
 import booksRoutes from "./routes/books.js";
 import verifyToken from "./routes/validate-token.js";
 import cors from "cors";
@@ -32,10 +33,11 @@ app.use(cors(corsOptions));
 
 app.use(json());
 app.use(urlencoded({ extended: false }));
-
+// Usamos rutas
 app.use("/api/user", authRoutes);
 app.use("/api/dashboard", verifyToken, dashboardRoutes);
 app.use("/api/books", verifyToken, booksRoutes);
+app.use("/api/cars", carsRoutes);
 
 app.get("/", (req, res) => {
   res.json({ mensaje: "My Auth Api Rest" });

@@ -1,30 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// Añadimos la variable routingComponents creada en routing
-import { AppRoutingModule,routingComponents } from './app-routing.module';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//Para los formularios
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// Obtener token
-import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './componets/navbar/navbar.component';
+import { InicioComponent } from './componets/inicio/inicio.component';
+import { CarDetailsComponent } from './componets/car-details/car-details.component';
+import { SellCarComponentComponent } from './componets/sell-car-component/sell-car-component.component';
+import { CarComponent } from './componets/car/car.component';
+import { AboutComponentComponent } from './componets/about-component/about-component.component';
+import { ContactComponentComponent } from './componets/contact-component/contact-component.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { CochesVentaComponent } from './pages/coches-venta/coches-venta.component';
+import { VendeTuCocheComponent } from './pages/vende-tu-coche/vende-tu-coche.component';
 
 @NgModule({
-  //Aqui se importan los componentes que se van a usar en el modulo
-  //En esta caso, solo importamos la variable routing la cual contiene los modulos
   declarations: [
     AppComponent,
-    routingComponents
+    NavbarComponent,
+    InicioComponent,
+    CarDetailsComponent,
+    SellCarComponentComponent,
+    CarComponent,
+    AboutComponentComponent,
+    ContactComponentComponent,
+    AboutPageComponent,
+    ContactPageComponent,
+    CochesVentaComponent,
+    VendeTuCocheComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    //Se importan los formularios para poder usarlos en el modulo
-    FormsModule,
-    ReactiveFormsModule,
-    //Libreria pal token
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
