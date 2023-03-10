@@ -35,7 +35,7 @@ function insertarCuadrados(cantidad, fila, anchoBorde, background) {
     cuadrado.setAttribute("id", "cuadrado");
     fila.appendChild(cuadrado);
     cuadrado.style.border = `${anchoBorde}px solid`;
-    cuadrado.style.background = `#${background}`;
+    cuadrado.style.background = `${background}`;
   }
 }
 // Animacion al mostrar el cuadrado

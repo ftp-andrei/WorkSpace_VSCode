@@ -21,12 +21,3 @@ export function validarTamano(elemento) {
   }
   return true;
 }
-
-export function validarBackground(background) {
-  const regexpHexadecimal = /[0-9a-f]+/i;
-
-  if (!regexpHexadecimal.test(background)) {
-    return false;
-  }
-  return true;
-}

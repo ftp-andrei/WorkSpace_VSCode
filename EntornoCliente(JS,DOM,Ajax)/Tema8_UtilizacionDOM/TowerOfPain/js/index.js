@@ -1,10 +1,5 @@
 "use strict";
-import {
-  soloNumeros,
-  camposVacios,
-  validarTamano,
-  validarBackground,
-} from "./validator.js";
+import { soloNumeros, camposVacios, validarTamano } from "./validator.js";
 import { storeData } from "./arrays.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32,7 +27,7 @@ function salvarDatos() {
   let anchoBorde = document.getElementById("anchoBorde").value;
   let backgroundColor = document.getElementById("backgroundColor").value;
   //Comprobamos campos vacios o invalidos
-  if (comprobarCampos(tamano, anchoBorde, backgroundColor)) {
+  if (comprobarCampos(tamano, anchoBorde)) {
     storeData(tamano, anchoBorde, backgroundColor);
     window.location.href = "torre.html";
   } else {
@@ -40,14 +35,13 @@ function salvarDatos() {
   }
 }
 // Comprobamos que no haya errores en los campos
-function comprobarCampos(tamano, anchoBorde, backgroundColor) {
+function comprobarCampos(tamano, anchoBorde) {
   if (
     camposVacios(tamano) &&
     camposVacios(anchoBorde) &&
     camposVacios(backgroundColor) &&
     validarTamano(tamano) &&
-    validarTamano(anchoBorde) &&
-    validarBackground(backgroundColor)
+    validarTamano(anchoBorde)
   ) {
     return true;
   }
