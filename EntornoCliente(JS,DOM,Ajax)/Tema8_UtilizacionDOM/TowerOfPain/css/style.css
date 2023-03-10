@@ -6,32 +6,113 @@ img {
 body {
   background-color: #bff9b4;
 }
-
-#enLinea {
-  display: grid;
-  justify-content: center;
+/* Form */
+.campos {
+  display: flex;
+  flex-flow: column wrap;
   align-items: center;
+  justify-content: center;
 }
 
 input {
   text-align: center;
   margin-bottom: 10px;
-}
-
-.submit {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.submit a input {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-radius: 5px;
+  border-radius: 0.5em;
+  font-size: 1.5em;
 }
 
 label {
-  text-align: center;
   font-weight: bold;
+  font-size: 2em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+/* Boton form */
+.mover input {
+  font-size: 1em;
+  background-color: #fffdd0;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  margin-left: 7em;
+}
+
+.mover input:hover {
+  font-size: 1em;
+  background-color: #f8de7e;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+}
+
+/* Main Piramide */
+#piramide {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40em;
+}
+/* Piramide */
+#fila {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.filaPeque {
+  width: 100%;
+  height: 4.5em;
+  padding: 0.3em;
+}
+
+.filaStandard {
+  width: 100%;
+  height: 2.6em;
+  padding: 0.1em;
+}
+
+.filaGrande {
+  width: 100%;
+  height: 1.3em;
+  padding: 0.3em;
+}
+
+.cuadradoPeque {
+  transition: all 1s;
+  opacity: 0;
+  width: 6em;
+  height: 6em;
+  margin: 0.5em;
+}
+
+.cuadradoStandard {
+  transition: all 1s;
+  opacity: 0;
+  width: 3em;
+  height: 3em;
+  margin: 0.3em;
+}
+
+.cuadradoGrande {
+  transition: all 1s;
+  opacity: 0;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.1em;
+}
+
+.aparecenCuadrados {
+  animation: aparecer 0.5s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

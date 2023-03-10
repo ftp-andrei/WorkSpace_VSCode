@@ -1,7 +1,7 @@
 "use strict";
 
 export function getArrayData() {
-  let arrayData = localStorage.getItem("arrayData");
+  let arrayData = localStorage.getItem("datosPiramide");
   if (arrayData === null) {
     return (arrayData = []);
   }
@@ -15,5 +15,5 @@ export function storeData(tamano, anchoBorde, backgroundColor) {
     anchoBorde: anchoBorde,
     backgroundColor: backgroundColor,
   });
-  localStorage.setItem("arrayData", JSON.stringify(arrayData));
+  localStorage.setItem("datosPiramide", JSON.stringify(arrayData));
 }

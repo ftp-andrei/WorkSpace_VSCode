@@ -6,22 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tower of Pain</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/index.js"></script>
   </head>
   <body>
-    <a href="index.html"><img src="imgs/home.svg" alt="BotonHome" /></a>
-    <div id="enLinea">
-      <label for="tamano">Tamaño</label>
-      <input id="tamano" />
-      <label for="anchoBorde">AnchoBorde</label> <input id="anchoBorde" />
-      <label for="anchoBorde">Background color</label>
-      <input id="backgroundColor" placeholder="#0000" />
-    </div>
-    <div class="submit">
-      <a href="torre.html"
-        ><input type="submit" id="submitButon" value="Submit"
-      /></a>
-    </div>
+    <header>
+      <a href="index.html"><img src="imgs/home.svg" alt="BotonHome" /></a>
+    </header>
+
+    <main>
+      <form action="">
+        <div class="campos">
+          <label for="tamano">Tamaño</label>
+          <input id="tamano" type="text" maxlength="2" />
+          <label for="anchoBorde">AnchoBorde</label>
+          <input id="anchoBorde" type="text" maxlength="2" />
+          <label for="backgroundColor">Background color</label>
+          <input
+            id="backgroundColor"
+            type="text"
+            maxlength="6"
+            placeholder="000000" />
+          <span class="error" id="error"></span>
+          <div class="mover">
+            <input type="button" id="submitButton" value="Submit" />
+          </div>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
