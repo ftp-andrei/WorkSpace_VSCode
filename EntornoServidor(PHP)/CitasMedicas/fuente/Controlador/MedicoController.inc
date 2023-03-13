@@ -8,8 +8,7 @@ class MedicoController
 { 
   public function login(){
     if(isset($_POST['OkColegiado'])){
-      $medico = (new MedicoRepositorio()) -> existeMedico($_POST['OkColegiado']);
-      if($medico){
+      if($medico = (new MedicoRepositorio()) -> existeMedico($_POST['OkColegiado'])){
         $_SESSION['medico'] = true;
         header('Location: index.php?ctl=consultaPacientes');
       }else{
