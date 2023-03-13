@@ -1,26 +1,29 @@
 <?php 
+namespace app\CitasMedicas\repositorio;
+use ConexionBd;
 
 class MedicoRepositorio
 {
     // Comprueba si existe el medico
     public function existeMedico(string $numColegiado): bool{
-    $sql = 'SELECT NumColegiado FROM Medico WHERE NumColegiado = :numColegiado';
-    require_once __DIR__.'/../../core/conexionBd.inc';
-    try {
-        $con = (new ConexionBd()) -> getConexion();
-        $snt = $con -> prepare($sql);
-        $snt -> bindValue('NumColegiado', $numColegiado);
-        $snt -> execute();
-        //Fetch devuelve un array
-        $fila=$snt ->fetch(\PDO::FETCH_ASSOC);
-        // Devuelve true si existe
-        return !empty($fila);
-    } catch (\PDOException $th) {
-        throw $th;
-    }finally{
-        if(isset($snt)){
-            unset($snt);
-            unset($con);
+        $sql = 'SELECT NumColegiado FROM Medico WHERE NumColegiado = :numColegiado';
+        require_once __DIR__.'/../../core/conexionBd.inc';
+        try {
+            $con = (new ConexionBd()) -> getConexion();
+            $snt = $con -> prepare($sql);
+            $snt -> bindValue('NumColegiado', $numColegiado);
+            $snt -> execute();
+            //Fetch devuelve un array
+            $fila=$snt ->fetch(\PDO::FETCH_ASSOC);
+            // Devuelve true si existe
+            return !empty($fila);
+        } catch (\PDOException $th) {
+            throw $th;
+        }finally{
+            if(isset($snt)){
+                unset($snt);
+                unset($con);
+            }
         }
     }
 

@@ -1,6 +1,5 @@
 <?php ob_start() ?>
-<p>asaa</p>
-
+<p>adsas</p>
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'base.php' ?>

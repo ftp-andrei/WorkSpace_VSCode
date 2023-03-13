@@ -7,7 +7,7 @@ class DefaultController
   public function inicio()
   { 
     if(isset($_POST['consultaPacientes'])){
-      header('Location: index.php?ctl=consultarPaciente');
+      header('Location: index.php?ctl=login');
   }
     require __DIR__ . '/../../app/plantillas/inicio.php';
   }

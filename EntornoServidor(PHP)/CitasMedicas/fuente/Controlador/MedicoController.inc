@@ -1,10 +1,26 @@
 <?php
 namespace app\CitasMedicas\controlador;
 
+use app\CitasMedicas\repositorio\MedicoRepositorio;
+
 // Ejemplo de controlador para página home de la aplicación
 class MedicoController
 { 
-  public function inicio(){
-  require __DIR__ . '/../../app/plantillas/consultaPacientes.inc';
+  public function login(){
+    if(isset($_POST['OkColegiado'])){
+      $medico = (new MedicoRepositorio()) -> existeMedico($_POST['OkColegiado']);
+      if($medico){
+        $_SESSION['medico'] = true;
+        header('Location: index.php?ctl=consultaPacientes');
+      }else{
+        $error = 'No existe ese medico';
+        echo $error;
+      }
+    }
+  require __DIR__ . '/../../app/plantillas/login.inc';
+  }
+
+  public function consultaPacientes(){
+    require __DIR__ . '/../../app/plantillas/consultaPacientes.inc';
   }
 }
