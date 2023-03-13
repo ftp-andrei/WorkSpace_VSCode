@@ -10,6 +10,7 @@ class MedicoController
     if(isset($_POST['okColegiado'])){
       if($medico = (new MedicoRepositorio()) -> existeMedico($_POST['numColegiado'])){
         $_SESSION['medico'] = true;
+        $_SESSION['numColegiado'] = $_POST['numColegiado'];
         header('Location: index.php?ctl=consultaPacientes');
       }else{
         $error= "Error: No existe medico";
@@ -19,6 +20,7 @@ class MedicoController
   }
 
   public function consultaPacientes(){
+    $citas = (new MedicoRepositorio()) -> getCitasMedico($_SESSION['numColegiado']);
     require __DIR__ . '/../../app/plantillas/consultaPacientes.inc';
   }
 }

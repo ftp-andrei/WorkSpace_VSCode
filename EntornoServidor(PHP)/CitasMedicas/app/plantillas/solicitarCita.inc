@@ -1,22 +1,15 @@
-<?php
-/* Ejemplo de plantilla que se mostrará dentro de la plantilla principal
-  ob_start() activa el almacenamiento en buffer de la página. Mientras se
-             almacena en el buffer no se produce salida alguna hacia el
-             navegador del cliente
-  luego viene el código html y/o php que especifica lo que debe aparecer en
-     el cliente web
-  ob_get_clean() obtiene el contenido del buffer (que se pasa a la variable
-             $contenido) y elimina el contenido del buffer
-  Por último se incluye la página que muestra la imagen común de la aplicación
-    (en este caso base.php) la cual contiene una referencia a la variable
-    $contenido que provocará que se muestre la salida del buffer dentro dicha
-    página "base.php"
-*/
-?>
-<?php ob_start() ?>
+<?php ob_start(); ?>
 
 <form action="" method="post">
-  <label for="ss">NumSS: <input type="text" name="ss" id="ss" required></label>
+  <label for="ss">NumSS: <input type="text" name="ss" required></label>
+  <label for="especialidad">Especialidad:
+    <select name="especialidad">
+  <?php 
+foreach ($especialidad as $key => $value) {
+  echo "<option value=".$value['especialidad'].">".$value['especialidad']."</option>";
+}
+  ?>
+</select>
   <label for="observaciones">Observaciones: <textarea name="observaciones" id="observaciones" cols="30" rows="1"></textarea></label>
   <p>Selecciona el dia y hora de la cita</p>
   <!-- hacer un getAllcitas -->
