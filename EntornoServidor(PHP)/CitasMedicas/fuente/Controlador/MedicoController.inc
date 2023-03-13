@@ -8,12 +8,11 @@ class MedicoController
 { 
   public function login(){
     if(isset($_POST['okColegiado'])){
-      if($medico = (new MedicoRepositorio()) -> existeMedico($_POST['OkColegiado'])){
+      if($medico = (new MedicoRepositorio()) -> existeMedico($_POST['numColegiado'])){
         $_SESSION['medico'] = true;
         header('Location: index.php?ctl=consultaPacientes');
       }else{
-        $error = 'No existe ese medico';
-        echo $error;
+        $error= "Error: No existe medico";
       }
     }
   require __DIR__ . '/../../app/plantillas/login.inc';

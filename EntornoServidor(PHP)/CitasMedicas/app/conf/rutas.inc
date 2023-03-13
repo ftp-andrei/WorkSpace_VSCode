@@ -22,5 +22,8 @@ $mapeoRutas =
           //Si login medico, entra aqui
           'consultaPacientes' =>
           array('controller' =>'app\CitasMedicas\controlador\MedicoController', 'action' =>'consultaPacientes'),
+          // Solicitar cita del paciente
+          'solicitarcita' =>
+          array('controller' =>'app\CitasMedicas\controlador\PacienteController', 'action' =>'solicitarcita'),
        );
 // Al usar slp_autoload hay que poner ruta completa

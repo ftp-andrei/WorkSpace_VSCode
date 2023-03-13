@@ -1,5 +1,8 @@
 <?php ob_start() ?>
-<p>adsas</p>
+<table>
+    <caption>Pacientes del medico</caption>
+</table>
+
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'base.php' ?>
