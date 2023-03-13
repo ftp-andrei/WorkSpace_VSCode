@@ -1,8 +1,5 @@
 <?php ob_start() ?>
-<form action="" method="post">
-<p>Estoy en consulta pacientes</p>
-
-</form>
+<p>asaa</p>
 
 <?php $contenido = ob_get_clean() ?>
 

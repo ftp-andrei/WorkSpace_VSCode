@@ -1,0 +1,32 @@
+<h1>{{ title }}</h1>
+<form action="" [formGroup]="buscarCoche" (submit)="onSubmit()">
+  <label>
+    Busca por marca o modelo:
+    <input type="text" formControlName="buscador" />
+  </label>
+  <button type="submit" [disabled]="!buscarCoche.valid">Buscar</button>
+  <!-- <p>{{ buscarCoche.value | json }}</p> -->
+</form>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Fabricación</th>
+      <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of data">
+      <td>{{ car.marca }}</td>
+      <td>{{ car.modelo }}</td>
+      <td>{{ car.descripcion }}</td>
+      <td>{{ car.precio | currency : "EUR" }}</td>
+      <td>{{ car.fecha | date : "dd/MM/yyyy" }}</td>
+      <td><img [src]="car.imagen" /></td>
+    </tr>
+  </tbody>
+</table>

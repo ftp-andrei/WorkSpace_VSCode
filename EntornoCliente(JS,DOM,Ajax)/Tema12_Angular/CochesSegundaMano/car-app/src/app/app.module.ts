@@ -1,25 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './componets/navbar/navbar.component';
-import { InicioComponent } from './componets/inicio/inicio.component';
-import { CarDetailsComponent } from './componets/car-details/car-details.component';
-import { SellCarComponentComponent } from './componets/sell-car-component/sell-car-component.component';
-import { CarComponent } from './componets/car/car.component';
-import { AboutComponentComponent } from './componets/about-component/about-component.component';
-import { ContactComponentComponent } from './componets/contact-component/contact-component.component';
+// Componentes
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CarDetailsComponent } from './components/car-details/car-details.component';
+import { SellCarComponentComponent } from './components/sell-car-component/sell-car-component.component';
+import { CarComponent } from './components/car/car.component';
+import { AboutComponentComponent } from './components/about-component/about-component.component';
+import { InicioComponentComponent } from './components/inicio-component/inicio-component.component';
+import { ContactComponentComponent } from './components/contact-component/contact-component.component';
+//Paginas
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { CochesVentaComponent } from './pages/coches-venta/coches-venta.component';
 import { VendeTuCocheComponent } from './pages/vende-tu-coche/vende-tu-coche.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    InicioComponent,
     CarDetailsComponent,
     SellCarComponentComponent,
     CarComponent,
@@ -29,10 +33,15 @@ import { VendeTuCocheComponent } from './pages/vende-tu-coche/vende-tu-coche.com
     ContactPageComponent,
     CochesVentaComponent,
     VendeTuCocheComponent,
+    InicioComponent,
+    InicioComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,9 +12,11 @@
   La clave 'inicio' referencia la página home de la aplicación y especifica
     el controlador que debe decidir cuál es la vista que se debe mostrar
 */
+
 $mapeoRutas =
   array('inicio' =>
-          array('controller' =>'defaultController', 'action' =>'inicio'),
+          array('controller' =>'app\CitasMedicas\controlador\defaultController', 'action' =>'inicio'),
           'consultarPaciente' =>
-          array('controller' =>'MedicoController', 'action' =>'consultaPaciente'),
+          array('controller' =>'app\CitasMedicas\controlador\MedicoController', 'action' =>'inicio'),
        );
+// Al usar slp_autoload hay que poner ruta completa

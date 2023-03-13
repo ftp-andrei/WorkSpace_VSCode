@@ -1,0 +1,22 @@
+<h1>{{ title }}</h1>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <label for="nombre">Nombre</label>
+  <input type="text" id="nombre" formControlName="nombre" />
+  <label for="email">Email</label>
+  <input type="email" id="email" formControlName="email" />
+  <label for="asunto">Asunto:</label>
+  <input type="text" id="asunto" formControlName="asunto" />
+  <label for="mensaje">Mensaje</label>
+  <textarea
+    placeholder="Mi problema es..."
+    id="mensaje"
+    formControlName="mensaje"
+  ></textarea>
+  <button type="submit" [disabled]="!contactForm.valid">Enviar</button>
+</form>
+
+<div *ngIf="showAlert" role="alert">
+  <h4>Email enviado!</h4>
+  <p>Gracias, trataremos de responderle con la mayor brevedad posible.</p>
+</div>

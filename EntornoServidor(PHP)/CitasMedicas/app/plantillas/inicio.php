@@ -14,7 +14,7 @@
 */
 ?>
 <?php ob_start() ?>
-<form action="" method="post">
+<form method="post">
   <p>Que quieres hacer?</p>
   <input type="submit" value="Solicitar una cita" name="solicitarCita">
   <input type="submit" value="Consultar mis pacientes" name="consultaPacientes">

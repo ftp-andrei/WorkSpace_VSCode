@@ -1,4 +1,6 @@
 <?php
+namespace app\CitasMedicas\controlador;
+// TODO: Revisar namespaces
 // Ejemplo de controlador para página home de la aplicación
 class DefaultController
 { 
