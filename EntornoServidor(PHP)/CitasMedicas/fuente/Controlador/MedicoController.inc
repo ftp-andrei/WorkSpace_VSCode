@@ -7,7 +7,7 @@ use app\CitasMedicas\repositorio\MedicoRepositorio;
 class MedicoController
 { 
   public function login(){
-    if(isset($_POST['OkColegiado'])){
+    if(isset($_POST['okColegiado'])){
       if($medico = (new MedicoRepositorio()) -> existeMedico($_POST['OkColegiado'])){
         $_SESSION['medico'] = true;
         header('Location: index.php?ctl=consultaPacientes');
