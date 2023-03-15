@@ -1,1 +1,11 @@
-<p>car-details works!</p>
+<h1>{{ title }}</h1>
+
+<!-- <tr>
+  <td>{{ data.marca }}</td>
+  <td>{{ data.modelo }}</td>
+  <td>{{ data.descripcion }}</td>
+  <td>{{ data.precio | currency : "EUR" }}</td>
+  <td>{{ data.fecha | date : "dd/MM/yyyy" }}</td>
+  <td><img [src]="data.imagen" /></td>
+</tr> -->
+{{ data | json }}

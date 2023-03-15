@@ -1,0 +1,67 @@
+/* Estilos tablas para mostrar info */
+table,
+td,
+th {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  font-size: 1.5em;
+}
+/* El inicio de citas medicas */
+#inicio {
+  margin: 0 auto;
+  text-align: center;
+}
+/* Para el login del medico */
+#login {
+  margin: 0 auto;
+  text-align: center;
+}
+/* Para el h1 */
+h1 {
+  color: #638cb5;
+  font-weight: normal;
+  font-size: 3em;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: uppercase;
+}
+/* Estilos nav */
+nav {
+  margin: 0 auto;
+  text-align: center;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.8em;
+  display: inline-block;
+  width: 10%;
+  padding: 5px 10px;
+  background-color: #3b83bd;
+  border: 1px solid #3b83bd;
+  text-align: center;
+  color: #fff;
+  border-radius: 1em;
+}
+nav a:hover {
+  background-color: #0096d2;
+  color: #161b20;
+  font-weight: bold;
+}
+/* Estilos para los botones */
+.boton {
+  font-size: 0.6em;
+  font-family: Verdana, Helvetica;
+  font-weight: bold;
+  color: #fff;
+  background: #638cb5;
+  border: 0px;
+  width: auto;
+  height: 2em;
+}

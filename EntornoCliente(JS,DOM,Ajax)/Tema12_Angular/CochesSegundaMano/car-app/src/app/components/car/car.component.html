@@ -17,6 +17,7 @@
       <th>Precio</th>
       <th>Fabricación</th>
       <th>Imagen</th>
+      <th>Detalles</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,7 @@
       <td>{{ car.precio | currency : "EUR" }}</td>
       <td>{{ car.fecha | date : "dd/MM/yyyy" }}</td>
       <td><img [src]="car.imagen" /></td>
+      <td><button class="coche" (click)="verCoche(car._id)">Ver</button></td>
     </tr>
   </tbody>
 </table>

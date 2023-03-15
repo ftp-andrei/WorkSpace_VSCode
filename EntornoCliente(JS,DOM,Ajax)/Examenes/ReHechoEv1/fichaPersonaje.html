@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/fichaPersonaje.css" />
+    <script type="module" src="js/fichaPersonaje.js"></script>
+
+    <title>Ficha Personaje</title>
+  </head>
+  <body>
+    <main>
+      <form method="post">
+        <fieldset>
+          <legend>Datos Personaje:</legend>
+          <label for="nombre"
+            >Nombre: <input type="text" name="nombre" id="nombre"
+          /></label>
+          <!-- Saldra error si esta vacio -->
+          <span class="error" id="errorNombre" aria-live="polite"></span>
+          <label for="raza"
+            >Raza:
+            <select name="raza" id="raza">
+              <option value="orco">Orco</option>
+              <option value="elfo">Elfo</option>
+              <option value="humano">Humano</option>
+              <option value="enano">Enano</option>
+            </select>
+          </label>
+          <div class="row">
+            <input type="radio" id="G" name="caracter" value="G" disabled />
+            <label for="G">Good</label>
+            <input type="radio" id="N" name="caracter" value="N" checked />
+            <label for="N">Neutral</label>
+            <input type="radio" id="E" name="caracter" value="E" />
+            <label for="E">Evil</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <label>Total de puntos: <span id="puntos"></span></label>
+          <!-- Saldrá error si quedan puntos -->
+          <span class="error" id="errorPuntos" aria-live="polite"></span>
+          <div class="row">
+            <label>Fuerza:</label>
+            <input type="button" value="+" id="+fuerza" />
+            <input type="number" name="fuerza" id="fuerza" disabled />
+            <input type="button" value="-" id="-fuerza" />
+          </div>
+
+          <div class="row">
+            <label>Vida:</label>
+            <input type="button" value="+" id="+vida" />
+            <input type="number" name="vida" id="vida" disabled />
+            <input type="button" value="-" id="-vida" />
+          </div>
+
+          <div class="row">
+            <label>Suerte:</label>
+            <input type="button" value="+" id="+suerte" />
+            <input type="number" name="suerte" id="suerte" disabled />
+            <input type="button" value="-" id="-suerte" />
+          </div>
+        </fieldset>
+        <a href="inicioJuego.html"
+          ><input type="button" value="Registrar" id="siguiente"
+        /></a>
+      </form>
+    </main>
+  </body>
+</html>

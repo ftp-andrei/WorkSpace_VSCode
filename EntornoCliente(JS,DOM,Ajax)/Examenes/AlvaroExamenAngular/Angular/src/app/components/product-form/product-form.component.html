@@ -1,0 +1,17 @@
+<form class="w-50 mx-auto mt-5" [formGroup]="productForm" (submit)="onSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="description" formControlName="description" required>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="price" formControlName="price" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Enviar</button>
+</form>
+
+<!-- <p>{{productForm.value | json}}</p> -->

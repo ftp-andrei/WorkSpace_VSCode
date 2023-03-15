@@ -14,10 +14,10 @@
 */
 ?>
 <?php ob_start() ?>
-<form method="post">
+<form method="post" id="inicio">
   <p>Que quieres hacer?</p>
-  <input type="submit" value="Solicitar una cita" name="solicitarCita">
-  <input type="submit" value="Consultar mis pacientes" name="consultaPacientes">
+  <input type="submit" value="Solicitar una cita" name="solicitarCita" class="boton">
+  <input type="submit" value="Consultar mis pacientes" name="consultaPacientes" class="boton">
 </form>
 
 <?php $contenido = ob_get_clean() ?>

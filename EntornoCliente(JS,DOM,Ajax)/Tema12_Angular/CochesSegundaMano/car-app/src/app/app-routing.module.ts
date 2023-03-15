@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // Importamos las paginas del navbar y ponemos las rutas
 import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { CarDetailsPageComponent } from './pages/car-details-page/car-details-page.component';
 import { CochesVentaComponent } from './pages/coches-venta/coches-venta.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
     path: 'contact-us',
     title: 'Contact Us',
     component: ContactPageComponent
+  },
+  {
+    path: 'car-details',
+    title: 'Detalles',
+    component: CarDetailsPageComponent
   },
   // {
   //   path: '**',

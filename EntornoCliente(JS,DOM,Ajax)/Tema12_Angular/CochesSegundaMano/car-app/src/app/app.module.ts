@@ -19,6 +19,7 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { CochesVentaComponent } from './pages/coches-venta/coches-venta.component';
 import { VendeTuCocheComponent } from './pages/vende-tu-coche/vende-tu-coche.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { CarDetailsPageComponent } from './pages/car-details-page/car-details-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     CochesVentaComponent,
     VendeTuCocheComponent,
     InicioComponent,
-    InicioComponentComponent
+    InicioComponentComponent,
+    CarDetailsPageComponent
   ],
   imports: [
     BrowserModule,

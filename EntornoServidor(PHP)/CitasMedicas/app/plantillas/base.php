@@ -14,6 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href='web/css/resposnive.css' />
+  <link rel="stylesheet" type="text/css" href='web/css/estilos.css' />
 </head>
 
 <body>
@@ -27,7 +28,7 @@
            valor 'inicio' para que la vista cambie a la página home de la
            aplicación
        -->
-    <a href="index.php?ctl=inicio">Inicio</a> |
+    <a href="index.php?ctl=inicio">Inicio</a>
     <!-- En general, la mayoría de los enlaces serán a la página index.php
            y una asignación a la variable 'ctl'. El valor de la variable deberá
            ser analizada en la página index.php de cara a encontrar la ruta del

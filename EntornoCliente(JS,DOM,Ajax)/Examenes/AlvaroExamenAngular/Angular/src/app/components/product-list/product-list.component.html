@@ -1,0 +1,13 @@
+<div class="container mt-3">
+    <div class="row g-3">
+        <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let product of data" >
+            <div class="card" style="width: 18rem;" >
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">Descripción: {{product.description}}</p>
+                    <p class="card-text">Precio: {{product.price| currency:'EUR'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

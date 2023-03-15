@@ -20,9 +20,9 @@ export class CarService {
     return this.http.get<CarResponse>(`${environment.API_URL}cars/${id}`);
   }
   // Obtener un auto por su modelo de la base de datos
-  getCarByModelo(modelo: string): Observable<CarResponse> {
-    return this.http.get<CarResponse>(`${environment.API_URL}cars/${modelo}`);
-  }
+  // getCarByModelo(modelo: string): Observable<CarResponse> {
+  //   return this.http.get<CarResponse>(`${environment.API_URL}cars/${modelo}`);
+  // }
   // Crear un nuevo auto en la base de datos
   postCar(body: any): Car {
     let bodyData = new CarCreate();
