@@ -64,4 +64,5 @@ nav a:hover {
   border: 0px;
   width: auto;
   height: 2em;
+  border-radius: 0.6em;
 }
