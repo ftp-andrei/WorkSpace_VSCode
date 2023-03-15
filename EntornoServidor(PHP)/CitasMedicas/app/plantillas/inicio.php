@@ -15,7 +15,7 @@
 ?>
 <?php ob_start() ?>
 <form method="post" id="inicio">
-  <p>Que quieres hacer?</p>
+  <p>¿Qué quieres hacer?</p>
   <input type="submit" value="Solicitar una cita" name="solicitarCita" class="boton">
   <input type="submit" value="Consultar mis pacientes" name="consultaPacientes" class="boton">
 </form>
