@@ -18,7 +18,7 @@ class PacienteController
         'hcita' => $_POST['hora']
       ];
         // lo mandamos a citas, y devuelve un array
-      $citas = (new MedicoRepositorio()) -> saveCita($array);
+        $citas = (new MedicoRepositorio()) -> saveCita($array);
       // var_dump($citas);
     }
   require __DIR__ . '/../../app/plantillas/solicitarCita.inc';

@@ -97,7 +97,7 @@ class MedicoRepositorio
             $fila=$snt ->fetch(\PDO::FETCH_ASSOC);
             // Esto devolverá el id del paciente
             // poner ifelse en caso de errores con la sql
-            // if ($fila) {
+            // Gestion de errores, trycatch o ifelse y que devolver
                 $idPa = $fila['idPaciente'];
                 $snt = $con -> prepare($sql3);
                 $snt -> bindValue(':es', $cita['especialidad']);
@@ -122,9 +122,6 @@ class MedicoRepositorio
                     // Devuelve el array
                     return $sql4;
                 }
-            // }else{
-            //     $error= "Error: No existe medico";
-            // }
             
         } catch (\PDOException $th) {
             throw $th;

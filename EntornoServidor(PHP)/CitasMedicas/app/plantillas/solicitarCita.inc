@@ -2,7 +2,7 @@
 
 <form action="" method="post">
   <label for="ss">NumSS: <input type="text" name="ss" minlength="10" maxlength="10" required></label>
-  <!--  isset($citas)?"<span style='color:red'>".$error."</span>":"" ?> -->
+ <?= isset($citas)?"<span style='color:red'>".$error."</span>":"" ?>
   <label for="especialidad">Especialidad:
     <select name="especialidad">
   <?php 
