@@ -2,6 +2,7 @@
 
 <form action="" method="post">
   <label for="ss">NumSS: <input type="text" name="ss" minlength="10" maxlength="10" required></label>
+  <!--  isset($citas)?"<span style='color:red'>".$error."</span>":"" ?> -->
   <label for="especialidad">Especialidad:
     <select name="especialidad">
   <?php 
@@ -21,7 +22,7 @@ foreach ($especialidad as $key => $value) {
 </form>
 
 <?php 
-if(!empty($citas)){ ?>
+if(isset($citas)){ ?>
 <table>
   <caption>Citas del paciente con NumSS: <?=$citas[0]['numss'] ?></caption>
   <thead>

@@ -97,30 +97,34 @@ class MedicoRepositorio
             $fila=$snt ->fetch(\PDO::FETCH_ASSOC);
             // Esto devolverá el id del paciente
             // poner ifelse en caso de errores con la sql
-            $idPa = $fila['idPaciente'];
-            $snt = $con -> prepare($sql3);
-            $snt -> bindValue(':es', $cita['especialidad']);
-            $snt -> execute();
-            $fila=$snt ->fetch(\PDO::FETCH_ASSOC);
-            // Esto devolverá el id del medico
-            $idMed = $fila['idMedico'];
-            $snt = $con -> prepare($sql1);
-            $snt -> bindValue(':fcita', $cita['fcita']);
-            $snt -> bindValue(':hcita', $cita['hcita']);
-            $snt -> bindValue(':idpa', $idPa);
-            $snt -> bindValue(':idmed', $idMed);
-            $snt -> bindValue(':obs', $cita['observaciones']);
-            // Devuelve el array
-            if($snt -> execute()){
-
-            $snt = $con -> prepare($sql4);
-            $snt -> bindValue(':es', $cita['especialidad']);
-            $snt -> bindValue(':idpa', $idPa);
-            $snt -> execute();
-            $sql4=$snt ->fetchAll(\PDO::FETCH_ASSOC);
+            // if ($fila) {
+                $idPa = $fila['idPaciente'];
+                $snt = $con -> prepare($sql3);
+                $snt -> bindValue(':es', $cita['especialidad']);
+                $snt -> execute();
+                $fila=$snt ->fetch(\PDO::FETCH_ASSOC);
+                // Esto devolverá el id del medico
+                $idMed = $fila['idMedico'];
+                $snt = $con -> prepare($sql1);
+                $snt -> bindValue(':fcita', $cita['fcita']);
+                $snt -> bindValue(':hcita', $cita['hcita']);
+                $snt -> bindValue(':idpa', $idPa);
+                $snt -> bindValue(':idmed', $idMed);
+                $snt -> bindValue(':obs', $cita['observaciones']);
                 // Devuelve el array
-                return $sql4;
-            }
+                if($snt -> execute()){
+    
+                $snt = $con -> prepare($sql4);
+                $snt -> bindValue(':es', $cita['especialidad']);
+                $snt -> bindValue(':idpa', $idPa);
+                $snt -> execute();
+                $sql4=$snt ->fetchAll(\PDO::FETCH_ASSOC);
+                    // Devuelve el array
+                    return $sql4;
+                }
+            // }else{
+            //     $error= "Error: No existe medico";
+            // }
             
         } catch (\PDOException $th) {
             throw $th;
