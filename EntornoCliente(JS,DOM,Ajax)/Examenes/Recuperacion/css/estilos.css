@@ -1,0 +1,33 @@
+/* Centramos elementos del main */
+main {
+  margin: 0 auto;
+  text-align: center;
+}
+/* Ponemos en fila de block el form */
+form {
+  display: inline-block;
+}
+/* Los campos los ponemos como columna */
+fieldset {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: antiquewhite;
+}
+.row {
+  display: block;
+}
+/* Errores */
+.error {
+  width: 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
